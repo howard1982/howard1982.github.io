@@ -1,0 +1,843 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[php http]]></title>
+    <url>%2F2018-09%2Fphp-http%2F</url>
+    <content type="text"><![CDATA[参考 PHP-Psr7-使用方法 使用 php-http 组件 说明在 PHP 有眾多的 Http Client 套件，每個使用方法都不一致 像是我們最常使用的 GuzzleHttp 它從5版及升到6版 結果連API都不一致，這確實造成了很大的困擾 所以 PHP-FIG 就提出了 PSR-7 來定義 HTTP message interfaces，並由 httplug.io 實作它 之後我們這可以利用 PSR-7 的標準來使用 cURL, Socket, Buzz, Guzzle5, Guzzle6, React，相關Adapter install12345# 安裝 psr-7composer require guzzlehttp/psr7 php-http/message# 安裝所需的 adapter （示範 GuzzleHttp 6）composer require php-http/guzzle6-adapter GET12345678910use Http\Adapter\Guzzle6\Client;use Http\Message\MessageFactory\GuzzleMessageFactory;require __DIR__.'/vendor/autoload.php';$client = new Client();$messageFactory = new GuzzleMessageFactory();$request = $messageFactory-&gt;createRequest('GET', 'https://name.080.net/domain/faq');$response = $client-&gt;sendRequest($request);echo $response-&gt;getBody()-&gt;getContents(); POST JSON替换 $request 变量 12345$request = $messageFactory-&gt;createRequest('POST', 'https://name.080.net/domain/one_off/ss/json', ['Content-Type: application/json','Accept: application/json'], json_encode(['a1'=&gt;'22','sfe'=&gt;'fff'])); 不使用Curl替换 $client 变量 1234$handler = new GuzzleHttp\Handler\StreamHandler;$client = new GuzzleHttp\Client(['handler' =&gt; $handler]);$client = new Client($client); Code1234567891011121314151617181920require "vendor/autoload.php";use Http\Adapter\Guzzle6\Client;use Http\Message\MessageFactory\GuzzleMessageFactory;$handler = new GuzzleHttp\Handler\StreamHandler;$client = new GuzzleHttp\Client(['handler' =&gt; $handler]);$client = new Client($client);$messageFactory = new GuzzleMessageFactory();$request = $messageFactory-&gt;createRequest('POST', 'https://name.080.net/domain/one_off/ss/json', ['Content-Type: application/json','Accept: application/json'], json_encode(['a1'=&gt;'22','sfe'=&gt;'fff']));$response = $client-&gt;sendRequest($request);$ss = $response-&gt;getBody()-&gt;getContents();]]></content>
+      <tags>
+        <tag>php</tag>
+        <tag>http</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[http header]]></title>
+    <url>%2F2018-09%2Fhttp-header%2F</url>
+    <content type="text"><![CDATA[請求1234POST /path HTTP/1.1Host: example.comfoo=bar&amp;baz=bat 相應1234HTTP/1.1 200 OKContent-Type: text/plain这是返回的消息内容 其他參考PHP curl]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[socket]]></title>
+    <url>%2F2018-09%2Fsocket%2F</url>
+    <content type="text"><![CDATA[TCP/IP是个协议组，可分为四个层次：网络接口层、网络层、传输层和应用层。 网络接口层 – 网络层 – IP协议、ICMP协议、ARP协议、RARP协议和BOOTP协议 传输层 – TCP协议与UDP协议 应用层 – HTTP,FTP、TELNET、SMTP、DNS等协议 socketsocket只是一种连接模式，不是协议，socket是对TCP/IP协议的封装，Socket本身并不是协议，而是一个调用接口（API），]]></content>
+      <tags>
+        <tag>tcp</tag>
+        <tag>socket</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[php://input]]></title>
+    <url>%2F2018-08%2Fphp-input%2F</url>
+    <content type="text"><![CDATA[php://input 用來接收數據。 form 表單一般情況下html form 表單提交的類型是 application/x-www-form-urlencoded 或者 multipart/form-data。用 $_POST就能直接獲取。 JSON如果對方發送的數據是 application/json 12$data = file_get_contents('php://input');$data = json_decode($data, true); php 發送JSON數據參見 PHP curl]]></content>
+      <tags>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[google cloud 管理]]></title>
+    <url>%2F2018-08%2Fgcp%2F</url>
+    <content type="text"><![CDATA[ssh 登錄必須手動執行 不能用config配置， 奇怪~ 1ssh howard@104.199.168.248]]></content>
+      <tags>
+        <tag>google</tag>
+        <tag>gcp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[跳轉到 https]]></title>
+    <url>%2F2018-08%2Fgoto-https%2F</url>
+    <content type="text"><![CDATA[修改 .htaccess 文件 跳轉到 www 域名12RewriteCond %&#123;HTTP_HOST&#125; !^www\. [NC]RewriteRule ^(.*)$ http://www.%&#123;HTTP_HOST&#125;/$1 [R=301,L] HTTPS 跳轉12RewriteCond %&#123;HTTPS&#125; offRewriteRule ^(.*)$ https://%&#123;SERVER_NAME&#125;%&#123;REQUEST_URI&#125; [L,R=301]]]></content>
+      <tags>
+        <tag>apache</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[正則表達式]]></title>
+    <url>%2F2018-07%2Fregexp%2F</url>
+    <content type="text"><![CDATA[密碼必須含有數字，小寫字母、大寫字母 1/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]&#123;6,&#125;$/]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Python 常用模塊]]></title>
+    <url>%2F2018-07%2Fpython-module%2F</url>
+    <content type="text"><![CDATA[簡介模块模块，在Python可理解为对应于一个文件。例如有个 a1.py 文档 (如果不在包中)可以截止 import a1 来加载这个文档，并调用里面的函数 包是一个包含__init__.py文件的目录，该目录下一定得有这个__init__.py文件和其它模块或子包。 调用 import subpackage1.a # 将模块subpackage.a导入全局命名空间，例如访问a中属性时用 subpackage1.a.attr from subpackage1 import a # 将模块a导入全局命名空间，例如访问a中属性时用a.attr_a from subpackage.a import attr_a # 将模块a的属性直接导入到命名空间中，例如访问a中属性时直接用attr_a 常用模塊cryptography加密 Openssl 相關模塊， 用于 csr crt 等ssl相关 hashlibmd5 \ sha1 \ sha256 等加密]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[php 操作 ssl]]></title>
+    <url>%2F2018-07%2Fphp-openssl%2F</url>
+    <content type="text"><![CDATA[生成csr 以及 private key12345678910111213141516171819202122$dn = array( "countryName" =&gt; "TW", "stateOrProvinceName" =&gt; "Taipei", "organizationName" =&gt; "瑋德國際股份有限公司", // 公司名稱 "organizationalUnitName" =&gt; "資訊部", // 部門 "commonName" =&gt; "nealsyardremedies.com.tw", // domain "emailAddress" =&gt; "itsupport@10over10.com.tw",);// Generate a new private (and public) key pair$privkey = openssl_pkey_new(array( "private_key_bits" =&gt; 2048, "private_key_type" =&gt; OPENSSL_KEYTYPE_RSA,));// Generate a certificate signing request$csr = openssl_csr_new($dn, $privkey, array('digest_alg' =&gt; 'sha512'));// openssl_csr_export($csr, $csrout) and var_dump($csrout);// openssl_pkey_export($privkey, $pkeyout) and var_dump($pkeyout);openssl_csr_export_to_file($csr, 'nealsyardremedies_com_tw.csr'); // 保存到文檔openssl_pkey_export_to_file($privkey, 'nealsyardremedies_com_tw.key'); 讀取 csr1234567891011121314151617181920header("Content-Type: text/html; charset=UTF-8");$str = '-----BEGIN CERTIFICATE REQUEST-----MIIC7jCCAdYCAQAwgagxCzAJBgNVBAYTAlRXMQ8wDQYDVQQIDAZUYWlwZWkxJzAlBgNVBAoMHueRi+W+t+Wci+mam+iCoeS7veaciemZkOWFrOWPuDESMBAGA1UECwwJ6LOH6KiK6YOoMSEwHwYDVQQDDBhuZWFsc3lhcmRyZW1lZGllcy5jb20udHcxKDAmBgkqhkiG9w0BCQEWGWl0c3VwcG9ydEAxMG92ZXIxMC5jb20udHcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDFYutxHda/r8O/fGwBjVTs3Kl97HROeFs9dhMXLvmaHrwU/DuHY9f+Wj94K0kZhFe21QtVC0DL9jgNrYTJ8Is7mVbVKmiN8sYHUwGeEqqHAXdJ/m/0f7aGlWjxd6myZzOIXmsf3SYwKwGKwowIMxSAP1jryOoFresptk0BDMDavsJLhcdvUd3oximaMOvyOvWZN5uj2kYh7YYpTVAQZn3dJDb0B5kIl2dGGvpTKWgAw3oH8Ak9zMZT9y0/sAmjsxkPil6jgbRz6d40V9xgCixofpwYGnEF5hROO1VhLZIcVDC0NaeyM8Tfgv/ODvU/xlHKfz3CbKG1KxXRXFeIAxbDAgMBAAGgADANBgkqhkiG9w0BAQ0FAAOCAQEAMZOSVoZWQhvZ/g+cnSHmrxzK9JCUeKoD0wlFuiwwKRmHaYFuZcStTj/52M65zXhtx6OXFjsoMJSf4OyGTYjfexH7Zqv2zfBuKQBuPSL7GfLy9zcNLabuSYlbfQ1PNvycXb4ZhJJ2TI62XGXnfg5zeW4tHN0Mvt+/UxWkNmVuCTGTdbd3bgjnnggJQZI6Z7AKsaeeqF5zgtkws+lwZoG3BbcXPWxoxI+Ms3JhxXzgMx0Z1INiQM7rhvA5tB3HG+VsBcTya08QA4HASjHOTesInZvgUM2QbQqxAKldiJexho4OnmOUhCPWiUoDTq2y7FvfjFwMzst06EkYsYj2Zw/oQQ==-----END CERTIFICATE REQUEST-----';var_dump(openssl_csr_get_subject($str));]]></content>
+      <tags>
+        <tag>php</tag>
+        <tag>openssl</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Monolog]]></title>
+    <url>%2F2018-06%2Fmonolog%2F</url>
+    <content type="text"><![CDATA[Monolog 注册为系统Error错误管理 123456789101112131415use Monolog\Logger;use Monolog\Handler\StreamHandler;use Monolog\ErrorHandler;use Monolog\Formatter\LineFormatter;$handler = new StreamHandler(VARPATH.'/log/'.date("Ym").'.log', Logger::WARNING);$lineFormatter = new LineFormatter();$lineFormatter-&gt; includeStacktraces(); // 记录错误并追溯 debug_backtrace$handler-&gt;setFormatter($lineFormatter);$logger = new Logger('system');$logger-&gt;pushHandler($handler);ErrorHandler::register($logger); // 注册为系统Error管理]]></content>
+      <tags>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[安装Python3]]></title>
+    <url>%2F2018-06%2Finstall-python%2F</url>
+    <content type="text"><![CDATA[WEB用PHP 其他用Python 特殊情况用Go 安装 Python3 尽量用 yum 或 apt 利用现有资料安装python3 其次在用编译的方式安装 Centos 安装 python3 yum install epel-release yum serach python3 yum install python3 UbuntuUbunut 16 以后默认自带Python3 可以直接使用 /usr/bin/python3]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PHP PDO 操作]]></title>
+    <url>%2F2018-05%2Fphp-pdo%2F</url>
+    <content type="text"><![CDATA[連接1$dbh = new PDO('mysql:dbname=db;host=localhost', 'root', 'password'); or 123456789$dsn = 'mysql:dbname=db;host=localhost';$user = 'root';$password = 'password';try &#123; $dbh = new PDO($dsn, $user, $password);&#125; catch (PDOException $e) &#123; echo 'Connection failed: ' . $e-&gt;getMessage();&#125; 设定只显示 key1$dbh-&gt;setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC); query 和 prepare 区别1234$sth = $dbh-&gt;query($sql);# 等同于$sth = $dbh-&gt;prepare($sql);$sth-&gt;execute(); 获取结果1234567while($row = $sth-&gt;fetch()) &#123; print_r($row);&#125;# orforeach($sth-&gt;fetchAll() as $row) &#123; print_r($row);&#125; PDOStatement::execute12$sth = $dbh-&gt;prepare("update icrm_contact set email2 = ? where id = ?");$sth-&gt;execute(array($email, $id)); 1234$sth = $dbh-&gt;prepare("update icrm_contact set email2 = ? where id = ?");$sth-&gt;bindValue(1, 'howard@080.net');$sth-&gt;bindValue(2, '1');$sth-&gt;execute(); 1234$sth = $dbh-&gt;prepare("update icrm_contact set email2 = :email where id = :id");$sth-&gt;bindValue(':email', 'howard@080.net');$sth-&gt;bindValue(':id', '1');$sth-&gt;execute(); PDOStatement::bindValue把一个值绑定到一个参数， 例如 把 `howard@080.net綁定到:email` PDOStatement::bindParam绑定一个参数到指定的变量名，例如 把 $email 這個變量 綁定到 :email。當保存多個的時候 直接修改 $email 對應的值。然後執行$sth-&gt;execute() 就可以了。]]></content>
+      <tags>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Openssl]]></title>
+    <url>%2F2018-05%2Fopenssl%2F</url>
+    <content type="text"><![CDATA[解析CRT文檔1openssl x509 -in my.cert -noout -text 解析CSR文檔1openssl req -in mycsr.csr -noout -text 檢查CSR、 Private Key、 CRT 是否匹配通過命令查看 sha256 數值是否一致 123openssl pkey -in example.key -pubout -outform pem | sha256sumopenssl x509 -in example.crt -pubkey -noout -outform pem | sha256sumopenssl req -in example.csr -pubkey -noout -outform pem | sha256sum 生成 IIS pfx 文檔1/usr/bin/openssl pkcs12 -export -out "iis.pfx" -in "cert.pem" -inkey "private.pem" -certfile "chain.pem" -password pass:123456 解析 IIS pfx 文檔會詢問輸入密碼 1openssl pkcs12 -in cd.pfx -out 111.pem -nodes]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Cmder]]></title>
+    <url>%2F2018-05%2Fcmder%2F</url>
+    <content type="text"><![CDATA[使用PowerShell 安裝相關模塊 12Install-Module -Name 'posh-git'Install-Module -Name 'Get-ChildItemColor' 修改 D:\Program Files\cmder\config\user-profile.ps1 123456789101112131415Import-Module Get-ChildItemColorSet-Alias l Get-ChildItemColor -Option AllScopeSet-Alias ls Get-ChildItemColorFormatWide -Option AllScopeSet-Alias ll Get-ChildItemColor -Option AllScopeSet-Alias dns Resolve-DnsNameSet-Alias md5sum &quot;C:\Program Files\Git\usr\bin\md5sum.exe&quot;Set-Alias gzip &quot;C:\Program Files\Git\usr\bin\gzip.exe&quot;Set-Alias bzip2 &quot;C:\Program Files\Git\usr\bin\bzip2.exe&quot;Set-Alias sha1sum &quot;C:\Program Files\Git\usr\bin\sha1sum.exe&quot;Set-Alias sha256sum &quot;C:\Program Files\Git\usr\bin\sha256sum.exe&quot;Set-Alias sha512sum &quot;C:\Program Files\Git\usr\bin\sha512sum.exe&quot;Set-Alias vim &quot;C:\Program Files\Git\usr\bin\vim.exe&quot;Set-Alias vscode &quot;C:\Program Files\Microsoft VS Code\Code.exe&quot;]]></content>
+      <tags>
+        <tag>cmder</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Javascript 模块&知识点]]></title>
+    <url>%2F2018-04%2Fjavascript%2F</url>
+    <content type="text"><![CDATA[Lodash是一个一致性、模块化、高性能的 JavaScript 实用工具库。 PromisePromise是专门为解决 js中回调而引起的各种问题，而产生的。]]></content>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[centos-webpanel]]></title>
+    <url>%2F2018-02%2Fcentos-webpanel%2F</url>
+    <content type="text"><![CDATA[auto ssl 自动更新问题取消掉多余的 apache 对应的https加载文档]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA['vim']]></title>
+    <url>%2F2018-01%2Fvim%2F</url>
+    <content type="text"><![CDATA[显示行数1set nu 跳转到第4行1:4 搜索12/super ?super n 上一个的匹配 N 下一个的匹配]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>vim</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[php session 生命週期]]></title>
+    <url>%2F2017-12%2Fphp-session%2F</url>
+    <content type="text"><![CDATA[需要注意的是2個數值 session.gc_maxlifetime 指定过了多少秒之后数据就会被视为“垃圾”并被清除。 session.cookie_lifetime 以秒数指定了发送到浏览器的 cookie 的生命周期。值为 0 表示“直到关闭浏览器”。]]></content>
+      <tags>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[php 錯誤處理]]></title>
+    <url>%2F2017-12%2Fphp-error%2F</url>
+    <content type="text"><![CDATA[打印錯誤直接在頁面輸出錯誤報告 12display_errors = Onerror_reporting = E_ALL &amp; ~E_DEPRECATED display_errors 是否打開顯示錯誤報告 error_reporting 輸出錯誤等級 保存錯誤123log_errors = Onlog_errors_max_len = 1024error_log = error_log log_errors 是否存儲 log_errors_max_len 每個錯誤報告長度， 0 表示錯誤報告所有內容 error_log 錯誤報告的位置， error_log 表示執行文檔的目錄下。 也可以是絕對路徑。例如 /var/log/php_error_log]]></content>
+      <tags>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[sar 查看系統流量]]></title>
+    <url>%2F2017-12%2Fsar%2F</url>
+    <content type="text"><![CDATA[sar –n DEV 1 2 显示网络接口信息 命令后面1 2 意思是：每一秒钟取1次值，取2次。 IFACE：LAN接口 rxpck/s:每秒钟收到数据包的数量. txpck/s:每秒钟发送数据包的数量. rxkB/s:每秒钟接收的字节(KB). txkB/s:每秒钟发送的字节(KB). rxcmp/s:每秒收到的压缩包的数量 txcmp/s:每秒发出的压缩包的数量 rxmcst/s:每秒收到的广播包的数量]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[查看 linux 版本]]></title>
+    <url>%2F2017-11%2Flinux-issue%2F</url>
+    <content type="text"><![CDATA[123cat /etc/issueorcat /etc/redhat-release uname -a 只能查看內核版本]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ufw 防火墙管理工具]]></title>
+    <url>%2F2017-10%2Fufw%2F</url>
+    <content type="text"><![CDATA[ufw是一个主机端的iptables类防火墙配置工具 一般使用 启用 ufw enable 关闭 ufw disable 查看防火墙状态 fw status 开启/禁用相应端口或服务举例123ufw allow 80 #允许外部访问80端口ufw delete allow 80 #禁止外部访问80 端口ufw allow from 192.168.1.1 #允许此IP访问所有的本机端口]]></content>
+      <tags>
+        <tag>ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Flask]]></title>
+    <url>%2F2017-10%2Fflask-run%2F</url>
+    <content type="text"><![CDATA[FlaskPython Web 框架 安装1pip install flask 创建文档创建 h1.py 1234567from flask import Flaskapp = Flask(__name__)@app.route("/")def hello(): return "Hello World!" Gunicorn作为一个HTTP Server 安装1pip install gunicorn 运行1gunicorn -w 4 -b 127.0.0.1:8080 h1:app h1 是文檔名稱 app 是Flask實例 開機啟動安裝 supervisor 1apt-get install supervisor 創建/etc/supervisor/conf.d/h1.conf文檔（ubuntu） 1234567[program:h1]command=gunicorn -w 4 -b 0.0.0.0:8080 h1:appdirectory=/root/binuser=rootautostart=trueautorestart=trueredirect_stderr=true 注意 ip 0.0.0.0 對應所有ip。 简单的启动修改 /etc/rc.local 文档 nohup gunicorn -w 4 -b 0.0.0.0:8080 /root/bin/h1:app &amp;]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>flask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[dompdf]]></title>
+    <url>%2F2017-09%2F18-dompdf%2F</url>
+    <content type="text"><![CDATA[安裝1composer require dompdf/dompdf 添加字體 下載 load_font.php https://github.com/dompdf/utils 複製到 ~\vendor\dompdf\dompdf 目錄 複製 php-font-lib 到 ~\vendor\dompdf\dompdf\lib (在 ~\vendor\phenx 目錄下) 執行以下程序1php load_font.php "Firefly Sung" ./fireflysung.ttf]]></content>
+      <tags>
+        <tag>php</tag>
+        <tag>dompdf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python]]></title>
+    <url>%2F2017-09%2Fpython%2F</url>
+    <content type="text"><![CDATA[Import VS Import..from import subpackage1.a # 将模块subpackage.a导入全局命名空间，例如访问a中属性时用 subpackage1.a.attr from subpackage1 import a # 将模块a导入全局命名空间，例如访问a中属性时用a.attr_a from subpackage.a import attr_a # 将模块a的属性直接导入到命名空间中，例如访问a中属性时直接用attr_a 資料庫數據修改不手動該執行 commit 真個程序執行完才會更新到資料庫 12345678conn = mysql.connector.connect(host='localhost',user='dn', password='xxx', database='dn',charset='utf8')cursor = conn.cursor()update_sql = "update one_off_domain set has_ssl = %s where id = %s"cursor.execute(update_sql, (-1, id))conn.commit()conn.close() 其他文档测试或者执行 12if __name__ == '__main__': print __name__]]></content>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Postfix 配置]]></title>
+    <url>%2F2017-09%2Fpostfix%2F</url>
+    <content type="text"><![CDATA[基本配置vim /etc/postfix/main.cf 12345678910111213myhostname: smtp1.m2.com.tw # 设置系统的主机名mydomain: m2.com.tw # 设置域名（我们将让此处设置将成为E-mail地址“@”后面的部分）myorigin: $mydomain # 将发信地址“@”后面的部分设置为域名（非系统主机名）inet_interfaces: all # 接受来自所有网络的请求# 指定发给本地邮件的域名mydestination: $myhostname, localhost.$mydomain, localhost, $mydomainmynetworks: 192.168.1.0/24, 127.0.0.0/8 #設定網路, 例如 1home_mailbox:Maildir/ # 改成 Maildir風格 但是這種沒辦法用mail命令讀取 更新 aliases重新指向 例如jojo 的邮箱转寄到 rootroot 转移到 howard@080.net 12vi /etc/aliasesnewaliases loglog位置是：/var/log/maillog 123# 查看一些注意內容egrep '(reject|warning|error|fatal|panic):' /var/log/maillogtail -f /var/log/maillog |grep -e "Pass|LOGIN" 常用命令查看邮件队列 mailq postqueue -p 123如果队列序号加了*号表示为活动队列如果队列序号加了!号表示为延期队列如果队列序号没有*与!号表示为等待队列 查看內容 postcat -q DBA3F1A9 其他 postsuper -d DBA3F1A9删除队列里的邮件 postsuper -d ALL删除队列里所有的邮件 postsuper -r ALL重新排队所有邮件 重啟1systemctl restart postfix.service telnet 測試123456789101112telnet m2.com.tw 25ehlo m2.com.twmail from: root@m2.com.twrcpt to: root@m2.com.twdataSubject: My first mail on PostfixHi,Are you there?regards,Admin. (Type the .[dot] in a new Line and press Enter )quit 阅读mail 或 mutt 命令可以读取 /var/mail/root中的邮件内容。 推荐 mutt]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>mail server</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[golang 嵌入式资料库]]></title>
+    <url>%2F2017-07%2Fgolang-database%2F</url>
+    <content type="text"><![CDATA[可以参考： https://golanglibs.com/top?q=embedded+database https://golanglibs.com/category/databases?sort=top bolthttps://github.com/boltdb/bolt]]></content>
+      <tags>
+        <tag>golang</tag>
+        <tag>database</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Postgres pgsql]]></title>
+    <url>%2F2017-07%2Fpostgres%2F</url>
+    <content type="text"><![CDATA[基本设定passwd postgres 执行 psql12345678ALTER USER postgres WITH PASSWORD '16******pg';create user "whois_user" with password '16******wh' nocreatedb;create database "whois_db" with owner = "whois_user";CREATE TABLE employees (id int, first_name varchar, last_name varchar);INSERT INTO employees VALUES (1, 'John', 'Doe'); SELECT * FROM employees; psql 下一些命令 \l 查询所有数据库 \c 切換数据库 \d 查詢表 \q 其他操作更改所有者ALTER TABLE employees OWNER TO whois_user 資料庫大小select pg_size_pretty(pg_database_size(&#39;whois_db&#39;)); 表大小select pg_size_pretty(pg_relation_size(&#39;employees&#39;)); 配置远端连接1234567891011vi /etc/postgresql/9.5/main/postgresql.conf---#listen_addresses = &apos;localhost&apos;listen_addresses = &apos;*&apos;vi /etc/postgresql/9.5/main/pg_hba.conf---# TYPE DATABASE USER ADDRESS METHODhost whois_db whois_user 0.0.0.0/0 md5orhost all all 210.200.133.135/32 md5]]></content>
+      <tags>
+        <tag>database</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Redis]]></title>
+    <url>%2F2017-07%2Fredis%2F</url>
+    <content type="text"><![CDATA[開發apt install build-essential redis 可以存儲為 hashhttp://www.redis.cn/topics/data-types-intro.html#hashes 自動計數set counter 100 incr counter 存入磁盤http://www.cnblogs.com/meitian/p/5209877.html 多實例（資料庫）http://www.cnblogs.com/super-d2/p/3855229.html 更多配置http://www.cnblogs.com/cxd4321/archive/2012/12/14/2817669.html 比較 MongoDBhttp://blog.csdn.net/dodolzg/article/details/43865241]]></content>
+      <tags>
+        <tag>server</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Symfony]]></title>
+    <url>%2F2017-07%2FSymfony%2F</url>
+    <content type="text"><![CDATA[常用的包参照 http://knpbundles.com/ 信件http://symfony.com/doc/2.8/logging/monolog_email.htmlhttps://github.com/symfony/monolog-bundle/blob/master/DependencyInjection/Configuration.php#L25https://github.com/Seldaek/monolog/blob/master/doc/01-usage.md#log-levels]]></content>
+      <tags>
+        <tag>php</tag>
+        <tag>symfony</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[瀏覽器字符集 Charset]]></title>
+    <url>%2F2017-07%2FBrowser-Charset%2F</url>
+    <content type="text"><![CDATA[查看瀏覽器當前字符集的方法 Js僅僅用來查看 1document.characterSet Firefox按下Alt鍵。 查看 》 文字编码 Chrome无]]></content>
+      <tags>
+        <tag>other</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Jquery prop vs attr]]></title>
+    <url>%2F2017-07%2Fjquery-prop-attr%2F</url>
+    <content type="text"><![CDATA[如果是用於判斷 盡量使用 $( elem ).prop( &quot;checked&quot; )。 適用於 checked, selected, or disabled elem.checkedtrue (Boolean) Will change with checkbox state $( elem ).prop( “checked” )true (Boolean) Will change with checkbox state elem.getAttribute( “checked” )&quot;checked&quot; (String) Initial state of the checkbox; does not change $( elem ).attr( “checked” ) (1.6.1+)&quot;checked&quot; (String) Will change with checkbox state $( elem ).attr( “checked” ) (pre-1.6)true (Boolean) Changed with checkbox state]]></content>
+      <tags>
+        <tag>jquery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Curl命令]]></title>
+    <url>%2F2017-07%2Fcurl%2F</url>
+    <content type="text"><![CDATA[下載文檔12345# 下載并保存為 api.pdfcurl -o api.pdf https://r.webnic.cc/NewAPIDocument_eng.pdf# 下載并保存為 NewAPIDocument_eng.pdfcurl -O https://r.webnic.cc/NewAPIDocument_eng.pdf GET &amp; POST12345# GETcurl -u username https://api.github.com/user?access_token=XXXXXXXXXX# POSTcurl -u username --data "param1=value1&amp;param2=value" https://api.github.com]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Doctrine 2]]></title>
+    <url>%2F2017-06%2Fdoctrine2%2F</url>
+    <content type="text"><![CDATA[关联非主键，不能设定关联，查询只能用嵌套Sql。例如 1a.no in (select n.no from AppBundle:AccountNo n where n.id = 2) 搜索setFirstResult偏移 相當於 offset 1select * form user offset 5 limit 2 setMaxResults相當於 limit getFirstResult不是返回結果， 和 setFirstResult (偏移) 對應 结果http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/dql-doctrine-query-language.html#query-result-formats getResult所有結果 getOneOrNullResult如果不是唯一則 拋出錯誤，需要和 setMaxResults(1) 搭配使用如果結果不存在 返回Null getSingleResult如果不是唯一則 拋出錯誤，需要和 setMaxResults(1) 搭配使用如果結果不存在 拋出錯誤 getArrayResult所有結果，返回數組key 為Entity中定義的變量名稱 getScalarResultkey 為資料庫中定義的變量名稱]]></content>
+      <tags>
+        <tag>symfony</tag>
+        <tag>doctrine</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[osk 屏幕鍵盤]]></title>
+    <url>%2F2017-05%2Fosk%2F</url>
+    <content type="text"><![CDATA[調出windows键+R 然後輸入 osk， 就會調出屏幕鍵盤。 目的有一些筆記本或者找不到特殊按鍵，譬如 scroll lock。 可以用這個方法來解決。]]></content>
+      <tags>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[shadowsocks]]></title>
+    <url>%2F2017-05%2Fshadowsocks%2F</url>
+    <content type="text"><![CDATA[shadowsocks-rss是 shadowsocks 加強版， 增加了混淆協議。下載地址： https://github.com/breakwa11/shadowsocks-rss 绕过大陆常见域名PAC或绕过大陆IP的PAC 此PAC会对IP地址判断是否为国内。]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[sqlserver-drives]]></title>
+    <url>%2F2017-05%2Fsqlserver-drives%2F</url>
+    <content type="text"><![CDATA[phpphp7.0 以后下載的windows不在提供 sqlserver的驅動下載。而是到SqlServer官網下載 https://docs.microsoft.com/en-us/sql/connect/sql-server-drivers 最新的下載鏈接 https://github.com/Microsoft/msphpsql/releases 安裝odbcPdo_SqlSrv 還需要 安裝 odbc driverMicrosoft® ODBC Driver 13.1 for SQL Server other其他語言可以到這裡下載 https://docs.microsoft.com/en-us/sql/connect/sql-server-drivers]]></content>
+      <tags>
+        <tag>php</tag>
+        <tag>sqlserver</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[dig 命令]]></title>
+    <url>%2F2017-05%2Fdig%2F</url>
+    <content type="text"><![CDATA[基本查詢123dig 080.net mxdig 080.net txtdig 080.net any # 查詢所有的080.net的記錄。（不含subdomain） 反向解析123dig -x 119.81.172.50nslookup -qt=ptr 119.81.172.50]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[iotop命令]]></title>
+    <url>%2F2017-05%2Fiotop%2F</url>
+    <content type="text"><![CDATA[实际应用123iotop -o -P -d 2 # 只顯示有做I/O動作的進程 每隔2秒刷新一下iotop -o -P -b -k -n 3 -d 2 # 打印3次，時間間隔2秒。iotop -p 2655 #顯示該進程的io情況 参数说明 -o, –only #显示进程或者线程实际上正在做的I/O，而不是全部的，可以随时切换按o -b, –batch #运行在非交互式的模式 -n NUM, –iter=NUM #在非交互式模式下，设置显示的次数， -d SEC, –delay=SEC #设置显示的间隔秒数，支持非整数值 -k, –kilobytes #以千字节显示 -p PID, –pid=PID #只显示指定PID的信息 -P, –processes Only show processes. Normally iotop shows all threads. 操作1234方向鍵：切換排序r：反向排序，o：切换至选项--only，p：切换至--processes选项，]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>iotop</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Go 編譯其他系統下運行]]></title>
+    <url>%2F2017-03%2Fgit-build%2F</url>
+    <content type="text"><![CDATA[命令在windows命令行下一次執行： 12345# 忽略 c文檔SET CGO_ENABLED=0#設定為linuxSET GOOS=linuxSET GOARCH=amd64 然後就可以執行 go build 來生成linux運行的程序。 說明 交叉编译不支持 CGO 所以要禁用它 GOOS：目标平台的操作系统（darwin、freebsd、linux、windows） GOARCH：目标平台的体系架构（386、amd64、arm）]]></content>
+      <tags>
+        <tag>golang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Spring Boot Jdbc练习]]></title>
+    <url>%2F2017-03%2Fspring-boot-jdbc%2F</url>
+    <content type="text"><![CDATA[零散的记录， 不是很系统的内容。 spring boot用注解代替了XML配置。上手比较简单。 类似一个执行容器。用注解的方式指定Bean，将Bean映射到具体变量。扫描所有类的注解后，开始分配。并执行指定函数。 开始http://start.spring.io/ 可以下载一个空的含有配置文档以及pom.xml文档。 ~\src\main\resources\application.properties文档是spring的配置文档。 注解 @SpringBootApplication 从这里开始 1234567891011@SpringBootApplicationpublic class GncApplication implements CommandLineRunner &#123; public static void main(String args[]) &#123; SpringApplication.run(GncApplication.class, args); &#125; @Override public void run(String... strings) throws Exception &#123; &#125;&#125; @Autowired 自动映射。 123456789@Autowired@Qualifier("jdbcMysqlTemplate")private JdbcTemplate jdbcMysqlTemplate;/** * 如果名稱變量名稱 沒有對應的 @Bean。 可以用 @Qualifier("jdbcMysqlTemplate") 指定*/@Autowiredprivate JdbcTemplate jdbcSqlServerTemplate; @Configuration 配置注解 @Bean Bean名称，返回一个Bean @ConfigurationProperties 指定读取文档application.properties中的特殊内容 123456789101112131415161718192021222324252627282930@Configurationpublic class ApplicationConfig&#123; @Bean public JdbcTemplate jdbcMysqlTemplate(@Qualifier(value = "mysqlDataSource") DataSource mysqlDataSource) &#123; return new JdbcTemplate(mysqlDataSource); &#125; @Bean(name = "jdbcSqlServerTemplate") public JdbcTemplate jdbcSqlServerTemplate(@Qualifier(value = "sqlServerDataSource") DataSource sqlServerDataSource) &#123; return new JdbcTemplate(sqlServerDataSource); &#125; /** * 使用 @Bean 時，如果沒有名稱，則默認為function的名稱 @Bean(name = "jdbcSqlServerTemplate") * @return */ @Bean @Primary @ConfigurationProperties(prefix="spring.datasource.mysql") public DataSource mysqlDataSource() &#123; return DataSourceBuilder.create().build(); &#125; @Bean @ConfigurationProperties(prefix="spring.datasource.mssql") public DataSource sqlServerDataSource() &#123; return DataSourceBuilder.create().build(); &#125;&#125; mvnmvn 打包并运行。打包会把所有需要的jar包一起打包。pring-boot-app-0.1.jar 按照实际情况替换。 12mvn packagejava -jar target\spring-boot-app-0.1.jar]]></content>
+      <tags>
+        <tag>spring</tag>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[R1soft 備份失敗]]></title>
+    <url>%2F2017-02%2Fr1soft%2F</url>
+    <content type="text"><![CDATA[錯誤訊息提示要執行r1soft-setup --get-module.但是報錯：kernel的版本信息和kernel-devel 版本對不上。 所以一次執行： yum install kernel-devel-$(uname -r) r1soft-setup –get-module –no-binary /etc/init.d/cdp-agent restart 參考：http://www.mickgenie.com/r1soft-replication-driver-missing/]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Cpanel ClamAV 殺毒軟件]]></title>
+    <url>%2F2017-02%2FCpanel-ClamAV%2F</url>
+    <content type="text"><![CDATA[通過Capnel安裝的ClamAV程序在/usr/local/cpanel/3rdparty/bin下面。 /usr/local/cpanel/3rdparty/bin/clamscan /usr/local/cpanel/3rdparty/bin/freshclam clamscan 命令檢查（殺毒）文檔 12345678# 檢查一個目錄/usr/local/cpanel/3rdparty/bin/clamscan -ri /home/iconbuil/public_html# 檢查多個目錄/usr/local/cpanel/3rdparty/bin/clamscan -ri /home/*/public_html# 檢查并刪除/usr/local/cpanel/3rdparty/bin/clamscan -ri --remove /home/*/public_html freshclam 命令升級病毒庫]]></content>
+      <tags>
+        <tag>cpanel</tag>
+        <tag>ClamAV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[doctrine 1.2]]></title>
+    <url>%2F2017-02%2Fdoctrine1-2%2F</url>
+    <content type="text"><![CDATA[Doctrine 1.2 的一些操作 Delete 批量刪除1234Doctrine_Query::create() -&gt;delete('User') -&gt;where('address_id = ?', 11) -&gt;execute(); Insert 批量增加12345678910$i = 0;$p = new Doctrine_Collection('User');foreach ($ids as $id) &#123; $p[$i]-&gt;product_id = $id; $p[$i]-&gt;download_id = $this-&gt;id; $i++;&#125;$p-&gt;save(); 參考http://doctrine.readthedocs.io/en/latest/en/index.html]]></content>
+      <tags>
+        <tag>php</tag>
+        <tag>orm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Exim Allow MX TO IP]]></title>
+    <url>%2F2017-02%2Fexim%2F</url>
+    <content type="text"><![CDATA[如果Mail To的郵箱域名設定不規範（域名mx記錄對應的是一個IP）。默認exim發送mail無法送達mail。 “WHM Home » Service Configuration » Exim Configuration Manager » Advanced Editor”Scroll down to “Add Additional Configuration Setting” and “allow_mx_ip_ip” is selectable as a new entry. Set to ‘yes’ 參照 https://forums.cpanel.net/threads/allow_mx_to_ip-true-where-do-i-add.399061/]]></content>
+      <tags>
+        <tag>exim</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[php configuration 文檔]]></title>
+    <url>%2F2017-02%2Fphp-configuration-file%2F</url>
+    <content type="text"><![CDATA[有些情況下需要讀取不同的php config file。譬如： compoer 不需要xdebug， 但是web端卻需要。 針對這種情況可以在php的目錄下把 php.ini 複製一份新的 php-cli.ini 文檔。這樣在 cli（命令行）下面就會自動調用該文件。 詳細參照 http://php.net/manual/zh/configuration.file.phpSAPI名稱參照 http://php.net/manual/zh/function.php-sapi-name.php]]></content>
+      <tags>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[頁面分享]]></title>
+    <url>%2F2017-01%2Fshare%2F</url>
+    <content type="text"><![CDATA[LinkedInhttps://developer.linkedin.com/docs/share-on-linkedinCustomized URL 可以很快的實現share]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Cpanel 操作]]></title>
+    <url>%2F2017-01%2Fcpanel%2F</url>
+    <content type="text"><![CDATA[限制每小時發送mail數量在 Server Configuration » Tweak Settings 中 mail 設定 Max hourly emails per domain 限制Mail夾檔大小在 Exim Configuration Manager » Advanced Editor 中 Add additional configuration setting 添加 message_size_limit = 50M 限制密碼強度在 Security Center » Password Strength Configuration 設定 程序發送密碼限定在 ConfigServer Security &amp; Firewall 中可以限制php程序發送mail的數量，如果超過設定值則將目錄權限修改為0 LF_SCRIPT_ALERT = On 開啟通知 LF_SCRIPT_LIMIT = 100 上限設定 LF_SCRIPT_PERM = On 如果超過上限則修改執行文件權限 Cpanel 每小時Mail 數量 MAX_EMAIL_PER_HOUR-$domain=300 in /var/cpanel/users/$account Run the /usr/local/cpanel/scripts/updateuserdomains script. 更新使用空間1/scripts/fixquotas park domain 失敗 WHM &gt; Tweak Settings &gt; Domains &gt; Allow Remote Domains 設定為 On]]></content>
+      <tags>
+        <tag>cpanel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[google map api]]></title>
+    <url>%2F2017-01%2Fgoogle-map-api%2F</url>
+    <content type="text"><![CDATA[目前需要對Map Api 設定 key。 需要到 https://console.developers.google.com/apis 凭据 中添加并设定key 相关程序1234567&lt;?php$keys = '';if($_SERVER['SERVER_NAME']=='aaa.com.tw'||$_SERVER['SERVER_NAME']=='www.aaa.com.tw') &#123; $keys = '&amp;key=AIzaSyCYWg75ZNxn9b8iO6UTY-Ldax';&#125;?&gt;&lt;script type="text/javascript" src="http://maps.google.com.tw/maps/api/js?sensor=false&lt;?=$keys?&gt;"&gt;&lt;/script&gt; 语系和地区设定language 和 region 设定 1234567&lt;!DOCTYPE html&gt;&lt;html dir="rtl"&gt; &lt;body&gt; &lt;script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&amp;language=en&amp;region=TW"&gt; &lt;/script&gt; &lt;/body&gt;&lt;/html&gt;]]></content>
+      <tags>
+        <tag>google</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[go python php sql查询基础比较]]></title>
+    <url>%2F2017-01%2Fsql-select-go-php-python%2F</url>
+    <content type="text"><![CDATA[php自帶的Pdo查詢可以很簡單的返回以字段名稱為key值得數組 12345678function getFruit($conn) &#123; $sql = 'SELECT name, color, calories FROM fruit ORDER BY name'; foreach ($conn-&gt;query($sql) as $row) &#123; print $row['name'] . "\t"; print $row['color'] . "\t"; print $row['calories'] . "\n"; &#125;&#125; go自帶的查詢只能通過rows.Scan()方法逐個對應变量。所以推荐使用ORM (gorm)。 1234567891011121314rows, err := db.Query("SELECT id, area, area_detail FROM zip limit 2")defer rows.Close()for rows.Next() &#123; var id int var area string var area_detail string if err := rows.Scan(&amp;id, &amp;area, &amp;area_detail); err != nil &#123; panic(err) &#125; fmt.Printf("%d \t %s \t %s\n", id, area, area_detail)&#125; python自带功能只能获取tuple列表（只有数字为key）。所以推荐使用ORM (sqlalchemy)。 1234cursor.execute('select * from t1')value = cursor.fetchall()for n in value: print(n, "\n") 总结如果是简单的使用， php用自带的就能满足。 go和python如果不用orm就很麻烦。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[go学习笔记 -- ORM(gorm)]]></title>
+    <url>%2F2017-01%2Fgolang-orm%2F</url>
+    <content type="text"><![CDATA[加載包1234import ( "github.com/jinzhu/gorm" _ "github.com/jinzhu/gorm/dialects/mysql") github.com/jinzhu/gorm/dialects/mysql 是為了方便記憶的，實際自動引用第三方的插件github.com/go-sql-driver/mysql 定義表對應的數據123456789type Zip struct &#123; ID uint `gorm:"primary_key"` Area string AreaDetail string&#125;func (Zip) TableName() string &#123; return "zip"&#125; 重新定義表的名字為 zip， 否則默認為 zips 。 如果定義類型中加入 gorm.Model 自動回引入 CreatedAt等 連接數據庫12db, err := gorm.Open("mysql", "root:123@/test?charset=utf8")defer db.Close() 查詢12345678910111213// 是否顯示log記錄// db.LogMode(true)zip := Zip&#123;&#125;db.Order("id desc").Last(&amp;zip)log.Print(zip.ID, "\n")var zips = []Zip&#123;&#125;db.Where("language = ?", "tw").Order("id desc").Limit(10).Find(&amp;zips)for _, z := range zips &#123; log.Printf("%d, %s\n", z.ID, z.AreaDetail)&#125;]]></content>
+      <tags>
+        <tag>golang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[go学习笔记 -- mysql基本操作]]></title>
+    <url>%2F2017-01%2Fgolang-mysql%2F</url>
+    <content type="text"><![CDATA[加载包1234import ( "database/sql" _ "github.com/go-sql-driver/mysql") _ &quot;github.com/go-sql-driver/mysql&quot;表示只加载 “github.com/go-sql-driver/mysql” 包的 init。然后统一有 标准的 database/sql调用 连接Mysql123456db, err := sql.Open("mysql", "root:xxx@/test")if err != nil &#123; panic(err)&#125;defer db.Close() 连接本地的test资料库 如果连接识别抛出异常 defer db.Close() 当程序结束时，执行关闭mysql连接。 查询12rows, err := db.Query("SELECT id, area FROM zip limit 3")defer rows.Close() 处理查询结果12345678910for rows.Next() &#123; var id int var area string if err := rows.Scan(&amp;id, &amp;area); err != nil &#123; panic(err) &#125; fmt.Printf("%d \t %s\n", id, area)&#125; 必须通过 rows.Scan() 读取到对应变量]]></content>
+      <tags>
+        <tag>golang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[go学习笔记 -- 标准库 log]]></title>
+    <url>%2F2017-01%2Fgolang-log%2F</url>
+    <content type="text"><![CDATA[简单的例子：123456789package mainimport ( "log")func main()&#123; log.Fatal("Come with fatal,exit with 1 \n")&#125; 常用函数 log.Print[f|ln] 等同与 fmt.Print[f|ln] log.Fatal[f|ln] 等同与 fmt.Print[f|ln] 后 执行 os.Exit(1) log.Panic[f|ln] 等同与 fmt.Print[f|ln] 的内容由 panic 抛出异常]]></content>
+      <tags>
+        <tag>golang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Google recaptcha 認證]]></title>
+    <url>%2F2017-01%2Fgoogle-recaptcha%2F</url>
+    <content type="text"><![CDATA[home url : https://www.google.com/recaptcha/intro/index.html 靜態頁面12&lt;script src='https://www.google.com/recaptcha/api.js'&gt;&lt;/script&gt;&lt;div class="g-recaptcha" data-sitekey="6LdLzxAUAAAAAJZaKQay2F59UX_Sd-Y-nLmJvEcX"&gt;&lt;/div&gt; PHP程序12345678910111213141516171819202122232425262728293031323334function checkReCaptcha()&#123; if(empty($_POST['g-recaptcha-response'])) &#123; return false; &#125; $url = 'https://www.google.com/recaptcha/api/siteverify'; $data = array( 'secret' =&gt; '6Lc-zxAUAAAAAONavoAygsBZVK2lBX4kszax8PRq', 'response' =&gt; $_POST['g-recaptcha-response'], 'remoteip' =&gt; $_SERVER['REMOTE_ADDR'], ); $ch = curl_init(); curl_setopt($ch, CURLOPT_URL, $url); curl_setopt($ch, CURLOPT_HEADER, 0); // 启用时会将头文件的信息作为数据流输出。 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); // 在启用CURLOPT_RETURNTRANSFER的时候，返回原生的（Raw）输出。 curl_setopt($ch, CURLOPT_TIMEOUT, 30); curl_setopt($ch, CURLOPT_POST, 1); curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data)); // http_build_query 可以避免一些不兼容問題 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE); curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE); $str = curl_exec($ch); curl_close($ch); $arr = json_decode($str, true); if($arr['success']=='true') &#123; return true; &#125; else &#123; return false; &#125;&#125;]]></content>
+      <tags>
+        <tag>php</tag>
+        <tag>google</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[bitbucket.org ssh 无验证码登录]]></title>
+    <url>%2F2017-01%2Fbitbucket-org-ssh-login%2F</url>
+    <content type="text"><![CDATA[单用户一般的git ssh登录 生成 rsa key。 把public key 上传到网站上 https://bitbucket.org/account/user/&lt;username&gt;/ssh-keys/ 1ssh-keygen -t rsa -C &quot;username&quot; 特殊设定git remote url 必须是 `git@bitbucket.org:/.git` 12git remote set-url origin git@bitbucket.org:&lt;accountname&gt;/&lt;reponame&gt;.gitgit remote -v 多用户如果你有多个帐号， 就需要用到 IdentitiesOnly yes选项。 例如在 .ssh/config 中增加第二个用户 12345Host bitbucket.org-user2 HostName bitbucket.org User git IdentityFile ~/.ssh/user2_rsa IdentitiesOnly yes 注意，同样的remote url也要设定为 `git@bitbucket.org-user2:user2/blog.git`]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[cpanel ftpquota 問題]]></title>
+    <url>%2F2017-01%2Fcpanel-ftpquota%2F</url>
+    <content type="text"><![CDATA[今天遇到奇怪的现象， FTP客户端 总是提示 quota exceeded，无法上次文档。 但是查看cpanel的磁盘空间并没有满。 网上查到的解决办法，删除 ftpquota 文档：123cd /home/user/etcmv ftpquota ftpquota_oldtouch ftpquota]]></content>
+      <tags>
+        <tag>cpanel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PHP常用函数]]></title>
+    <url>%2F2017-01%2Fphp%2F</url>
+    <content type="text"><![CDATA[pathinfo返回文件路径的信息 12echo pathinfo('php.ini', PATHINFO_EXTENSION);// 输出 ini array_chunk将一个数组分割成多个 12$input_array = array('a', 'b', 'c', 'd', 'e');print_r(array_chunk($input_array, 2));]]></content>
+      <tags>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[利用fontlink解決consoles中文字體]]></title>
+    <url>%2F2016-12%2Fwindows-fontlink%2F</url>
+    <content type="text"><![CDATA[有些編輯器不能定義多個字體。默認的又是宋體（簡體）。 所以只能FontLink給Consolas設定中文。 註冊表位置1HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink 新增 Consolas新增 多字符串值 名稱為 Consolas 對應的內容為123456789TAHOMA.TTF,TahomaMSYH.TTC,Microsoft YaHei UI,128,96MSYH.TTC,Microsoft YaHei UIMSJH.TTC,Microsoft Jhenghei UI,128,96MSJH.TTC,Microsoft Jhenghei UIMEIRYO.TTC,Meiryo UI,128,96MEIRYO.TTC,Meiryo UISIMSUN.TTC,SimSunMINGLIU.TTC,PMingLiU 這裡的內容是系統自帶的 Segoe UI 的內容。用網絡上提供的內容，反而不美觀。]]></content>
+      <tags>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux高负载]]></title>
+    <url>%2F2016-12%2Flinux-top-load%2F</url>
+    <content type="text"><![CDATA[top查看基本情況 iotop查看磁盤情況 iftop查看流量情況 iostat查看磁盤 CPU使用情況 1iostat -x 1 10 sar查看歷史情況 1sar -p 1.htoptop的替代產品， 需要yum install。 多核心CPU 負載【在多处理器系统中，负载均值是基于内核的数量决定的。以 100% 负载计算，1.00 表示单个处理器，而 2.00 则说明有两个双处理器，那么 4.00 就说明主机具有四个处理器。】polo 有8個核心。 所以負載 在8以下就算正常。保守一點則是 8*0.7=5.6 左右比較ok。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[iftop安裝]]></title>
+    <url>%2F2016-12%2Flinux-iftop%2F</url>
+    <content type="text"><![CDATA[123456789#安裝依賴軟件yum install flex byacc libpcap ncurses ncurses-devel libpcap-devel#下載解壓wget http://www.ex-parrot.com/pdw/iftop/download/iftop-0.17.tar.gztar zxvf iftop-0.17.tar.gzcd iftop-0.17#安裝./configuremake &amp;&amp; make install]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[命令行操作]]></title>
+    <url>%2F2016-12%2Flinux-shell%2F</url>
+    <content type="text"><![CDATA[shell 下命令行的一下快捷操作 Ctrl-R: 搜尋過去的命令 Ctrl-L: 清畫面]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[linux創建大文檔]]></title>
+    <url>%2F2016-12%2Flinux-dd%2F</url>
+    <content type="text"><![CDATA[創建一個沒有意義的 很大的文檔。 站位中。1dd if=/dev/zero of=tmp.5G bs=1G count=5]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[linux awk]]></title>
+    <url>%2F2016-12%2Flinux-awk%2F</url>
+    <content type="text"><![CDATA[awk是一个强大的文本分析工具，相对于grep的查找，sed的编辑，awk在其对数据分析并生成报告时，显得尤为强大。简单来说awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。 Usage1awk [-W option] [-F value] [-v var=value] [--] &apos;program text&apos; [file ...] 假设last -n 5的输出如下123456# last -n 5 &lt;==仅取出前五行root pts/1 192.168.1.100 Tue Feb 10 11:21 still logged inroot pts/1 192.168.1.100 Tue Feb 10 00:46 - 02:28 (01:41)root pts/1 192.168.1.100 Mon Feb 9 11:41 - 18:30 (06:48)dmtsai pts/1 192.168.1.100 Mon Feb 9 11:41 - 11:41 (00:00)root tty1 Fri Sep 5 14:09 - 14:10 (00:01) 如果只是显示最近登录的5个帐号123456#last -n 5 | awk &apos;&#123;print $1&#125;&apos;rootrootrootdmtsairoot]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[gerp命令]]></title>
+    <url>%2F2016-12%2Flinux-gerp%2F</url>
+    <content type="text"><![CDATA[用于查找 Usage：1grep [OPTION]... PATTERN [FILE]... 递归查找1grep -irn &quot;*-1&quot; . i 不区分大小写 r 递归 n 显示行号 只搜索htm結尾的文檔，1grep -rl &quot;*-1&quot; --include=&quot;*.htm&quot; ./ l 只顯示名稱]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[添加磁盤 disk]]></title>
+    <url>%2F2016-12%2Flinux-add-disk%2F</url>
+    <content type="text"><![CDATA[先看磁盤名稱，獲得名稱為 /dev/sdb1fdisk -l 設定分區 12345fdisk /dev/sdb// 一次輸入 n 回車 // 創建新分區p 回車 // 創建第一個主分區w 回車 // 保存 查看創建12ls /dev/sdb*// 會看到 /dev/sdb1 格式化分區1mkfs -t ext4 /dev/sdb1 創建掛在位置（一定要有此步驟）1mkdir /home2 嘗試掛在1mount /dev/sdb1 /home2 開機啟動掛在， 修改 /etc/fstab123vi /etc/fstab// 新增內容如下：/dev/sdb1 /home2 ext4 defaults 1 2]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Mail Queue管理。]]></title>
+    <url>%2F2016-12%2Fexim%2F</url>
+    <content type="text"><![CDATA[綜合使用删除所有被冻结的邮件1exiqgrep -z -i | xargs exim -Mrm 删除所有5天前的队列邮件1exiqgrep -o 432000 -i | xargs exim -Mrm 冻结所有来自某一发件人的邮件1exiqgrep -i -f 发件人@zeknet.com | xargs exim -Mf exim基礎命令删除邮件1exim Mrm Message-id 冻结邮件1exim Mf Message-id 解冻邮件1exim -Mt Message-id 查看邮件头1exim -Mvh Message-id exiqgrep 隊列查詢查看来自指定发件人的所有队列邮件1exiqgrep -f [发件人]@domain 查看发给指定收件人的所有队列邮件1exiqgrep -r [收件人]@domain 查看1天前的队列邮件 (以秒为单位)1exiqgrep -o 86400 其他常用参数： -z 只查看被冻结的队列邮件 -i 只显示邮件ID -c 只显示查找到的邮件数量 其他查看全部信息1exiqgrep -a 查看exim队列中所有邮件信息1exim -bp 汇总邮件队列信息1exim -bp | exiqsumm 查看exim服务的当前工作情况1exiwhat 删除所有1exim -bp | awk &apos;/^ *[0-9]+[mhd]/&#123;print &quot;exim -Mrm &quot; $3&#125;&apos; | bash 以上內容 參考網絡文章 http://cn.hostease.com/xueyuan/381/]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>exim</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Nodejs NPM 簡介]]></title>
+    <url>%2F2016-12%2Fnpm%2F</url>
+    <content type="text"><![CDATA[基本原理npm 是javascript包的管理工具。可以把包安装成为全局（系统全局），从而可以作为系统命令来使用。也可以把包安装成为某个项目目录下的模块常见命令参照 http://dreamerslab.com/blog/tw/npm-basic-commands/ 1234# 安装某个包成为全局包sudo npm install &lt;package name&gt; -g# 安装到某个目录npm install &lt;package name&gt; 基本命令 1234567npm ls # 查看npm install # 安装npm uninstall #卸载npm update #更新 #加入 -g 来声明是全局操作sudo npm update -g]]></content>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Windows PHP]]></title>
+    <url>%2F2016-12%2Fwindows-php%2F</url>
+    <content type="text"><![CDATA[nginx + phpphp5.4 之前必须配合 nginx。 使用cgi模式 12#启动nginx"D:\Program Files\nginx\nginx.exe" -p "D:\Program Files\nginx" 1234# 启动php5.2 cgi"D:\Program Files\php52\php-cgi.exe" -b 127.0.0.1:9000 -c "D:\Program Files\php52\php.ini"# 或者php5.3 cgi"D:\Program Files\php53\php-cgi.exe" -b 127.0.0.1:9000 -c "D:\Program Files\php53\php.ini" 1234#php 5.6"D:\Program Files\php56\php-cgi.exe" -b 127.0.0.1:9000 -c "D:\Program Files\php56\php.ini"#php 7.0"D:\Program Files\php70\php-cgi.exe" -b 127.0.0.1:9000 -c "D:\Program Files\php70\php-web.ini" php自带WEBphp5.4 之后php自带web123"D:\Program Files\php56\php.exe" -S 127.0.0.1:80 -t "D:\Htdocs"# 或者"D:\Program Files\php70\php.exe" -S 127.0.0.1:80 -t "D:\Htdocs" symfony start1php app/console server:run 使用RunHiddenConsole参考。RunHiddenConsole 已经下载到nginx目录参考 https://www.nginx.com/resources/wiki/start/topics/examples/phpfastcgionwindows/ web.batAll in one file 12345678910111213141516171819202122232425262728293031@echo offIF &quot;%1&quot; == &quot;start&quot; ( IF &quot;%2&quot; == &quot;52&quot; ( echo Start PHP 52 ... RunHiddenConsole.exe &quot;D:\Program Files\php52\php-cgi.exe&quot; -b 127.0.0.1:9000 -c &quot;D:\Program Files\php52\php.ini&quot; ) ELSE IF &quot;%2&quot; == &quot;53&quot; ( echo Start PHP 53 ... RunHiddenConsole.exe &quot;D:\Program Files\php53\php-cgi.exe&quot; -b 127.0.0.1:9000 -c &quot;D:\Program Files\php53\php.ini&quot; ) ELSE IF &quot;%2&quot; == &quot;54&quot; ( echo Start PHP 54 ... RunHiddenConsole.exe &quot;D:\Program Files\php54\php-cgi.exe&quot; -b 127.0.0.1:9000 -c &quot;D:\Program Files\php54\php.ini&quot; ) ELSE IF &quot;%2&quot; == &quot;56&quot; ( echo Start PHP 56 ... RunHiddenConsole.exe &quot;D:\Program Files\php56\php-cgi.exe&quot; -b 127.0.0.1:9000 -c &quot;D:\Program Files\php56\php.ini&quot; ) ELSE ( echo Start PHP 70 ... RunHiddenConsole.exe &quot;D:\Program Files\php70\php-cgi.exe&quot; -b 127.0.0.1:9000 -c &quot;D:\Program Files\php70\php.ini&quot; ) echo Start Nginx ... RunHiddenConsole.exe &quot;D:\Program Files\nginx\nginx.exe&quot; -p &quot;D:\Program Files\nginx&quot;) ELSE IF &quot;%1&quot; == &quot;stop&quot; ( echo Stopping nginx... taskkill /F /IM nginx.exe &gt; nul echo Stopping PHP FastCGI... taskkill /F /IM php-cgi.exe &gt; nul) ELSE ( echo Ex. web stop, web start 70|56|54|53|52) Nginx 配置1234567891011121314151617181920212223242526272829303132333435363738server &#123; listen 80; server_name localhost; #charset koi8-r; #access_log logs/host.access.log main; location / &#123; root D:/Htdocs; index index.php index.html index.htm; &#125; #error_page 404 /404.html; # redirect server error pages to the static page /50x.html # error_page 500 502 503 504 /50x.html; location = /50x.html &#123; root html; &#125; # proxy the PHP scripts to Apache listening on 127.0.0.1:80 # #location ~ \.php$ &#123; # proxy_pass http://127.0.0.1; #&#125; # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000 # location ~ \.php(/|$) &#123; root D:/Htdocs; fastcgi_pass 127.0.0.1:9000; fastcgi_split_path_info ^(.+\.php)(/.*)$; fastcgi_index index.php; fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name; include fastcgi_params; &#125; # deny access to .htaccess files, if Apache&apos;s document root # concurs with nginx&apos;s one # #location ~ /\.ht &#123; # deny all; #&#125; &#125; PHP开发环境（不同版本） 在 Windowsvc11對應 Visual C++ Redistributable for Visual Studio 2012 Update 4https://www.microsoft.com/zh-cn/download/confirmation.aspx?id=30679 vc14對應 Visual C++ Redistributable for Visual Studio 2015https://www.microsoft.com/zh-cn/download/confirmation.aspx?id=48145]]></content>
+      <tags>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Supervisord 進程管理]]></title>
+    <url>%2F2016-12%2Fsupervisor%2F</url>
+    <content type="text"><![CDATA[安裝1234#Debian Ubuntuapt-get install supervisor#othereasy_install supervisor 配置可以參照https://rayed.com/wordpress/?p=1496官網 http://supervisord.org/ubuntu 的配置文檔 /etc/supervisor/supervisord.conflog文檔 /var/log/supervisor/ 目錄下 啟動1service supervisor start 管理1234supervisorctl stop all #停止全部进程，注：start、restart、stop都不会载入最新的配置文件。supervisorctl reload #载入最新的配置文件，停止原有进程并按新的配置启动、管理所有进程。supervisorctl update #根据最新的配置文件，启动新配置或有改动的进程，配置没有改动的进程不会受影响而重启。#注意：显示用stop停止掉的进程，用reload或者update都不会自动重启。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[less]]></title>
+    <url>%2F2016-12%2Fless%2F</url>
+    <content type="text"><![CDATA[Ubuntu 系統.12sudo apt-get install node nodejs-legacysudo npm install -g less 執行1lessc style.less style.css]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[shadowsocks manyuser 安裝]]></title>
+    <url>%2F2016-12%2Fshadowsocks-manyuser-server%2F</url>
+    <content type="text"><![CDATA[安裝 https://github.com/mengskysama/shadowsocks-rm.git 需要用到 cymysql 插件鏈接mysql。 Ubuntu安裝123456789#mysqlapt-get install mysql-server mysql-client #gitapt-get install git#進程管理apt-get install supervisor#pythonapt-get install python-pip python-m2cryptopip install cymysql Centos安裝123456#pythonyum install m2crypto python-setuptoolseasy_install pippip install cymysql#gityum -y install git supervisor參考https://rayed.com/wordpress/?p=1496 shadowsocks安裝1234567#下載源代碼git clone -b manyuser https://github.com/mengskysama/shadowsocks-rm.git# 登錄MySQL 創建數據庫&amp;導入mysql -u root -pcreate database shadowsocks;use shadowsocks;source shadowsocks.sql; 守護進程管理創建文件 /etc/supervisor/conf.d/shadowsocks.conf （Ubuntu）內容如下：1234[program:shadowsocks]command=python /root/shadowsocks/shadowsocks/servers.pyautorestart=trueuser=root // centos 參照http://www.cmsky.com/shadowsocks-manyuser-sspanel/https://rayed.com/wordpress/?p=1496 自定義用戶類型編輯 shadowsocks/dbtransfer.py 約 91行1cur.execute(&quot;SELECT port, u, d, transfer_enable, passwd, switch, enable FROM user&quot;) 設定為想要的Sql語句]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[字体]]></title>
+    <url>%2F2016-12%2Ffont%2F</url>
+    <content type="text"><![CDATA[Verdana 非等宽字体。总体可读性好些Console 是等宽字体 serif 字体通常不同笔顺的粗细有别，且起笔落笔处有多余的小折线。sans-serif 字体笔画不论方向粗细相同，且起笔落笔没有多余折线。中文字体中，可以与此类比：宋体相当于 serif 字体，黑体相当于 sans-serif 字体。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[VPS FTP 被动模式 (windows)]]></title>
+    <url>%2F2016-12%2FFileZilla-Server%2F</url>
+    <content type="text"><![CDATA[安裝 FileZilla Server安裝好以後，添加用戶以及對應目錄設置 》 被動模式 ， 設定改好 允許端口範圍 （5000-6000）在防火牆中 打開端口， 21,5000-6000]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Javascript 重新生成URL Search]]></title>
+    <url>%2F2016-12%2Fjs-url%2F</url>
+    <content type="text"><![CDATA[需要 url.min.js 插件 https://github.com/websanova/js-url 根据当前url重新生成URL对应的search (window.location.search)调用方法：12makeUrl(&apos;sort&apos;, &apos;price_asc&apos;);makeUrl(&apos;sort&apos;, &apos;price_asc&apos;, &apos;pn&apos;, 2); url 插件简单例子：12$.url(&apos;?&apos;) // 返回所有get变量$.url(&apos;?pn&apos;) // 返回 get变量中 pn 对应的值， 如果没有则返回 undefined 函数代码：1234567891011121314151617function makeUrl(key, value)&#123; var s = $.url(&apos;?&apos;); s[key] = value; var k1 = arguments[2] ? arguments[2] : &apos;&apos;; var v1 = arguments[3] ? arguments[3] : &apos;&apos;; if(k1!=&apos;&apos;) &#123; s[k1] = v1; &#125; var url = window.location.pathname+&quot;?&quot; for(var v in s) &#123; url += v+&apos;=&apos;+s[v]+&apos;&amp;&apos;; &#125; url = url.substr(0, url.length-1); return url;&#125;]]></content>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux文件統計]]></title>
+    <url>%2F2016-12%2Flinux-wc%2F</url>
+    <content type="text"><![CDATA[统计某文件夹下文件的个数1ls -l |grep &quot;^-&quot;|wc -l 统计某文件夹下目录的个数1ls -l |grep &quot;^d&quot;|wc -l 统计文件夹下文件的个数，包括子文件夹里的1ls -lR|grep &quot;^-&quot;|wc -l]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[find 命令]]></title>
+    <url>%2F2016-12%2Flinux-find%2F</url>
+    <content type="text"><![CDATA[Usage1find [path...] [expression] 查找某兩個目錄，1find &#123;name080,090.net&#125;/application/&#123;config,helpers&#125;/ -type f 修改30分鐘前的 刪除1find &#123;name080,090.net&#125;/application/&#123;config,helpers&#125;/ -type f -mtime +30 -delete 查詢并修改權限1find . -name &quot;*.php&quot; | xargs chmod 640]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[gzip bzip2 zip 压缩解压]]></title>
+    <url>%2F2016-12%2Fgzip-bzip2-zip%2F</url>
+    <content type="text"><![CDATA[压缩12345678$ gzip filename.txt# 将filename变成filename.txt.gz$ bzip2 filename.txt# 将filename变成filename.txt.bz2$ zip filename# 将filename变成filename.txt.zip 解压123$ gunzip filename.gz$ bunzip2 filename.bz2$ unzip filename.zip]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Tar打包]]></title>
+    <url>%2F2016-12%2Ftar%2F</url>
+    <content type="text"><![CDATA[排除某個目錄12tar -czf www.tar.gz public_html/ --exclude=public_html/upload --exclude=public_html/pmd --exclude=public_html/_back_20101010tar -czf www.tar.gz /home/abc/public_html --exclude=/home/abc/public_html/upload 生成 www.tar.gz 文档， 压缩源目录为 public_html/ –exclude=public_html/upload 是指 排除这个目录或文档。 注意： 要排除的目录（文档）名称必须与源目录的名称相对应。如果是相对目录必须都是相对目录。 如果是绝对目录必须全是绝对目录。 查看tar包中的文檔1tar tvf test.tar.gz 解壓其中的某個文檔1tar zxfv test.tar.gz home/oracle/xiaoming/bbed/bbed.par]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[chattr和lsattr命令 linux鎖定]]></title>
+    <url>%2F2016-12%2Fchattr-lsattr%2F</url>
+    <content type="text"><![CDATA[lsattr 显示文件的属性12[root]#lsattr----i-------- ./ff chattr 命令 修改文件（目錄）属性能够提高系统的安全性 (只有超级权限的用户才具有使用该命令的权限)123456[root]#lsattr # 默認情況下------------- ./ff [root]#chattr +i ff[root]#lsattr----i-------- ./ff chattr命令的用法：1chattr [ -RV ] [ -v version ] [ mode ] files... ：在原有参数设定基础上，追加参数。 ：在原有参数设定基础上，移除参数。 i ：设定文件不能被删除、改名、设定链接关系，同时不能写入或新增内容。i参数对于文件 系统的安全设置有很大帮助。 a：即append，设定该参数后，只能向文件中添加数据，而不能删除，多用于服务器日志文 件安全，只有root才能设定这个属性。 j：即journal，设定此参数使得当通过mount参数：data=ordered 或者 data=writeback 挂 载的文件系统，文件在写入时会先被记录(在journal中)。如果filesystem被设定参数为 data=journal，则该参数自动失效。]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PHP加速 OpCache+APCu]]></title>
+    <url>%2F2016-12%2Fphp-APCu%2F</url>
+    <content type="text"><![CDATA[PHP5.5或者更高版本 自动加入了 opcache 缓存程序代码的功能。 但是不能缓存用户资料。原本的 apc 和 opcache 部分功能冲突了， 又没有 opcache 效率高。所以 APCu 出现了。 只能缓存用户自定义的资料。 接口和 apc 一样。 代码缓存 交给 opcache。 所以有了OpCache+APCu或者OpCache + Memcached( 或 Redis)]]></content>
+      <tags>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Sql Server 2008 远程连接配置]]></title>
+    <url>%2F2016-12%2Fsqlserver-2008%2F</url>
+    <content type="text"><![CDATA[参考 http://jingyan.baidu.com/article/6c67b1d6ca06f02787bb1ed1.html 注意： 设置完后必须重新启动Sql Server 服务 打开防火墙1433端口 第12步中， 【选择“IP 地址”选项卡，设置TCP的端口为“1433”】 最好把最下方的 “IPAll”设定：【TCP 动态端口 0，TCP 端口 1433】]]></content>
+      <tags>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[htccess]]></title>
+    <url>%2F2016-12%2Fhtccess%2F</url>
+    <content type="text"><![CDATA[一般12345678Options +FollowSymLinksRewriteEngine On RewriteCond %&#123;REQUEST_FILENAME&#125; !-dRewriteRule ^(.+)/$ http://%&#123;HTTP_HOST&#125;/$1 [R=301,L] RewriteCond %&#123;REQUEST_FILENAME&#125; !-fRewriteRule ^ index.php [L] Options +FollowSymLinks 在 某些服务器配置中，mod_rewrite要求有followsymlinks，否则会显示500内部服务器错误。 強制 www12RewriteCond %&#123;HTTP_HOST&#125; !^www\.(.*)RewriteRule (.*) http://www.%&#123;HTTP_HOST&#125;/$1 [R=301,L] 強制HTTPS12RewriteCond %&#123;HTTPS&#125; offRewriteRule ^(.*)$ https://%&#123;SERVER_NAME&#125;%&#123;REQUEST_URI&#125; [L,R]]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>apache</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ftp & wget 下载]]></title>
+    <url>%2F2016-12%2Fftp-wget%2F</url>
+    <content type="text"><![CDATA[ftp登陸ftp12$ftp //shell下输入ftp命令,进入到ftp提示符&gt;open IP 接下來自動提示 輸入 賬號&amp;密碼12345678// get和mget命令用于从远程机上获取文件。get命令的一般格式为：&gt;get 文件名//mget命令一次获取多个远程文件。mget命令的一般格式为：&gt;mget 文件名列表//put和mput命令用于向远程机发送文件。Put命令的一般格式为：&gt;put 文件名//mput命令一次发送多个本地文件，mput命令的一般格式为：&gt;mput 文件名列表 wgetftp 命令不支持目录下载. 通过wget得到解决1wget ftp://IP:PORT/www/* --ftp-user=xxx --ftp-password=xxx -r]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux 快速删除大量小文件]]></title>
+    <url>%2F2016-12%2Flinux-rsync%2F</url>
+    <content type="text"><![CDATA[先建立一个空目录 1mkdir /data/blank 用rsync删除目标目录 123rsync --delete-before -d -a -H -v --progress --stats /data/blank/ /var/edatacache/# or rsync --delete-before -d /data/blank/ /var/edatacache/ 选项说明： –delete-before 接收者在传输之前进行删除操作 –progress 在传输时显示传输过程 -a 归档模式，表示以递归方式传输文件，并保持所有文件属性 -H 保持硬连接的文件 -v 详细输出模式 –stats 给出某些文件的传输状态]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PHP CURL]]></title>
+    <url>%2F2016-12%2Fphp-curl%2F</url>
+    <content type="text"><![CDATA[POST123456789101112131415$data = array('name' =&gt; 'Foo', 'Email' =&gt; 'abc@example.com');$ch = curl_init();curl_setopt($ch, CURLOPT_URL, 'http://localhost/tmp/a.php');curl_setopt($ch, CURLOPT_HEADER, 0); // 启用时会将头文件的信息作为数据流输出。curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); // 在启用CURLOPT_RETURNTRANSFER的时候，返回原生的（Raw）输出。curl_setopt($ch, CURLOPT_TIMEOUT, 30);curl_setopt($ch, CURLOPT_POST, 1);curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data)); // http_build_query 可以避免一些不兼容問題$s = curl_exec($ch);curl_close($ch);echo $s; GET123456789$url = 'http://bac.com'$url .= '?'.http_build_query($postField);$ch = curl_init();curl_setopt($ch, CURLOPT_URL, $url);curl_setopt($ch, CURLOPT_HEADER, 0);curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);curl_setopt($ch, CURLOPT_TIMEOUT, 30);$data = curl_exec($ch);curl_close($ch); 强制声明字符 charset1curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/x-www-form-urlencoded; charset=utf-8')); JSON格式传递数据12345$header[] = 'Content-Type: application/json';$header[] = 'Accept: application/json';curl_setopt($ch, CURLOPT_HTTPHEADER, $header);curl_setopt($ch, CURLOPT_POST, 1);curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($param)); SSL12curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE); curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE); CURLOPT_SSL_VERIFYPEER禁用后cURL将终止从服务端进行验证。使用CURLOPT_CAINFO选项设置证书使用CURLOPT_CAPATH选项设置证书目录如果CURLOPT_SSL_VERIFYPEER(默认值为2)被启用，CURLOPT_SSL_VERIFYHOST需要被设置成TRUE否则设置为FALSE。 CURLOPT_SSL_VERIFYHOST1 检查服务器SSL证书中是否存在一个公用名(common name)。2 检查公用名是否存在，并且是否与提供的主机名匹配。 译者注：公用名(Common Name)一般来讲就是填写你将要申请SSL证书的域名 (domain)或子域名(sub domain)。 HTTP basic authentication連接一個url， 需要提供用戶名和密碼的時候用到。 1curl_setopt($curl, CURLOPT_USERPWD, "username:password");]]></content>
+      <tags>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Vritualizer VNC]]></title>
+    <url>%2F2016-12%2FVritualizer-VNC%2F</url>
+    <content type="text"><![CDATA[vnc ip 端口查找在 【Launch VPS VNC】中查找ip和端口。在 vps 編輯頁面 點擊 【VNC】然後查看源代碼， 查看對應的密碼。 使用VNC Viewer]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Cpanel CloudLinux]]></title>
+    <url>%2F2016-12%2FCpanel-CloudLinux%2F</url>
+    <content type="text"><![CDATA[更新lincense1234# cpanel update/usr/local/cpanel/cpkeyclt# cloudlinux check/usr/sbin/clnreg_ks --force https://verify.cpanel.net/https://cln.cloudlinux.com/clweb/public/license-lookup.xhtml Cpanel 一个IP對應多個ssl要有SNI支援必須要是 CentOS 6.x 以及 Cpanel 11.38以後 Cpanel 關閉 Analog訪問量很大的時候 Analog 統計佔用很大的空間。 所以 考慮暫停。 12WHM Home » Server Configuration » Tweak SettingsAnalog set to off Cpanel Apache log file12tail -500 /usr/local//logs/error_log CloudLinux 安裝配置安裝 CageFS1234$ yum install cagefs$ /usr/sbin/cagefsctl --init$ mkdir /home/cagefs-skeleton$ ln -s /home/cagefs-skeleton /usr/share/cagefs-skeleton 安裝 PHP Selector12yum groupinstall alt-phpyum update cagefs lvemanager]]></content>
+      <tags>
+        <tag>cpanel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Lumen]]></title>
+    <url>%2F2016-12%2FLumen%2F</url>
+    <content type="text"><![CDATA[必須把public/index.php 修改為：1$app-&gt;run($app[&apos;request&apos;]); 否則在二級目錄提示404錯誤。 除去 url 中的 public 。 （只適用于web站點的根目錄，二級目錄沒測試）在web站點根目錄下創建 .htaccess 文件。12RewriteEngine OnRewriteRule ^(.*)$ public/$1 [L]]]></content>
+      <tags>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[KVM virt 复制管理]]></title>
+    <url>%2F2016-12%2FKVM-virt%2F</url>
+    <content type="text"><![CDATA[指定一个镜像文档， 並把里面的内容copy出来。先登录宿主主机 1virt-copy-out -a /dev/vpsg/vsv1157-0eq3-znowggzhyixfdvnz &apos;win:c:\windows\system32\config&apos; /root/]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[CSF设置]]></title>
+    <url>%2F2016-12%2FCSF%2F</url>
+    <content type="text"><![CDATA[攔截登陸失敗的設定Login Failure Blocking and Alerts 1234567891011121314151617LF_SELECT = 1 #表示僅僅屏蔽某個ip訪問server的端口 ， 端口設定見 PORTS_*LF_SSHD = 5 #失敗幾次？LF_SSHD_PERM = 1 #屏蔽時間長度 0 不屏蔽， 1 永久屏蔽， 900(非1、0其他數字)表示屏蔽900秒，屏蔽900秒属于临时屏蔽（Temporary IP blocking）LF_INTERVAL = 3600 # 統計刷新週期， 按照上面的例子是 3600秒內登陸失敗5次。 就永久屏蔽## Temp to Perm/Netblock SettingsTemporary to Permanent IP blocking意思是临时屏蔽IP 设定为 永久屏蔽IP``` iniLF_PERMBLOCK_INTERVAL = 86400LF_PERMBLOCK_COUNT = 4# 表示 86400 秒内 被例如临时屏蔽名单 4次 则转换为 永久屏蔽LF_SSHD_PERM = 900 # 代表临时屏蔽 停止發送alerts Mail到Root增加自動清除，每週一執行10 0 * * 1 /usr/bin/rsync --delete-before -a -H -v --progress --stats /root/Maildir/empty/ /root/Maildir/new/ &gt;/dev/null 2&gt;&amp;1 修改 [High 5 minute load average alert] Mailhttps://forum.configserver.com/viewtopic.php?t=3221https://www.grandmstramrod.co.uk/lfd-high-5-minute-load-average-alert/ 123456789#!/bin/sh&gt;/etc/csf/csf.reportiostat -d 1 5 &gt;&gt; /etc/csf/csf.reportiostat -x -d 1 5 &gt;&gt; /etc/csf/csf.reportiotop -o -P -b -k -n 3 -d 2 &gt;&gt; /etc/csf/csf.reportmpstat -P ALL &gt;&gt; /etc/csf/csf.reporttop -b -n 1 &gt;&gt; /etc/csf/csf.reportnetstat -autpnmail -s "Load Report (High 5 minute load average alert)" root &lt; /etc/csf/csf.report]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[composer命令]]></title>
+    <url>%2F2016-12%2Fcomposer%2F</url>
+    <content type="text"><![CDATA[安裝某個項目1composer create-project laravel/laravel path --prefer-dist 安裝 larave 到 path 目錄。–prefer-dist 为了强制使用压缩包，而不是克隆源代码。 更新软件包1composer update 只更新 Calss1composer dump-autoload 为生产环境作准备1composer dump-autoload --optimize 或者123composer update --no-dev --optimize-autoloader# orcomposer update --optimize-autoloader]]></content>
+      <tags>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[go学习笔记 -- 杂记]]></title>
+    <url>%2F2016-12%2Fgolang%2F</url>
+    <content type="text"><![CDATA[go get1234# 下載并安裝到 GOPATH目錄go get github.com/go-sql-driver/mysql# 更新go get -u github.com/go-sql-driver/mysql struct tag用双引号(double quote)或重音(backquote/grave accent)表示的字符串 1234567891011121314package mainimport ( "fmt" "reflect")func main() &#123; type S struct &#123; F string `species:"gopher" color:"blue"` &#125; s := S&#123;&#125; st := reflect.TypeOf(s) field := st.Field(0) fmt.Println(field.Tag.Get("color"), field.Tag.Get("species"))&#125; exec1234cmd := exec.Command("ruby", whois_app_path, u)var out bytes.Buffercmd.Stdout = &amp;outcmd.Run() 注意12exec.Command("ruby", whois_app_path, u)# 第一个参数 是程序， 第二个参数为参数， 第三个参数为参数， 不用额外添加 引号 例如1exec.Command("ruby", "/root/whois/whois_api", "baidu.com 080.tw 080.net") 如果參數過多可以使用1exec.Command("/bin/sh", "-c", "aaa -a a -b b -c c -d d -e d") cli fromeworkhttps://carlosbecker.com/posts/golang-cli-apps/ https://github.com/spf13/cobra]]></content>
+      <tags>
+        <tag>golang</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[SPF記錄]]></title>
+    <url>%2F2016-12%2FSPF%2F</url>
+    <content type="text"><![CDATA[什么是SPF是 Sender Policy Framework 的缩写，一种以IP地址认证电子邮件发件人身份的技术。 接收邮件方会首先检查域名的SPF记录，来确定发件人的IP地址是否被包含在SPF记录里面，如果在，就认为是一封正确的邮件，否则会认为是一封伪造的邮件进行退回。 中文参考 http://www.renfei.org/blog/introduction-to-spf.html生成工具 http://www.spfwizard.net/]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Mysql整理]]></title>
+    <url>%2F2016-12%2FMysql%2F</url>
+    <content type="text"><![CDATA[存储引擎选择 MyISAM管理非事务表。它提供高速存储和检索，以及全文搜索能力。如果应用中需要执行大量的SELECT查询，那么MyISAM是更好的选择。 InnoDB用于事务处理应用程序，具有众多特性，包括ACID事务支持。如果应用中需要执行大量的INSERT或UPDATE操作，则应该使用InnoDB，这样可以提高多用户并发操作的性能。 字段 char vs varchar 類型char 固定长度，最大长度255字节。 (一定情况下)占用空间比较大，但是索引查询比较快 推荐固定长度字段 或者 很短且需要索引的使用 注意： PAD_CHAR_TO_FULL_LENGTH 时，在取数据时让尾部的空格保留 varchar 根据实际存储，可变长度，最大长度是65,532字节 (一定情况下)占用空间比较大小，但是索引查询比较慢 存储类型区别对于MyISAM表，尽量使用Char，对于那些经常需要修改而容易形成碎片的myisam和isam数据表就更是如此，它的缺点就是占用磁盘空间； 对于InnoDB表，尽量使用varchar，因为它的数据行内部存储格式对固定长度的数据行和可变长度的数据行不加区分（所有数据行共用一个表头部分，这个标头部分存放着指向各有关数据列的指针），所以使用char类型不见得会比使用varchar类型好。事实上，因为char类型通常要比varchar类型占用更多的空间，所以从减少空间占用量和减少磁盘i/o的角度，使用varchar类型反而更有利. 实例在 cpanel 中的 eximstats 表用的是 MyISAM表。 email ip domain 等字段用的是char字段。这样统计查询比较快。 命令行查詢\G 列表顯示具體內容1select * from gnc_order where order_no like 'E005244' limit 1 \G; 导出&amp;導入导出整个数据库12mysqldump -u 用户名 -p 数据库名 &gt; 导出的文件名mysqldump -u wcnc -p smgp_apps_wcnc &gt; wcnc.sql 导出一个表12mysqldump -u 用户名 -p 数据库名 表名&gt; 导出的文件名mysqldump -u wcnc -p smgp_apps_wcnc users&gt; wcnc_users.sql 导出一个数据库结构12mysqldump -u wcnc -p -d --add-drop-table smgp_apps_wcnc &gt;d:wcnc_db.sql#-d 没有数据 --add-drop-table 在每个create语句之前增加一个drop table 导入数据库123456#常用source 命令#进入mysql数据库控制台，mysql -u root -pmysql&gt;use 数据库#然后使用source命令，后面参数为脚本文件(如这里用到的.sql)mysql&gt;source d:wcnc_db.sql mysql导入建表sql语句时中文注释的乱码问题的解决办法如下：在sql文件开头加上 SET NAMES &#39;utf8&#39;; 用戶管理創建1234567# 創建一個用戶&amp;權限GRANT ALL PRIVILEGES ON *.* TO 'dns2'@'localhost' IDENTIFIED BY '15***';# 創建一個用戶&amp;權限 (只能訪問dns2資料庫，只允許某個ip訪問)GRANT ALL PRIVILEGES ON dns2.* TO 'dns2'@'119.81.172.50' IDENTIFIED BY '16******';# 更新權限FLUSH PRIVILEGES; 修改密碼1set password for root@localhost = password('16***') 查看表佔用空間大小12345#檢查 eximstats 資料庫下所有的表磁盤大小SELECT TABLE_NAME, round((DATA_LENGTH+INDEX_LENGTH)/1024/1024,2) AS Size_MB, TABLE_ROWS FROM information_schema.TABLES WHERE TABLE_SCHEMA='eximstats';#檢查某個表，增加判斷條件AND TABLE_NAME='smtp']]></content>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[PHP读取Excel]]></title>
+    <url>%2F2016-12%2FPHP-Excel%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233343536$PHPReader = new PHPExcel_Reader_Excel2007(); if(!$PHPReader-&gt;canRead($filePath))&#123; $PHPReader = new PHPExcel_Reader_Excel5(); if(!$PHPReader-&gt;canRead($filePath))&#123; delMyFile($filePath); echo '上傳文檔錯誤'; exit; &#125; &#125; //建立excel对象，此时你即可以通过excel对象读取文件，也可以通过它写入文件 $PHPExcel = $PHPReader-&gt;load($filePath); /**读取excel文件中的第一个工作表*/ $currentSheet = $PHPExcel-&gt;getSheet(0); /**取得最大的列号*/ $allColumn = 'K';// $currentSheet-&gt;getHighestColumn(); /**取得一共有多少行*/ $allRow = 17;//$currentSheet-&gt;getHighestRow(); $arr = array(); //循环读取每个单元格的内容。注意行从1开始，列从A开始 for($rowIndex=1; $rowIndex&lt;=$allRow; $rowIndex++)&#123; for($colIndex='A';$colIndex&lt;=$allColumn;$colIndex++)&#123; $addr = $colIndex.$rowIndex; $cell = $currentSheet-&gt;getCell($addr)-&gt;getValue(); if($cell instanceof PHPExcel_RichText) //富文本转换字符串 $cell = $cell-&gt;__toString(); $arr[$addr] = $cell; &#125; &#125;]]></content>
+      <tags>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[VritualBox 安裝 Ubuntu]]></title>
+    <url>%2F2016-12%2FVritualBox-Install-Ubuntu%2F</url>
+    <content type="text"><![CDATA[後來不再使用VirtualBox直接在Windows上使用Cmder+Git 基本安裝 检查操作系统 cpu 虚拟化已经打开。 如果使用无线网络（PCI），必须安装官方驱动 创建虚拟主机、安装操作系统 端口映射“设置”》“网络”》“网卡1”》“高级”》“端口转发”添加 123Apache, TCP, 127.0.0.1, 80, , 80SSH, TCP, 127.0.0.1, 2222, , 22Mysql, TCP, 127.0.0.1, 3306, , 3306 注意 用xshell链接时，不能用命令行 ssh root@127.0.0.1:2222 鏈接。 必須新創建一個“会话” 共享文件 “设置”》“共享文件夹” 中添加 ‘vagrant’ ‘D:\Htodcs’ 。 注意 不能勾选开机自动挂载 开启虚拟主机，“设备”》“安装增强功能”会自动挂载iso到cdrom 登录到操作页面， 执行 123456789#安装相关软件sudo apt-get install gcc sudo apt-get install build-essential linux-headers-$(uname -r)#挂载sudo mount /dev/cdrom /mnt#执行sudo ./VBoxLinuxAdditions.runmkdir -p /vagrantmount -t vboxsf vagrant /vagrant 开机自动挂载在/etc/rc.loal 加入 1mount -t vboxsf vagrant /vagrant 命令行启动创建 vbox_up.bat12cd C:\Program Files\Oracle\VirtualBoxVBoxManage startvm &quot;ubuntu&quot; -type headless 创建 vbox_down.bat12cd C:\Program Files\Oracle\VirtualBoxVBoxManage controlvm &quot;ubuntu&quot; acpipowerbutton 并将这两个文件加入到 环境变量 PATH 中。 这样执行 vbox_up 开启虚拟主机 。vbox_down 关闭虚拟主机说明 “ubuntu” 必须有 引号， ubuntu 是创建的虚拟主机的名称 Ubuntu 設定Apache设定由于使用 virtualbox 共享文件，有时候出现缓存。 12### Apache 配置添加:EnableSendfile off 在 /etc/apache2/sites-available/000-default.conf 中加入 12345&lt;Directory "/vagrant"&gt; Options Indexes FollowSymLinks AllowOverride All Require all granted &lt;/Directory&gt; 啟動mod_rewrite，執行以下命令 sudo a2enmod rewrite PHP设定安装&amp;开启 mcrypt 12sudo apt-get install php-mcryptsudo phpenmod mcrypt Mysql必须要设定权限，以及允许远程访问。 my.cnf 修改：1bind-address = 0.0.0.0]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[sed命令]]></title>
+    <url>%2F2016-12%2Flinux-sed%2F</url>
+    <content type="text"><![CDATA[sed 是一种编辑器，它一次处理一行内容。 Usage 1sed [OPTION]... &#123;script-only-if-no-other-script&#125; [input-file]... 以下是常用到的实例说明。 读取某行並打印12//读取277000 到 302006 行sed -n '277000,302006p' exim_mainlog-20160904 -n 使用安静(silent)模式。 p 列印，亦即将某个选择的资料印出。通常 p 会与参数 sed -n 一起运作～ 替换，如果没有g标记，则只有每行第一个匹配的test被替换成mytest。 12#在整行范围内把test替换为mytest。sed -i 's/test/mytest/g' example -i 直接修改读取的文件内容，而不是由屏幕输出 通過grep搜索然後替換 1sed -i 's/*-1//g' `grep "*-1" -rl .` 12sed -i 's/*-1//g' `grep -rl "*-1" --include="*.php" .`sed -i 's/*-1//g' `grep -rl "*-1" --include="*.htm" .` –include=”*.php” 只搜素包含php結尾的文檔]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[exigrep命令]]></title>
+    <url>%2F2016-12%2Fexigrep%2F</url>
+    <content type="text"><![CDATA[說明exigrep 命令， 罗列相关日志 必须安装 exim4 1exigrep chris.su@zytronic.co.uk /var/log/exim_mainlog 列出log日志中所有关于 chris.su@zytronic.co.uk 的完成mail记录]]></content>
+      <tags>
+        <tag>exim</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[国别码 Country Code]]></title>
+    <url>%2F2016-12%2Fcountry-code%2F</url>
+    <content type="text"><![CDATA[兩位國別碼 (ISO 3166)詳細的查看: 国家地区代码 ISO 3166 英國為 GB , 并為其保留 UK]]></content>
+      <tags>
+        <tag>iso</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[windows10]]></title>
+    <url>%2F2016-12%2Fwindows10%2F</url>
+    <content type="text"><![CDATA[下載最新的ISO打開頁面 https://www.microsoft.com/zh-cn/software-download/windows10 直接回檢查到使用的是win10， 提示更新程序 Windows10Upgrade9252.exe 下載 Windows 選擇默認程序今天Windows 10的选择默认程序失效了。只能切换到老版的默认程序设定。 打开一下路径。 在“我的电脑”，右键，属性， 中找。 控制面板\所有控制面板项\默认程序\设置默认程序 然后再这里设定才可以。 windows 命令行启动 mysql必须以管理员身份运行命令行1net start mysql]]></content>
+      <tags>
+        <tag>windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Firefox瀏覽器]]></title>
+    <url>%2F2016-12%2Ffirefox%2F</url>
+    <content type="text"><![CDATA[Tehems esafox have a fox dream]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Chrome瀏覽器]]></title>
+    <url>%2F2016-12%2Fchrome%2F</url>
+    <content type="text"><![CDATA[基本上都是， 默认字符： 雅黑衬线字： 宋体无衬线字： 雅黑等宽字体： Consolas 默认16号字，最小12号字]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[GIT 常用命令]]></title>
+    <url>%2F2016-12%2Fgit%2F</url>
+    <content type="text"><![CDATA[設置设定 用户名 邮箱 12git config --global user.name Howardgit config --global user.email xxxx@gmail.com 设定代理 12git config --global http.proxy 'socks5://127.0.0.1:1080'git config --global https.proxy 'socks5://127.0.0.1:1080' 常用設定參照 https://github.com/tiimgreen/github-cheat-sheet/blob/master/README.zh-cn.md#git-配置 针对现有目录， 添加到远程123git initgit add .git commit 必須保證全部已經提交 12345git remote add origin https://xxxx@bitbucket.org/intergroup/xxxx.com.git# pushes up the repo and its refs for the first timegit push -u origin --all # pushes up any tagsgit push origin --tags 查看log1234git log --name-status -n 5 # 顯示前5條 新增、修改、删除的文件清单git log --name-only --pretty=format:"%cd %s" -6 # 顯示前6個提交，值顯示文檔，日期，說明git diff --name-only HEAD~6 HEAD # 顯示前6個提交， 修改的所有文檔 name-only 仅在提交信息后显示已修改的文件清单。 name-status 显示新增、修改、删除的文件清单。 撤销 commit123git log # 找到想要撤销到版本的idgit reset id # 完成Commit命令的撤销，但是不对代码修改进行撤销git reset –hard id #完成撤销,同时将代码恢复到前一commit_id 对应的版本 常用命令12345678git status # 查看當前狀態git add ... # 添加暫存git commit -a # 提交git push # 上傳到網絡git log -p -2 # 查看日誌git log --oneline -2 # 查看日誌git log --oneline index.php # 查看某個文檔git show 5510ed8 #查看某個文檔詳細內容 123git commit -m "add distributed" # 提交 後面必須是雙引號git branch dev # 創建分支git checkout master # 切換分支 123git merge &lt;name&gt; #合并某分支到当前分支git branch -d &lt;name&gt; #删除分支git branch #查看分支 123git push # 提交git pull # 下載并合併git fetch # 只下載 .gitignore 失效解决办法.gitignore 只能忽略那些原来没有被track的文件 解決辦法： 123git rm -r --cached .git add .git commit -m &apos;init&apos;]]></content>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[NCFTP 命令行ftp工具]]></title>
+    <url>%2F2016-12%2Fncftp%2F</url>
+    <content type="text"><![CDATA[找了好久的命令行FTP 链接到Server 1ncftp -u newdemo -p demo123qwe newdemo.080.net 列为标签，（提示保存名称， 密码） 1bookmark 设定 1set control-timeout 900 链接 bookmark 1ncftp name080]]></content>
+      <tags>
+        <tag>tools</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[cput 命令行同步上傳工具]]></title>
+    <url>%2F2016-12%2Fcput%2F</url>
+    <content type="text"><![CDATA[cput一個簡單的上傳小工具。（只能上傳，只能上傳同步目錄的文檔） 一個shell腳本，使用curl命令，通過ftp協議快捷的上傳一個或多個文檔shell腳本執行， bat腳本調用（最多9個文檔） 系統要求 git cmder 設定1234git config git-ftp.user usernamegit config git-ftp.url myweb.comgit config git-ftp.password xxxgit config git-ftp.remote-root "~/public_html/" 使用12345cput appliction\views\front\en\index.php#子目錄下上傳多個cd appliction\cput views\front\en\index.php views\front\en\layout\top\top.php 源代碼cput.bat1@sh cput.sh %1 %2 %3 %4 %5 %6 %7 %8 %9 cput.sh1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465#!/bin/shNOW_PATH="$(pwd)"REMOTE_PATH=''GIT_ROOT_PATH="$(git rev-parse --show-toplevel)"FTP_URL="$(git config --get "git-ftp.url")"FTP_USER="$(git config --get "git-ftp.user")"FTP_PASSWORD="$(git config --get "git-ftp.password")"FTP_REMOTE_ROOT="$(git config --get "git-ftp.remote-root")"# base checkif [ "$FTP_USER" = "" ];then exit 1fi# format REMOTE_ROOT# '~/public_html' to 'public_html/'if [ "$&#123;FTP_REMOTE_ROOT:0:2&#125;" == "~/" ];then FTP_REMOTE_ROOT=$&#123;FTP_REMOTE_ROOT:1&#125;fiif [ "$&#123;FTP_REMOTE_ROOT:0:1&#125;" == "/" ];then FTP_REMOTE_ROOT=$&#123;FTP_REMOTE_ROOT:1&#125;fiif ! echo "$FTP_REMOTE_ROOT" | egrep -q "/$";then FTP_REMOTE_ROOT="$FTP_REMOTE_ROOT/"fi# check path# if in subdir fix the REMOTE_PATH, ex: 'application/'GIT_ROOT_PATH="$&#123;GIT_ROOT_PATH//\\/\/&#125;"NOW_PATH="$&#123;NOW_PATH//\\/\/&#125;"GIT_ROOT_PATH=$&#123;GIT_ROOT_PATH:2&#125;NOW_PATH=$&#123;NOW_PATH:2&#125;if [ "$GIT_ROOT_PATH"x != "$NOW_PATH"x ];then STR_LEN=$&#123;#GIT_ROOT_PATH&#125; REMOTE_PATH="$&#123;NOW_PATH:STR_LEN&#125;/" REMOTE_PATH=$&#123;REMOTE_PATH:1&#125;fi# set curl argsdeclare -a CURL_ARGSCURL_ARGS=(--globoff)#CURL_ARGS+=(-#)CURL_ARGS+=(-u "$&#123;FTP_USER&#125;:$&#123;FTP_PASSWORD&#125;")CURL_ARGS+=(--ftp-create-dirs)upload_file() &#123; SRC_FILE="$&#123;1//\\/\/&#125;" DEST_FILE="$SRC_FILE" CURL_ARGS+=(-T "$&#123;SRC_FILE&#125;") CURL_ARGS+=("ftp://$FTP_URL/$&#123;FTP_REMOTE_ROOT&#125;$&#123;REMOTE_PATH&#125;$&#123;DEST_FILE&#125;") echo "Upload ... ftp://$FTP_URL/$&#123;FTP_REMOTE_ROOT&#125;$&#123;REMOTE_PATH&#125;$&#123;DEST_FILE&#125;"&#125;# run echo "---------"INT_I=0for var in $*do # check file exit if [ -f "$var" ];then upload_file $var INT_I+=1 fidoneecho "---------"if [ $INT_I -gt 0 ];then #echo "$&#123;CURL_ARGS[@]&#125;" curl "$&#123;CURL_ARGS[@]&#125;"else echo "do nothing."fi]]></content>
+      <tags>
+        <tag>tools</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[SSH KEY 登錄]]></title>
+    <url>%2F2016-12%2Fssh-key-login%2F</url>
+    <content type="text"><![CDATA[SSHkey生成的方法 12345678ssh-keygen -t rsa # 在 ~/.ssh 目录下生成 id_rsa,id_rsa.pub# 将 id_rsa.pub 加入到 远端主机 ~/.ssh/authorized_keys cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys#修改权限！！ 必须修改远端主机上 文档的权限， 否则会报错！chmod 700 .sshchmod 600 authorized_keys 配置（連接時長）本地端（客戶端）設定 在 ~.ssh\config 中添加。 实际目录是 C:\Users\Howard.ssh 12Host * ServerAliveInterval 60 每60秒会发一个KeepAlive请求 登錄時顯示信息信息1ssh -v root@diana.poikl.com 參考 http://www.cnblogs.com/dudu/archive/2013/02/07/ssh-write-failed-broken-pipe.html http://www.cyberciti.biz/faq/create-ssh-config-file-on-linux-unix/ plinkplink.exe使用private key 時，必須把通過ssh生成的private key通過 PuTTYgen.exe轉換一下 打開 puttygen 選擇 Conversions-&gt;Import key 導入 private key 點擊按鈕 Save private key scp使用private key 登錄。 1scp -C -i ~/.ssh/howard_rsa root@abc.com:/root/phpcs.phar ./ -i ~/.ssh/as_rsa 對應的private key -C 加速網絡傳輸（壓縮傳輸？）]]></content>
+      <tags>
+        <tag>ssh</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Ruby Symbol（冒號）]]></title>
+    <url>%2F2016-12%2Fruby-symbol%2F</url>
+    <content type="text"><![CDATA[經常看到下面 1my_hash = [:foo=&gt;100, :aa=&gt;"sss"] :foo 就是 Symbol 是一個唯一標示。 用作性能提升， 因為ruby中 string 是一個對象。 123:foo:"foo"#效果一樣 還有一種情況是 快速定義 123class SomeClass attr_accessor :whatever end 等價于 12345678class SomeClass def whatever @whatever end def whatever=(val) @whatever = val end end]]></content>
+      <tags>
+        <tag>ruby</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[HeidiSQL Mysql管理工具]]></title>
+    <url>%2F2016-12%2FHeidiSQL%2F</url>
+    <content type="text"><![CDATA[發現HeidiSQL最近有安裝MariaDB(開源的，MySQL的替代產品)。發現自帶一個管理MySQL的軟件HeidiSQL。抱著試試看的想法， 使用了一下。開源，可以連接多個MySQL Server， SSH隧道登錄，保存密碼等，操作還不錯。 優化它字體默認的字體以及字體大小不好看，我用的是Windows。 界面設定為【微軟雅黑】12號字。SQL編輯器設定為【Consoals】12號字。 SSH隧道登錄要自己下載plink.exe，有提供下載地址。 關於【私鑰文檔】，用linux命令下 ssh生成的普通文檔不行。 必須通過PuTTYgen.exe轉換一下。操作步驟如下： 打開 puttygen 選擇 Conversions-&gt;Import key 導入 private key 點擊按鈕 Save private key SSH隧道登錄，掉線問題打開一段時間后沒有訪問會自動掉線的問題很麻煩。自動嘗試重新連接會很慢。解決辦法：在【SSH隧道】旁邊的【高級】選項卡中，【ping間隔秒數】設定為60。（默認0，表示不進行呼叫）。這樣每隔60秒就自動和server hello 一下。就不會斷掉了。]]></content>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+</search>
