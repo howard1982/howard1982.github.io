@@ -43,7 +43,7 @@
   <entry>
     <title><![CDATA[跳轉到 https]]></title>
     <url>%2F2018-08%2Fgoto-https%2F</url>
-    <content type="text"><![CDATA[修改 .htaccess 文件 跳轉到 www 域名12RewriteCond %&#123;HTTP_HOST&#125; !^www\. [NC]RewriteRule ^(.*)$ http://www.%&#123;HTTP_HOST&#125;/$1 [R=301,L] HTTPS 跳轉12RewriteCond %&#123;HTTPS&#125; offRewriteRule ^(.*)$ https://%&#123;SERVER_NAME&#125;%&#123;REQUEST_URI&#125; [L,R=301]]]></content>
+    <content type="text"><![CDATA[修改 .htaccess 文件 跳轉到 www 域名12RewriteCond %&#123;HTTP_HOST&#125; !^www\. [NC]RewriteRule ^(.*)$ http://www.%&#123;HTTP_HOST&#125;/$1 [R=301,L] HTTPS 跳轉12RewriteCond %&#123;HTTPS&#125; offRewriteRule ^(.*)$ https://%&#123;SERVER_NAME&#125;%&#123;REQUEST_URI&#125; [L,R=301] 不含某個url，例如不包含 payback 的url 123RewriteCond %&#123;HTTPS&#125; offRewriteCond %&#123;REQUEST_URI&#125; !(payback)RewriteRule ^(.*)$ https://%&#123;SERVER_NAME&#125;%&#123;REQUEST_URI&#125; [L,R=301]]]></content>
       <tags>
         <tag>apache</tag>
       </tags>
