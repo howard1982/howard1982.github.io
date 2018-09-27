@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[hexo 部署]]></title>
     <url>%2F2018-09%2Fhexo-deploy%2F</url>
-    <content type="text"><![CDATA[安装部署到 github 需要安装 hexo-deployer-git 1npm install hexo-deployer-git --save 配置修改 _config.yml 文档 1234deploy: type: git repo: https://github.com/howard1982/howard1982.github.io.git branch: master 取消输入账号密码需要改为 ssh 登录方式同时要把 public_key 上传到github 配置 ssh12345Host github.com HostName github.com User git IdentityFile ~/.ssh/howard_rsa IdentitiesOnly yes 测试 1234ssh -T git@github.com## 或者ssh -vT git@github.com 配置 hexo修改 _config.yml 文档 1234deploy: type: git repo: git@github.com:howard1982/howard1982.github.io.git branch: master 执行123hexo deploy# orhexo d 有時候必須先生成新的文檔，然後在發佈12hexo ghexo d]]></content>
+    <content type="text"><![CDATA[安装部署到 github 需要安装 hexo-deployer-git 1npm install hexo-deployer-git --save 配置修改 _config.yml 文档 1234deploy: type: git repo: https://github.com/howard1982/howard1982.github.io.git branch: master 取消输入账号密码需要改为 ssh 登录方式同时要把 public_key 上传到github 配置 ssh12345Host github.com HostName github.com User git IdentityFile ~/.ssh/howard_rsa IdentitiesOnly yes 测试 1234ssh -T git@github.com## 或者ssh -vT git@github.com 配置 hexo修改 _config.yml 文档 1234deploy: type: git repo: git@github.com:howard1982/howard1982.github.io.git branch: master 执行123hexo deploy# orhexo d 有時候必須先生成新的文檔，然後在發佈1234hexo g d# orhexo ghexo d]]></content>
       <tags>
         <tag>ssh</tag>
         <tag>hexo</tag>
