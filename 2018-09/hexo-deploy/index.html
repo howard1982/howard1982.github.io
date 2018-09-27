@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="下載文檔12345# 下載并保存為 api.pdfcurl -o api.pdf https://r.webnic.cc/NewAPIDocument_eng.pdf# 下載并保存為 NewAPIDocument_eng.pdfcurl -O https://r.webnic.cc/NewAPIDocument_eng.pdf GET &amp;amp; POST12345# GETcurl -u use">
-<meta name="keywords" content="linux">
+  <meta name="description" content="安装部署到 github 需要安装 hexo-deployer-git 1npm install hexo-deployer-git --save 配置修改 _config.yml 文档 1234deploy:  type: git  repo: https://github.com/howard1982/howard1982.github.io.git  branch: master 取消输入账">
+<meta name="keywords" content="ssh,hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Curl命令">
-<meta property="og:url" content="http://blog.howard/2017-07/curl/index.html">
+<meta property="og:title" content="hexo 部署">
+<meta property="og:url" content="http://blog.howard/2018-09/hexo-deploy/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="下載文檔12345# 下載并保存為 api.pdfcurl -o api.pdf https://r.webnic.cc/NewAPIDocument_eng.pdf# 下載并保存為 NewAPIDocument_eng.pdfcurl -O https://r.webnic.cc/NewAPIDocument_eng.pdf GET &amp;amp; POST12345# GETcurl -u use">
+<meta property="og:description" content="安装部署到 github 需要安装 hexo-deployer-git 1npm install hexo-deployer-git --save 配置修改 _config.yml 文档 1234deploy:  type: git  repo: https://github.com/howard1982/howard1982.github.io.git  branch: master 取消输入账">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-07-04T06:37:47.649Z">
+<meta property="og:updated_time" content="2018-09-27T03:43:21.845Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Curl命令">
-<meta name="twitter:description" content="下載文檔12345# 下載并保存為 api.pdfcurl -o api.pdf https://r.webnic.cc/NewAPIDocument_eng.pdf# 下載并保存為 NewAPIDocument_eng.pdfcurl -O https://r.webnic.cc/NewAPIDocument_eng.pdf GET &amp;amp; POST12345# GETcurl -u use">
+<meta name="twitter:title" content="hexo 部署">
+<meta name="twitter:description" content="安装部署到 github 需要安装 hexo-deployer-git 1npm install hexo-deployer-git --save 配置修改 _config.yml 文档 1234deploy:  type: git  repo: https://github.com/howard1982/howard1982.github.io.git  branch: master 取消输入账">
 
 
 
 
 
 
-  <link rel="canonical" href="http://blog.howard/2017-07/curl/"/>
+  <link rel="canonical" href="http://blog.howard/2018-09/hexo-deploy/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>Curl命令 | Howard's Blog</title>
+  <title>hexo 部署 | Howard's Blog</title>
   
 
 
@@ -320,7 +320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-07/curl/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-09/hexo-deploy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Howard">
@@ -337,7 +337,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Curl命令
+          <h1 class="post-title" itemprop="name headline">hexo 部署
               
             
           </h1>
@@ -362,7 +362,7 @@
                 
               
 
-              <time title="创建时间：2017-07-04 14:35:16 / 修改时间：14:37:47" itemprop="dateCreated datePublished" datetime="2017-07-04T14:35:16+08:00">2017-07-04</time>
+              <time title="创建时间：2018-09-27 11:35:22 / 修改时间：11:43:21" itemprop="dateCreated datePublished" datetime="2018-09-27T11:35:22+08:00">2018-09-27</time>
             
 
             
@@ -400,8 +400,17 @@
       
 
       
-        <h2 id="下載文檔"><a href="#下載文檔" class="headerlink" title="下載文檔"></a>下載文檔</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下載并保存為 api.pdf</span></span><br><span class="line">curl -o api.pdf https://r.webnic.cc/NewAPIDocument_eng.pdf</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 下載并保存為 NewAPIDocument_eng.pdf</span></span><br><span class="line">curl -O https://r.webnic.cc/NewAPIDocument_eng.pdf</span><br></pre></td></tr></table></figure>
-<h2 id="GET-amp-POST"><a href="#GET-amp-POST" class="headerlink" title="GET &amp; POST"></a>GET &amp; POST</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> GET</span></span><br><span class="line">curl -u username https://api.github.com/user?access_token=XXXXXXXXXX</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> POST</span></span><br><span class="line">curl -u username --data "param1=value1&amp;param2=value" https://api.github.com</span><br></pre></td></tr></table></figure>
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>部署到 github 需要安装 hexo-deployer-git</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>修改 _config.yml 文档</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/howard1982/howard1982.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<h2 id="取消输入账号密码"><a href="#取消输入账号密码" class="headerlink" title="取消输入账号密码"></a>取消输入账号密码</h2><p>需要改为 ssh 登录方式<br>同时要把 public_key 上传到github</p>
+<h3 id="配置-ssh"><a href="#配置-ssh" class="headerlink" title="配置 ssh"></a>配置 ssh</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    User git</span><br><span class="line">    IdentityFile ~/.ssh/howard_rsa</span><br><span class="line">    IdentitiesOnly yes</span><br></pre></td></tr></table></figure>
+<p>测试</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 或者</span></span></span><br><span class="line">ssh -vT git@github.com</span><br></pre></td></tr></table></figure>
+<h3 id="配置-hexo"><a href="#配置-hexo" class="headerlink" title="配置 hexo"></a>配置 hexo</h3><p>修改 _config.yml 文档</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:howard1982/howard1982.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<h2 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -421,7 +430,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
+            <a href="/tags/ssh/" rel="tag"># ssh</a>
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
           
         </div>
       
@@ -434,8 +445,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017-06/doctrine2/" rel="next" title="Doctrine 2">
-                <i class="fa fa-chevron-left"></i> Doctrine 2
+              <a href="/2018-09/php-http/" rel="next" title="php http">
+                <i class="fa fa-chevron-left"></i> php http
               </a>
             
           </div>
@@ -443,10 +454,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017-07/jquery-prop-attr/" rel="prev" title="Jquery prop vs attr">
-                Jquery prop vs attr <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -647,7 +654,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下載文檔"><span class="nav-number">1.</span> <span class="nav-text">下載文檔</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GET-amp-POST"><span class="nav-number">2.</span> <span class="nav-text">GET &amp; POST</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取消输入账号密码"><span class="nav-number">3.</span> <span class="nav-text">取消输入账号密码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-ssh"><span class="nav-number">3.1.</span> <span class="nav-text">配置 ssh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-hexo"><span class="nav-number">3.2.</span> <span class="nav-text">配置 hexo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行"><span class="nav-number">4.</span> <span class="nav-text">执行</span></a></li></ol></div>
             
 
           </div>

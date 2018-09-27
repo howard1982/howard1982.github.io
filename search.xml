@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[hexo 部署]]></title>
+    <url>%2F2018-09%2Fhexo-deploy%2F</url>
+    <content type="text"><![CDATA[安装部署到 github 需要安装 hexo-deployer-git 1npm install hexo-deployer-git --save 配置修改 _config.yml 文档 1234deploy: type: git repo: https://github.com/howard1982/howard1982.github.io.git branch: master 取消输入账号密码需要改为 ssh 登录方式同时要把 public_key 上传到github 配置 ssh12345Host github.com HostName github.com User git IdentityFile ~/.ssh/howard_rsa IdentitiesOnly yes 测试 1234ssh -T git@github.com## 或者ssh -vT git@github.com 配置 hexo修改 _config.yml 文档 1234deploy: type: git repo: git@github.com:howard1982/howard1982.github.io.git branch: master 执行1hexo deploy]]></content>
+      <tags>
+        <tag>ssh</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[php http]]></title>
     <url>%2F2018-09%2Fphp-http%2F</url>
     <content type="text"><![CDATA[参考 PHP-Psr7-使用方法 使用 php-http 组件 说明在 PHP 有眾多的 Http Client 套件，每個使用方法都不一致 像是我們最常使用的 GuzzleHttp 它從5版及升到6版 結果連API都不一致，這確實造成了很大的困擾 所以 PHP-FIG 就提出了 PSR-7 來定義 HTTP message interfaces，並由 httplug.io 實作它 之後我們這可以利用 PSR-7 的標準來使用 cURL, Socket, Buzz, Guzzle5, Guzzle6, React，相關Adapter install12345# 安裝 psr-7composer require guzzlehttp/psr7 php-http/message# 安裝所需的 adapter （示範 GuzzleHttp 6）composer require php-http/guzzle6-adapter GET12345678910use Http\Adapter\Guzzle6\Client;use Http\Message\MessageFactory\GuzzleMessageFactory;require __DIR__.'/vendor/autoload.php';$client = new Client();$messageFactory = new GuzzleMessageFactory();$request = $messageFactory-&gt;createRequest('GET', 'https://name.080.net/domain/faq');$response = $client-&gt;sendRequest($request);echo $response-&gt;getBody()-&gt;getContents(); POST JSON替换 $request 变量 12345$request = $messageFactory-&gt;createRequest('POST', 'https://name.080.net/domain/one_off/ss/json', ['Content-Type: application/json','Accept: application/json'], json_encode(['a1'=&gt;'22','sfe'=&gt;'fff'])); 不使用Curl替换 $client 变量 1234$handler = new GuzzleHttp\Handler\StreamHandler;$client = new GuzzleHttp\Client(['handler' =&gt; $handler]);$client = new Client($client); Code1234567891011121314151617181920require "vendor/autoload.php";use Http\Adapter\Guzzle6\Client;use Http\Message\MessageFactory\GuzzleMessageFactory;$handler = new GuzzleHttp\Handler\StreamHandler;$client = new GuzzleHttp\Client(['handler' =&gt; $handler]);$client = new Client($client);$messageFactory = new GuzzleMessageFactory();$request = $messageFactory-&gt;createRequest('POST', 'https://name.080.net/domain/one_off/ss/json', ['Content-Type: application/json','Accept: application/json'], json_encode(['a1'=&gt;'22','sfe'=&gt;'fff']));$response = $client-&gt;sendRequest($request);$ss = $response-&gt;getBody()-&gt;getContents();]]></content>
