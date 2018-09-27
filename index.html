@@ -370,7 +370,7 @@
                 
               
 
-              <time title="创建时间：2018-09-27 11:35:22 / 修改时间：11:43:21" itemprop="dateCreated datePublished" datetime="2018-09-27T11:35:22+08:00">2018-09-27</time>
+              <time title="创建时间：2018-09-27 11:35:22 / 修改时间：17:52:56" itemprop="dateCreated datePublished" datetime="2018-09-27T11:35:22+08:00">2018-09-27</time>
             
 
             
@@ -420,7 +420,9 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 或者</span></span></span><br><span class="line">ssh -vT git@github.com</span><br></pre></td></tr></table></figure>
 <h3 id="配置-hexo"><a href="#配置-hexo" class="headerlink" title="配置 hexo"></a>配置 hexo</h3><p>修改 _config.yml 文档</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:howard1982/howard1982.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<h2 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<h2 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br><span class="line"># or</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>有時候必須先生成新的文檔，然後在發佈<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
+
           
         
       
