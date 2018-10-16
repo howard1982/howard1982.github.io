@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[获取 centos ip]]></title>
+    <url>%2F2018-10%2Fget-centos-ip%2F</url>
+    <content type="text"><![CDATA[shell 脚本。获取当前server IP。 适用Centos6、Centos7 、Ubuntu 123456#!/bin/baship=`/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '&#123; print $1&#125;'`if [ "$ip" = "" ];then ip=`/sbin/ifconfig eth0 | grep 'inet ' | awk '&#123;print $2&#125;'`fiecho $re]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python venv 创建虚拟环境]]></title>
     <url>%2F2018-10%2Fpython-venv%2F</url>
     <content type="text"><![CDATA[python3.3 以後自帶 venv 虚拟环境 创建虚拟环境1python -m venv venv 激活虚拟环境 linux source &lt;venv&gt;/bin/activate windows cmd &lt;venv&gt;/Scripts/activate.bat windows powershell &lt;venv&gt;/Scripts/Activate.ps1 注： 在cmder+powershell環境下，會出現錯誤提示。忽略掉即可。 测试虚拟环境激活以後，就可以直接使用 python 或 pip]]></content>
