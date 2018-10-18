@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="有些編輯器不能定義多個字體。默認的又是宋體（簡體）。 所以只能FontLink給Consolas設定中文。 註冊表位置1HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink 新增 Consolas新增 多字符串值 名稱為 Consolas 對應的內容為123456789TAHOMA.T">
+  <meta name="description" content="有些編輯器不能定義多個字體。默認的又是宋體（簡體）。 所以只能FontLink給Consolas設定中文。 註冊表位置1HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink 新增 Consolas新增 多字符串值 名稱為 Consolas 對應的內容為1234MSYH.TTC,Micr">
 <meta name="keywords" content="windows">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用fontlink解決consoles中文字體">
 <meta property="og:url" content="http://blog.howard/2016-12/windows-fontlink/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="有些編輯器不能定義多個字體。默認的又是宋體（簡體）。 所以只能FontLink給Consolas設定中文。 註冊表位置1HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink 新增 Consolas新增 多字符串值 名稱為 Consolas 對應的內容為123456789TAHOMA.T">
+<meta property="og:description" content="有些編輯器不能定義多個字體。默認的又是宋體（簡體）。 所以只能FontLink給Consolas設定中文。 註冊表位置1HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink 新增 Consolas新增 多字符串值 名稱為 Consolas 對應的內容為1234MSYH.TTC,Micr">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-01-26T02:14:30.361Z">
+<meta property="og:updated_time" content="2018-10-18T06:22:10.110Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用fontlink解決consoles中文字體">
-<meta name="twitter:description" content="有些編輯器不能定義多個字體。默認的又是宋體（簡體）。 所以只能FontLink給Consolas設定中文。 註冊表位置1HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink 新增 Consolas新增 多字符串值 名稱為 Consolas 對應的內容為123456789TAHOMA.T">
+<meta name="twitter:description" content="有些編輯器不能定義多個字體。默認的又是宋體（簡體）。 所以只能FontLink給Consolas設定中文。 註冊表位置1HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink 新增 Consolas新增 多字符串值 名稱為 Consolas 對應的內容為1234MSYH.TTC,Micr">
 
 
 
@@ -387,7 +387,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
+                <time title="修改时间：2018-10-18 14:22:10" itemprop="dateModified" datetime="2018-10-18T14:22:10+08:00">2018-10-18</time>
               
             
           </span>
@@ -423,7 +423,7 @@
         <p>有些編輯器不能定義多個字體。默認的又是宋體（簡體）。 所以只能FontLink給Consolas設定中文。</p>
 <h2 id="註冊表位置"><a href="#註冊表位置" class="headerlink" title="註冊表位置"></a>註冊表位置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink</span><br></pre></td></tr></table></figure>
 <h2 id="新增-Consolas"><a href="#新增-Consolas" class="headerlink" title="新增 Consolas"></a>新增 Consolas</h2><p>新增 <code>多字符串值</code> 名稱為 <code>Consolas</code></p>
-<p>對應的內容為<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">TAHOMA.TTF,Tahoma</span><br><span class="line">MSYH.TTC,Microsoft YaHei UI,128,96</span><br><span class="line">MSYH.TTC,Microsoft YaHei UI</span><br><span class="line">MSJH.TTC,Microsoft Jhenghei UI,128,96</span><br><span class="line">MSJH.TTC,Microsoft Jhenghei UI</span><br><span class="line">MEIRYO.TTC,Meiryo UI,128,96</span><br><span class="line">MEIRYO.TTC,Meiryo UI</span><br><span class="line">SIMSUN.TTC,SimSun</span><br><span class="line">MINGLIU.TTC,PMingLiU</span><br></pre></td></tr></table></figure></p>
+<p>對應的內容為<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MSYH.TTC,Microsoft YaHei,128,96</span><br><span class="line">MSYH.TTC,Microsoft YaHei</span><br><span class="line">MEIRYO.TTC,Meiryo UI,128,96</span><br><span class="line">MEIRYO.TTC,Meiryo UI</span><br></pre></td></tr></table></figure></p>
 <p>這裡的內容是系統自帶的 <code>Segoe UI</code> 的內容。用網絡上提供的內容，反而不美觀。</p>
 
       
