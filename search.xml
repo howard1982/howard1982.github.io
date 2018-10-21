@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[xargs 命令]]></title>
+    <url>%2F2018-10%2Fxargs%2F</url>
+    <content type="text"><![CDATA[xargs可以将输入内容（通常通过命令行管道传递），转成后续命令的参数 命令组合：尤其是一些命令不支持管道输入，比如ls 避免参数过长：xargs可以通过-nx来将参数分组，避免参数过长 例子1ls *.php | xargs -t -n3 ls -al -t 在执行后面的命令前，先将命令打印出来 nx 参数分组 结果：12345678910111213141516ls -al acc.php advhtml_new.php advhtml.php-r-------- 1 dn dn 20 Jan 1 2018 acc.php-r-------- 1 dn dn 1579 Jan 1 2018 advhtml_new.php-r-------- 1 dn dn 1579 Jan 1 2018 advhtml.phpls -al authimg.php bodyheader.php check_domain.php-r-------- 1 dn dn 369 Jan 2 2018 authimg.php-r-------- 1 dn dn 10970 Jan 2 2018 bodyheader.php-r-------- 1 dn dn 7545 Jan 2 2018 check_domain.phpls -al cooperate.php domain_click_counter.php emaildefense.php-r-------- 1 dn dn 3342 Jan 2 2018 cooperate.php-r-------- 1 dn dn 501 Jan 2 2018 domain_click_counter.php-r-------- 1 dn dn 3674 Jan 2 2018 emaildefense.phpls -al extend_domain.php feedback.php hc.php-r-------- 1 dn dn 1062 Jan 2 2018 extend_domain.php-r-------- 1 dn dn 1095 Jan 2 2018 feedback.php-r-------- 1 dn dn 6348 Jan 2 2018 hc.php 替换-I &#39;{}&#39;表示将后面命令行的{}替换成前面解析出来的参数。 123ls *.js | xargs -t -I '&#123;&#125;' mv &#123;&#125; &#123;&#125;.backup# 测试ls *.js | xargs -t -I '&#123;&#125;' ls -al &#123;&#125; 特殊文件名有的时候，文件名可能存在特殊字符，比如文件名中存在空格。 1find . -name &apos;*.css&apos; -print0 | xargs -0 -t ls -al -print0：告诉find命令，在输出文件名之后，跟上NULL字符，而不是换行符； -0：告诉xargs，以NULL作为参数分隔符；]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[获取 centos ip]]></title>
     <url>%2F2018-10%2Fget-centos-ip%2F</url>
     <content type="text"><![CDATA[shell 脚本。获取当前server IP。 适用Centos6、Centos7 、Ubuntu 123456#!/bin/baship=`/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '&#123; print $1&#125;'`if [ "$ip" = "" ];then ip=`/sbin/ifconfig eth0 | grep 'inet ' | awk '&#123;print $2&#125;'`fiecho $re]]></content>
