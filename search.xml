@@ -667,9 +667,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[htccess]]></title>
-    <url>%2F2016-12%2Fhtccess%2F</url>
-    <content type="text"><![CDATA[一般12345678Options +FollowSymLinksRewriteEngine On RewriteCond %&#123;REQUEST_FILENAME&#125; !-dRewriteRule ^(.+)/$ http://%&#123;HTTP_HOST&#125;/$1 [R=301,L] RewriteCond %&#123;REQUEST_FILENAME&#125; !-fRewriteRule ^ index.php [L] Options +FollowSymLinks 在 某些服务器配置中，mod_rewrite要求有followsymlinks，否则会显示500内部服务器错误。 禁止列出目錄1Options -Indexes 強制 www12RewriteCond %&#123;HTTP_HOST&#125; !^www\.(.*)RewriteRule (.*) http://www.%&#123;HTTP_HOST&#125;/$1 [R=301,L] 強制HTTPS12RewriteCond %&#123;HTTPS&#125; offRewriteRule ^(.*)$ https://%&#123;SERVER_NAME&#125;%&#123;REQUEST_URI&#125; [L,R]]]></content>
+    <title><![CDATA[.htaccess]]></title>
+    <url>%2F2016-12%2Fhtaccess%2F</url>
+    <content type="text"><![CDATA[.htaccess 文档 一般12345678Options +FollowSymLinksRewriteEngine On RewriteCond %&#123;REQUEST_FILENAME&#125; !-dRewriteRule ^(.+)/$ http://%&#123;HTTP_HOST&#125;/$1 [R=301,L] RewriteCond %&#123;REQUEST_FILENAME&#125; !-fRewriteRule ^ index.php [L] Options +FollowSymLinks 在 某些服务器配置中，mod_rewrite要求有followsymlinks，否则会显示500内部服务器错误。 禁止所有请求1deny from all 一般用于 vendor application 目录 禁止列出目錄1Options -Indexes 強制 www12RewriteCond %&#123;HTTP_HOST&#125; !^www\.(.*)RewriteRule (.*) http://www.%&#123;HTTP_HOST&#125;/$1 [R=301,L] 強制HTTPS12RewriteCond %&#123;HTTPS&#125; offRewriteRule ^(.*)$ https://%&#123;SERVER_NAME&#125;%&#123;REQUEST_URI&#125; [L,R]]]></content>
       <tags>
         <tag>linux</tag>
         <tag>apache</tag>
