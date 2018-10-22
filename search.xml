@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[apache log 日志回滚]]></title>
+    <url>%2F2018-10%2Fapache-log%2F</url>
+    <content type="text"><![CDATA[防止 apache log过大。 安装 rotatelogs如果 /usr/local/apache/bin/rotatelogs 不存在则安装。 12# centos 7yum install httpd-tools 配置12345#ErrorLog &quot;logs/error_log&quot;ErrorLog &quot;| /usr/local/apache/bin/rotatelogs logs/%Y_%m_%d_error_log 86400 480&quot;#CustomLog &quot;logs/access_log&quot; commonCustomLog &quot;| /usr/local/apache/bin/rotatelogs logs/%Y_%m_%d_access_log 86400 480&quot; common 86400 480 是指 每个文档先知86400秒（24小时）。480 单位是分钟，时间偏移8小时（对应时区）。]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>apache</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[du 命令]]></title>
+    <url>%2F2018-10%2Fdu%2F</url>
+    <content type="text"><![CDATA[查看目录站磁盘空间大小 例子查看某个目录下各个子目录所使用的空间。可以用在逐层查看磁盘空间。 1du -h --max-depth=1 ./ -h 显示K M G 为单位 –max-depth=1 只查询一层]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[xargs 命令]]></title>
     <url>%2F2018-10%2Fxargs%2F</url>
     <content type="text"><![CDATA[xargs可以将输入内容（通常通过命令行管道传递），转成后续命令的参数 命令组合：尤其是一些命令不支持管道输入，比如ls 避免参数过长：xargs可以通过-nx来将参数分组，避免参数过长 例子1ls *.php | xargs -t -n3 ls -al -t 在执行后面的命令前，先将命令打印出来 nx 参数分组 结果：12345678910111213141516ls -al acc.php advhtml_new.php advhtml.php-r-------- 1 dn dn 20 Jan 1 2018 acc.php-r-------- 1 dn dn 1579 Jan 1 2018 advhtml_new.php-r-------- 1 dn dn 1579 Jan 1 2018 advhtml.phpls -al authimg.php bodyheader.php check_domain.php-r-------- 1 dn dn 369 Jan 2 2018 authimg.php-r-------- 1 dn dn 10970 Jan 2 2018 bodyheader.php-r-------- 1 dn dn 7545 Jan 2 2018 check_domain.phpls -al cooperate.php domain_click_counter.php emaildefense.php-r-------- 1 dn dn 3342 Jan 2 2018 cooperate.php-r-------- 1 dn dn 501 Jan 2 2018 domain_click_counter.php-r-------- 1 dn dn 3674 Jan 2 2018 emaildefense.phpls -al extend_domain.php feedback.php hc.php-r-------- 1 dn dn 1062 Jan 2 2018 extend_domain.php-r-------- 1 dn dn 1095 Jan 2 2018 feedback.php-r-------- 1 dn dn 6348 Jan 2 2018 hc.php 替换-I &#39;{}&#39;表示将后面命令行的{}替换成前面解析出来的参数。 123ls *.js | xargs -t -I '&#123;&#125;' mv &#123;&#125; &#123;&#125;.backup# 测试ls *.js | xargs -t -I '&#123;&#125;' ls -al &#123;&#125; 特殊文件名有的时候，文件名可能存在特殊字符，比如文件名中存在空格。 1find . -name &apos;*.css&apos; -print0 | xargs -0 -t ls -al -print0：告诉find命令，在输出文件名之后，跟上NULL字符，而不是换行符； -0：告诉xargs，以NULL作为参数分隔符；]]></content>
@@ -629,7 +646,7 @@
   <entry>
     <title><![CDATA[find 命令]]></title>
     <url>%2F2016-12%2Flinux-find%2F</url>
-    <content type="text"><![CDATA[Usage1find [path...] [expression] 查找某兩個目錄，1find &#123;name080,090.net&#125;/application/&#123;config,helpers&#125;/ -type f 修改30分鐘前的 刪除1find &#123;name080,090.net&#125;/application/&#123;config,helpers&#125;/ -type f -mtime +30 -delete 查詢并修改權限1find . -name &quot;*.php&quot; | xargs chmod 640]]></content>
+    <content type="text"><![CDATA[Usage1find [path...] [expression] 查找某兩個目錄，1find &#123;name080,090.net&#125;/application/&#123;config,helpers&#125;/ -type f 修改30分鐘前的 刪除1find &#123;name080,090.net&#125;/application/&#123;config,helpers&#125;/ -type f -mtime +30 -delete 查詢并修改權限1find . -name &quot;*.php&quot; | xargs chmod 640 查询权限是777的文档1find ./ -type d -perm 777]]></content>
       <tags>
         <tag>linux</tag>
       </tags>

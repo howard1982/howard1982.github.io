@@ -324,6 +324,339 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/PHP-Excel/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016-12/PHP-Excel/" itemprop="url">
+                  PHP读取Excel
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-12-19 17:22:55" itemprop="dateCreated datePublished" datetime="2016-12-19T17:22:55+08:00">2016-12-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">$PHPReader = <span class="keyword">new</span> PHPExcel_Reader_Excel2007();</span><br><span class="line">   <span class="keyword">if</span>(!$PHPReader-&gt;canRead($filePath))&#123;</span><br><span class="line">       $PHPReader = <span class="keyword">new</span> PHPExcel_Reader_Excel5();</span><br><span class="line">       <span class="keyword">if</span>(!$PHPReader-&gt;canRead($filePath))&#123;</span><br><span class="line">           delMyFile($filePath);</span><br><span class="line">           <span class="keyword">echo</span> <span class="string">'上傳文檔錯誤'</span>;</span><br><span class="line">           <span class="keyword">exit</span>;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//建立excel对象，此时你即可以通过excel对象读取文件，也可以通过它写入文件</span></span><br><span class="line">   $PHPExcel = $PHPReader-&gt;load($filePath);</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**读取excel文件中的第一个工作表*/</span></span><br><span class="line">   $currentSheet = $PHPExcel-&gt;getSheet(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**取得最大的列号*/</span></span><br><span class="line">   $allColumn = <span class="string">'K'</span>;<span class="comment">// $currentSheet-&gt;getHighestColumn();</span></span><br><span class="line">   <span class="comment">/**取得一共有多少行*/</span></span><br><span class="line">   $allRow = <span class="number">17</span>;<span class="comment">//$currentSheet-&gt;getHighestRow();</span></span><br><span class="line"></span><br><span class="line">   $arr = <span class="keyword">array</span>();</span><br><span class="line"></span><br><span class="line">   <span class="comment">//循环读取每个单元格的内容。注意行从1开始，列从A开始</span></span><br><span class="line">   <span class="keyword">for</span>($rowIndex=<span class="number">1</span>; $rowIndex&lt;=$allRow; $rowIndex++)&#123;</span><br><span class="line">       <span class="keyword">for</span>($colIndex=<span class="string">'A'</span>;$colIndex&lt;=$allColumn;$colIndex++)&#123;</span><br><span class="line">           $addr = $colIndex.$rowIndex;</span><br><span class="line">           $cell = $currentSheet-&gt;getCell($addr)-&gt;getValue();</span><br><span class="line">           <span class="keyword">if</span>($cell <span class="keyword">instanceof</span> PHPExcel_RichText)     <span class="comment">//富文本转换字符串</span></span><br><span class="line">               $cell = $cell-&gt;__toString();</span><br><span class="line"></span><br><span class="line">           $arr[$addr] = $cell;</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/VritualBox-Install-Ubuntu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016-12/VritualBox-Install-Ubuntu/" itemprop="url">
+                  VritualBox 安裝 Ubuntu
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-12-19 17:18:23" itemprop="dateCreated datePublished" datetime="2016-12-19T17:18:23+08:00">2016-12-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>後來不再使用VirtualBox直接在Windows上使用Cmder+Git</p>
+<h2 id="基本安裝"><a href="#基本安裝" class="headerlink" title="基本安裝"></a>基本安裝</h2><ul>
+<li>检查操作系统 cpu 虚拟化已经打开。</li>
+<li>如果使用无线网络（PCI），必须安装官方驱动 </li>
+</ul>
+<p>创建虚拟主机、安装操作系统</p>
+<h2 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射"></a>端口映射</h2><p>“设置”》“网络”》“网卡1”》“高级”》“端口转发”添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Apache,    TCP,    127.0.0.1,    80,    ,    80</span><br><span class="line">SSH,    TCP,    127.0.0.1,    2222,    ,    22</span><br><span class="line">Mysql,    TCP,    127.0.0.1,    3306,    ,    3306</span><br></pre></td></tr></table></figure>
+<p>注意</p>
+<p>用xshell链接时，不能用命令行 ssh <a href="mailto:root@127.0.0.1" target="_blank" rel="noopener">root@127.0.0.1</a>:2222 鏈接。 必須新創建一個“会话”</p>
+<h2 id="共享文件"><a href="#共享文件" class="headerlink" title="共享文件"></a>共享文件</h2><ul>
+<li>“设置”》“共享文件夹” 中添加 ‘vagrant’ ‘D:\Htodcs’ 。 注意 不能勾选开机自动挂载</li>
+<li>开启虚拟主机，“设备”》“安装增强功能”会自动挂载iso到cdrom</li>
+<li>登录到操作页面， 执行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#安装相关软件</span><br><span class="line">sudo apt-get install gcc </span><br><span class="line">sudo apt-get install build-essential linux-headers-$(uname -r)</span><br><span class="line">#挂载</span><br><span class="line">sudo mount /dev/cdrom /mnt</span><br><span class="line">#执行</span><br><span class="line">sudo ./VBoxLinuxAdditions.run</span><br><span class="line">mkdir -p /vagrant</span><br><span class="line">mount -t vboxsf vagrant /vagrant</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>开机自动挂载<br>在/etc/rc.loal 加入  </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t vboxsf vagrant /vagrant</span><br></pre></td></tr></table></figure>
+<h2 id="命令行启动"><a href="#命令行启动" class="headerlink" title="命令行启动"></a>命令行启动</h2><p>创建 vbox_up.bat<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd C:\Program Files\Oracle\VirtualBox</span><br><span class="line">VBoxManage startvm &quot;ubuntu&quot; -type headless</span><br></pre></td></tr></table></figure></p>
+<p>创建 vbox_down.bat<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd C:\Program Files\Oracle\VirtualBox</span><br><span class="line">VBoxManage controlvm &quot;ubuntu&quot; acpipowerbutton</span><br></pre></td></tr></table></figure></p>
+<p>并将这两个文件加入到 环境变量 PATH 中。 这样执行 vbox_up 开启虚拟主机 。vbox_down 关闭虚拟主机<br>说明 “ubuntu” 必须有 引号， ubuntu 是创建的虚拟主机的名称</p>
+<h2 id="Ubuntu-設定"><a href="#Ubuntu-設定" class="headerlink" title="Ubuntu 設定"></a>Ubuntu 設定</h2><h3 id="Apache设定"><a href="#Apache设定" class="headerlink" title="Apache设定"></a>Apache设定</h3><p>由于使用 virtualbox 共享文件，有时候出现缓存。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### Apache 配置添加:</span></span><br><span class="line">EnableSendfile off</span><br></pre></td></tr></table></figure>
+<p>在 /etc/apache2/sites-available/000-default.conf 中加入</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory "/vagrant"&gt;  </span><br><span class="line">	Options Indexes FollowSymLinks  </span><br><span class="line">	AllowOverride All  </span><br><span class="line">	Require all granted  </span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
+<p>啟動mod_rewrite，執行以下命令 <code>sudo a2enmod rewrite</code></p>
+<h3 id="PHP设定"><a href="#PHP设定" class="headerlink" title="PHP设定"></a>PHP设定</h3><p>安装&amp;开启 mcrypt</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php-mcrypt</span><br><span class="line">sudo phpenmod mcrypt</span><br></pre></td></tr></table></figure>
+<h3 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h3><p>必须要设定权限，以及允许远程访问。 my.cnf 修改：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">bind-address</span>  = <span class="number">0.0</span>.<span class="number">0.0</span></span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/linux-sed/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1591,339 +1924,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/cput/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016-12/cput/" itemprop="url">
-                  cput 命令行同步上傳工具
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2016-12-12 17:09:02" itemprop="dateCreated datePublished" datetime="2016-12-12T17:09:02+08:00">2016-12-12</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="cput"><a href="#cput" class="headerlink" title="cput"></a>cput</h2><p>一個簡單的上傳小工具。（只能上傳，只能上傳同步目錄的文檔）</p>
-<p>一個shell腳本，使用curl命令，通過ftp協議快捷的上傳一個或多個文檔<br>shell腳本執行， bat腳本調用（最多9個文檔）</p>
-<h3 id="系統要求"><a href="#系統要求" class="headerlink" title="系統要求"></a>系統要求</h3><ul>
-<li>git</li>
-<li>cmder</li>
-</ul>
-<h2 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config git-ftp.user username</span><br><span class="line">git config git-ftp.url myweb.com</span><br><span class="line">git config git-ftp.password xxx</span><br><span class="line">git config git-ftp.remote-root "~/public_html/"</span><br></pre></td></tr></table></figure>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cput appliction\views\front\en\index.php</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>子目錄下上傳多個</span><br><span class="line">cd appliction\</span><br><span class="line">cput views\front\en\index.php views\front\en\layout\top\top.php</span><br></pre></td></tr></table></figure>
-<h2 id="源代碼"><a href="#源代碼" class="headerlink" title="源代碼"></a>源代碼</h2><h3 id="cput-bat"><a href="#cput-bat" class="headerlink" title="cput.bat"></a>cput.bat</h3><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@sh cput.sh %<span class="number">1</span> %<span class="number">2</span> %<span class="number">3</span> %<span class="number">4</span> %<span class="number">5</span> %<span class="number">6</span> %<span class="number">7</span> %<span class="number">8</span> %<span class="number">9</span></span><br></pre></td></tr></table></figure>
-<h3 id="cput-sh"><a href="#cput-sh" class="headerlink" title="cput.sh"></a>cput.sh</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/sh</span><br><span class="line">NOW_PATH="$(pwd)"</span><br><span class="line">REMOTE_PATH=''</span><br><span class="line">GIT_ROOT_PATH="$(git rev-parse --show-toplevel)"</span><br><span class="line">FTP_URL="$(git config --get "git-ftp.url")"</span><br><span class="line">FTP_USER="$(git config --get "git-ftp.user")"</span><br><span class="line">FTP_PASSWORD="$(git config --get "git-ftp.password")"</span><br><span class="line">FTP_REMOTE_ROOT="$(git config --get "git-ftp.remote-root")"</span><br><span class="line"><span class="meta">#</span> base check</span><br><span class="line">if [ "$FTP_USER" = "" ];then</span><br><span class="line">    exit 1</span><br><span class="line">fi</span><br><span class="line"><span class="meta">#</span> format REMOTE_ROOT</span><br><span class="line"><span class="meta">#</span> '~/public_html' to 'public_html/'</span><br><span class="line">if [ "$&#123;FTP_REMOTE_ROOT:0:2&#125;" == "~/" ];then</span><br><span class="line">    FTP_REMOTE_ROOT=$&#123;FTP_REMOTE_ROOT:1&#125;</span><br><span class="line">fi</span><br><span class="line">if [ "$&#123;FTP_REMOTE_ROOT:0:1&#125;" == "/" ];then</span><br><span class="line">    FTP_REMOTE_ROOT=$&#123;FTP_REMOTE_ROOT:1&#125;</span><br><span class="line">fi</span><br><span class="line">if ! echo "$FTP_REMOTE_ROOT" | egrep -q "/$";then</span><br><span class="line">    FTP_REMOTE_ROOT="$FTP_REMOTE_ROOT/"</span><br><span class="line">fi</span><br><span class="line"><span class="meta">#</span> check path</span><br><span class="line"><span class="meta">#</span> if in subdir fix the REMOTE_PATH, ex: 'application/'</span><br><span class="line">GIT_ROOT_PATH="$&#123;GIT_ROOT_PATH//\\/\/&#125;"</span><br><span class="line">NOW_PATH="$&#123;NOW_PATH//\\/\/&#125;"</span><br><span class="line">GIT_ROOT_PATH=$&#123;GIT_ROOT_PATH:2&#125;</span><br><span class="line">NOW_PATH=$&#123;NOW_PATH:2&#125;</span><br><span class="line">if [ "$GIT_ROOT_PATH"x != "$NOW_PATH"x ];then </span><br><span class="line">    STR_LEN=$&#123;#GIT_ROOT_PATH&#125;</span><br><span class="line">    REMOTE_PATH="$&#123;NOW_PATH:STR_LEN&#125;/"</span><br><span class="line">    REMOTE_PATH=$&#123;REMOTE_PATH:1&#125;</span><br><span class="line">fi</span><br><span class="line"><span class="meta">#</span> set curl args</span><br><span class="line">declare -a CURL_ARGS</span><br><span class="line">CURL_ARGS=(--globoff)</span><br><span class="line"><span class="meta">#</span>CURL_ARGS+=(-#)</span><br><span class="line">CURL_ARGS+=(-u "$&#123;FTP_USER&#125;:$&#123;FTP_PASSWORD&#125;")</span><br><span class="line">CURL_ARGS+=(--ftp-create-dirs)</span><br><span class="line">upload_file() &#123;</span><br><span class="line">    SRC_FILE="$&#123;1//\\/\/&#125;"</span><br><span class="line">    DEST_FILE="$SRC_FILE"</span><br><span class="line">    CURL_ARGS+=(-T "$&#123;SRC_FILE&#125;")</span><br><span class="line">    CURL_ARGS+=("ftp://$FTP_URL/$&#123;FTP_REMOTE_ROOT&#125;$&#123;REMOTE_PATH&#125;$&#123;DEST_FILE&#125;")</span><br><span class="line">    echo "Upload ... ftp://$FTP_URL/$&#123;FTP_REMOTE_ROOT&#125;$&#123;REMOTE_PATH&#125;$&#123;DEST_FILE&#125;"</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#</span> run </span><br><span class="line">echo "---------"</span><br><span class="line">INT_I=0</span><br><span class="line">for var in $*</span><br><span class="line">do</span><br><span class="line">    # check file exit</span><br><span class="line">    if [ -f "$var" ];then</span><br><span class="line">        upload_file $var</span><br><span class="line">        INT_I+=1</span><br><span class="line">    fi</span><br><span class="line">done</span><br><span class="line">echo "---------"</span><br><span class="line">if [ $INT_I -gt 0 ];then</span><br><span class="line">    #echo "$&#123;CURL_ARGS[@]&#125;"</span><br><span class="line">    curl "$&#123;CURL_ARGS[@]&#125;"</span><br><span class="line">else</span><br><span class="line">    echo "do nothing."</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/ssh-key-login/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016-12/ssh-key-login/" itemprop="url">
-                  SSH KEY 登錄
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2016-12-11 14:57:36" itemprop="dateCreated datePublished" datetime="2016-12-11T14:57:36+08:00">2016-12-11</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2017-01-02 17:00:01" itemprop="dateModified" datetime="2017-01-02T17:00:01+08:00">2017-01-02</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><p>key生成的方法</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa # 在 ~/.ssh 目录下生成  id_rsa,id_rsa.pub</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 将 id_rsa.pub 加入到 远端主机 ~/.ssh/authorized_keys	</span><br><span class="line">cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>修改权限！！ 必须修改远端主机上 文档的权限， 否则会报错！</span><br><span class="line">chmod 700 .ssh</span><br><span class="line">chmod 600 authorized_keys</span><br></pre></td></tr></table></figure>
-<h3 id="配置（連接時長）"><a href="#配置（連接時長）" class="headerlink" title="配置（連接時長）"></a>配置（連接時長）</h3><p>本地端（客戶端）設定 在 ~.ssh\config 中添加。 实际目录是 C:\Users\Howard.ssh</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Host *</span><br><span class="line">    ServerAliveInterval 60</span><br></pre></td></tr></table></figure>
-<p>每60秒会发一个KeepAlive请求</p>
-<h3 id="登錄時顯示信息信息"><a href="#登錄時顯示信息信息" class="headerlink" title="登錄時顯示信息信息"></a>登錄時顯示信息信息</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -v root@diana.poikl.com</span><br></pre></td></tr></table></figure>
-<h3 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h3><ul>
-<li><a href="http://www.cnblogs.com/dudu/archive/2013/02/07/ssh-write-failed-broken-pipe.html" target="_blank" rel="noopener">http://www.cnblogs.com/dudu/archive/2013/02/07/ssh-write-failed-broken-pipe.html</a></li>
-<li><a href="http://www.cyberciti.biz/faq/create-ssh-config-file-on-linux-unix/" target="_blank" rel="noopener">http://www.cyberciti.biz/faq/create-ssh-config-file-on-linux-unix/</a></li>
-</ul>
-<h2 id="plink"><a href="#plink" class="headerlink" title="plink"></a>plink</h2><p>plink.exe使用private key 時，必須把通過ssh生成的private key通過 PuTTYgen.exe轉換一下</p>
-<ul>
-<li>打開 puttygen</li>
-<li>選擇  Conversions-&gt;Import key 導入 private key</li>
-<li>點擊按鈕 Save private key</li>
-</ul>
-<h2 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h2><p>使用private key 登錄。 </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -C -i ~/.ssh/howard_rsa root@abc.com:/root/phpcs.phar ./</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>-i ~/.ssh/as_rsa</code> 對應的private key</li>
-<li><code>-C</code> 加速網絡傳輸（壓縮傳輸？）</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1971,7 +1971,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">112</span>
+                    <span class="site-state-item-count">114</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
