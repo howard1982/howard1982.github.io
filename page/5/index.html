@@ -324,6 +324,157 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-06/doctrine2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017-06/doctrine2/" itemprop="url">
+                  Doctrine 2
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-06-11 11:32:12 / 修改时间：11:41:15" itemprop="dateCreated datePublished" datetime="2017-06-11T11:32:12+08:00">2017-06-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="关联"><a href="#关联" class="headerlink" title="关联"></a>关联</h1><p>非主键，不能设定关联，<br>查询只能用嵌套Sql。例如  </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.no in (<span class="keyword">select</span> n.no <span class="keyword">from</span> AppBundle:AccountNo n <span class="keyword">where</span> n.id = <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h1><h2 id="setFirstResult"><a href="#setFirstResult" class="headerlink" title="setFirstResult"></a>setFirstResult</h2><p>偏移 相當於 offset </p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">form</span> <span class="keyword">user</span> <span class="keyword">offset</span> <span class="number">5</span> <span class="keyword">limit</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h2 id="setMaxResults"><a href="#setMaxResults" class="headerlink" title="setMaxResults"></a>setMaxResults</h2><p>相當於 limit</p>
+<h1 id="getFirstResult"><a href="#getFirstResult" class="headerlink" title="getFirstResult"></a>getFirstResult</h1><p><strong>不是</strong>返回結果， 和 setFirstResult (偏移) 對應</p>
+<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p><a href="http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/dql-doctrine-query-language.html#query-result-formats" target="_blank" rel="noopener">http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/dql-doctrine-query-language.html#query-result-formats</a></p>
+<h2 id="getResult"><a href="#getResult" class="headerlink" title="getResult"></a>getResult</h2><p>所有結果</p>
+<h2 id="getOneOrNullResult"><a href="#getOneOrNullResult" class="headerlink" title="getOneOrNullResult"></a>getOneOrNullResult</h2><p>如果不是唯一則 拋出錯誤，<br>需要和 setMaxResults(1) 搭配使用<br>如果結果不存在 返回Null</p>
+<h2 id="getSingleResult"><a href="#getSingleResult" class="headerlink" title="getSingleResult"></a>getSingleResult</h2><p>如果不是唯一則 拋出錯誤，<br>需要和 setMaxResults(1) 搭配使用<br>如果結果不存在 拋出錯誤</p>
+<h2 id="getArrayResult"><a href="#getArrayResult" class="headerlink" title="getArrayResult"></a>getArrayResult</h2><p>所有結果，返回數組<br>key 為Entity中定義的變量名稱</p>
+<h2 id="getScalarResult"><a href="#getScalarResult" class="headerlink" title="getScalarResult"></a>getScalarResult</h2><p>key 為資料庫中定義的變量名稱</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-05/osk/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1665,149 +1816,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-02/doctrine1-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017-02/doctrine1-2/" itemprop="url">
-                  doctrine 1.2
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-02-13 10:22:00 / 修改时间：10:56:55" itemprop="dateCreated datePublished" datetime="2017-02-13T10:22:00+08:00">2017-02-13</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Doctrine 1.2 的一些操作</p>
-<h2 id="Delete-批量刪除"><a href="#Delete-批量刪除" class="headerlink" title="Delete 批量刪除"></a>Delete 批量刪除</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Doctrine_Query::create()</span><br><span class="line">    -&gt;delete(<span class="string">'User'</span>)</span><br><span class="line">    -&gt;where(<span class="string">'address_id = ?'</span>, <span class="number">11</span>)</span><br><span class="line">    -&gt;execute();</span><br></pre></td></tr></table></figure>
-<h2 id="Insert-批量增加"><a href="#Insert-批量增加" class="headerlink" title="Insert 批量增加"></a>Insert 批量增加</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$i = <span class="number">0</span>;</span><br><span class="line">$p = <span class="keyword">new</span> Doctrine_Collection(<span class="string">'User'</span>);</span><br><span class="line"><span class="keyword">foreach</span> ($ids <span class="keyword">as</span> $id) &#123;</span><br><span class="line">    $p[$i]-&gt;product_id = $id;</span><br><span class="line">    $p[$i]-&gt;download_id = <span class="keyword">$this</span>-&gt;id;</span><br><span class="line"></span><br><span class="line">    $i++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$p-&gt;save();</span><br></pre></td></tr></table></figure>
-<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a href="http://doctrine.readthedocs.io/en/latest/en/index.html" target="_blank" rel="noopener">http://doctrine.readthedocs.io/en/latest/en/index.html</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1855,7 +1863,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">114</span>
+                    <span class="site-state-item-count">115</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1950,7 +1958,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">40</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">42</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
