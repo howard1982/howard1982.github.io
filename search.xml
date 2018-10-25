@@ -12,7 +12,7 @@
   <entry>
     <title><![CDATA[du 命令]]></title>
     <url>%2F2018-10%2Fdu%2F</url>
-    <content type="text"><![CDATA[查看目录站磁盘空间大小 例子查看某个目录下各个子目录所使用的空间。可以用在逐层查看磁盘空间。 1du -h --max-depth=1 ./ -h 显示K M G 为单位 –max-depth=1 只查询一层]]></content>
+    <content type="text"><![CDATA[查看目录站磁盘空间大小 例子查看某个目录下各个子目录所使用的空间。可以用在逐层查看磁盘空间。 123du -hd 1# ordu -h --max-depth=1 ./ -h 显示K M G 为单位 –max-depth=1 只查询一层]]></content>
       <tags>
         <tag>linux</tag>
       </tags>
@@ -559,8 +559,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[gerp命令]]></title>
-    <url>%2F2016-12%2Flinux-gerp%2F</url>
+    <title><![CDATA[grep命令]]></title>
+    <url>%2F2016-12%2Flinux-grep%2F</url>
     <content type="text"><![CDATA[用于查找 Usage：1grep [OPTION]... PATTERN [FILE]... 递归查找1grep -irn &quot;*-1&quot; . i 不区分大小写 r 递归 n 显示行号 只搜索htm結尾的文檔，1grep -rl &quot;*-1&quot; --include=&quot;*.htm&quot; ./ l 只顯示名稱]]></content>
       <tags>
         <tag>linux</tag>
@@ -646,7 +646,7 @@
   <entry>
     <title><![CDATA[find 命令]]></title>
     <url>%2F2016-12%2Flinux-find%2F</url>
-    <content type="text"><![CDATA[Usage1find [path...] [expression] 查找某兩個目錄，1find &#123;name080,090.net&#125;/application/&#123;config,helpers&#125;/ -type f 修改30分鐘前的 刪除1find &#123;name080,090.net&#125;/application/&#123;config,helpers&#125;/ -type f -mtime +30 -delete 查詢并修改權限1find . -name &quot;*.php&quot; | xargs chmod 640 查询权限是777的文档1find ./ -type d -perm 777]]></content>
+    <content type="text"><![CDATA[Usage1find [path...] [expression] 查找某兩個目錄，1find &#123;name080,090.net&#125;/application/&#123;config,helpers&#125;/ -type f 修改30分鐘前的 刪除1find &#123;name080,090.net&#125;/application/&#123;config,helpers&#125;/ -type f -mtime +30 -delete 查詢并修改權限1find . -name &quot;*.php&quot; | xargs chmod 640 查询权限是777的文档1find ./ -type d -perm 777 刪除亂碼或特殊文字命名的文檔1234567# 獲取 inode numberls -il# 刪除文檔find . -inum 2890693 -delete# 刪除目錄find . -inum 1367 -exec rm -rf &#123;&#125; \;]]></content>
       <tags>
         <tag>linux</tag>
       </tags>
