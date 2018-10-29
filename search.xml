@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[cpanel 设置 DKIM]]></title>
+    <url>%2F2018-10%2Fcpanel-dkim%2F</url>
+    <content type="text"><![CDATA[在Cpanel中 开启 DKIM 认证。 你会得到： 1default._domainkey 14400 IN TXT &quot;v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuEPKF+B2vVgcYXItl03aLOXJgBmQ6V3KzG/cnA4uc7IWkHpH1F3slXpSlUtR2jTqFCEUqKKJ3/0NExrsWoncANpLBtKNpi/xX9XGSLBpN1/Ukua5iLQtcdSnApuuyxY/8wpAQYBb5oB7TRAUVxp7XrDpv7eEfMOfe8m1kMjvOX+qEqugSyJ2qxH6n6JfOs9QE&quot; rjrBupqUkIt1Y4qB9pyzog7PF4ls3JsP7F6ZfrMY+kJbFlp1NTOF7Ws199K7hwcvb8NhZP60JGDwGHq8NZJHosvIaZoECfpdSLrqoJownCum80kgjSfCRBKboZ2TvD/q41CYyTVcV/ODcaWhhjG8wIDAQAB\; 如果在其他 DNS 设定txt记录。 应该是 default._domainkey 对应： 1v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuEPKF+B2vVgcYXItl03aLOXJgBmQ6V3KzG/cnA4uc7IWkHpH1F3slXpSlUtR2jTqFCEUqKKJ3/0NExrsWoncANpLBtKNpi/xX9XGSLBpN1/Ukua5iLQtcdSnApuuyxY/8wpAQYBb5oB7TRAUVxp7XrDpv7eEfMOfe8m1kMjvOX+qEqugSyJ2qxH6n6JfOs9QErjrBupqUkIt1Y4qB9pyzog7PF4ls3JsP7F6ZfrMY+kJbFlp1NTOF7Ws199K7hwcvb8NhZP60JGDwGHq8NZJHosvIaZoECfpdSLrqoJownCum80kgjSfCRBKboZ2TvD/q41CYyTVcV/ODcaWhhjG8wIDAQAB 去除开头的 &quot; 双引号 去除中间的 &quot; 双引号+空格 去除结尾的 \; 斜线+分号]]></content>
+      <tags>
+        <tag>cpanel</tag>
+        <tag>mail</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[mysql sql 語句]]></title>
     <url>%2F2018-10%2Fmysql-sql%2F</url>
     <content type="text"><![CDATA[distinct 去除重複1select distinct email from member HAVING 語句配合 GROUP BY 使用。在WHERE語句執行完，把資料讀入內存后，再次過濾。 12SELECT m.email, COUNT(m.email) AS cc FROM member AS m WHERE m.age &gt; 10 GROUP BY m.emailHAVING cc &gt; 1 以上SQL可看為2步驟 1234/* 第一步 過濾數據并讀取到內容，并計算 count */SELECT m.email, COUNT(m.email) AS cc FROM member AS m WHERE m.age &gt; 10 GROUP BY m.email/* 第二步 在以上結果的基礎上進行過濾*/HAVING cc &gt; 1]]></content>
