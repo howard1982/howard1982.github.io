@@ -324,6 +324,168 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-05/php-pdo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018-05/php-pdo/" itemprop="url">
+                  PHP PDO 操作
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-05-29 16:21:53" itemprop="dateCreated datePublished" datetime="2018-05-29T16:21:53+08:00">2018-05-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-29 18:14:02" itemprop="dateModified" datetime="2018-08-29T18:14:02+08:00">2018-08-29</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="連接"><a href="#連接" class="headerlink" title="連接"></a>連接</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$dbh = <span class="keyword">new</span> PDO(<span class="string">'mysql:dbname=db;host=localhost'</span>, <span class="string">'root'</span>, <span class="string">'password'</span>);</span><br></pre></td></tr></table></figure>
+<p>or</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$dsn = <span class="string">'mysql:dbname=db;host=localhost'</span>;</span><br><span class="line">$user = <span class="string">'root'</span>;</span><br><span class="line">$password = <span class="string">'password'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    $dbh = <span class="keyword">new</span> PDO($dsn, $user, $password);</span><br><span class="line">&#125; <span class="keyword">catch</span> (PDOException $e) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'Connection failed: '</span> . $e-&gt;getMessage();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="设定只显示-key"><a href="#设定只显示-key" class="headerlink" title="设定只显示 key"></a>设定只显示 key</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$dbh-&gt;setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);</span><br></pre></td></tr></table></figure>
+<h2 id="query-和-prepare-区别"><a href="#query-和-prepare-区别" class="headerlink" title="query 和 prepare 区别"></a>query 和 prepare 区别</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$sth = $dbh-&gt;query($sql);</span><br><span class="line"><span class="comment"># 等同于</span></span><br><span class="line">$sth = $dbh-&gt;prepare($sql);</span><br><span class="line">$sth-&gt;execute();</span><br></pre></td></tr></table></figure>
+<h2 id="获取结果"><a href="#获取结果" class="headerlink" title="获取结果"></a>获取结果</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>($row = $sth-&gt;fetch()) &#123;</span><br><span class="line">    print_r($row);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line"><span class="keyword">foreach</span>($sth-&gt;fetchAll() <span class="keyword">as</span> $row) &#123;</span><br><span class="line">    print_r($row);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="PDOStatement-execute"><a href="#PDOStatement-execute" class="headerlink" title="PDOStatement::execute"></a>PDOStatement::execute</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$sth = $dbh-&gt;prepare(<span class="string">"update icrm_contact set email2 = ? where id = ?"</span>);</span><br><span class="line">$sth-&gt;execute(<span class="keyword">array</span>($email, $id));</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$sth = $dbh-&gt;prepare(<span class="string">"update icrm_contact set email2 = ? where id = ?"</span>);</span><br><span class="line">$sth-&gt;bindValue(<span class="number">1</span>, <span class="string">'howard@080.net'</span>);</span><br><span class="line">$sth-&gt;bindValue(<span class="number">2</span>, <span class="string">'1'</span>);</span><br><span class="line">$sth-&gt;execute();</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$sth = $dbh-&gt;prepare(<span class="string">"update icrm_contact set email2 = :email where id = :id"</span>);</span><br><span class="line">$sth-&gt;bindValue(<span class="string">':email'</span>, <span class="string">'howard@080.net'</span>);</span><br><span class="line">$sth-&gt;bindValue(<span class="string">':id'</span>, <span class="string">'1'</span>);</span><br><span class="line">$sth-&gt;execute();</span><br></pre></td></tr></table></figure>
+<h2 id="PDOStatement-bindValue"><a href="#PDOStatement-bindValue" class="headerlink" title="PDOStatement::bindValue"></a>PDOStatement::bindValue</h2><p>把一个值绑定到一个参数， 例如 把 <a href="mailto:`howard@080.net" target="_blank" rel="noopener">`howard@080.net</a><code>綁定到</code>:email`</p>
+<h2 id="PDOStatement-bindParam"><a href="#PDOStatement-bindParam" class="headerlink" title="PDOStatement::bindParam"></a>PDOStatement::bindParam</h2><p>绑定一个参数到指定的变量名，例如 把 <code>$email</code> 這個變量 綁定到 <code>:email</code>。<br>當保存多個的時候 直接修改 <code>$email</code> 對應的值。然後執行<code>$sth-&gt;execute()</code> 就可以了。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-05/openssl/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1659,151 +1821,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-10/ufw/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017-10/ufw/" itemprop="url">
-                  ufw 防火墙管理工具
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-10-21 20:07:09 / 修改时间：20:10:03" itemprop="dateCreated datePublished" datetime="2017-10-21T20:07:09+08:00">2017-10-21</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>ufw是一个主机端的iptables类防火墙配置工具</p>
-<h2 id="一般使用"><a href="#一般使用" class="headerlink" title="一般使用"></a>一般使用</h2><ul>
-<li>启用 <code>ufw enable</code></li>
-<li>关闭 <code>ufw disable</code></li>
-<li>查看防火墙状态 <code>fw status</code></li>
-</ul>
-<h2 id="开启-禁用相应端口或服务举例"><a href="#开启-禁用相应端口或服务举例" class="headerlink" title="开启/禁用相应端口或服务举例"></a>开启/禁用相应端口或服务举例</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ufw allow 80 #允许外部访问80端口</span><br><span class="line">ufw delete allow 80 #禁止外部访问80 端口</span><br><span class="line">ufw allow from 192.168.1.1 #允许此IP访问所有的本机端口</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1851,7 +1868,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">116</span>
+                    <span class="site-state-item-count">117</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
