@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[cpanel-awstats]]></title>
+    <url>%2F2018-11%2Fcpanel-awstats%2F</url>
+    <content type="text"><![CDATA[目的：不登錄cpanel的情況下，讓客戶可以訪問awstats。 以下先說操作步驟，最後在回復原因。 步驟 創建子域名設定獨立目錄 c.xxx.com 下載awstats-7.7.tar.gz 接下wwwroot目錄下的 cgi-bin icon 目錄 到 c.xxx.com 目錄下（根據實際情況 修改icon名稱） 複製~/tmp/awstats/ssl下conf文檔到~/c.xxx.com/cgi-bin/。 登錄到cpanel 在目錄隱私權 對 c.xxx.com目錄添加訪問用賬號密碼 FAQ為什麼要新建子域名Cpanel 手動增加http-basic認證失敗，只能利用panel 的目錄隱私權功能。 為什麼不用cronb程序定期讀取log文檔這裡是直接讀取的cpanel的配置文檔，cpanel自動個讀取。]]></content>
+      <tags>
+        <tag>cpanel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[cpanel 發送Mail 到 hinet信箱 失敗]]></title>
+    <url>%2F2018-11%2Fcpanel-hinet-mail%2F</url>
+    <content type="text"><![CDATA[最近出現一個問題。 cpanel發送Mail到hinet信箱會被列入垃圾信箱。 比對了其他的Mail Server發送的信件。發現 Cpanel 的mail中多了很多X-AntiAbuse開頭的Mail Header。 解決辦法 去掉 Mail Header 編輯 /etc/exim.conf 。 注釋掉所有 headers_add = &quot;${perl{mailtrapheaders}}&quot; 。 重啟exim]]></content>
+      <tags>
+        <tag>cpanel</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[mysql sql-mode]]></title>
     <url>%2F2018-10%2Fmysql-sql-mode%2F</url>
     <content type="text"><![CDATA[Mysql執行Sql語句時出現不兼容的問題一般情況下是 默認的 sql-mode 不一樣了。 只要修改sql-mode就可以了。 /etc/my.cnf 中增加 sql-mode=&quot;NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&quot; 詳見 mysqld_sql-mode]]></content>

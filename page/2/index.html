@@ -324,6 +324,321 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-09/hexo-deploy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018-09/hexo-deploy/" itemprop="url">
+                  hexo 部署
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-27 11:35:22" itemprop="dateCreated datePublished" datetime="2018-09-27T11:35:22+08:00">2018-09-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-02 17:14:07" itemprop="dateModified" datetime="2018-10-02T17:14:07+08:00">2018-10-02</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>部署到 github 需要安装 hexo-deployer-git</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>修改 _config.yml 文档</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/howard1982/howard1982.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<h2 id="取消输入账号密码"><a href="#取消输入账号密码" class="headerlink" title="取消输入账号密码"></a>取消输入账号密码</h2><p>需要改为 ssh 登录方式<br>同时要把 public_key 上传到github</p>
+<h3 id="配置-ssh"><a href="#配置-ssh" class="headerlink" title="配置 ssh"></a>配置 ssh</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    User git</span><br><span class="line">    IdentityFile ~/.ssh/howard_rsa</span><br><span class="line">    IdentitiesOnly yes</span><br></pre></td></tr></table></figure>
+<p>测试</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 或者</span></span></span><br><span class="line">ssh -vT git@github.com</span><br></pre></td></tr></table></figure>
+<h3 id="配置-hexo"><a href="#配置-hexo" class="headerlink" title="配置 hexo"></a>配置 hexo</h3><p>修改 _config.yml 文档</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:howard1982/howard1982.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<h2 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br><span class="line"># or</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>有時候必須先生成新的文檔，然後在發佈</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-09/php-http/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018-09/php-http/" itemprop="url">
+                  php http
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-10 18:10:01 / 修改时间：18:16:45" itemprop="dateCreated datePublished" datetime="2018-09-10T18:10:01+08:00">2018-09-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>参考 <a href="https://recca0120.github.io/2017/04/03/PHP-Psr7-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" target="_blank" rel="noopener">PHP-Psr7-使用方法</a></p>
+<p>使用 php-http 组件</p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>在 PHP 有眾多的 Http Client 套件，每個使用方法都不一致</p>
+<p>像是我們最常使用的 GuzzleHttp 它從5版及升到6版</p>
+<p>結果連API都不一致，這確實造成了很大的困擾</p>
+<p>所以 PHP-FIG 就提出了 PSR-7 來定義 HTTP message interfaces，並由 httplug.io 實作它</p>
+<p>之後我們這可以利用 PSR-7 的標準來使用 cURL, Socket, Buzz, Guzzle5, Guzzle6, React，相關Adapter</p>
+<h2 id="install"><a href="#install" class="headerlink" title="install"></a>install</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安裝 psr-7</span></span><br><span class="line">composer require guzzlehttp/psr7 php-http/message</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安裝所需的 adapter （示範 GuzzleHttp 6）</span></span><br><span class="line">composer require php-http/guzzle6-adapter</span><br></pre></td></tr></table></figure>
+<h2 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Http</span>\<span class="title">Adapter</span>\<span class="title">Guzzle6</span>\<span class="title">Client</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Http</span>\<span class="title">Message</span>\<span class="title">MessageFactory</span>\<span class="title">GuzzleMessageFactory</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">require</span> <span class="keyword">__DIR__</span>.<span class="string">'/vendor/autoload.php'</span>;</span><br><span class="line"></span><br><span class="line">$client = <span class="keyword">new</span> Client();</span><br><span class="line">$messageFactory = <span class="keyword">new</span> GuzzleMessageFactory();</span><br><span class="line">$request = $messageFactory-&gt;createRequest(<span class="string">'GET'</span>, <span class="string">'https://name.080.net/domain/faq'</span>);</span><br><span class="line">$response = $client-&gt;sendRequest($request);</span><br><span class="line"><span class="keyword">echo</span> $response-&gt;getBody()-&gt;getContents();</span><br></pre></td></tr></table></figure>
+<h2 id="POST-JSON"><a href="#POST-JSON" class="headerlink" title="POST JSON"></a>POST JSON</h2><p>替换 $request 变量</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$request = $messageFactory-&gt;createRequest(<span class="string">'POST'</span>,</span><br><span class="line">    <span class="string">'https://name.080.net/domain/one_off/ss/json'</span>,</span><br><span class="line">    [<span class="string">'Content-Type: application/json'</span>,<span class="string">'Accept: application/json'</span>],</span><br><span class="line">    json_encode([<span class="string">'a1'</span>=&gt;<span class="string">'22'</span>,<span class="string">'sfe'</span>=&gt;<span class="string">'fff'</span>])</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="不使用Curl"><a href="#不使用Curl" class="headerlink" title="不使用Curl"></a>不使用Curl</h2><p>替换 $client 变量</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$handler = <span class="keyword">new</span> GuzzleHttp\Handler\StreamHandler;</span><br><span class="line">$client = <span class="keyword">new</span> GuzzleHttp\Client([<span class="string">'handler'</span> =&gt; $handler]);</span><br><span class="line"></span><br><span class="line">$client = <span class="keyword">new</span> Client($client);</span><br></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">"vendor/autoload.php"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Http</span>\<span class="title">Adapter</span>\<span class="title">Guzzle6</span>\<span class="title">Client</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Http</span>\<span class="title">Message</span>\<span class="title">MessageFactory</span>\<span class="title">GuzzleMessageFactory</span>;</span><br><span class="line"></span><br><span class="line">$handler = <span class="keyword">new</span> GuzzleHttp\Handler\StreamHandler;</span><br><span class="line">$client = <span class="keyword">new</span> GuzzleHttp\Client([<span class="string">'handler'</span> =&gt; $handler]);</span><br><span class="line"></span><br><span class="line">$client = <span class="keyword">new</span> Client($client);</span><br><span class="line">$messageFactory = <span class="keyword">new</span> GuzzleMessageFactory();</span><br><span class="line"></span><br><span class="line">$request = $messageFactory-&gt;createRequest(<span class="string">'POST'</span>,</span><br><span class="line">    <span class="string">'https://name.080.net/domain/one_off/ss/json'</span>,</span><br><span class="line">    [<span class="string">'Content-Type: application/json'</span>,<span class="string">'Accept: application/json'</span>],</span><br><span class="line">    json_encode([<span class="string">'a1'</span>=&gt;<span class="string">'22'</span>,<span class="string">'sfe'</span>=&gt;<span class="string">'fff'</span>])</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">$response = $client-&gt;sendRequest($request);</span><br><span class="line"></span><br><span class="line">$ss =  $response-&gt;getBody()-&gt;getContents();</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-09/http-header/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1466,300 +1781,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-06/monolog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018-06/monolog/" itemprop="url">
-                  Monolog
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-27 17:50:59 / 修改时间：17:53:42" itemprop="dateCreated datePublished" datetime="2018-06-27T17:50:59+08:00">2018-06-27</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Monolog 注册为系统Error错误管理</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Logger</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Handler</span>\<span class="title">StreamHandler</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">ErrorHandler</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Formatter</span>\<span class="title">LineFormatter</span>;</span><br><span class="line"></span><br><span class="line">$handler = <span class="keyword">new</span> StreamHandler(VARPATH.<span class="string">'/log/'</span>.date(<span class="string">"Ym"</span>).<span class="string">'.log'</span>, Logger::WARNING);</span><br><span class="line"></span><br><span class="line">$lineFormatter = <span class="keyword">new</span> LineFormatter();</span><br><span class="line">$lineFormatter-&gt; includeStacktraces(); <span class="comment">// 记录错误并追溯 debug_backtrace</span></span><br><span class="line">$handler-&gt;setFormatter($lineFormatter);</span><br><span class="line"></span><br><span class="line">$logger = <span class="keyword">new</span> Logger(<span class="string">'system'</span>);</span><br><span class="line">$logger-&gt;pushHandler($handler);</span><br><span class="line"></span><br><span class="line">ErrorHandler::register($logger); <span class="comment">// 注册为系统Error管理</span></span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-06/install-python/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018-06/install-python/" itemprop="url">
-                  安装Python3
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-23 16:33:47 / 修改时间：16:38:38" itemprop="dateCreated datePublished" datetime="2018-06-23T16:33:47+08:00">2018-06-23</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>WEB用PHP</li>
-<li>其他用Python</li>
-<li>特殊情况用Go</li>
-</ul>
-<h2 id="安装-Python3"><a href="#安装-Python3" class="headerlink" title="安装 Python3"></a>安装 Python3</h2><ul>
-<li>尽量用 yum 或 apt 利用现有资料安装python3</li>
-<li>其次在用编译的方式安装</li>
-</ul>
-<h3 id="Centos-安装-python3"><a href="#Centos-安装-python3" class="headerlink" title="Centos 安装 python3"></a>Centos 安装 python3</h3><ul>
-<li><code>yum install epel-release</code></li>
-<li><code>yum serach python3</code></li>
-<li><code>yum install python3</code></li>
-</ul>
-<h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h3><p>Ubunut 16 以后默认自带Python3 可以直接使用 <code>/usr/bin/python3</code></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1807,7 +1828,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">117</span>
+                    <span class="site-state-item-count">119</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
