@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Outlook 2016 设定]]></title>
+    <url>%2F2018-11%2Foutlook2016%2F</url>
+    <content type="text"><![CDATA[很客户使用 Outlook。所以作为维护人员，一些设定比较难找，但也得知道。 查看&amp;修改SMTP等连接属性这个隐藏的太深了 :( 。操作步骤如下： 文件 》 选项 》 高级 》 发送和接收 》 编辑 》 “选择某个邮箱账号” 》 账号属性 》 高级 查看 Mail header 要双击邮件，在独立的窗口打开这个邮件。 文件 》 属性 》 Internet 邮件头]]></content>
+      <tags>
+        <tag>outlook</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[cpanel-awstats]]></title>
     <url>%2F2018-11%2Fcpanel-awstats%2F</url>
-    <content type="text"><![CDATA[目的：不登錄cpanel的情況下，讓客戶可以訪問awstats。 以下先說操作步驟，最後在回復原因。 步驟 創建子域名設定獨立目錄 c.xxx.com 下載awstats-7.7.tar.gz 接下wwwroot目錄下的 cgi-bin icon 目錄 到 c.xxx.com 目錄下（根據實際情況 修改icon名稱） 複製~/tmp/awstats/ssl下conf文檔到~/c.xxx.com/cgi-bin/。 登錄到cpanel 在目錄隱私權 對 c.xxx.com目錄添加訪問用賬號密碼 FAQ為什麼要新建子域名Cpanel 手動增加http-basic認證失敗，只能利用panel 的目錄隱私權功能。 為什麼不用cronb程序定期讀取log文檔這裡是直接讀取的cpanel的配置文檔，cpanel自動個讀取。]]></content>
+    <content type="text"><![CDATA[目的：不登錄cpanel的情況下，讓客戶可以訪問awstats。 以下先說操作步驟，最後在回復原因。 步驟 創建子域名設定獨立目錄 c.xxx.com 下載awstats-7.7.tar.gz 接下wwwroot目錄下的 cgi-bin icon 目錄 到 c.xxx.com 目錄下（根據實際情況 修改icon名稱） 複製~/tmp/awstats/ssl下conf文檔到~/c.xxx.com/cgi-bin/。 登錄到cpanel 在目錄隱私權 對 c.xxx.com目錄添加訪問用賬號密碼 FAQ為什麼要新建子域名Cpanel 手動增加http-basic認證失敗，只能利用panel 的目錄隱私權功能。 為什麼不用cronb程序定期讀取log文檔這裡是直接讀取的cpanel的配置文檔，cpanel自動個讀取。 為什麼讀取 ~/tmp/awstats/ssl 而不是 ~/tmp/awstats/ 下的config 文檔已經設定了 http 自動跳轉到https]]></content>
       <tags>
         <tag>cpanel</tag>
       </tags>

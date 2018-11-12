@@ -324,6 +324,157 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-12/php-error/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017-12/php-error/" itemprop="url">
+                  php 錯誤處理
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-12-05 14:23:07 / 修改时间：16:51:19" itemprop="dateCreated datePublished" datetime="2017-12-05T14:23:07+08:00">2017-12-05</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="打印錯誤"><a href="#打印錯誤" class="headerlink" title="打印錯誤"></a>打印錯誤</h2><p>直接在頁面輸出錯誤報告</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">display_errors = On</span><br><span class="line">error_reporting = E_ALL &amp; ~E_DEPRECATED</span><br></pre></td></tr></table></figure>
+<ul>
+<li>display_errors 是否打開顯示錯誤報告</li>
+<li>error_reporting 輸出錯誤等級</li>
+</ul>
+<h2 id="保存錯誤"><a href="#保存錯誤" class="headerlink" title="保存錯誤"></a>保存錯誤</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">log_errors = On</span><br><span class="line">log_errors_max_len = 1024</span><br><span class="line">error_log = error_log</span><br></pre></td></tr></table></figure>
+<ul>
+<li>log_errors 是否存儲</li>
+<li>log_errors_max_len 每個錯誤報告長度， 0 表示錯誤報告所有內容</li>
+<li>error_log 錯誤報告的位置， <code>error_log</code> 表示執行文檔的目錄下。 也可以是絕對路徑。例如 <code>/var/log/php_error_log</code></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-12/sar/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1714,153 +1865,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-07/redis/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017-07/redis/" itemprop="url">
-                  Redis
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-07-16 14:49:40 / 修改时间：14:50:02" itemprop="dateCreated datePublished" datetime="2017-07-16T14:49:40+08:00">2017-07-16</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="開發"><a href="#開發" class="headerlink" title="開發"></a>開發</h2><p>apt install build-essential</p>
-<h2 id="redis-可以存儲為-hash"><a href="#redis-可以存儲為-hash" class="headerlink" title="redis  可以存儲為 hash"></a>redis  可以存儲為 hash</h2><p><a href="http://www.redis.cn/topics/data-types-intro.html#hashes" target="_blank" rel="noopener">http://www.redis.cn/topics/data-types-intro.html#hashes</a></p>
-<h2 id="自動計數"><a href="#自動計數" class="headerlink" title="自動計數"></a>自動計數</h2><p>set counter 100</p>
-<p>incr counter</p>
-<h1 id="存入磁盤"><a href="#存入磁盤" class="headerlink" title="存入磁盤"></a>存入磁盤</h1><p><a href="http://www.cnblogs.com/meitian/p/5209877.html" target="_blank" rel="noopener">http://www.cnblogs.com/meitian/p/5209877.html</a></p>
-<h1 id="多實例（資料庫）"><a href="#多實例（資料庫）" class="headerlink" title="多實例（資料庫）"></a>多實例（資料庫）</h1><p><a href="http://www.cnblogs.com/super-d2/p/3855229.html" target="_blank" rel="noopener">http://www.cnblogs.com/super-d2/p/3855229.html</a></p>
-<h1 id="更多配置"><a href="#更多配置" class="headerlink" title="更多配置"></a>更多配置</h1><p><a href="http://www.cnblogs.com/cxd4321/archive/2012/12/14/2817669.html" target="_blank" rel="noopener">http://www.cnblogs.com/cxd4321/archive/2012/12/14/2817669.html</a></p>
-<h1 id="比較-MongoDB"><a href="#比較-MongoDB" class="headerlink" title="比較 MongoDB"></a>比較 MongoDB</h1><p><a href="http://blog.csdn.net/dodolzg/article/details/43865241" target="_blank" rel="noopener">http://blog.csdn.net/dodolzg/article/details/43865241</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1908,7 +1912,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">119</span>
+                    <span class="site-state-item-count">120</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2009,7 +2013,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">43</span>
+                      
+                    
+                    <span class="site-state-item-count">44</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
