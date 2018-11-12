@@ -441,7 +441,7 @@
   <entry>
     <title><![CDATA[R1soft 備份失敗]]></title>
     <url>%2F2017-02%2Fr1soft%2F</url>
-    <content type="text"><![CDATA[錯誤訊息提示要執行r1soft-setup --get-module.但是報錯：kernel的版本信息和kernel-devel 版本對不上。 所以一次執行： yum install kernel-devel-$(uname -r) r1soft-setup –get-module –no-binary /etc/init.d/cdp-agent restart 參考：http://www.mickgenie.com/r1soft-replication-driver-missing/]]></content>
+    <content type="text"><![CDATA[安裝錯誤錯誤訊息提示要執行r1soft-setup --get-module.但是報錯：kernel的版本信息和kernel-devel 版本對不上。 所以一次執行： yum install kernel-devel-$(uname -r) r1soft-setup –get-module –no-binary /etc/init.d/cdp-agent restart 參考 更新Server Key都安裝好之後，要記得在 Agent 端將 Server 端的 Key 複製 1serverbackup-setup --get-key [Manager_URL] 例如：1234# 執行serverbackup-setup --get-key http://r1back.abc.com/public_info# 會顯示Key ‘r1back.abc.com’ successfully installed 參考]]></content>
       <tags>
         <tag>linux</tag>
       </tags>
