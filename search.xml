@@ -46,7 +46,7 @@
     <url>%2F2018-10%2Fmysql-sql%2F</url>
     <content type="text"><![CDATA[distinct 去除重複1select distinct email from member HAVING 語句配合 GROUP BY 使用。在WHERE語句執行完，把資料讀入內存后，再次過濾。 12SELECT m.email, COUNT(m.email) AS cc FROM member AS m WHERE m.age &gt; 10 GROUP BY m.emailHAVING cc &gt; 1 以上SQL可看為2步驟 1234/* 第一步 過濾數據并讀取到內容，并計算 count */SELECT m.email, COUNT(m.email) AS cc FROM member AS m WHERE m.age &gt; 10 GROUP BY m.email/* 第二步 在以上結果的基礎上進行過濾*/HAVING cc &gt; 1]]></content>
       <tags>
-        <tag>msyql</tag>
+        <tag>mysql</tag>
         <tag>sql</tag>
       </tags>
   </entry>
