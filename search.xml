@@ -574,7 +574,7 @@
   <entry>
     <title><![CDATA[Linux高负载]]></title>
     <url>%2F2016-12%2Flinux-top-load%2F</url>
-    <content type="text"><![CDATA[top查看基本情況 iotop查看磁盤情況 iftop查看流量情況 iostat查看磁盤 CPU使用情況 1iostat -x 1 10 sar查看歷史情況 1sar -p 1.htoptop的替代產品， 需要yum install。 多核心CPU 負載【在多处理器系统中，负载均值是基于内核的数量决定的。以 100% 负载计算，1.00 表示单个处理器，而 2.00 则说明有两个双处理器，那么 4.00 就说明主机具有四个处理器。】polo 有8個核心。 所以負載 在8以下就算正常。保守一點則是 8*0.7=5.6 左右比較ok。]]></content>
+    <content type="text"><![CDATA[top查看基本情況 iotop查看磁盤情況 iftop查看流量情況 iostat查看磁盤 CPU使用情況 1iostat -x 1 10 sar查看歷史情況 1sar -p 1.htoptop的替代產品， 需要yum install。 多核心CPU 負載【在多处理器系统中，负载均值是基于内核的数量决定的。以 100% 负载计算，1.00 表示单个处理器，而 2.00 则说明有两个双处理器，那么 4.00 就说明主机具有四个处理器。】polo 有8個核心。 所以負載 在8以下就算正常。保守一點則是 8*0.7=5.6 左右比較ok。 HTOP在cmder使用htop的時候，F3 F4按鍵有時候不管用， 只用弄 \ 等按鍵 / F3 搜索进程 \ F4 增量进程过滤器 t F5 显示树形结构 &lt;, &gt; F6 选择排序方式]]></content>
   </entry>
   <entry>
     <title><![CDATA[iftop安裝]]></title>
