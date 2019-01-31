@@ -370,7 +370,7 @@
                 
               
 
-              <time title="创建时间：2019-01-31 20:56:04 / 修改时间：21:14:11" itemprop="dateCreated datePublished" datetime="2019-01-31T20:56:04+08:00">2019-01-31</time>
+              <time title="创建时间：2019-01-31 20:56:04 / 修改时间：21:19:00" itemprop="dateCreated datePublished" datetime="2019-01-31T20:56:04+08:00">2019-01-31</time>
             
 
             
@@ -417,10 +417,10 @@
 <p>譬如在 <code>~/public_html/var/</code>目录  访问 <code>http://090.net/var/abc.php</code> 则匹配的是 <code>abc.php</code> 这部分，不是针对整个RequestUri（<code>var/abc.php</code>）</p>
 <h1 id="RewriteBase"><a href="#RewriteBase" class="headerlink" title="RewriteBase"></a>RewriteBase</h1><p><code>RewriteBase /</code> 只针对于 <code>R</code> 跳转， 如果不跳转不用定义。</p>
 <p>譬如 <code>RewriteRule ^abc.php$ i.php [L]</code> 这种情况就不用定义。 <code>RewriteBase</code></p>
-<h2 id="没定义"><a href="#没定义" class="headerlink" title="没定义"></a>没定义</h2><p>RewriteBase 默认为当前物理目录</p>
+<h2 id="没定义-RewriteBase"><a href="#没定义-RewriteBase" class="headerlink" title="没定义 RewriteBase"></a>没定义 RewriteBase</h2><p>RewriteBase 默认为当前物理目录</p>
 <p>没有 <code>RewriteBase</code> 跳转到了 <code>http://090.net/home2/net090/public_html/var/i.php</code></p>
 <h3 id="正确方法"><a href="#正确方法" class="headerlink" title="正确方法"></a>正确方法</h3><p><code>RewriteRule ^abc.php$ /var/i.php [R=302]</code></p>
-<h2 id="有定义"><a href="#有定义" class="headerlink" title="有定义"></a>有定义</h2><p>有 <code>RewriteBase /</code> 跳转到了 <code>http://090.net/i.php</code> 跳转到了根目录。因为是二级目录，所以这里 定义的 <code>RewriteBase</code> 错误了</p>
+<h2 id="有定义-RewriteBase"><a href="#有定义-RewriteBase" class="headerlink" title="有定义 RewriteBase"></a>有定义 RewriteBase</h2><p>有 <code>RewriteBase /</code> 跳转到了 <code>http://090.net/i.php</code> 跳转到了根目录。因为是二级目录，所以这里 定义的 <code>RewriteBase</code> 错误了</p>
 <h3 id="正确方法-1"><a href="#正确方法-1" class="headerlink" title="正确方法"></a>正确方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RewriteBase /var</span><br><span class="line"></span><br><span class="line">RewriteRule ^abc.php$ i.php [R=302]</span><br></pre></td></tr></table></figure>
           
         
