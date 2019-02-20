@@ -324,6 +324,156 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-02/systemd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019-02/systemd/" itemprop="url">
+                  systemd 简单实例
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-02-20 17:53:48 / 修改时间：18:08:03" itemprop="dateCreated datePublished" datetime="2019-02-20T17:53:48+08:00">2019-02-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>systemd systemctl </p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>安装基本python插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install flask</span><br><span class="line">pip install gunicorn</span><br></pre></td></tr></table></figure>
+<p>创建文档 <code>/root/bin/rot13.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route("/")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello World!"</span></span><br></pre></td></tr></table></figure>
+<p>测试以上程序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/bin/gunicorn -w 4 -b 127.0.0.1:8080 rot13:app</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置-systemd"><a href="#配置-systemd" class="headerlink" title="配置 systemd"></a>配置 systemd</h2><p>创建文档<code>/etc/systemd/system/rot13.service</code></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Unit]</span></span><br><span class="line"><span class="attr">Description</span>=ROT13 demo service</span><br><span class="line"><span class="attr">After</span>=network.target</span><br><span class="line"><span class="attr">After</span>=syslog.target</span><br><span class="line"></span><br><span class="line"><span class="section">[Service]</span></span><br><span class="line"><span class="attr">Restart</span>=<span class="literal">on</span>-failure</span><br><span class="line"><span class="attr">User</span>=root</span><br><span class="line"><span class="attr">WorkingDirectory</span>=/root/bin</span><br><span class="line"><span class="attr">ExecStart</span>=/usr/local/bin/gunicorn -w <span class="number">4</span> -b <span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">8080</span> rot13:app</span><br><span class="line"></span><br><span class="line"><span class="section">[Install]</span></span><br><span class="line"><span class="attr">WantedBy</span>=multi-user.target</span><br></pre></td></tr></table></figure>
+<p>启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start rot13.service</span><br></pre></td></tr></table></figure></p>
+<p>开机启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable rot13.service</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置防火墙"><a href="#配置防火墙" class="headerlink" title="配置防火墙"></a>配置防火墙</h2><p>Ubuntu 为例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow 8080</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-02/php-curl-json/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1635,164 +1785,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-10/du/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018-10/du/" itemprop="url">
-                  du 命令
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-22 11:35:01" itemprop="dateCreated datePublished" datetime="2018-10-22T11:35:01+08:00">2018-10-22</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-10-25 14:08:04" itemprop="dateModified" datetime="2018-10-25T14:08:04+08:00">2018-10-25</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>查看目录站磁盘空间大小</p>
-<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>查看某个目录下各个子目录所使用的空间。可以用在逐层查看磁盘空间。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">du -hd 1</span><br><span class="line"><span class="meta">#</span><span class="bash"> or</span></span><br><span class="line">du -h  --max-depth=1 ./</span><br></pre></td></tr></table></figure>
-<ul>
-<li>-h 显示K M G 为单位</li>
-<li>–max-depth=1 只查询一层</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1840,7 +1832,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">122</span>
+                    <span class="site-state-item-count">123</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

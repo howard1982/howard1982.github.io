@@ -324,6 +324,179 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/ssh-key-login/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016-12/ssh-key-login/" itemprop="url">
+                  SSH KEY 登錄
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-12-11 14:57:36" itemprop="dateCreated datePublished" datetime="2016-12-11T14:57:36+08:00">2016-12-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-02 17:00:01" itemprop="dateModified" datetime="2017-01-02T17:00:01+08:00">2017-01-02</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><p>key生成的方法</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa # 在 ~/.ssh 目录下生成  id_rsa,id_rsa.pub</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 将 id_rsa.pub 加入到 远端主机 ~/.ssh/authorized_keys	</span><br><span class="line">cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>修改权限！！ 必须修改远端主机上 文档的权限， 否则会报错！</span><br><span class="line">chmod 700 .ssh</span><br><span class="line">chmod 600 authorized_keys</span><br></pre></td></tr></table></figure>
+<h3 id="配置（連接時長）"><a href="#配置（連接時長）" class="headerlink" title="配置（連接時長）"></a>配置（連接時長）</h3><p>本地端（客戶端）設定 在 ~.ssh\config 中添加。 实际目录是 C:\Users\Howard.ssh</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Host *</span><br><span class="line">    ServerAliveInterval 60</span><br></pre></td></tr></table></figure>
+<p>每60秒会发一个KeepAlive请求</p>
+<h3 id="登錄時顯示信息信息"><a href="#登錄時顯示信息信息" class="headerlink" title="登錄時顯示信息信息"></a>登錄時顯示信息信息</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -v root@diana.poikl.com</span><br></pre></td></tr></table></figure>
+<h3 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h3><ul>
+<li><a href="http://www.cnblogs.com/dudu/archive/2013/02/07/ssh-write-failed-broken-pipe.html" target="_blank" rel="noopener">http://www.cnblogs.com/dudu/archive/2013/02/07/ssh-write-failed-broken-pipe.html</a></li>
+<li><a href="http://www.cyberciti.biz/faq/create-ssh-config-file-on-linux-unix/" target="_blank" rel="noopener">http://www.cyberciti.biz/faq/create-ssh-config-file-on-linux-unix/</a></li>
+</ul>
+<h2 id="plink"><a href="#plink" class="headerlink" title="plink"></a>plink</h2><p>plink.exe使用private key 時，必須把通過ssh生成的private key通過 PuTTYgen.exe轉換一下</p>
+<ul>
+<li>打開 puttygen</li>
+<li>選擇  Conversions-&gt;Import key 導入 private key</li>
+<li>點擊按鈕 Save private key</li>
+</ul>
+<h2 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h2><p>使用private key 登錄。 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -C -i ~/.ssh/howard_rsa root@abc.com:/root/phpcs.phar ./</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>-i ~/.ssh/as_rsa</code> 對應的private key</li>
+<li><code>-C</code> 加速網絡傳輸（壓縮傳輸？）</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/ruby-symbol/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -677,7 +850,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">122</span>
+                    <span class="site-state-item-count">123</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
