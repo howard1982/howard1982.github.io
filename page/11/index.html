@@ -324,6 +324,170 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/php-curl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016-12/php-curl/" itemprop="url">
+                  PHP CURL
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-12-25 13:39:52" itemprop="dateCreated datePublished" datetime="2016-12-25T13:39:52+08:00">2016-12-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-05-10 15:55:31" itemprop="dateModified" datetime="2017-05-10T15:55:31+08:00">2017-05-10</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$data = <span class="keyword">array</span>(<span class="string">'name'</span> =&gt; <span class="string">'Foo'</span>, <span class="string">'Email'</span> =&gt; <span class="string">'abc@example.com'</span>);</span><br><span class="line"></span><br><span class="line">$ch = curl_init();</span><br><span class="line">curl_setopt($ch, CURLOPT_URL, <span class="string">'http://localhost/tmp/a.php'</span>);</span><br><span class="line"></span><br><span class="line">curl_setopt($ch, CURLOPT_HEADER, <span class="number">0</span>);  <span class="comment">// 启用时会将头文件的信息作为数据流输出。</span></span><br><span class="line">curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="number">1</span>); <span class="comment">// 在启用CURLOPT_RETURNTRANSFER的时候，返回原生的（Raw）输出。</span></span><br><span class="line">curl_setopt($ch, CURLOPT_TIMEOUT, <span class="number">30</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_POST, <span class="number">1</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data)); <span class="comment">// http_build_query 可以避免一些不兼容問題</span></span><br><span class="line"></span><br><span class="line">$s = curl_exec($ch);</span><br><span class="line">curl_close($ch);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $s;</span><br></pre></td></tr></table></figure>
+<h2 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$url = <span class="string">'http://bac.com'</span></span><br><span class="line">$url .= <span class="string">'?'</span>.http_build_query($postField);</span><br><span class="line">$ch = curl_init();</span><br><span class="line">curl_setopt($ch, CURLOPT_URL, $url);</span><br><span class="line">curl_setopt($ch, CURLOPT_HEADER, <span class="number">0</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="number">1</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_TIMEOUT, <span class="number">30</span>);</span><br><span class="line">$data = curl_exec($ch);</span><br><span class="line">curl_close($ch);</span><br></pre></td></tr></table></figure>
+<h2 id="强制声明字符-charset"><a href="#强制声明字符-charset" class="headerlink" title="强制声明字符 charset"></a>强制声明字符 charset</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl_setopt($ch, CURLOPT_HTTPHEADER, <span class="keyword">array</span>(<span class="string">'Content-Type:application/x-www-form-urlencoded; charset=utf-8'</span>));</span><br></pre></td></tr></table></figure>
+<h2 id="JSON格式传递数据"><a href="#JSON格式传递数据" class="headerlink" title="JSON格式传递数据"></a>JSON格式传递数据</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$header[] = <span class="string">'Content-Type: application/json'</span>;</span><br><span class="line">$header[] = <span class="string">'Accept: application/json'</span>;</span><br><span class="line">curl_setopt($ch, CURLOPT_HTTPHEADER, $header);</span><br><span class="line">curl_setopt($ch, CURLOPT_POST, <span class="number">1</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($param));</span><br></pre></td></tr></table></figure>
+<h2 id="SSL"><a href="#SSL" class="headerlink" title="SSL"></a>SSL</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, <span class="keyword">FALSE</span>); </span><br><span class="line">curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, <span class="keyword">FALSE</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>CURLOPT_SSL_VERIFYPEER<br>禁用后cURL将终止从服务端进行验证。<br>使用CURLOPT_CAINFO选项设置证书使用CURLOPT_CAPATH选项设置证书目录<br>如果CURLOPT_SSL_VERIFYPEER(默认值为2)被启用，CURLOPT_SSL_VERIFYHOST需要被设置成TRUE否则设置为FALSE。</p>
+</li>
+<li><p>CURLOPT_SSL_VERIFYHOST<br>1 检查服务器SSL证书中是否存在一个公用名(common name)。<br>2 检查公用名是否存在，并且是否与提供的主机名匹配。    </p>
+</li>
+</ul>
+<p>译者注：公用名(Common Name)一般来讲就是填写你将要申请SSL证书的域名 (domain)或子域名(sub domain)。</p>
+<h2 id="HTTP-basic-authentication"><a href="#HTTP-basic-authentication" class="headerlink" title="HTTP basic authentication"></a>HTTP basic authentication</h2><p>連接一個url， 需要提供用戶名和密碼的時候用到。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl_setopt($curl, CURLOPT_USERPWD, <span class="string">"username:password"</span>);</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/Vritualizer-VNC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1731,157 +1895,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/PHP-Excel/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016-12/PHP-Excel/" itemprop="url">
-                  PHP读取Excel
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2016-12-19 17:22:55" itemprop="dateCreated datePublished" datetime="2016-12-19T17:22:55+08:00">2016-12-19</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">$PHPReader = <span class="keyword">new</span> PHPExcel_Reader_Excel2007();</span><br><span class="line">   <span class="keyword">if</span>(!$PHPReader-&gt;canRead($filePath))&#123;</span><br><span class="line">       $PHPReader = <span class="keyword">new</span> PHPExcel_Reader_Excel5();</span><br><span class="line">       <span class="keyword">if</span>(!$PHPReader-&gt;canRead($filePath))&#123;</span><br><span class="line">           delMyFile($filePath);</span><br><span class="line">           <span class="keyword">echo</span> <span class="string">'上傳文檔錯誤'</span>;</span><br><span class="line">           <span class="keyword">exit</span>;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//建立excel对象，此时你即可以通过excel对象读取文件，也可以通过它写入文件</span></span><br><span class="line">   $PHPExcel = $PHPReader-&gt;load($filePath);</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**读取excel文件中的第一个工作表*/</span></span><br><span class="line">   $currentSheet = $PHPExcel-&gt;getSheet(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**取得最大的列号*/</span></span><br><span class="line">   $allColumn = <span class="string">'K'</span>;<span class="comment">// $currentSheet-&gt;getHighestColumn();</span></span><br><span class="line">   <span class="comment">/**取得一共有多少行*/</span></span><br><span class="line">   $allRow = <span class="number">17</span>;<span class="comment">//$currentSheet-&gt;getHighestRow();</span></span><br><span class="line"></span><br><span class="line">   $arr = <span class="keyword">array</span>();</span><br><span class="line"></span><br><span class="line">   <span class="comment">//循环读取每个单元格的内容。注意行从1开始，列从A开始</span></span><br><span class="line">   <span class="keyword">for</span>($rowIndex=<span class="number">1</span>; $rowIndex&lt;=$allRow; $rowIndex++)&#123;</span><br><span class="line">       <span class="keyword">for</span>($colIndex=<span class="string">'A'</span>;$colIndex&lt;=$allColumn;$colIndex++)&#123;</span><br><span class="line">           $addr = $colIndex.$rowIndex;</span><br><span class="line">           $cell = $currentSheet-&gt;getCell($addr)-&gt;getValue();</span><br><span class="line">           <span class="keyword">if</span>($cell <span class="keyword">instanceof</span> PHPExcel_RichText)     <span class="comment">//富文本转换字符串</span></span><br><span class="line">               $cell = $cell-&gt;__toString();</span><br><span class="line"></span><br><span class="line">           $arr[$addr] = $cell;</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1929,7 +1942,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">123</span>
+                    <span class="site-state-item-count">124</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
