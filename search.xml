@@ -288,7 +288,7 @@
   <entry>
     <title><![CDATA[sar 查看系統流量]]></title>
     <url>%2F2017-12%2Fsar%2F</url>
-    <content type="text"><![CDATA[sar –n DEV 1 2 显示网络接口信息 命令后面1 2 意思是：每一秒钟取1次值，取2次。 IFACE：LAN接口 rxpck/s:每秒钟收到数据包的数量. txpck/s:每秒钟发送数据包的数量. rxkB/s:每秒钟接收的字节(KB). txkB/s:每秒钟发送的字节(KB). rxcmp/s:每秒收到的压缩包的数量 txcmp/s:每秒发出的压缩包的数量 rxmcst/s:每秒收到的广播包的数量]]></content>
+    <content type="text"><![CDATA[sar -n DEV 1 2 显示网络接口信息 命令后面1 2 意思是：每一秒钟取1次值，取2次。 IFACE：LAN接口 rxpck/s:每秒钟收到数据包的数量. txpck/s:每秒钟发送数据包的数量. rxkB/s:每秒钟接收的字节(KB). txkB/s:每秒钟发送的字节(KB). rxcmp/s:每秒收到的压缩包的数量 txcmp/s:每秒发出的压缩包的数量 rxmcst/s:每秒收到的广播包的数量]]></content>
       <tags>
         <tag>linux</tag>
       </tags>
