@@ -286,9 +286,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[sar 查看系統流量]]></title>
+    <title><![CDATA[sar 常用命令 & 查看系統流量]]></title>
     <url>%2F2017-12%2Fsar%2F</url>
-    <content type="text"><![CDATA[sar -n DEV 2 4 显示网络接口信息 命令后面2 4 意思是：每2秒钟取1次值，取4次。 IFACE：LAN接口 rxpck/s:每秒钟收到数据包的数量. txpck/s:每秒钟发送数据包的数量. rxkB/s:每秒钟接收的字节(KB). txkB/s:每秒钟发送的字节(KB). rxcmp/s:每秒收到的压缩包的数量 txcmp/s:每秒发出的压缩包的数量 rxmcst/s:每秒收到的广播包的数量]]></content>
+    <content type="text"><![CDATA[sar -n DEV 2 4 显示网络接口信息 命令后面2 4 意思是：每2秒钟取1次值，取4次。 IFACE：LAN接口 rxpck/s:每秒钟收到数据包的数量. txpck/s:每秒钟发送数据包的数量. rxkB/s:每秒钟接收的字节(KB). txkB/s:每秒钟发送的字节(KB). rxcmp/s:每秒收到的压缩包的数量 txcmp/s:每秒发出的压缩包的数量 rxmcst/s:每秒收到的广播包的数量 常用命令 sar 5 5 // CPU和IOWAIT统计状态 sar -p 1 3 // cpu 狀態 sar -n DEV 2 4 // 網絡 12345678910111213141516171819默认监控: sar 5 5 // CPU和IOWAIT统计状态 (1) sar -b 5 5 // IO传送速率(2) sar -B 5 5 // 页交换速率(3) sar -c 5 5 // 进程创建的速率(4) sar -d 5 5 // 块设备的活跃信息(5) sar -n DEV 5 5 // 网路设备的状态信息(6) sar -n SOCK 5 5 // SOCK的使用情况(7) sar -n ALL 5 5 // 所有的网络状态信息(8) sar -P ALL 5 5 // 每颗CPU的使用状态信息和IOWAIT统计状态 (9) sar -q 5 5 // 队列的长度（等待运行的进程数）和负载的状态(10) sar -r 5 5 // 内存和swap空间使用情况(11) sar -R 5 5 // 内存的统计信息（内存页的分配和释放、系统每秒作为BUFFER使用内存页、每秒被cache到的内存页）(12) sar -u 5 5 // CPU的使用情况和IOWAIT信息（同默认监控）(13) sar -v 5 5 // inode, file and other kernel tablesd的状态信息(14) sar -w 5 5 // 每秒上下文交换的数目(15) sar -W 5 5 // SWAP交换的统计信息(监控状态同iostat 的si so)(16) sar -x 2906 5 5 // 显示指定进程(2906)的统计信息，信息包括：进程造成的错误、用户级和系统级用户CPU的占用情况、运行在哪颗CPU上(17) sar -y 5 5 // TTY设备的活动状态(18) 将输出到文件(-o)和读取记录信息(-f)]]></content>
       <tags>
         <tag>linux</tag>
       </tags>
