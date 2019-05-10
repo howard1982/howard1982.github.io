@@ -304,7 +304,7 @@
   <entry>
     <title><![CDATA[ufw 防火墙管理工具]]></title>
     <url>%2F2017-10%2Fufw%2F</url>
-    <content type="text"><![CDATA[ufw是一个主机端的iptables类防火墙配置工具 一般使用 启用 ufw enable 关闭 ufw disable 查看防火墙状态 fw status 开启/禁用相应端口或服务举例123ufw allow 80 #允许外部访问80端口ufw delete allow 80 #禁止外部访问80 端口ufw allow from 192.168.1.1 #允许此IP访问所有的本机端口]]></content>
+    <content type="text"><![CDATA[ufw是一个主机端的iptables类防火墙配置工具 一般使用 启用 ufw enable 关闭 ufw disable 查看防火墙状态 fw status 开启/禁用相应端口或服务举例123ufw allow 80 #允许外部访问80端口ufw delete allow 80 #禁止外部访问80 端口ufw allow from 192.168.1.1 #允许此IP访问所有的本机端口 安装安装完成后记得 启动 ufw enable。 查看是否运行 ufw status Ubuntu1sudo apt install ufw Centos12yum install epel-release -yyum install --enablerepo="epel" ufw -y]]></content>
       <tags>
         <tag>ubuntu</tag>
       </tags>
