@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[cpanel ftp over TLS]]></title>
+    <url>%2F2019-05%2Fcpanel-ftp-over-tls%2F</url>
+    <content type="text"><![CDATA[狀況cpanel 設定的 ftp over tls 總是列表失敗。 原因原因是 ftp 的被動模式(Passive)沒有正常運行。防火墻(csf)攔截了。 123cat /etc/pure-ftpd.conf# 可以看到PassivePortRange 49152 65534 解決辦法csf 設定文檔 的 TCP_IN 增加 49152:65534。並重啟。]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>cpanel</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Git branch 分支]]></title>
     <url>%2F2019-03%2Fgit-branch%2F</url>
     <content type="text"><![CDATA[基本命令123456git branch # 查看本地分支git branch &lt;name&gt; # 創建git checkout -b dev # 創建並切換到 dev 分支git checkout master # 切換分支git branch -d dev # 刪除本地分支 遠程分支12345git remote add origin https://github.com/xxx0/xxx.git # 關聯遠程分支git branch -a # 查看所有分支git push origin dev # 上傳本地分支到遠程git push origin --delete dev # 刪除遠程分支 合併分支合併 dev 分支 到 master 12git checkout mastergit merge dev]]></content>
