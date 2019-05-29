@@ -108,25 +108,25 @@
 
 
 
-  <meta name="description" content="distinct 去除重複1select distinct email from member HAVING 語句配合 GROUP BY 使用。在WHERE語句執行完，把資料讀入內存后，再次過濾。 12SELECT m.email, COUNT(m.email) AS cc FROM member AS m WHERE m.age &amp;gt; 10 GROUP BY m.emailHAVING cc">
-<meta name="keywords" content="mysql,sql">
+  <meta name="description" content="手动检查命令 ： cxs . 排除 World writeable directory 信息： cxs --options mMOLfSGchexdnZDRru . 去掉了 w。  参考： 1--options [-/+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options 详细说明1234567891011121314151617181920212">
+<meta name="keywords" content="linux,cpanel">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql sql 語句">
-<meta property="og:url" content="http://blog.howard/2018-10/mysql-sql/index.html">
+<meta property="og:title" content="CXS (ConfigServer eXploit Scanner)">
+<meta property="og:url" content="http://blog.howard/2019-05/cxs/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="distinct 去除重複1select distinct email from member HAVING 語句配合 GROUP BY 使用。在WHERE語句執行完，把資料讀入內存后，再次過濾。 12SELECT m.email, COUNT(m.email) AS cc FROM member AS m WHERE m.age &amp;gt; 10 GROUP BY m.emailHAVING cc">
+<meta property="og:description" content="手动检查命令 ： cxs . 排除 World writeable directory 信息： cxs --options mMOLfSGchexdnZDRru . 去掉了 w。  参考： 1--options [-/+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options 详细说明1234567891011121314151617181920212">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-05T08:21:37.967Z">
+<meta property="og:updated_time" content="2019-05-29T01:48:51.717Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mysql sql 語句">
-<meta name="twitter:description" content="distinct 去除重複1select distinct email from member HAVING 語句配合 GROUP BY 使用。在WHERE語句執行完，把資料讀入內存后，再次過濾。 12SELECT m.email, COUNT(m.email) AS cc FROM member AS m WHERE m.age &amp;gt; 10 GROUP BY m.emailHAVING cc">
+<meta name="twitter:title" content="CXS (ConfigServer eXploit Scanner)">
+<meta name="twitter:description" content="手动检查命令 ： cxs . 排除 World writeable directory 信息： cxs --options mMOLfSGchexdnZDRru . 去掉了 w。  参考： 1--options [-/+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options 详细说明1234567891011121314151617181920212">
 
 
 
 
 
 
-  <link rel="canonical" href="http://blog.howard/2018-10/mysql-sql/"/>
+  <link rel="canonical" href="http://blog.howard/2019-05/cxs/"/>
 
 
 
@@ -136,7 +136,7 @@
   };
 </script>
 
-  <title>mysql sql 語句 | Howard's Blog</title>
+  <title>CXS (ConfigServer eXploit Scanner) | Howard's Blog</title>
   
 
 
@@ -328,7 +328,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-10/mysql-sql/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-05/cxs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Howard">
@@ -345,7 +345,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">mysql sql 語句
+          <h1 class="post-title" itemprop="name headline">CXS (ConfigServer eXploit Scanner)
               
             
           </h1>
@@ -370,24 +370,12 @@
                 
               
 
-              <time title="创建时间：2018-10-25 15:49:01" itemprop="dateCreated datePublished" datetime="2018-10-25T15:49:01+08:00">2018-10-25</time>
+              <time title="创建时间：2019-05-29 09:39:39 / 修改时间：09:48:51" itemprop="dateCreated datePublished" datetime="2019-05-29T09:39:39+08:00">2019-05-29</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-12-05 16:21:37" itemprop="dateModified" datetime="2018-12-05T16:21:37+08:00">2018-12-05</time>
               
             
           </span>
@@ -420,11 +408,14 @@
       
 
       
-        <h2 id="distinct-去除重複"><a href="#distinct-去除重複" class="headerlink" title="distinct 去除重複"></a>distinct 去除重複</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> email <span class="keyword">from</span> <span class="keyword">member</span></span><br></pre></td></tr></table></figure>
-<h2 id="HAVING-語句"><a href="#HAVING-語句" class="headerlink" title="HAVING 語句"></a>HAVING 語句</h2><p>配合 <code>GROUP BY</code> 使用。在<code>WHERE</code>語句執行完，把資料讀入內存后，再次過濾。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> m.email, <span class="keyword">COUNT</span>(m.email) <span class="keyword">AS</span> cc <span class="keyword">FROM</span> <span class="keyword">member</span> <span class="keyword">AS</span> m <span class="keyword">WHERE</span> m.age &gt; <span class="number">10</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> m.email</span><br><span class="line"><span class="keyword">HAVING</span> cc &gt; <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>以上SQL可看為2步驟</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 第一步 過濾數據并讀取到內容，并計算 count */</span></span><br><span class="line"><span class="keyword">SELECT</span> m.email, <span class="keyword">COUNT</span>(m.email) <span class="keyword">AS</span> cc <span class="keyword">FROM</span> <span class="keyword">member</span> <span class="keyword">AS</span> m <span class="keyword">WHERE</span> m.age &gt; <span class="number">10</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> m.email</span><br><span class="line"><span class="comment">/* 第二步 在以上結果的基礎上進行過濾*/</span></span><br><span class="line"><span class="keyword">HAVING</span> cc &gt; <span class="number">1</span></span><br></pre></td></tr></table></figure>
+        <ul>
+<li>手动检查命令 ： <code>cxs .</code></li>
+<li>排除 <code>World writeable directory</code> 信息： <code>cxs --options mMOLfSGchexdnZDRru .</code> 去掉了 <code>w</code>。</li>
+</ul>
+<p>参考：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--options [-/+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options</span><br></pre></td></tr></table></figure>
+<p>详细说明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">m = regex pattern match</span><br><span class="line">M = fingerprint match</span><br><span class="line">v = virus</span><br><span class="line">O = socket</span><br><span class="line">L = symlink</span><br><span class="line">f = suspicious file</span><br><span class="line">F = skipped directory with too many entries</span><br><span class="line">S = SUID file</span><br><span class="line">G = GUID file</span><br><span class="line">c = core dump file</span><br><span class="line">C = core dump file deleted</span><br><span class="line">h = suspected exploit file</span><br><span class="line">e = Linux binary or executable file</span><br><span class="line">x = Windows binary or executable file</span><br><span class="line">d = suspicious directory name</span><br><span class="line">n = hidden directory owned by nobody user</span><br><span class="line">w = world writable directory</span><br><span class="line">W = world writable directory - chmod to 755</span><br><span class="line">T = script file - identifies PHP, Perl, and other script files as suspicious</span><br><span class="line">E = email script</span><br><span class="line">D = Decoded PHP encoded (e.g. base64) file scan match</span><br><span class="line">R = Match the PHP decode regex</span><br><span class="line">P = Search D/B config files and attempt user login via FTP. Match on success</span><br><span class="line">Z = compressed file - scan within zip, tar, tar.gz and tar.bz2 files</span><br><span class="line">! = Scan timeout per file B&lt;--timemax&gt;</span><br><span class="line">[Zzzzzzz] = sleeping for 60 seconds as load average is &gt; --throttle [num]</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -444,9 +435,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/mysql/" rel="tag"># mysql</a>
+            <a href="/tags/linux/" rel="tag"># linux</a>
           
-            <a href="/tags/sql/" rel="tag"># sql</a>
+            <a href="/tags/cpanel/" rel="tag"># cpanel</a>
           
         </div>
       
@@ -459,8 +450,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018-10/apache-log/" rel="next" title="apache log 日志回滚">
-                <i class="fa fa-chevron-left"></i> apache log 日志回滚
+              <a href="/2019-05/cpanel-ftp-over-tls/" rel="next" title="cpanel ftp over TLS">
+                <i class="fa fa-chevron-left"></i> cpanel ftp over TLS
               </a>
             
           </div>
@@ -468,10 +459,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018-10/cpanel-dkim/" rel="prev" title="cpanel 设置 DKIM">
-                cpanel 设置 DKIM <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -516,17 +503,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -668,22 +646,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#distinct-去除重複"><span class="nav-number">1.</span> <span class="nav-text">distinct 去除重複</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HAVING-語句"><span class="nav-number">2.</span> <span class="nav-text">HAVING 語句</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

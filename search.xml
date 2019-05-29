@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[CXS (ConfigServer eXploit Scanner)]]></title>
+    <url>%2F2019-05%2Fcxs%2F</url>
+    <content type="text"><![CDATA[手动检查命令 ： cxs . 排除 World writeable directory 信息： cxs --options mMOLfSGchexdnZDRru . 去掉了 w。 参考： 1--options [-/+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options 详细说明1234567891011121314151617181920212223242526m = regex pattern matchM = fingerprint matchv = virusO = socketL = symlinkf = suspicious fileF = skipped directory with too many entriesS = SUID fileG = GUID filec = core dump fileC = core dump file deletedh = suspected exploit filee = Linux binary or executable filex = Windows binary or executable filed = suspicious directory namen = hidden directory owned by nobody userw = world writable directoryW = world writable directory - chmod to 755T = script file - identifies PHP, Perl, and other script files as suspiciousE = email scriptD = Decoded PHP encoded (e.g. base64) file scan matchR = Match the PHP decode regexP = Search D/B config files and attempt user login via FTP. Match on successZ = compressed file - scan within zip, tar, tar.gz and tar.bz2 files! = Scan timeout per file B&lt;--timemax&gt;[Zzzzzzz] = sleeping for 60 seconds as load average is &gt; --throttle [num]]]></content>
+      <tags>
+        <tag>linux</tag>
+        <tag>cpanel</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[cpanel ftp over TLS]]></title>
     <url>%2F2019-05%2Fcpanel-ftp-over-tls%2F</url>
     <content type="text"><![CDATA[狀況cpanel 設定的 ftp over tls 總是列表失敗。 原因原因是 ftp 的被動模式(Passive)沒有正常運行。防火墻(csf)攔截了。 123cat /etc/pure-ftpd.conf | grep PassivePortRange# 可以看到PassivePortRange 49152 65534 解決辦法csf 設定文檔 的 TCP_IN 增加 49152:65534。並重啟。]]></content>
