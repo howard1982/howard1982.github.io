@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[IE 仿真版本]]></title>
+    <url>%2F2019-06%2Fie-compatible%2F</url>
+    <content type="text"><![CDATA[有些旧网站IE默认(仿真)使用的是 IE7或其他。 可以通过MATE标签声明强制使用哪种。1&lt;meta http-equiv="X-UA-Compatible" content="IE=Edge"&gt;]]></content>
+      <tags>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[jQuery 版本查看]]></title>
+    <url>%2F2019-06%2Fjquery-version%2F</url>
+    <content type="text"><![CDATA[查看使用中的jQuery 的版本 1jQuery.fn.jquery 1jQuery().jquery]]></content>
+      <tags>
+        <tag>jquery</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[CXS (ConfigServer eXploit Scanner)]]></title>
     <url>%2F2019-05%2Fcxs%2F</url>
     <content type="text"><![CDATA[手动检查命令 ： cxs . 排除 World writeable directory 信息： cxs --options mMOLfSGchexdnZDRru . 去掉了 w。 参考： 1--options [-/+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options 详细说明1234567891011121314151617181920212223242526m = regex pattern matchM = fingerprint matchv = virusO = socketL = symlinkf = suspicious fileF = skipped directory with too many entriesS = SUID fileG = GUID filec = core dump fileC = core dump file deletedh = suspected exploit filee = Linux binary or executable filex = Windows binary or executable filed = suspicious directory namen = hidden directory owned by nobody userw = world writable directoryW = world writable directory - chmod to 755T = script file - identifies PHP, Perl, and other script files as suspiciousE = email scriptD = Decoded PHP encoded (e.g. base64) file scan matchR = Match the PHP decode regexP = Search D/B config files and attempt user login via FTP. Match on successZ = compressed file - scan within zip, tar, tar.gz and tar.bz2 files! = Scan timeout per file B&lt;--timemax&gt;[Zzzzzzz] = sleeping for 60 seconds as load average is &gt; --throttle [num]]]></content>
       <tags>
-        <tag>linux</tag>
         <tag>cpanel</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -14,8 +30,8 @@
     <url>%2F2019-05%2Fcpanel-ftp-over-tls%2F</url>
     <content type="text"><![CDATA[狀況cpanel 設定的 ftp over tls 總是列表失敗。 原因原因是 ftp 的被動模式(Passive)沒有正常運行。防火墻(csf)攔截了。 123cat /etc/pure-ftpd.conf | grep PassivePortRange# 可以看到PassivePortRange 49152 65534 解決辦法csf 設定文檔 的 TCP_IN 增加 49152:65534。並重啟。]]></content>
       <tags>
-        <tag>linux</tag>
         <tag>cpanel</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
