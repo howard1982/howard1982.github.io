@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ajax cors 跨域访问]]></title>
+    <url>%2F2019-06%2Fajax-cors%2F</url>
+    <content type="text"><![CDATA[页面浏览器端不用变动 12345jQuery.ajax(&#123; url: &apos;https://api.abc.com/static/i.php&apos;, type: &apos;get&apos;, success:function(da)&#123; console.log(da) &#125;&#125;); 服务器端https://api.abc.com/static/i.php 对应的内容需要增加 header 1234567# 只允许 https 域名 name.abc.comheader('Access-Control-Allow-Origin: https://name.abc.com');header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');# or 允许所有header('Access-Control-Allow-Origin: *');header('Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept');]]></content>
+      <tags>
+        <tag>javascript</tag>
+        <tag>jquery</tag>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[IE 仿真版本]]></title>
     <url>%2F2019-06%2Fie-compatible%2F</url>
     <content type="text"><![CDATA[有些旧网站IE默认(仿真)使用的是 IE7或其他。 可以通过MATE标签声明强制使用哪种。1&lt;meta http-equiv="X-UA-Compatible" content="IE=Edge"&gt;]]></content>
@@ -21,8 +31,8 @@
     <url>%2F2019-05%2Fcxs%2F</url>
     <content type="text"><![CDATA[手动检查命令 ： cxs . 排除 World writeable directory 信息： cxs --options mMOLfSGchexdnZDRru . 去掉了 w。 参考： 1--options [-/+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options 详细说明1234567891011121314151617181920212223242526m = regex pattern matchM = fingerprint matchv = virusO = socketL = symlinkf = suspicious fileF = skipped directory with too many entriesS = SUID fileG = GUID filec = core dump fileC = core dump file deletedh = suspected exploit filee = Linux binary or executable filex = Windows binary or executable filed = suspicious directory namen = hidden directory owned by nobody userw = world writable directoryW = world writable directory - chmod to 755T = script file - identifies PHP, Perl, and other script files as suspiciousE = email scriptD = Decoded PHP encoded (e.g. base64) file scan matchR = Match the PHP decode regexP = Search D/B config files and attempt user login via FTP. Match on successZ = compressed file - scan within zip, tar, tar.gz and tar.bz2 files! = Scan timeout per file B&lt;--timemax&gt;[Zzzzzzz] = sleeping for 60 seconds as load average is &gt; --throttle [num]]]></content>
       <tags>
-        <tag>cpanel</tag>
         <tag>linux</tag>
+        <tag>cpanel</tag>
       </tags>
   </entry>
   <entry>
@@ -30,8 +40,8 @@
     <url>%2F2019-05%2Fcpanel-ftp-over-tls%2F</url>
     <content type="text"><![CDATA[狀況cpanel 設定的 ftp over tls 總是列表失敗。 原因原因是 ftp 的被動模式(Passive)沒有正常運行。防火墻(csf)攔截了。 123cat /etc/pure-ftpd.conf | grep PassivePortRange# 可以看到PassivePortRange 49152 65534 解決辦法csf 設定文檔 的 TCP_IN 增加 49152:65534。並重啟。]]></content>
       <tags>
-        <tag>cpanel</tag>
         <tag>linux</tag>
+        <tag>cpanel</tag>
       </tags>
   </entry>
   <entry>
@@ -45,7 +55,7 @@
   <entry>
     <title><![CDATA[systemd 简单实例]]></title>
     <url>%2F2019-02%2Fsystemd%2F</url>
-    <content type="text"><![CDATA[systemd systemctl 准备安装基本python插件 12pip install flaskpip install gunicorn 创建文档 /root/bin/rot13.py 1234567from flask import Flaskapp = Flask(__name__)@app.route("/")def hello(): return "Hello World!" 测试以上程序1/usr/local/bin/gunicorn -w 4 -b 127.0.0.1:8080 rot13:app 配置 systemd创建文档/etc/systemd/system/rot13.service 12345678910111213[Unit]Description=ROT13 demo serviceAfter=network.targetAfter=syslog.target[Service]Restart=on-failureUser=rootWorkingDirectory=/root/binExecStart=/usr/local/bin/gunicorn -w 4 -b 0.0.0.0:8080 rot13:app[Install]WantedBy=multi-user.target 启动1systemctl start rot13.service 开机启动1systemctl enable rot13.service 配置防火墙Ubuntu 为例1sudo ufw allow 8080]]></content>
+    <content type="text"><![CDATA[systemd systemctl 准备安装基本python插件 12pip install flaskpip install gunicorn 创建文档 /root/bin/rot13.py 1234567from flask import Flaskapp = Flask(__name__)@app.route("/")def hello(): return "Hello World!" 测试以上程序1/usr/local/bin/gunicorn -w 4 -b 127.0.0.1:8080 rot13:app 配置 systemd创建文档/etc/systemd/system/rot13.service 12345678910111213[Unit]Description=ROT13 demo serviceAfter=network.targetAfter=syslog.target[Service]Restart=on-failureUser=rootWorkingDirectory=/root/binExecStart=/usr/local/bin/gunicorn -w 4 -b 0.0.0.0:8080 rot13:app[Install]WantedBy=multi-user.target 启动1systemctl start rot13.service 开机启动1systemctl enable rot13.service 配置防火墙Ubuntu 为例1sudo ufw allow 8080 systemctl 常用命令123systemctl list-units --type=service --all # 列表所有 servicesystemctl stauts httpdsystemctl restart httpd]]></content>
       <tags>
         <tag>linux</tag>
         <tag>python</tag>
