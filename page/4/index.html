@@ -324,6 +324,146 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-07/php-openssl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018-07/php-openssl/" itemprop="url">
+                  php 操作 ssl
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-07-02 17:25:26 / 修改时间：17:27:32" itemprop="dateCreated datePublished" datetime="2018-07-02T17:25:26+08:00">2018-07-02</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="生成csr-以及-private-key"><a href="#生成csr-以及-private-key" class="headerlink" title="生成csr 以及 private key"></a>生成csr 以及 private key</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$dn = <span class="keyword">array</span>(</span><br><span class="line">    <span class="string">"countryName"</span> =&gt; <span class="string">"TW"</span>,</span><br><span class="line">    <span class="string">"stateOrProvinceName"</span> =&gt; <span class="string">"Taipei"</span>,</span><br><span class="line">    <span class="string">"organizationName"</span> =&gt; <span class="string">"瑋德國際股份有限公司"</span>, <span class="comment">// 公司名稱</span></span><br><span class="line">    <span class="string">"organizationalUnitName"</span> =&gt; <span class="string">"資訊部"</span>, <span class="comment">// 部門</span></span><br><span class="line">    <span class="string">"commonName"</span> =&gt; <span class="string">"nealsyardremedies.com.tw"</span>, <span class="comment">// domain</span></span><br><span class="line">    <span class="string">"emailAddress"</span> =&gt; <span class="string">"itsupport@10over10.com.tw"</span>,</span><br><span class="line">);</span><br><span class="line"><span class="comment">// Generate a new private (and public) key pair</span></span><br><span class="line">$privkey = openssl_pkey_new(<span class="keyword">array</span>(</span><br><span class="line">    <span class="string">"private_key_bits"</span> =&gt; <span class="number">2048</span>,</span><br><span class="line">    <span class="string">"private_key_type"</span> =&gt; OPENSSL_KEYTYPE_RSA,</span><br><span class="line">));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Generate a certificate signing request</span></span><br><span class="line">$csr = openssl_csr_new($dn, $privkey, <span class="keyword">array</span>(<span class="string">'digest_alg'</span> =&gt; <span class="string">'sha512'</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// openssl_csr_export($csr, $csrout) and var_dump($csrout);</span></span><br><span class="line"><span class="comment">// openssl_pkey_export($privkey, $pkeyout) and var_dump($pkeyout);</span></span><br><span class="line"></span><br><span class="line">openssl_csr_export_to_file($csr, <span class="string">'nealsyardremedies_com_tw.csr'</span>);  <span class="comment">// 保存到文檔</span></span><br><span class="line">openssl_pkey_export_to_file($privkey, <span class="string">'nealsyardremedies_com_tw.key'</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="讀取-csr"><a href="#讀取-csr" class="headerlink" title="讀取 csr"></a>讀取 csr</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">"Content-Type: text/html; charset=UTF-8"</span>);</span><br><span class="line">$str = <span class="string">'-----BEGIN CERTIFICATE REQUEST-----</span></span><br><span class="line"><span class="string">MIIC7jCCAdYCAQAwgagxCzAJBgNVBAYTAlRXMQ8wDQYDVQQIDAZUYWlwZWkxJzAl</span></span><br><span class="line"><span class="string">BgNVBAoMHueRi+W+t+Wci+mam+iCoeS7veaciemZkOWFrOWPuDESMBAGA1UECwwJ</span></span><br><span class="line"><span class="string">6LOH6KiK6YOoMSEwHwYDVQQDDBhuZWFsc3lhcmRyZW1lZGllcy5jb20udHcxKDAm</span></span><br><span class="line"><span class="string">BgkqhkiG9w0BCQEWGWl0c3VwcG9ydEAxMG92ZXIxMC5jb20udHcwggEiMA0GCSqG</span></span><br><span class="line"><span class="string">SIb3DQEBAQUAA4IBDwAwggEKAoIBAQDFYutxHda/r8O/fGwBjVTs3Kl97HROeFs9</span></span><br><span class="line"><span class="string">dhMXLvmaHrwU/DuHY9f+Wj94K0kZhFe21QtVC0DL9jgNrYTJ8Is7mVbVKmiN8sYH</span></span><br><span class="line"><span class="string">UwGeEqqHAXdJ/m/0f7aGlWjxd6myZzOIXmsf3SYwKwGKwowIMxSAP1jryOoFresp</span></span><br><span class="line"><span class="string">tk0BDMDavsJLhcdvUd3oximaMOvyOvWZN5uj2kYh7YYpTVAQZn3dJDb0B5kIl2dG</span></span><br><span class="line"><span class="string">GvpTKWgAw3oH8Ak9zMZT9y0/sAmjsxkPil6jgbRz6d40V9xgCixofpwYGnEF5hRO</span></span><br><span class="line"><span class="string">O1VhLZIcVDC0NaeyM8Tfgv/ODvU/xlHKfz3CbKG1KxXRXFeIAxbDAgMBAAGgADAN</span></span><br><span class="line"><span class="string">BgkqhkiG9w0BAQ0FAAOCAQEAMZOSVoZWQhvZ/g+cnSHmrxzK9JCUeKoD0wlFuiww</span></span><br><span class="line"><span class="string">KRmHaYFuZcStTj/52M65zXhtx6OXFjsoMJSf4OyGTYjfexH7Zqv2zfBuKQBuPSL7</span></span><br><span class="line"><span class="string">GfLy9zcNLabuSYlbfQ1PNvycXb4ZhJJ2TI62XGXnfg5zeW4tHN0Mvt+/UxWkNmVu</span></span><br><span class="line"><span class="string">CTGTdbd3bgjnnggJQZI6Z7AKsaeeqF5zgtkws+lwZoG3BbcXPWxoxI+Ms3JhxXzg</span></span><br><span class="line"><span class="string">Mx0Z1INiQM7rhvA5tB3HG+VsBcTya08QA4HASjHOTesInZvgUM2QbQqxAKldiJex</span></span><br><span class="line"><span class="string">ho4OnmOUhCPWiUoDTq2y7FvfjFwMzst06EkYsYj2Zw/oQQ==</span></span><br><span class="line"><span class="string">-----END CERTIFICATE REQUEST-----'</span>;</span><br><span class="line">var_dump(openssl_csr_get_subject($str));</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-06/monolog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1672,157 +1812,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-12/php-error/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017-12/php-error/" itemprop="url">
-                  php 錯誤處理
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2017-12-05 14:23:07 / 修改时间：16:51:19" itemprop="dateCreated datePublished" datetime="2017-12-05T14:23:07+08:00">2017-12-05</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="打印錯誤"><a href="#打印錯誤" class="headerlink" title="打印錯誤"></a>打印錯誤</h2><p>直接在頁面輸出錯誤報告</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">display_errors = On</span><br><span class="line">error_reporting = E_ALL &amp; ~E_DEPRECATED</span><br></pre></td></tr></table></figure>
-<ul>
-<li>display_errors 是否打開顯示錯誤報告</li>
-<li>error_reporting 輸出錯誤等級</li>
-</ul>
-<h2 id="保存錯誤"><a href="#保存錯誤" class="headerlink" title="保存錯誤"></a>保存錯誤</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">log_errors = On</span><br><span class="line">log_errors_max_len = 1024</span><br><span class="line">error_log = error_log</span><br></pre></td></tr></table></figure>
-<ul>
-<li>log_errors 是否存儲</li>
-<li>log_errors_max_len 每個錯誤報告長度， 0 表示錯誤報告所有內容</li>
-<li>error_log 錯誤報告的位置， <code>error_log</code> 表示執行文檔的目錄下。 也可以是絕對路徑。例如 <code>/var/log/php_error_log</code></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1870,7 +1859,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">129</span>
+                    <span class="site-state-item-count">130</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
