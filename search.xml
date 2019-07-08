@@ -39,8 +39,8 @@
     <url>%2F2019-05%2Fcxs%2F</url>
     <content type="text"><![CDATA[命令 手动检查命令 ： cxs . 排除 World writeable directory 信息： cxs --options mMOLfSGchexdnZDRru . 去掉了 w。 参考： 1--options [-/+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options 详细说明1234567891011121314151617181920212223242526m = regex pattern matchM = fingerprint matchv = virusO = socketL = symlinkf = suspicious fileF = skipped directory with too many entriesS = SUID fileG = GUID filec = core dump fileC = core dump file deletedh = suspected exploit filee = Linux binary or executable filex = Windows binary or executable filed = suspicious directory namen = hidden directory owned by nobody userw = world writable directoryW = world writable directory - chmod to 755T = script file - identifies PHP, Perl, and other script files as suspiciousE = email scriptD = Decoded PHP encoded (e.g. base64) file scan matchR = Match the PHP decode regexP = Search D/B config files and attempt user login via FTP. Match on successZ = compressed file - scan within zip, tar, tar.gz and tar.bz2 files! = Scan timeout per file B&lt;--timemax&gt;[Zzzzzzz] = sleeping for 60 seconds as load average is &gt; --throttle [num] 配置修改 /etc/cxs/cxswatch.conf 文檔中的 options 屬性]]></content>
       <tags>
-        <tag>linux</tag>
         <tag>cpanel</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -48,8 +48,8 @@
     <url>%2F2019-05%2Fcpanel-ftp-over-tls%2F</url>
     <content type="text"><![CDATA[狀況cpanel 設定的 ftp over tls 總是列表失敗。 原因原因是 ftp 的被動模式(Passive)沒有正常運行。防火墻(csf)攔截了。 123cat /etc/pure-ftpd.conf | grep PassivePortRange# 可以看到PassivePortRange 49152 65534 解決辦法csf 設定文檔 的 TCP_IN 增加 49152:65534。並重啟。]]></content>
       <tags>
-        <tag>linux</tag>
         <tag>cpanel</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -228,7 +228,7 @@
   <entry>
     <title><![CDATA[跳轉到 https]]></title>
     <url>%2F2018-08%2Fgoto-https%2F</url>
-    <content type="text"><![CDATA[修改 .htaccess 文件 跳轉到 www 域名12RewriteCond %&#123;HTTP_HOST&#125; !^www\. [NC]RewriteRule ^(.*)$ http://www.%&#123;HTTP_HOST&#125;/$1 [R=301,L] HTTPS 跳轉12RewriteCond %&#123;HTTPS&#125; offRewriteRule ^(.*)$ https://%&#123;SERVER_NAME&#125;%&#123;REQUEST_URI&#125; [L,R=301] 不含某個url，例如不包含 payback 的url 123RewriteCond %&#123;HTTPS&#125; offRewriteCond %&#123;REQUEST_URI&#125; !(payback)RewriteRule ^(.*)$ https://%&#123;SERVER_NAME&#125;%&#123;REQUEST_URI&#125; [L,R=301]]]></content>
+    <content type="text"><![CDATA[修改 .htaccess 文件 跳轉到 www 域名123RewriteCond %&#123;HTTP_HOST&#125; !^www\. [NC]RewriteCond %&#123;REQUEST_URI&#125; !(\.well\-known) # 排除urlRewriteRule ^(.*)$ http://www.%&#123;HTTP_HOST&#125;/$1 [R=301,L] HTTPS 跳轉12RewriteCond %&#123;HTTPS&#125; offRewriteRule ^(.*)$ https://%&#123;SERVER_NAME&#125;%&#123;REQUEST_URI&#125; [L,R=301] 不含某個url，例如不包含 payback 的url 123RewriteCond %&#123;HTTPS&#125; offRewriteCond %&#123;REQUEST_URI&#125; !(payback)RewriteRule ^(.*)$ https://%&#123;SERVER_NAME&#125;%&#123;REQUEST_URI&#125; [L,R=301]]]></content>
       <tags>
         <tag>apache</tag>
       </tags>
@@ -829,7 +829,7 @@
   <entry>
     <title><![CDATA[.htaccess]]></title>
     <url>%2F2016-12%2Fhtaccess%2F</url>
-    <content type="text"><![CDATA[.htaccess 文档 一般12345678Options +FollowSymLinksRewriteEngine On RewriteCond %&#123;REQUEST_FILENAME&#125; !-dRewriteRule ^(.+)/$ http://%&#123;HTTP_HOST&#125;/$1 [R=301,L] RewriteCond %&#123;REQUEST_FILENAME&#125; !-fRewriteRule ^ index.php [L] Options +FollowSymLinks 在 某些服务器配置中，mod_rewrite要求有followsymlinks，否则会显示500内部服务器错误。 禁止所有请求1deny from all 一般用于 vendor application 目录 禁止列出目錄1Options -Indexes 強制 www12RewriteCond %&#123;HTTP_HOST&#125; !^www\.(.*)RewriteRule (.*) http://www.%&#123;HTTP_HOST&#125;/$1 [R=301,L] 強制HTTPS12RewriteCond %&#123;HTTPS&#125; offRewriteRule ^(.*)$ https://%&#123;SERVER_NAME&#125;%&#123;REQUEST_URI&#125; [L,R]]]></content>
+    <content type="text"><![CDATA[.htaccess 文档 一般12345678Options +FollowSymLinksRewriteEngine On RewriteCond %&#123;REQUEST_FILENAME&#125; !-dRewriteRule ^(.+)/$ http://%&#123;HTTP_HOST&#125;/$1 [R=301,L] RewriteCond %&#123;REQUEST_FILENAME&#125; !-fRewriteRule ^ index.php [L] Options +FollowSymLinks 在 某些服务器配置中，mod_rewrite要求有followsymlinks，否则会显示500内部服务器错误。 禁止所有请求1deny from all 一般用于 vendor application 目录 禁止列出目錄1Options -Indexes 強制 www123RewriteCond %&#123;HTTP_HOST&#125; !^www\. [NC]RewriteCond %&#123;REQUEST_URI&#125; !(\.well\-known) # 排除urlRewriteRule ^(.*)$ https://www.%&#123;HTTP_HOST&#125;/$1 [R=301,L] 強制HTTPS123RewriteCond %&#123;HTTPS&#125; offRewriteCond %&#123;REQUEST_URI&#125; !(\.well\-known) # 排除urlRewriteRule ^(.*)$ https://%&#123;SERVER_NAME&#125;%&#123;REQUEST_URI&#125; [L,R]]]></content>
       <tags>
         <tag>linux</tag>
         <tag>apache</tag>
