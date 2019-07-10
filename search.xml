@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[mail 没有設定 MX 記錄]]></title>
+    <url>%2F2019-07%2Fmail-mx%2F</url>
+    <content type="text"><![CDATA[今天發現一個奇怪的現象 某個二級域名（mail.xxx.com） 沒有設定 mx記錄 。但是 郵箱（abc@mail.xxx.com）還可以收信。 查詢 google 得到結果：如果沒有MX記錄，則讀取A記錄對應的內容 12RFC 5321if no MX record is present mail servers should fall back to the A record for the domain.]]></content>
+      <tags>
+        <tag>dns</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[iptables]]></title>
     <url>%2F2019-07%2Fiptables%2F</url>
     <content type="text"><![CDATA[简单操作 Table 表 Chain 链 iptables -D chain rulenum 清除某条 12Table Chain num pkts bytes target prot opt in out source destination filter CXS_LF_CPANEL 12 0 0 DROP all -- * * 203.195.218.49 0.0.0.0/0 12345# 查找iptables -L CXS_LF_CPANEL --line-numbers | grep xxx.xxx.xxx# 刪除， 157就是對應的numberiptables -D CXS_LF_CPANEL 157]]></content>
@@ -39,8 +47,8 @@
     <url>%2F2019-05%2Fcxs%2F</url>
     <content type="text"><![CDATA[命令 手动检查命令 ： cxs . 排除 World writeable directory 信息： cxs --options mMOLfSGchexdnZDRru . 去掉了 w。 参考： 1--options [-/+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options 详细说明1234567891011121314151617181920212223242526m = regex pattern matchM = fingerprint matchv = virusO = socketL = symlinkf = suspicious fileF = skipped directory with too many entriesS = SUID fileG = GUID filec = core dump fileC = core dump file deletedh = suspected exploit filee = Linux binary or executable filex = Windows binary or executable filed = suspicious directory namen = hidden directory owned by nobody userw = world writable directoryW = world writable directory - chmod to 755T = script file - identifies PHP, Perl, and other script files as suspiciousE = email scriptD = Decoded PHP encoded (e.g. base64) file scan matchR = Match the PHP decode regexP = Search D/B config files and attempt user login via FTP. Match on successZ = compressed file - scan within zip, tar, tar.gz and tar.bz2 files! = Scan timeout per file B&lt;--timemax&gt;[Zzzzzzz] = sleeping for 60 seconds as load average is &gt; --throttle [num] 配置修改 /etc/cxs/cxswatch.conf 文檔中的 options 屬性]]></content>
       <tags>
-        <tag>cpanel</tag>
         <tag>linux</tag>
+        <tag>cpanel</tag>
       </tags>
   </entry>
   <entry>
@@ -48,8 +56,8 @@
     <url>%2F2019-05%2Fcpanel-ftp-over-tls%2F</url>
     <content type="text"><![CDATA[狀況cpanel 設定的 ftp over tls 總是列表失敗。 原因原因是 ftp 的被動模式(Passive)沒有正常運行。防火墻(csf)攔截了。 123cat /etc/pure-ftpd.conf | grep PassivePortRange# 可以看到PassivePortRange 49152 65534 解決辦法csf 設定文檔 的 TCP_IN 增加 49152:65534。並重啟。]]></content>
       <tags>
-        <tag>cpanel</tag>
         <tag>linux</tag>
+        <tag>cpanel</tag>
       </tags>
   </entry>
   <entry>

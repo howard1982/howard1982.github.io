@@ -324,6 +324,156 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-01/apache-rewrite/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019-01/apache-rewrite/" itemprop="url">
+                  apache_rewrite
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-31 20:56:04 / 修改时间：21:19:00" itemprop="dateCreated datePublished" datetime="2019-01-31T20:56:04+08:00">2019-01-31</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>url 跳转&amp;重新指向</p>
+<p>以下都是在 二级目录 <code>~/public_html/var/</code> 做的测试。</p>
+<h1 id="htaccess-层级优先"><a href="#htaccess-层级优先" class="headerlink" title=".htaccess 层级优先"></a>.htaccess 层级优先</h1><p>譬如 在地址栏中 直接输入   <code>090.net/var</code> 。<br><code>~/public_html/.htaccess</code> <code>~/public_html/var/.htaccess</code> 这2个文档都存在，则优先调用 <code>~/public_html/var/.htaccess</code>。</p>
+<h1 id="RewriteRule"><a href="#RewriteRule" class="headerlink" title="RewriteRule"></a>RewriteRule</h1><p><code>RewriteRule ^abc.php$ i.php [R=302]</code> 针对 匹配的对象是 当前对应当前目录的内容。</p>
+<p>譬如在 <code>~/public_html/var/</code>目录  访问 <code>http://090.net/var/abc.php</code> 则匹配的是 <code>abc.php</code> 这部分，不是针对整个RequestUri（<code>var/abc.php</code>）</p>
+<h1 id="RewriteBase"><a href="#RewriteBase" class="headerlink" title="RewriteBase"></a>RewriteBase</h1><p><code>RewriteBase /</code> 只针对于 <code>R</code> 跳转， 如果不跳转不用定义。</p>
+<p>譬如 <code>RewriteRule ^abc.php$ i.php [L]</code> 这种情况就不用定义。 <code>RewriteBase</code></p>
+<h2 id="没定义-RewriteBase"><a href="#没定义-RewriteBase" class="headerlink" title="没定义 RewriteBase"></a>没定义 RewriteBase</h2><p>RewriteBase 默认为当前物理目录</p>
+<p>没有 <code>RewriteBase</code> 跳转到了 <code>http://090.net/home2/net090/public_html/var/i.php</code></p>
+<h3 id="正确方法"><a href="#正确方法" class="headerlink" title="正确方法"></a>正确方法</h3><p><code>RewriteRule ^abc.php$ /var/i.php [R=302]</code></p>
+<h2 id="有定义-RewriteBase"><a href="#有定义-RewriteBase" class="headerlink" title="有定义 RewriteBase"></a>有定义 RewriteBase</h2><p>有 <code>RewriteBase /</code> 跳转到了 <code>http://090.net/i.php</code> 跳转到了根目录。因为是二级目录，所以这里 定义的 <code>RewriteBase</code> 错误了</p>
+<h3 id="正确方法-1"><a href="#正确方法-1" class="headerlink" title="正确方法"></a>正确方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RewriteBase /var</span><br><span class="line"></span><br><span class="line">RewriteRule ^abc.php$ i.php [R=302]</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-11/outlook2016/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1658,151 +1808,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-10/get-centos-ip/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018-10/get-centos-ip/" itemprop="url">
-                  获取 centos ip
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-16 13:16:58 / 修改时间：13:18:28" itemprop="dateCreated datePublished" datetime="2018-10-16T13:16:58+08:00">2018-10-16</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>shell 脚本。获取当前server IP。 适用Centos6、Centos7 、Ubuntu</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">ip=`/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '&#123; print $1&#125;'`</span><br><span class="line">if [ "$ip" = "" ];then</span><br><span class="line">    ip=`/sbin/ifconfig eth0 | grep 'inet ' | awk '&#123;print $2&#125;'`</span><br><span class="line">fi</span><br><span class="line">echo $re</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1845,7 +1855,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">130</span>
+                    <span class="site-state-item-count">131</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1948,7 +1958,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">44</span>
+                      
+                    
+                    <span class="site-state-item-count">45</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
