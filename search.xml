@@ -291,7 +291,7 @@
   <entry>
     <title><![CDATA[Openssl]]></title>
     <url>%2F2018-05%2Fopenssl%2F</url>
-    <content type="text"><![CDATA[解析CRT文檔1openssl x509 -in my.cert -noout -text 解析CSR文檔1openssl req -in mycsr.csr -noout -text 檢查CSR、 Private Key、 CRT 是否匹配通過命令查看 sha256 數值是否一致 123openssl pkey -in example.key -pubout -outform pem | sha256sumopenssl x509 -in example.crt -pubkey -noout -outform pem | sha256sumopenssl req -in example.csr -pubkey -noout -outform pem | sha256sum 生成 IIS pfx 文檔1/usr/bin/openssl pkcs12 -export -out "iis.pfx" -in "cert.pem" -inkey "private.pem" -certfile "chain.pem" -password pass:123456 解析 IIS pfx 文檔會詢問輸入密碼 1openssl pkcs12 -in cd.pfx -out 111.pem -nodes]]></content>
+    <content type="text"><![CDATA[解析CRT文檔1openssl x509 -in my.cert -noout -text 解析CSR文檔1openssl req -in mycsr.csr -noout -text 檢查CSR、 Private Key、 CRT 是否匹配通過命令查看 sha256 數值是否一致 123openssl pkey -in example.key -pubout -outform pem | sha256sumopenssl x509 -in example.crt -pubkey -noout -outform pem | sha256sumopenssl req -in example.csr -pubkey -noout -outform pem | sha256sum 生成 IIS pfx 文檔以下命令 生成文檔 iis.pfx 1/usr/bin/openssl pkcs12 -export -out "iis.pfx" -in "cert.pem" -inkey "private.pem" -certfile "chain.pem" -password pass:123456 解析 IIS pfx 文檔會詢問輸入密碼。 一下命令 生成 ex.pem。 這個文檔裡面包含 cert.pem chain.pem private.pem 內容 1openssl pkcs12 -in iis.pfx -out ex.pem -nodes]]></content>
       <tags>
         <tag>linux</tag>
       </tags>
