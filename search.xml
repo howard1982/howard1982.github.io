@@ -47,8 +47,8 @@
     <url>%2F2019-05%2Fcxs%2F</url>
     <content type="text"><![CDATA[命令 手动检查命令 ： cxs . 排除 World writeable directory 信息： cxs --options mMOLfSGchexdnZDRru . 去掉了 w。 参考： 1--options [-/+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options 详细说明1234567891011121314151617181920212223242526m = regex pattern matchM = fingerprint matchv = virusO = socketL = symlinkf = suspicious fileF = skipped directory with too many entriesS = SUID fileG = GUID filec = core dump fileC = core dump file deletedh = suspected exploit filee = Linux binary or executable filex = Windows binary or executable filed = suspicious directory namen = hidden directory owned by nobody userw = world writable directoryW = world writable directory - chmod to 755T = script file - identifies PHP, Perl, and other script files as suspiciousE = email scriptD = Decoded PHP encoded (e.g. base64) file scan matchR = Match the PHP decode regexP = Search D/B config files and attempt user login via FTP. Match on successZ = compressed file - scan within zip, tar, tar.gz and tar.bz2 files! = Scan timeout per file B&lt;--timemax&gt;[Zzzzzzz] = sleeping for 60 seconds as load average is &gt; --throttle [num] 配置修改 /etc/cxs/cxswatch.conf 文檔中的 options 屬性]]></content>
       <tags>
-        <tag>cpanel</tag>
         <tag>linux</tag>
+        <tag>cpanel</tag>
       </tags>
   </entry>
   <entry>
@@ -56,8 +56,8 @@
     <url>%2F2019-05%2Fcpanel-ftp-over-tls%2F</url>
     <content type="text"><![CDATA[狀況cpanel 設定的 ftp over tls 總是列表失敗。 原因原因是 ftp 的被動模式(Passive)沒有正常運行。防火墻(csf)攔截了。 123cat /etc/pure-ftpd.conf | grep PassivePortRange# 可以看到PassivePortRange 49152 65534 解決辦法csf 設定文檔 的 TCP_IN 增加 49152:65534。並重啟。]]></content>
       <tags>
-        <tag>cpanel</tag>
         <tag>linux</tag>
+        <tag>cpanel</tag>
       </tags>
   </entry>
   <entry>
@@ -904,7 +904,7 @@
   <entry>
     <title><![CDATA[composer命令]]></title>
     <url>%2F2016-12%2Fcomposer%2F</url>
-    <content type="text"><![CDATA[安裝某個項目1composer create-project laravel/laravel path --prefer-dist 安裝 larave 到 path 目錄。–prefer-dist 为了强制使用压缩包，而不是克隆源代码。 更新软件包1composer update 只更新 Calss1composer dump-autoload 为生产环境作准备1composer dump-autoload --optimize 或者123composer update --no-dev --optimize-autoloader# orcomposer update --optimize-autoloader]]></content>
+    <content type="text"><![CDATA[常用命令安裝某個項目1composer create-project laravel/laravel path --prefer-dist 安裝 larave 到 path 目錄。--prefer-dist 为了强制使用压缩包，而不是克隆源代码。 更新软件包1composer update 只更新 Calss1composer dump-autoload 为生产环境作准备1composer dump-autoload --optimize 或者 123composer update --no-dev --optimize-autoloader# orcomposer update --optimize-autoloader 更改镜像源 repo12345# 取消全局配置composer config -g --unset repos.packagist# 全局使用 huawei 镜像源composer config -g repo.packagist composer https://mirrors.huaweicloud.com/repository/php CRM - Composer源管理工具12# 安装composer global require slince/composer-registry-manager 1234#列出所有可使用的镜像composer repo:ls#切换镜像composer repo:use Composer源123456789101112$ composer repo:ls --- --------------- ------------------------------------------------ composer https://packagist.org phpcomposer https://packagist.phpcomposer.com aliyun https://mirrors.aliyun.com/composer tencent https://mirrors.cloud.tencent.com/composer huawei https://mirrors.huaweicloud.com/repository/php laravel-china https://packagist.laravel-china.org * cnpkg https://php.cnpkg.org sjtug https://packagist.mirrors.sjtug.sjtu.edu.cn --- --------------- ------------------------------------------------]]></content>
       <tags>
         <tag>php</tag>
       </tags>
