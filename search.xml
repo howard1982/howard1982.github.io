@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[mysql CPU 负载高]]></title>
+    <url>%2F2019-07%2Fmysql-cpu-top%2F</url>
+    <content type="text"><![CDATA[查询现在的进程执行命令 SHOW FULL PROCESSLIST\G; 限制 参数： Time : The time in seconds that the thread has been in its current state. Info : sql 语句 分析 Selectexplain select * from servers; 参数： Key : The index actually chosen 参考其他 Mysql 设置]]></content>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[mail 没有設定 MX 記錄]]></title>
     <url>%2F2019-07%2Fmail-mx%2F</url>
     <content type="text"><![CDATA[今天發現一個奇怪的現象 某個二級域名（mail.xxx.com） 沒有設定 mx記錄 。但是 郵箱（abc@mail.xxx.com）還可以收信。 查詢 google 得到結果：如果沒有MX記錄，則讀取A記錄對應的內容 12RFC 5321if no MX record is present mail servers should fall back to the A record for the domain.]]></content>
