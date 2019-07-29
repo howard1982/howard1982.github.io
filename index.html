@@ -841,7 +841,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-18 17:47:23" itemprop="dateModified" datetime="2019-07-18T17:47:23+08:00">2019-07-18</time>
+                <time title="修改时间：2019-07-29 13:51:24" itemprop="dateModified" datetime="2019-07-29T13:51:24+08:00">2019-07-29</time>
               
             
           </span>
@@ -882,11 +882,13 @@
 <li>iptables -D chain rulenum 清除某条</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Table  Chain            num   pkts bytes target     prot opt in     out     source               destination  </span><br><span class="line">filter CXS_LF_CPANEL    12       0     0 DROP       all  --  *      *       203.195.218.49       0.0.0.0/0</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查找</span></span><br><span class="line">iptables -L CXS_LF_CPANEL --line-numbers | grep xxx.xxx.xxx</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 刪除， 157就是對應的number</span></span><br><span class="line">iptables -D CXS_LF_CPANEL 157</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查找</span><br><span class="line">iptables -L CXS_LF_CPANEL --line-numbers | grep xxx.xxx.xxx</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 刪除， 157就是對應的number</span><br><span class="line">iptables -D CXS_LF_CPANEL 157</span><br></pre></td></tr></table></figure>
+<h2 id="cxs"><a href="#cxs" class="headerlink" title="cxs"></a>cxs</h2><p>如果有類似 <code>CXS_LF_SSHD</code> <code>CXS_LF_CPANEL</code> 的防火墻規則。 需要先刪除 <code>/var/lib/csf/csf.block.CXS_LF_SSHD</code> 對應的ip 然後在重啟 csf <code>csf -ra</code></p>
+<p>[參考 cxs][/2019-05/cxs/]</p>
 <h2 id="快速刪除"><a href="#快速刪除" class="headerlink" title="快速刪除"></a>快速刪除</h2><p><code>iptables -L</code> 在規則很多的時候很慢。找到了其他參數 <code>-S, --list-rules</code> 。例如 <code>iptables -S CXS_LF_SSHD</code> CXS_LF_SSHD 是 chain 的名稱</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查找</span></span><br><span class="line">iptables -S CXS_LF_SSHD | grep 51.77.213.181</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 結果</span></span><br><span class="line">-A CXS_LF_SSHD -s 178.62.30.249/32 -j DROP</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 刪除， 157就是對應的number</span></span><br><span class="line">iptables -D CXS_LF_SSHD -s 178.62.30.249/32 -j DROP</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查找</span><br><span class="line">iptables -S CXS_LF_SSHD | grep 51.77.213.181</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 結果</span><br><span class="line">-A CXS_LF_SSHD -s 178.62.30.249/32 -j DROP</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 刪除， 157就是對應的number</span><br><span class="line">iptables -D CXS_LF_SSHD -s 178.62.30.249/32 -j DROP</span><br></pre></td></tr></table></figure>
 <p><code>-s 178.62.30.249/32 -j DROP</code> 是 查詢結果中的規則</p>
 
           
@@ -1428,7 +1430,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-20 10:03:10" itemprop="dateModified" datetime="2019-06-20T10:03:10+08:00">2019-06-20</time>
+                <time title="修改时间：2019-07-29 13:49:20" itemprop="dateModified" datetime="2019-07-29T13:49:20+08:00">2019-07-29</time>
               
             
           </span>
@@ -1471,6 +1473,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--options [-/+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options</span><br></pre></td></tr></table></figure>
 <p>详细说明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">m = regex pattern match</span><br><span class="line">M = fingerprint match</span><br><span class="line">v = virus</span><br><span class="line">O = socket</span><br><span class="line">L = symlink</span><br><span class="line">f = suspicious file</span><br><span class="line">F = skipped directory with too many entries</span><br><span class="line">S = SUID file</span><br><span class="line">G = GUID file</span><br><span class="line">c = core dump file</span><br><span class="line">C = core dump file deleted</span><br><span class="line">h = suspected exploit file</span><br><span class="line">e = Linux binary or executable file</span><br><span class="line">x = Windows binary or executable file</span><br><span class="line">d = suspicious directory name</span><br><span class="line">n = hidden directory owned by nobody user</span><br><span class="line">w = world writable directory</span><br><span class="line">W = world writable directory - chmod to 755</span><br><span class="line">T = script file - identifies PHP, Perl, and other script files as suspicious</span><br><span class="line">E = email script</span><br><span class="line">D = Decoded PHP encoded (e.g. base64) file scan match</span><br><span class="line">R = Match the PHP decode regex</span><br><span class="line">P = Search D/B config files and attempt user login via FTP. Match on success</span><br><span class="line">Z = compressed file - scan within zip, tar, tar.gz and tar.bz2 files</span><br><span class="line">! = Scan timeout per file B&lt;--timemax&gt;</span><br><span class="line">[Zzzzzzz] = sleeping for 60 seconds as load average is &gt; --throttle [num]</span><br></pre></td></tr></table></figure></p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>修改 <code>/etc/cxs/cxswatch.conf</code> 文檔中的 <code>options</code> 屬性</p>
+<h2 id="cxs-IP-Reputation-System"><a href="#cxs-IP-Reputation-System" class="headerlink" title="cxs IP Reputation System"></a>cxs IP Reputation System</h2><p>編輯 <code>cxs.blocklists</code> 設定哪些需要開啟</p>
+<p>如果有類似 <code>CXS_LF_SSHD</code> <code>CXS_LF_CPANEL</code> 的防火墻規則。 需要先刪除 <code>/var/lib/csf/csf.block.CXS_LF_SSHD</code> 對應的ip 然後在重啟 csf <code>csf -ra</code></p>
 
           
         
