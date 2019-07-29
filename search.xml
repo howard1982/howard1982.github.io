@@ -63,8 +63,8 @@
     <url>%2F2019-05%2Fcxs%2F</url>
     <content type="text"><![CDATA[命令 手动检查命令 ： cxs . 排除 World writeable directory 信息： cxs --options mMOLfSGchexdnZDRru . 去掉了 w。 参考： 1--options [-/+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options 详细说明1234567891011121314151617181920212223242526m = regex pattern matchM = fingerprint matchv = virusO = socketL = symlinkf = suspicious fileF = skipped directory with too many entriesS = SUID fileG = GUID filec = core dump fileC = core dump file deletedh = suspected exploit filee = Linux binary or executable filex = Windows binary or executable filed = suspicious directory namen = hidden directory owned by nobody userw = world writable directoryW = world writable directory - chmod to 755T = script file - identifies PHP, Perl, and other script files as suspiciousE = email scriptD = Decoded PHP encoded (e.g. base64) file scan matchR = Match the PHP decode regexP = Search D/B config files and attempt user login via FTP. Match on successZ = compressed file - scan within zip, tar, tar.gz and tar.bz2 files! = Scan timeout per file B&lt;--timemax&gt;[Zzzzzzz] = sleeping for 60 seconds as load average is &gt; --throttle [num] 配置修改 /etc/cxs/cxswatch.conf 文檔中的 options 屬性 cxs IP Reputation System編輯 cxs.blocklists 設定哪些需要開啟 如果有類似 CXS_LF_SSHD CXS_LF_CPANEL 的防火墻規則。 需要先刪除 /var/lib/csf/csf.block.CXS_LF_SSHD 對應的ip 然後在重啟 csf csf -ra]]></content>
       <tags>
-        <tag>linux</tag>
         <tag>cpanel</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -72,8 +72,8 @@
     <url>%2F2019-05%2Fcpanel-ftp-over-tls%2F</url>
     <content type="text"><![CDATA[狀況cpanel 設定的 ftp over tls 總是列表失敗。 原因原因是 ftp 的被動模式(Passive)沒有正常運行。防火墻(csf)攔截了。 123cat /etc/pure-ftpd.conf | grep PassivePortRange# 可以看到PassivePortRange 49152 65534 解決辦法csf 設定文檔 的 TCP_IN 增加 49152:65534。並重啟。]]></content>
       <tags>
-        <tag>linux</tag>
         <tag>cpanel</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -597,7 +597,7 @@
   <entry>
     <title><![CDATA[Cpanel 操作]]></title>
     <url>%2F2017-01%2Fcpanel%2F</url>
-    <content type="text"><![CDATA[限制每小時發送mail數量在 Server Configuration » Tweak Settings 中 mail 設定 Max hourly emails per domain 限制Mail夾檔大小在 Exim Configuration Manager » Advanced Editor 中 Add additional configuration setting 添加 message_size_limit = 50M 限制密碼強度在 Security Center » Password Strength Configuration 設定 程序發送密碼限定在 ConfigServer Security &amp; Firewall 中可以限制php程序發送mail的數量，如果超過設定值則將目錄權限修改為0 LF_SCRIPT_ALERT = On 開啟通知 LF_SCRIPT_LIMIT = 100 上限設定 LF_SCRIPT_PERM = On 如果超過上限則修改執行文件權限 Cpanel 每小時Mail 數量 MAX_EMAIL_PER_HOUR-$domain=300 in /var/cpanel/users/$account Run the /usr/local/cpanel/scripts/updateuserdomains script. 更新使用空間1/scripts/fixquotas park domain 失敗 WHM &gt; Tweak Settings &gt; Domains &gt; Allow Remote Domains 設定為 On]]></content>
+    <content type="text"><![CDATA[限制每小時發送mail數量在 Server Configuration » Tweak Settings 中 mail 設定 Max hourly emails per domain 限制Mail夾檔大小在 Exim Configuration Manager » Advanced Editor 中 Add additional configuration setting 添加 message_size_limit = 50M 限制密碼強度在 Security Center » Password Strength Configuration 設定 程序發送密碼限定在 ConfigServer Security &amp; Firewall 中可以限制php程序發送mail的數量，如果超過設定值則將目錄權限修改為0 LF_SCRIPT_ALERT = On 開啟通知 LF_SCRIPT_LIMIT = 100 上限設定 LF_SCRIPT_PERM = On 如果超過上限則修改執行文件權限 Cpanel 每小時Mail 數量 MAX_EMAIL_PER_HOUR-$domain=300 in /var/cpanel/users/$account Run the /usr/local/cpanel/scripts/updateuserdomains script. 更新使用空間1/scripts/fixquotas park domain 失敗 WHM &gt; Tweak Settings &gt; Domains &gt; Allow Remote Domains 設定為 On 修改mail通知修改一下2個地方，並查看 /root/.forward 123Home » Server Configuration » Basic WebHost Manager® Setup &gt; Enter one or more email addresses to contact in case a problem arises with this server.Home » Server Contacts » Edit System Mail Preferences]]></content>
       <tags>
         <tag>cpanel</tag>
       </tags>
