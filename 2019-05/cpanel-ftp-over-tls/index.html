@@ -109,7 +109,7 @@
 
 
   <meta name="description" content="狀況cpanel 設定的 ftp over tls 總是列表失敗。 原因原因是 ftp 的被動模式(Passive)沒有正常運行。防火墻(csf)攔截了。 123cat /etc/pure-ftpd.conf | grep PassivePortRange# 可以看到PassivePortRange 49152 65534 解決辦法csf 設定文檔 的 TCP_IN 增加 49152:65534。">
-<meta name="keywords" content="cpanel,linux">
+<meta name="keywords" content="linux,cpanel">
 <meta property="og:type" content="article">
 <meta property="og:title" content="cpanel ftp over TLS">
 <meta property="og:url" content="http://blog.howard/2019-05/cpanel-ftp-over-tls/index.html">
@@ -444,9 +444,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/cpanel/" rel="tag"># cpanel</a>
-          
             <a href="/tags/linux/" rel="tag"># linux</a>
+          
+            <a href="/tags/cpanel/" rel="tag"># cpanel</a>
           
         </div>
       
@@ -541,7 +541,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">133</span>
+                    <span class="site-state-item-count">135</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -646,7 +646,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">45</span>
+                      
+                    
+                    <span class="site-state-item-count">46</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[pypi]]></title>
+    <url>%2F2019-08%2Fpypi%2F</url>
+    <content type="text"><![CDATA[配置 pip.ini linux: $HOME/.pip/pip.conf windows: %HOME%\pip\pip.ini 使用镜像aliyun镜像 12345[global]index-url = https://mirrors.aliyun.com/pypi/simple/[install]trusted-host=mirrors.aliyun.com]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>pip</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[golang package]]></title>
+    <url>%2F2019-08%2Fgolang-package%2F</url>
+    <content type="text"><![CDATA[定义go import 的包是由 包路径/包名 组合而成的。 目录名称必须和包的名称一样 统一个目录下只能定义一个包名 import 别名1234import ( "fmt" myNet3 "t4/net3") import 特殊点操作. 导入可以让包内的方法注册到当前包的上下文中，直接调用方法名即可，不需要再加包前缀。 1234import ( "fmt" . "t4/net3") 下划线操作_ 是包引用操作，只会执行包下各模块中的 init 方法，并不会真正的导入包，所以不可以调用包内的其他方法。 1234import ( "fmt" _ "t4/net3") 每个包中可以在任意文档中定义 init 方法。 如果定义多个，则都会加载。]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[php-fpm 配置说明]]></title>
     <url>%2F2019-07%2Fphp-fpm%2F</url>
     <content type="text"><![CDATA[设定说明 pm.max_children = 120 在同一时间最大的进程数 pm.max_requests = 500 每个进程处理多少个请求之后自动终止，可以有效防止内存溢出， pm.process_idle_timeout = 10 空闲多少秒之后进程会被kill，默认为10s 运行模式 pm = static 静态，始终保持一个固定数量的子进程，这个数由（pm.max_children）定义 pm = dynamic 动态, 启动时，会产生固定数量的子进程（由pm.start_servers控制）可以理解成最小子进程数，而最大子进程数则由pm.max_children去控制。还可设定 空闲进程 pm.min_spare_servers和pm.max_spare_servers pm = ondemand 进程在有需求时才产生, 这种模式把内存放在第一位]]></content>
@@ -63,8 +77,8 @@
     <url>%2F2019-05%2Fcxs%2F</url>
     <content type="text"><![CDATA[命令 手动检查命令 ： cxs . 排除 World writeable directory 信息： cxs --options mMOLfSGchexdnZDRru . 去掉了 w。 参考： 1--options [-/+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options 详细说明1234567891011121314151617181920212223242526m = regex pattern matchM = fingerprint matchv = virusO = socketL = symlinkf = suspicious fileF = skipped directory with too many entriesS = SUID fileG = GUID filec = core dump fileC = core dump file deletedh = suspected exploit filee = Linux binary or executable filex = Windows binary or executable filed = suspicious directory namen = hidden directory owned by nobody userw = world writable directoryW = world writable directory - chmod to 755T = script file - identifies PHP, Perl, and other script files as suspiciousE = email scriptD = Decoded PHP encoded (e.g. base64) file scan matchR = Match the PHP decode regexP = Search D/B config files and attempt user login via FTP. Match on successZ = compressed file - scan within zip, tar, tar.gz and tar.bz2 files! = Scan timeout per file B&lt;--timemax&gt;[Zzzzzzz] = sleeping for 60 seconds as load average is &gt; --throttle [num] 配置修改 /etc/cxs/cxswatch.conf 文檔中的 options 屬性 cxs IP Reputation System編輯 cxs.blocklists 設定哪些需要開啟 如果有類似 CXS_LF_SSHD CXS_LF_CPANEL 的防火墻規則。 需要先刪除 /var/lib/csf/csf.block.CXS_LF_SSHD 對應的ip 然後在重啟 csf csf -ra]]></content>
       <tags>
-        <tag>cpanel</tag>
         <tag>linux</tag>
+        <tag>cpanel</tag>
       </tags>
   </entry>
   <entry>
@@ -72,8 +86,8 @@
     <url>%2F2019-05%2Fcpanel-ftp-over-tls%2F</url>
     <content type="text"><![CDATA[狀況cpanel 設定的 ftp over tls 總是列表失敗。 原因原因是 ftp 的被動模式(Passive)沒有正常運行。防火墻(csf)攔截了。 123cat /etc/pure-ftpd.conf | grep PassivePortRange# 可以看到PassivePortRange 49152 65534 解決辦法csf 設定文檔 的 TCP_IN 增加 49152:65534。並重啟。]]></content>
       <tags>
-        <tag>cpanel</tag>
         <tag>linux</tag>
+        <tag>cpanel</tag>
       </tags>
   </entry>
   <entry>
