@@ -324,6 +324,447 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-09/php-http/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018-09/php-http/" itemprop="url">
+                  php http
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-10 18:10:01 / 修改时间：18:16:45" itemprop="dateCreated datePublished" datetime="2018-09-10T18:10:01+08:00">2018-09-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>参考 <a href="https://recca0120.github.io/2017/04/03/PHP-Psr7-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" target="_blank" rel="noopener">PHP-Psr7-使用方法</a></p>
+<p>使用 php-http 组件</p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>在 PHP 有眾多的 Http Client 套件，每個使用方法都不一致</p>
+<p>像是我們最常使用的 GuzzleHttp 它從5版及升到6版</p>
+<p>結果連API都不一致，這確實造成了很大的困擾</p>
+<p>所以 PHP-FIG 就提出了 PSR-7 來定義 HTTP message interfaces，並由 httplug.io 實作它</p>
+<p>之後我們這可以利用 PSR-7 的標準來使用 cURL, Socket, Buzz, Guzzle5, Guzzle6, React，相關Adapter</p>
+<h2 id="install"><a href="#install" class="headerlink" title="install"></a>install</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安裝 psr-7</span></span><br><span class="line">composer require guzzlehttp/psr7 php-http/message</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安裝所需的 adapter （示範 GuzzleHttp 6）</span></span><br><span class="line">composer require php-http/guzzle6-adapter</span><br></pre></td></tr></table></figure>
+<h2 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Http</span>\<span class="title">Adapter</span>\<span class="title">Guzzle6</span>\<span class="title">Client</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Http</span>\<span class="title">Message</span>\<span class="title">MessageFactory</span>\<span class="title">GuzzleMessageFactory</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">require</span> <span class="keyword">__DIR__</span>.<span class="string">'/vendor/autoload.php'</span>;</span><br><span class="line"></span><br><span class="line">$client = <span class="keyword">new</span> Client();</span><br><span class="line">$messageFactory = <span class="keyword">new</span> GuzzleMessageFactory();</span><br><span class="line">$request = $messageFactory-&gt;createRequest(<span class="string">'GET'</span>, <span class="string">'https://name.080.net/domain/faq'</span>);</span><br><span class="line">$response = $client-&gt;sendRequest($request);</span><br><span class="line"><span class="keyword">echo</span> $response-&gt;getBody()-&gt;getContents();</span><br></pre></td></tr></table></figure>
+<h2 id="POST-JSON"><a href="#POST-JSON" class="headerlink" title="POST JSON"></a>POST JSON</h2><p>替换 $request 变量</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$request = $messageFactory-&gt;createRequest(<span class="string">'POST'</span>,</span><br><span class="line">    <span class="string">'https://name.080.net/domain/one_off/ss/json'</span>,</span><br><span class="line">    [<span class="string">'Content-Type: application/json'</span>,<span class="string">'Accept: application/json'</span>],</span><br><span class="line">    json_encode([<span class="string">'a1'</span>=&gt;<span class="string">'22'</span>,<span class="string">'sfe'</span>=&gt;<span class="string">'fff'</span>])</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="不使用Curl"><a href="#不使用Curl" class="headerlink" title="不使用Curl"></a>不使用Curl</h2><p>替换 $client 变量</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$handler = <span class="keyword">new</span> GuzzleHttp\Handler\StreamHandler;</span><br><span class="line">$client = <span class="keyword">new</span> GuzzleHttp\Client([<span class="string">'handler'</span> =&gt; $handler]);</span><br><span class="line"></span><br><span class="line">$client = <span class="keyword">new</span> Client($client);</span><br></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">"vendor/autoload.php"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Http</span>\<span class="title">Adapter</span>\<span class="title">Guzzle6</span>\<span class="title">Client</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Http</span>\<span class="title">Message</span>\<span class="title">MessageFactory</span>\<span class="title">GuzzleMessageFactory</span>;</span><br><span class="line"></span><br><span class="line">$handler = <span class="keyword">new</span> GuzzleHttp\Handler\StreamHandler;</span><br><span class="line">$client = <span class="keyword">new</span> GuzzleHttp\Client([<span class="string">'handler'</span> =&gt; $handler]);</span><br><span class="line"></span><br><span class="line">$client = <span class="keyword">new</span> Client($client);</span><br><span class="line">$messageFactory = <span class="keyword">new</span> GuzzleMessageFactory();</span><br><span class="line"></span><br><span class="line">$request = $messageFactory-&gt;createRequest(<span class="string">'POST'</span>,</span><br><span class="line">    <span class="string">'https://name.080.net/domain/one_off/ss/json'</span>,</span><br><span class="line">    [<span class="string">'Content-Type: application/json'</span>,<span class="string">'Accept: application/json'</span>],</span><br><span class="line">    json_encode([<span class="string">'a1'</span>=&gt;<span class="string">'22'</span>,<span class="string">'sfe'</span>=&gt;<span class="string">'fff'</span>])</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">$response = $client-&gt;sendRequest($request);</span><br><span class="line"></span><br><span class="line">$ss =  $response-&gt;getBody()-&gt;getContents();</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-09/http-header/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018-09/http-header/" itemprop="url">
+                  http header
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-10 15:45:30 / 修改时间：16:19:45" itemprop="dateCreated datePublished" datetime="2018-09-10T15:45:30+08:00">2018-09-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="請求"><a href="#請求" class="headerlink" title="請求"></a>請求</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST /path HTTP/1.1</span><br><span class="line">Host: example.com</span><br><span class="line"></span><br><span class="line">foo=bar&amp;baz=bat</span><br></pre></td></tr></table></figure>
+<h2 id="相應"><a href="#相應" class="headerlink" title="相應"></a>相應</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: text/plain</span><br><span class="line"></span><br><span class="line">这是返回的消息内容</span><br></pre></td></tr></table></figure>
+<h2 id="其他參考"><a href="#其他參考" class="headerlink" title="其他參考"></a>其他參考</h2><p><a href="./2016-12/php-curl/">PHP curl</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-09/socket/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018-09/socket/" itemprop="url">
+                  socket
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-10 15:45:11 / 修改时间：16:18:07" itemprop="dateCreated datePublished" datetime="2018-09-10T15:45:11+08:00">2018-09-10</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>TCP/IP是个协议组，可分为四个层次：网络接口层、网络层、传输层和应用层。</p>
+<ol>
+<li>网络接口层 –</li>
+<li>网络层 – IP协议、ICMP协议、ARP协议、RARP协议和BOOTP协议</li>
+<li>传输层 – TCP协议与UDP协议</li>
+<li>应用层 – HTTP,FTP、TELNET、SMTP、DNS等协议</li>
+</ol>
+<h2 id="socket"><a href="#socket" class="headerlink" title="socket"></a>socket</h2><p>socket只是一种连接模式，不是协议，socket是对TCP/IP协议的封装，Socket本身并不是协议，而是一个调用接口（API），</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-08/php-input/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1317,482 +1758,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-06/install-python/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018-06/install-python/" itemprop="url">
-                  安装Python3
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-06-23 16:33:47 / 修改时间：16:38:38" itemprop="dateCreated datePublished" datetime="2018-06-23T16:33:47+08:00">2018-06-23</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>WEB用PHP</li>
-<li>其他用Python</li>
-<li>特殊情况用Go</li>
-</ul>
-<h2 id="安装-Python3"><a href="#安装-Python3" class="headerlink" title="安装 Python3"></a>安装 Python3</h2><ul>
-<li>尽量用 yum 或 apt 利用现有资料安装python3</li>
-<li>其次在用编译的方式安装</li>
-</ul>
-<h3 id="Centos-安装-python3"><a href="#Centos-安装-python3" class="headerlink" title="Centos 安装 python3"></a>Centos 安装 python3</h3><ul>
-<li><code>yum install epel-release</code></li>
-<li><code>yum serach python3</code></li>
-<li><code>yum install python3</code></li>
-</ul>
-<h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h3><p>Ubunut 16 以后默认自带Python3 可以直接使用 <code>/usr/bin/python3</code></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-05/php-pdo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018-05/php-pdo/" itemprop="url">
-                  PHP PDO 操作
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-29 16:21:53" itemprop="dateCreated datePublished" datetime="2018-05-29T16:21:53+08:00">2018-05-29</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-29 18:14:02" itemprop="dateModified" datetime="2018-08-29T18:14:02+08:00">2018-08-29</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="連接"><a href="#連接" class="headerlink" title="連接"></a>連接</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$dbh = <span class="keyword">new</span> PDO(<span class="string">'mysql:dbname=db;host=localhost'</span>, <span class="string">'root'</span>, <span class="string">'password'</span>);</span><br></pre></td></tr></table></figure>
-<p>or</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$dsn = <span class="string">'mysql:dbname=db;host=localhost'</span>;</span><br><span class="line">$user = <span class="string">'root'</span>;</span><br><span class="line">$password = <span class="string">'password'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    $dbh = <span class="keyword">new</span> PDO($dsn, $user, $password);</span><br><span class="line">&#125; <span class="keyword">catch</span> (PDOException $e) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'Connection failed: '</span> . $e-&gt;getMessage();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="设定只显示-key"><a href="#设定只显示-key" class="headerlink" title="设定只显示 key"></a>设定只显示 key</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$dbh-&gt;setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);</span><br></pre></td></tr></table></figure>
-<h2 id="query-和-prepare-区别"><a href="#query-和-prepare-区别" class="headerlink" title="query 和 prepare 区别"></a>query 和 prepare 区别</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$sth = $dbh-&gt;query($sql);</span><br><span class="line"><span class="comment"># 等同于</span></span><br><span class="line">$sth = $dbh-&gt;prepare($sql);</span><br><span class="line">$sth-&gt;execute();</span><br></pre></td></tr></table></figure>
-<h2 id="获取结果"><a href="#获取结果" class="headerlink" title="获取结果"></a>获取结果</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>($row = $sth-&gt;fetch()) &#123;</span><br><span class="line">    print_r($row);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line"><span class="keyword">foreach</span>($sth-&gt;fetchAll() <span class="keyword">as</span> $row) &#123;</span><br><span class="line">    print_r($row);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="PDOStatement-execute"><a href="#PDOStatement-execute" class="headerlink" title="PDOStatement::execute"></a>PDOStatement::execute</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$sth = $dbh-&gt;prepare(<span class="string">"update icrm_contact set email2 = ? where id = ?"</span>);</span><br><span class="line">$sth-&gt;execute(<span class="keyword">array</span>($email, $id));</span><br></pre></td></tr></table></figure>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$sth = $dbh-&gt;prepare(<span class="string">"update icrm_contact set email2 = ? where id = ?"</span>);</span><br><span class="line">$sth-&gt;bindValue(<span class="number">1</span>, <span class="string">'howard@080.net'</span>);</span><br><span class="line">$sth-&gt;bindValue(<span class="number">2</span>, <span class="string">'1'</span>);</span><br><span class="line">$sth-&gt;execute();</span><br></pre></td></tr></table></figure>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$sth = $dbh-&gt;prepare(<span class="string">"update icrm_contact set email2 = :email where id = :id"</span>);</span><br><span class="line">$sth-&gt;bindValue(<span class="string">':email'</span>, <span class="string">'howard@080.net'</span>);</span><br><span class="line">$sth-&gt;bindValue(<span class="string">':id'</span>, <span class="string">'1'</span>);</span><br><span class="line">$sth-&gt;execute();</span><br></pre></td></tr></table></figure>
-<h2 id="PDOStatement-bindValue"><a href="#PDOStatement-bindValue" class="headerlink" title="PDOStatement::bindValue"></a>PDOStatement::bindValue</h2><p>把一个值绑定到一个参数， 例如 把 <a href="mailto:`howard@080.net" target="_blank" rel="noopener">`howard@080.net</a><code>綁定到</code>:email`</p>
-<h2 id="PDOStatement-bindParam"><a href="#PDOStatement-bindParam" class="headerlink" title="PDOStatement::bindParam"></a>PDOStatement::bindParam</h2><p>绑定一个参数到指定的变量名，例如 把 <code>$email</code> 這個變量 綁定到 <code>:email</code>。<br>當保存多個的時候 直接修改 <code>$email</code> 對應的值。然後執行<code>$sth-&gt;execute()</code> 就可以了。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-05/openssl/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018-05/openssl/" itemprop="url">
-                  Openssl
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-05-29 13:29:24" itemprop="dateCreated datePublished" datetime="2018-05-29T13:29:24+08:00">2018-05-29</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-15 17:40:54" itemprop="dateModified" datetime="2019-07-15T17:40:54+08:00">2019-07-15</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="解析CRT文檔"><a href="#解析CRT文檔" class="headerlink" title="解析CRT文檔"></a>解析CRT文檔</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -in my.cert -noout -text</span><br></pre></td></tr></table></figure>
-<h2 id="解析CSR文檔"><a href="#解析CSR文檔" class="headerlink" title="解析CSR文檔"></a>解析CSR文檔</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -in mycsr.csr -noout -text</span><br></pre></td></tr></table></figure>
-<h2 id="檢查CSR、-Private-Key、-CRT-是否匹配"><a href="#檢查CSR、-Private-Key、-CRT-是否匹配" class="headerlink" title="檢查CSR、 Private Key、 CRT 是否匹配"></a>檢查CSR、 Private Key、 CRT 是否匹配</h2><p>通過命令查看 sha256 數值是否一致</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">openssl pkey -in example.key -pubout -outform pem | sha256sum</span><br><span class="line">openssl x509 -in example.crt -pubkey -noout -outform pem | sha256sum</span><br><span class="line">openssl req -in example.csr -pubkey -noout -outform pem | sha256sum</span><br></pre></td></tr></table></figure>
-<h2 id="生成-IIS-pfx-文檔"><a href="#生成-IIS-pfx-文檔" class="headerlink" title="生成 IIS pfx 文檔"></a>生成 IIS pfx 文檔</h2><p>以下命令 生成文檔 <code>iis.pfx</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/openssl pkcs12 -export -out "iis.pfx" -in "cert.pem" -inkey "private.pem"  -certfile "chain.pem" -password pass:123456</span><br></pre></td></tr></table></figure>
-<h2 id="解析-IIS-pfx-文檔"><a href="#解析-IIS-pfx-文檔" class="headerlink" title="解析 IIS pfx 文檔"></a>解析 IIS pfx 文檔</h2><p>會詢問輸入密碼。</p>
-<p>一下命令 生成 <code>ex.pem</code>。 這個文檔裡面包含 <code>cert.pem</code> <code>chain.pem</code> <code>private.pem</code> 內容</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -in iis.pfx -out ex.pem -nodes</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1840,7 +1805,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">135</span>
+                    <span class="site-state-item-count">138</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

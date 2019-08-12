@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[cpanle smtp 25端口 outlook无法发送mail]]></title>
+    <url>%2F2019-08%2Fcpanle-outlook-25port%2F</url>
+    <content type="text"><![CDATA[问题， 0x800CCC80outlook 提示 0x800CCC80 错误。您的服务器不支持此客户端支持的任何验证方式 解决办法登录 whm 并打开 WHM &gt; Exim Configuration Manager &gt; Basic Editor &gt; Security 设定 Require clients to connect with SSL or issue the STARTTLS command before they are allowed to authenticate with the server. 为 off]]></content>
+      <tags>
+        <tag>cpanel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Centos7安装Python3]]></title>
+    <url>%2F2019-08%2FCentos7-Python3%2F</url>
+    <content type="text"><![CDATA[Centos7 默认的是python2.7 。 通过 epel 安装python3.4 安装 epel yum install epel-release 安装 python3.4 yum install python34 检查 ll /usr/bin/python*]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Centos EPEL]]></title>
+    <url>%2F2019-08%2FCentos-EPEL%2F</url>
+    <content type="text"><![CDATA[什么是EPELEPEL的全称叫 Extra Packages for Enterprise Linux 。EPEL是由 Fedora 社区打造，为 RHEL 及衍生发行版如 CentOS、Scientific Linux 等提供高质量软件包的项目。 一些软件包 例如 htop ufw等。都在这里。 1yum install epel-release -y]]></content>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[pypi]]></title>
     <url>%2F2019-08%2Fpypi%2F</url>
     <content type="text"><![CDATA[配置 pip.ini linux: $HOME/.pip/pip.conf windows: %HOME%\pip\pip.ini 使用镜像aliyun镜像 12345[global]index-url = https://mirrors.aliyun.com/pypi/simple/[install]trusted-host=mirrors.aliyun.com]]></content>
