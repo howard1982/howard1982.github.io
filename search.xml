@@ -554,7 +554,7 @@
   <entry>
     <title><![CDATA[dig 命令]]></title>
     <url>%2F2017-05%2Fdig%2F</url>
-    <content type="text"><![CDATA[基本查詢123dig 080.net mxdig 080.net txtdig 080.net any # 查詢所有的080.net的記錄。（不含subdomain） 反向解析123dig -x 119.81.172.50nslookup -qt=ptr 119.81.172.50]]></content>
+    <content type="text"><![CDATA[基本查詢123dig 080.net mxdig 080.net txtdig 080.net any # 查詢所有的080.net的記錄。（不含subdomain） 參數123dig 080.net +short abc.com abc.netdig 080.net +noall +answer abc.com abc.netdig +nocmd +multiline +noall +answer abc.com abc.net any 反向解析123dig -x 119.81.172.50nslookup -qt=ptr 119.81.172.50]]></content>
       <tags>
         <tag>linux</tag>
       </tags>
