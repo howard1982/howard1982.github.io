@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="systemd systemctl  准备安装基本python插件 12pip install flaskpip install gunicorn 创建文档 /root/bin/rot13.py 1234567from flask import Flaskapp = Flask(__name__)@app.route(&quot;/&quot;)def hello():    return &quot;Hello World!">
+  <meta name="description" content="systemd systemctl systemctl 常用命令12345678systemctl list-unit-files # 列出所有配置文件systemctl list-unit-files --type=service # 列表所有 servicesystemctl list-unit-files | grep php # 搜索 phpsystemctl stauts httpdsy">
 <meta name="keywords" content="linux,python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="systemd 简单实例">
 <meta property="og:url" content="http://blog.howard/2019-02/systemd/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="systemd systemctl  准备安装基本python插件 12pip install flaskpip install gunicorn 创建文档 /root/bin/rot13.py 1234567from flask import Flaskapp = Flask(__name__)@app.route(&quot;/&quot;)def hello():    return &quot;Hello World!">
+<meta property="og:description" content="systemd systemctl systemctl 常用命令12345678systemctl list-unit-files # 列出所有配置文件systemctl list-unit-files --type=service # 列表所有 servicesystemctl list-unit-files | grep php # 搜索 phpsystemctl stauts httpdsy">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-19T07:01:49.380Z">
+<meta property="og:updated_time" content="2019-09-09T01:08:14.814Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="systemd 简单实例">
-<meta name="twitter:description" content="systemd systemctl  准备安装基本python插件 12pip install flaskpip install gunicorn 创建文档 /root/bin/rot13.py 1234567from flask import Flaskapp = Flask(__name__)@app.route(&quot;/&quot;)def hello():    return &quot;Hello World!">
+<meta name="twitter:description" content="systemd systemctl systemctl 常用命令12345678systemctl list-unit-files # 列出所有配置文件systemctl list-unit-files --type=service # 列表所有 servicesystemctl list-unit-files | grep php # 搜索 phpsystemctl stauts httpdsy">
 
 
 
@@ -387,7 +387,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-19 15:01:49" itemprop="dateModified" datetime="2019-06-19T15:01:49+08:00">2019-06-19</time>
+                <time title="修改时间：2019-09-09 09:08:14" itemprop="dateModified" datetime="2019-09-09T09:08:14+08:00">2019-09-09</time>
               
             
           </span>
@@ -420,9 +420,10 @@
       
 
       
-        <p>systemd systemctl </p>
+        <p>systemd systemctl</p>
+<h2 id="systemctl-常用命令"><a href="#systemctl-常用命令" class="headerlink" title="systemctl 常用命令"></a>systemctl 常用命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">systemctl list-unit-files # 列出所有配置文件</span><br><span class="line">systemctl list-unit-files --type=service # 列表所有 service</span><br><span class="line">systemctl list-unit-files | grep php # 搜索 php</span><br><span class="line"></span><br><span class="line">systemctl stauts httpd</span><br><span class="line">systemctl restart httpd</span><br><span class="line">systemctl stop httpd</span><br><span class="line">systemctl start httpd</span><br></pre></td></tr></table></figure>
 <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>安装基本python插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install flask</span><br><span class="line">pip install gunicorn</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install flask</span><br><span class="line">pip install gunicorn</span><br></pre></td></tr></table></figure>
 <p>创建文档 <code>/root/bin/rot13.py</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route("/")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello World!"</span></span><br></pre></td></tr></table></figure>
 <p>测试以上程序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/bin/gunicorn -w 4 -b 127.0.0.1:8080 rot13:app</span><br></pre></td></tr></table></figure></p>
@@ -431,7 +432,8 @@
 <p>启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start rot13.service</span><br></pre></td></tr></table></figure></p>
 <p>开机启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable rot13.service</span><br></pre></td></tr></table></figure></p>
 <h2 id="配置防火墙"><a href="#配置防火墙" class="headerlink" title="配置防火墙"></a>配置防火墙</h2><p>Ubuntu 为例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow 8080</span><br></pre></td></tr></table></figure></p>
-<h2 id="systemctl-常用命令"><a href="#systemctl-常用命令" class="headerlink" title="systemctl 常用命令"></a>systemctl 常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl list-units --type=service --all # 列表所有 service</span><br><span class="line">systemctl stauts httpd</span><br><span class="line">systemctl restart httpd</span><br></pre></td></tr></table></figure>
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a href="https://www.cnblogs.com/zwcry/p/9602756.html" target="_blank" rel="noopener">https://www.cnblogs.com/zwcry/p/9602756.html</a></p>
+
       
     </div>
 
@@ -691,7 +693,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-systemd"><span class="nav-number">2.</span> <span class="nav-text">配置 systemd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置防火墙"><span class="nav-number">3.</span> <span class="nav-text">配置防火墙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#systemctl-常用命令"><span class="nav-number">4.</span> <span class="nav-text">systemctl 常用命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#systemctl-常用命令"><span class="nav-number">1.</span> <span class="nav-text">systemctl 常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">2.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-systemd"><span class="nav-number">3.</span> <span class="nav-text">配置 systemd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置防火墙"><span class="nav-number">4.</span> <span class="nav-text">配置防火墙</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考"><span class="nav-number">5.</span> <span class="nav-text">參考</span></a></li></ol></div>
             
 
           </div>
