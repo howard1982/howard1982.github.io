@@ -370,7 +370,7 @@
                 
               
 
-              <time title="创建时间：2019-10-11 18:25:12 / 修改时间：18:29:58" itemprop="dateCreated datePublished" datetime="2019-10-11T18:25:12+08:00">2019-10-11</time>
+              <time title="创建时间：2019-10-11 18:25:12 / 修改时间：18:36:55" itemprop="dateCreated datePublished" datetime="2019-10-11T18:25:12+08:00">2019-10-11</time>
             
 
             
@@ -413,7 +413,7 @@
             <p>以文件为最小的单位。 利用 linux 的硬链接 (Hard link) 特性（多个link不会增加磁盘，删除某个不会影响其他的）空间来实现。</p>
 <h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0. 根据原始内容S0, 创建最初的备份内容  V1</span><br><span class="line">-- 开始增量备份 --</span><br><span class="line">1. 根据 V1 创建 V2 。 规则： 创建所有目录，ln 硬链接所有文档 。</span><br><span class="line">2. 通过 rsync 命令。同步S0最新的内容到 V2</span><br><span class="line">-- 结束 --</span><br></pre></td></tr></table></figure>
 <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ol>
-<li>通过 <code>ls -i</code> 命令  可以查看文件的编号。 如果编号一样则表示是 硬链接</li>
+<li>通过 <code>ls -i</code> 命令  可以查看文件的编号。 如果编号一样则表示是 硬链接。或用 <code>stat [file]</code> 命令查看更详细的信息</li>
 <li>同步命令 <code>rsync -vzrtopg --delete dir_a dir_b</code></li>
 <li>删除某个硬链接文档，不影响其他的</li>
 </ol>
