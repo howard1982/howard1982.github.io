@@ -324,6 +324,148 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-06/ajax-cors/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019-06/ajax-cors/" itemprop="url">
+                  ajax cors 跨域访问
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-13 21:48:13 / 修改时间：21:51:59" itemprop="dateCreated datePublished" datetime="2019-06-13T21:48:13+08:00">2019-06-13</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="页面浏览器端"><a href="#页面浏览器端" class="headerlink" title="页面浏览器端"></a>页面浏览器端</h2><p>不用变动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">jQuery.ajax(&#123;</span><br><span class="line">    url: &apos;https://api.abc.com/static/i.php&apos;,</span><br><span class="line">    type: &apos;get&apos;,</span><br><span class="line">    success:function(da)&#123; console.log(da) &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h2><p><code>https://api.abc.com/static/i.php</code> 对应的内容需要增加 header </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 只允许 https 域名 name.abc.com</span></span><br><span class="line">header(<span class="string">'Access-Control-Allow-Origin: https://name.abc.com'</span>);</span><br><span class="line">header(<span class="string">'Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment"># or 允许所有</span></span><br><span class="line">header(<span class="string">'Access-Control-Allow-Origin: *'</span>);</span><br><span class="line">header(<span class="string">'Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept'</span>);</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-06/ie-compatible/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1652,157 +1794,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-11/cpanel-awstats/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018-11/cpanel-awstats/" itemprop="url">
-                  cpanel-awstats
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-11-08 09:25:27 / 修改时间：15:48:51" itemprop="dateCreated datePublished" datetime="2018-11-08T09:25:27+08:00">2018-11-08</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>目的：不登錄cpanel的情況下，讓客戶可以訪問awstats。</p>
-<p>以下先說操作步驟，最後在回復原因。</p>
-<h2 id="步驟"><a href="#步驟" class="headerlink" title="步驟"></a>步驟</h2><ol>
-<li>創建子域名設定獨立目錄 c.xxx.com</li>
-<li>下載awstats-7.7.tar.gz</li>
-<li>接下wwwroot目錄下的 <code>cgi-bin</code> <code>icon</code> 目錄 到 c.xxx.com 目錄下（根據實際情況 修改<code>icon</code>名稱）</li>
-<li>複製<code>~/tmp/awstats/ssl</code>下conf文檔到<code>~/c.xxx.com/cgi-bin/</code>。</li>
-<li>登錄到cpanel 在<code>目錄隱私權</code> 對 <code>c.xxx.com</code>目錄添加訪問用賬號密碼</li>
-</ol>
-<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><h3 id="為什麼要新建子域名"><a href="#為什麼要新建子域名" class="headerlink" title="為什麼要新建子域名"></a>為什麼要新建子域名</h3><p>Cpanel 手動增加http-basic認證失敗，只能利用panel 的<code>目錄隱私權</code>功能。</p>
-<h3 id="為什麼不用cronb程序定期讀取log文檔"><a href="#為什麼不用cronb程序定期讀取log文檔" class="headerlink" title="為什麼不用cronb程序定期讀取log文檔"></a>為什麼不用cronb程序定期讀取log文檔</h3><p>這裡是直接讀取的cpanel的配置文檔，cpanel自動個讀取。</p>
-<h3 id="為什麼讀取-tmp-awstats-ssl-而不是-tmp-awstats-下的config-文檔"><a href="#為什麼讀取-tmp-awstats-ssl-而不是-tmp-awstats-下的config-文檔" class="headerlink" title="為什麼讀取 ~/tmp/awstats/ssl 而不是 ~/tmp/awstats/ 下的config 文檔"></a>為什麼讀取 <code>~/tmp/awstats/ssl</code> 而不是 <code>~/tmp/awstats/</code> 下的config 文檔</h3><p>已經設定了 http 自動跳轉到https</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1850,7 +1841,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">138</span>
+                    <span class="site-state-item-count">139</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
