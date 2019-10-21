@@ -15,10 +15,10 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-CN">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 
 
@@ -32,8 +32,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -56,9 +56,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
@@ -126,7 +126,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.howard/2016-12/CSF/"/>
+  <link rel="canonical" href="http://blog.howard/2016-12/CSF/">
 
 
 
@@ -222,7 +222,7 @@
           
           <li class="menu-item menu-item-home">
     <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
   </li>
         
         
@@ -230,7 +230,7 @@
           
           <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
   </li>
         
         
@@ -238,7 +238,7 @@
           
           <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
   </li>
         
         
@@ -246,7 +246,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
   </li>
 
       
@@ -256,7 +256,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
       
     </ul>
@@ -279,9 +279,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -332,7 +330,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
@@ -421,7 +419,7 @@
 
       
         <h2 id="攔截登陸失敗的設定"><a href="#攔截登陸失敗的設定" class="headerlink" title="攔截登陸失敗的設定"></a>攔截登陸失敗的設定</h2><p>Login Failure Blocking and Alerts</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">LF_SELECT</span> = <span class="number">1</span> #表示僅僅屏蔽某個ip訪問server的端口 ， 端口設定見 PORTS_*</span><br><span class="line"></span><br><span class="line"><span class="attr">LF_SSHD</span> = <span class="number">5</span> #失敗幾次？</span><br><span class="line"><span class="attr">LF_SSHD_PERM</span> = <span class="number">1</span> #屏蔽時間長度 <span class="number">0</span> 不屏蔽， <span class="number">1</span> 永久屏蔽， <span class="number">900</span>(非<span class="number">1</span>、<span class="number">0</span>其他數字)表示屏蔽<span class="number">900</span>秒，屏蔽<span class="number">900</span>秒属于临时屏蔽（Temporary IP blocking）</span><br><span class="line"><span class="attr">LF_SSHD_PERM</span> = <span class="number">900</span> # 代表临时屏蔽</span><br><span class="line"></span><br><span class="line"><span class="attr">LF_INTERVAL</span> = <span class="number">3600</span> # 統計刷新週期， 按照上面的例子是 <span class="number">3600</span>秒內登陸失敗<span class="number">5</span>次。 就永久屏蔽</span><br><span class="line"></span><br><span class="line"><span class="comment">## Temp to Perm/Netblock Settings</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">LF_SELECT</span> = <span class="number">1</span> <span class="comment">#表示僅僅屏蔽某個ip訪問server的端口 ， 端口設定見 PORTS_*</span></span><br><span class="line"></span><br><span class="line"><span class="attr">LF_SSHD</span> = <span class="number">5</span> <span class="comment">#失敗幾次？</span></span><br><span class="line"><span class="attr">LF_SSHD_PERM</span> = <span class="number">1</span> <span class="comment">#屏蔽時間長度 0 不屏蔽， 1 永久屏蔽， 900(非1、0其他數字)表示屏蔽900秒，屏蔽900秒属于临时屏蔽（Temporary IP blocking）</span></span><br><span class="line"><span class="attr">LF_SSHD_PERM</span> = <span class="number">900</span> <span class="comment"># 代表临时屏蔽</span></span><br><span class="line"></span><br><span class="line"><span class="attr">LF_INTERVAL</span> = <span class="number">3600</span> <span class="comment"># 統計刷新週期， 按照上面的例子是 3600秒內登陸失敗5次。 就永久屏蔽</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Temp to Perm/Netblock Settings</span></span><br></pre></td></tr></table></figure>
 <p>Temporary to Permanent IP blocking<br>意思是临时屏蔽IP 设定为 永久屏蔽IP</p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">LF_PERMBLOCK_INTERVAL</span> = <span class="number">86400</span></span><br><span class="line"><span class="attr">LF_PERMBLOCK_COUNT</span> = <span class="number">4</span></span><br><span class="line"><span class="comment"># 表示 86400 秒内 被例如临时屏蔽名单 4次 则转换为 永久屏蔽</span></span><br></pre></td></tr></table></figure>
 <h2 id="停止發送alerts-Mail到Root"><a href="#停止發送alerts-Mail到Root" class="headerlink" title="停止發送alerts Mail到Root"></a>停止發送alerts Mail到Root</h2><p>增加自動清除，每週一執行</p>
@@ -547,7 +545,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">139</span>
+                    <span class="site-state-item-count">140</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -724,7 +722,7 @@
 
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.9.0</div>
 
 
 
