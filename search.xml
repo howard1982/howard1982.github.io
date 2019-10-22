@@ -3,7 +3,7 @@
   <entry>
     <title>jQuery.noConflict()</title>
     <url>/2019-10/jQuery-noConflict/</url>
-    <content><![CDATA[<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script src=<span class="string">"other_lib.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"jquery.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    $.noConflict();</span><br><span class="line">    jQuery( <span class="built_in">document</span> ).ready(<span class="function"><span class="keyword">function</span>(<span class="params"> $ </span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Code that uses jQuery's $ can follow here.</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// Code that uses other library's $ can follow here.</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script src=<span class="string">"other_lib.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=<span class="string">"jquery.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    $.noConflict();</span><br><span class="line">    jQuery( <span class="built_in">document</span> ).ready(<span class="function"><span class="keyword">function</span>(<span class="params"> $ </span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Code that uses jQuery's $ can follow here.</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// Code that uses other library's $ can follow here.</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>jquery</tag>
@@ -684,7 +684,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Javascript 模块&知识点</title>
+    <title>Javascript 模块,知识点</title>
     <url>/2018-04/javascript/</url>
     <content><![CDATA[<h2 id="Lodash"><a href="#Lodash" class="headerlink" title="Lodash"></a>Lodash</h2><p>是一个一致性、模块化、高性能的 JavaScript 实用工具库。</p>
 <h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p>Promise是专门为解决 js中回调而引起的各种问题，而产生的。</p>
@@ -1141,7 +1141,7 @@
 <p><a href="http://www.mickgenie.com/r1soft-replication-driver-missing/" target="_blank" rel="noopener">參考</a></p>
 <h2 id="更新Server-Key"><a href="#更新Server-Key" class="headerlink" title="更新Server Key"></a>更新Server Key</h2><p>都安裝好之後，要記得在 Agent 端將 Server 端的 Key 複製</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">serverbackup-setup --get-key [Manager_URL]</span><br></pre></td></tr></table></figure>
-<p>例如：<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 執行</span></span><br><span class="line">serverbackup-setup --get-key http://r1back.abc.com/public_info</span><br><span class="line"><span class="meta">#</span><span class="bash"> 會顯示</span></span><br><span class="line">Key ‘r1back.abc.com’ successfully installed</span><br></pre></td></tr></table></figure></p>
+<p>例如：<br><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span> 執行</span><br><span class="line">serverbackup-setup --get-key http://r1back.abc.com/public_info</span><br><span class="line"><span class="meta">#</span> 會顯示</span><br><span class="line">Key ‘r1back.abc.com’ successfully installed</span><br></pre></td></tr></table></figure></p>
 <p><a href="http://wiki.r1soft.com/display/ServerBackup/Add+key+to+Linux+Backup+Agent" target="_blank" rel="noopener">參考</a></p>
 ]]></content>
       <tags>
