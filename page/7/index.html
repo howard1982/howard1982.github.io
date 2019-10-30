@@ -492,7 +492,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-30 13:40:26" itemprop="dateModified" datetime="2019-10-30T13:40:26+08:00">2019-10-30</time>
+                <time title="修改时间：2019-10-30 13:42:08" itemprop="dateModified" datetime="2019-10-30T13:42:08+08:00">2019-10-30</time>
               </span>
 
           
@@ -507,7 +507,7 @@
 
       
           <h2 id="下載文檔"><a href="#下載文檔" class="headerlink" title="下載文檔"></a>下載文檔</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下載并保存為 api.pdf</span></span><br><span class="line">curl -o api.pdf https://r.webnic.cc/NewAPIDocument_eng.pdf</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 下載并保存為 NewAPIDocument_eng.pdf</span></span><br><span class="line">curl -O https://r.webnic.cc/NewAPIDocument_eng.pdf</span><br></pre></td></tr></table></figure>
-<h2 id="GET-amp-POST"><a href="#GET-amp-POST" class="headerlink" title="GET &amp; POST"></a>GET &amp; POST</h2><p>用GET方式 传递参数时，多个参数需要加上引号 (‘)</p>
+<h2 id="GET-amp-POST"><a href="#GET-amp-POST" class="headerlink" title="GET &amp; POST"></a>GET &amp; POST</h2><p>用GET方式 传递参数时，多个参数需要加上引号 (<code>&#39;</code>)</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> GET</span></span><br><span class="line">curl https://api.github.com/user</span><br><span class="line">curl 'https://api.github.com/user?access_token=XXXXXXXXXX&amp;nc=ss'</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> POST</span></span><br><span class="line">curl -d "param1=value1&amp;param2=value" https://api.github.com</span><br><span class="line">curl --data "param1=value1&amp;param2=value" https://api.github.com</span><br></pre></td></tr></table></figure>
       
     </div>
