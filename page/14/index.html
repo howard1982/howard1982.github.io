@@ -208,6 +208,74 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/exigrep/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016-12/exigrep/" class="post-title-link" itemprop="url">exigrep命令</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-19 16:59:35" itemprop="dateCreated datePublished" datetime="2016-12-19T16:59:35+08:00">2016-12-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="說明"><a href="#說明" class="headerlink" title="說明"></a>說明</h2><p>exigrep 命令， 罗列相关日志</p>
+<p>必须安装 exim4</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exigrep chris.su@zytronic.co.uk /var/log/exim_mainlog</span><br></pre></td></tr></table></figure>
+<p>列出log日志中所有关于 <a href="mailto:chris.su@zytronic.co.uk" target="_blank" rel="noopener">chris.su@zytronic.co.uk</a> 的完成mail记录</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/country-code/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -873,88 +941,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/HeidiSQL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016-12/HeidiSQL/" class="post-title-link" itemprop="url">HeidiSQL Mysql管理工具</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-08 10:01:50" itemprop="dateCreated datePublished" datetime="2016-12-08T10:01:50+08:00">2016-12-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-12-16 11:58:50" itemprop="dateModified" datetime="2018-12-16T11:58:50+08:00">2018-12-16</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="發現HeidiSQL"><a href="#發現HeidiSQL" class="headerlink" title="發現HeidiSQL"></a>發現HeidiSQL</h2><p>最近有安裝MariaDB(開源的，MySQL的替代產品)。發現自帶一個管理MySQL的軟件HeidiSQL。抱著試試看的想法， 使用了一下。開源，可以連接多個MySQL Server， SSH隧道登錄，保存密碼等，操作還不錯。</p>
-<h2 id="调整字體"><a href="#调整字體" class="headerlink" title="调整字體"></a>调整字體</h2><p>默認的字體以及字體大小不好看，我用的是Windows。 界面設定為【微軟雅黑】12號字。SQL編輯器設定為【Consoals】12號字。</p>
-<h3 id="做FontLink"><a href="#做FontLink" class="headerlink" title="做FontLink"></a>做FontLink</h3><p>但是显示中文的时候，中文字体比较丑。只能做 <a href="/2016-12/windows-fontlink">FontLink</a></p>
-<h2 id="SSH隧道"><a href="#SSH隧道" class="headerlink" title="SSH隧道"></a>SSH隧道</h2><h3 id="SSH隧道登錄"><a href="#SSH隧道登錄" class="headerlink" title="SSH隧道登錄"></a>SSH隧道登錄</h3><p>要自己下載plink.exe，有提供下載地址。</p>
-<p>關於【私鑰文檔】，用linux命令下 ssh生成的普通文檔不行。 必須通過PuTTYgen.exe轉換一下。操作步驟如下：</p>
-<ol>
-<li>打開 puttygen</li>
-<li>選擇  Conversions-&gt;Import key 導入 private key</li>
-<li>點擊按鈕 Save private key</li>
-</ol>
-<h3 id="SSH隧道登錄，private-key-密码"><a href="#SSH隧道登錄，private-key-密码" class="headerlink" title="SSH隧道登錄，private key 密码"></a>SSH隧道登錄，private key 密码</h3><p>如果 private key 含有密码， 则在原本输入密码的地方输入 <code>private key 密码</code> 即可。替换掉原有账号对应的密码。</p>
-<h3 id="SSH隧道登錄，掉線問題"><a href="#SSH隧道登錄，掉線問題" class="headerlink" title="SSH隧道登錄，掉線問題"></a>SSH隧道登錄，掉線問題</h3><p>打開一段時間后沒有訪問會自動掉線的問題很麻煩。自動嘗試重新連接會很慢。解決辦法：<br>在【SSH隧道】旁邊的【高級】選項卡中，【ping間隔秒數】設定為60。（默認0，表示不進行呼叫）。這樣每隔60秒就自動和server hello 一下。就不會斷掉了。</p>
-<h3 id="plink-链接错误"><a href="#plink-链接错误" class="headerlink" title="plink 链接错误"></a>plink 链接错误</h3><p>用命令行测试 plink 命令提示<code>The server&#39;s host key is not cached in the registry ......</code>。 需要手动执行 <code>putty.exe</code> 然后添加 或更新一下 <code>ssh-ed25519 key</code> 。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1000,7 +991,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">140</span>
+          <span class="site-state-item-count">141</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

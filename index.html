@@ -208,6 +208,76 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-12/IBM-Storage-Api/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019-12/IBM-Storage-Api/" class="post-title-link" itemprop="url">IBM Storage Api</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-17 14:46:26 / 修改时间：15:11:53" itemprop="dateCreated datePublished" datetime="2019-12-17T14:46:26+08:00">2019-12-17</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>參考 <a href="https://cloud.ibm.com/docs/services/cloud-object-storage/cli?topic=cloud-object-storage-aws-cli" target="_blank" rel="noopener">https://cloud.ibm.com/docs/services/cloud-object-storage/cli?topic=cloud-object-storage-aws-cli</a></p>
+<h1 id="AWS-CLI"><a href="#AWS-CLI" class="headerlink" title="AWS CLI"></a>AWS CLI</h1><p>AWS 的官方命令行界面与 IBM COS S3 API 兼容。</p>
+<h2 id="install"><a href="#install" class="headerlink" title="install"></a>install</h2><p><code>pip install awscli</code></p>
+<h2 id="參數"><a href="#參數" class="headerlink" title="參數"></a>參數</h2><p><code>{Access Key ID}</code> <code>{Secret Access Key}</code> 需要創建服務憑證 例如</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"cos_hmac_keys": &#123;</span><br><span class="line">    "access_key_id": "xxxx",</span><br><span class="line">    "secret_access_key": "ddddd"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>{endpoint}</code> 在 <code>存储区 》 配置</code> 中有详细的记录。 </p>
+<h2 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h2><p><code>~/.aws/credentials</code></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[default]</span></span><br><span class="line"><span class="attr">aws_access_key_id</span> = &#123;Access Key ID&#125;</span><br><span class="line"><span class="attr">aws_secret_access_key</span> = &#123;Secret Access Key&#125;</span><br></pre></td></tr></table></figure>
+<p>Crontab 下自動執行 可以使用 全局變量覆蓋</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export AWS_ACCESS_KEY_ID="&#123;Access Key ID&#125;"</span><br><span class="line">export AWS_SECRET_ACCESS_KEY="&#123;Secret Access Key&#125;"</span><br></pre></td></tr></table></figure>
+<h2 id="预签名Url"><a href="#预签名Url" class="headerlink" title="预签名Url"></a>预签名Url</h2><p>参考 <a href="https://cloud.ibm.com/docs/services/cloud-object-storage/cli?topic=cloud-object-storage-presign-url" target="_blank" rel="noopener">https://cloud.ibm.com/docs/services/cloud-object-storage/cli?topic=cloud-object-storage-presign-url</a></p>
+<p>使用 awscli 命令最为快捷</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-10/jQuery-noConflict/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -803,72 +873,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-07/mail-mx/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019-07/mail-mx/" class="post-title-link" itemprop="url">mail 没有設定 MX 記錄</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-07-10 16:51:26 / 修改时间：16:53:47" itemprop="dateCreated datePublished" datetime="2019-07-10T16:51:26+08:00">2019-07-10</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>今天發現一個奇怪的現象 某個二級域名（mail.xxx.com） 沒有設定 mx記錄 。但是 郵箱（<a href="mailto:abc@mail.xxx.com" target="_blank" rel="noopener">abc@mail.xxx.com</a>）還可以收信。</p>
-<p>查詢 google 得到結果：如果沒有MX記錄，則讀取A記錄對應的內容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RFC 5321</span><br><span class="line">if no MX record is present mail servers should fall back to the A record for the domain.</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -914,7 +923,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">140</span>
+          <span class="site-state-item-count">141</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

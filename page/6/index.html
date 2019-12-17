@@ -208,6 +208,75 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-12/php-session/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017-12/php-session/" class="post-title-link" itemprop="url">php session 生命週期</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-12-12 16:12:44" itemprop="dateCreated datePublished" datetime="2017-12-12T16:12:44+08:00">2017-12-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-04-17 10:14:37" itemprop="dateModified" datetime="2018-04-17T10:14:37+08:00">2018-04-17</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>需要注意的是2個數值</p>
+<ul>
+<li>session.gc_maxlifetime 指定过了多少秒之后数据就会被视为“垃圾”并被清除。</li>
+<li>session.cookie_lifetime 以秒数指定了发送到浏览器的 cookie 的生命周期。值为 0 表示“直到关闭浏览器”。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-12/php-error/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -866,86 +935,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-07/postgres/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017-07/postgres/" class="post-title-link" itemprop="url">Postgres pgsql</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-07-16 15:09:51" itemprop="dateCreated datePublished" datetime="2017-07-16T15:09:51+08:00">2017-07-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-09-26 15:55:45" itemprop="dateModified" datetime="2018-09-26T15:55:45+08:00">2018-09-26</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="基本设定"><a href="#基本设定" class="headerlink" title="基本设定"></a>基本设定</h2><p><code>passwd postgres</code></p>
-<p>执行 <code>psql</code><br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> postgres <span class="keyword">WITH</span> <span class="keyword">PASSWORD</span> <span class="string">'16******pg'</span>;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">user</span> <span class="string">"whois_user"</span> <span class="keyword">with</span> <span class="keyword">password</span> <span class="string">'16******wh'</span> nocreatedb;</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> <span class="string">"whois_db"</span> <span class="keyword">with</span> owner = <span class="string">"whois_user"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> employees (<span class="keyword">id</span> <span class="built_in">int</span>, first_name <span class="built_in">varchar</span>, last_name <span class="built_in">varchar</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> employees <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">'John'</span>, <span class="string">'Doe'</span>);</span><br><span class="line">    </span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure></p>
-<h2 id="psql-下一些命令"><a href="#psql-下一些命令" class="headerlink" title="psql 下一些命令"></a>psql 下一些命令</h2><ul>
-<li>\l 查询所有数据库</li>
-<li>\c 切換数据库</li>
-<li>\d 查詢表</li>
-<li>\q</li>
-</ul>
-<h2 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h2><h3 id="更改所有者"><a href="#更改所有者" class="headerlink" title="更改所有者"></a>更改所有者</h3><p><code>ALTER TABLE employees OWNER TO  whois_user</code></p>
-<h3 id="資料庫大小"><a href="#資料庫大小" class="headerlink" title="資料庫大小"></a>資料庫大小</h3><p><code>select pg_size_pretty(pg_database_size(&#39;whois_db&#39;));</code></p>
-<h3 id="表大小"><a href="#表大小" class="headerlink" title="表大小"></a>表大小</h3><p><code>select pg_size_pretty(pg_relation_size(&#39;employees&#39;));</code></p>
-<h2 id="配置远端连接"><a href="#配置远端连接" class="headerlink" title="配置远端连接"></a>配置远端连接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/postgresql/9.5/main/postgresql.conf</span><br><span class="line">---</span><br><span class="line">#listen_addresses = &apos;localhost&apos;</span><br><span class="line">listen_addresses = &apos;*&apos;</span><br><span class="line"></span><br><span class="line">vi /etc/postgresql/9.5/main/pg_hba.conf</span><br><span class="line">---</span><br><span class="line"># TYPE  DATABASE        USER            ADDRESS                 METHOD</span><br><span class="line">host     whois_db       whois_user      0.0.0.0/0               md5</span><br><span class="line">or</span><br><span class="line">host    all     all        210.200.133.135/32            md5</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -991,7 +985,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">140</span>
+          <span class="site-state-item-count">141</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
