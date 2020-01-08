@@ -208,6 +208,65 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2020-01/check-mobile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020-01/check-mobile/" class="post-title-link" itemprop="url">检查是是否手机访问</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-01-08 17:40:37 / 修改时间：17:48:00" itemprop="dateCreated datePublished" datetime="2020-01-08T17:40:37+08:00">2020-01-08</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>这里有很多方法 <a href="http://detectmobilebrowsers.com/" target="_blank" rel="noopener">http://detectmobilebrowsers.com/</a>  <code>php</code> <code>apache</code> <code>js</code> 都有。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-12/logrotate/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -794,74 +853,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-07/php-fpm/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019-07/php-fpm/" class="post-title-link" itemprop="url">php-fpm 配置说明</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-07-23 13:39:21 / 修改时间：13:46:22" itemprop="dateCreated datePublished" datetime="2019-07-23T13:39:21+08:00">2019-07-23</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="设定说明"><a href="#设定说明" class="headerlink" title="设定说明"></a>设定说明</h2><ul>
-<li><code>pm.max_children = 120</code> 在同一时间最大的进程数</li>
-<li><code>pm.max_requests = 500</code> 每个进程处理多少个请求之后自动终止，可以有效防止内存溢出，</li>
-<li><code>pm.process_idle_timeout = 10</code> 空闲多少秒之后进程会被kill，默认为10s</li>
-</ul>
-<h2 id="运行模式"><a href="#运行模式" class="headerlink" title="运行模式"></a>运行模式</h2><ul>
-<li><code>pm = static</code> 静态，始终保持一个固定数量的子进程，这个数由（pm.max_children）定义</li>
-<li><code>pm = dynamic</code> 动态, 启动时，会产生固定数量的子进程（由pm.start_servers控制）可以理解成最小子进程数，而最大子进程数则由pm.max_children去控制。还可设定 空闲进程 pm.min_spare_servers和pm.max_spare_servers</li>
-<li><code>pm = ondemand</code> 进程在有需求时才产生, 这种模式把内存放在第一位</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -912,7 +903,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">143</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -944,7 +935,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

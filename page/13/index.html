@@ -208,6 +208,72 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/Vritualizer-VNC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016-12/Vritualizer-VNC/" class="post-title-link" itemprop="url">Vritualizer VNC</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-24 14:58:27" itemprop="dateCreated datePublished" datetime="2016-12-24T14:58:27+08:00">2016-12-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>vnc ip 端口查找<br>在 【Launch VPS VNC】中查找ip和端口。<br>在 vps 編輯頁面 點擊 【VNC】然後查看源代碼， 查看對應的密碼。</p>
+<p>使用VNC Viewer</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/Cpanel-CloudLinux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -854,102 +920,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/VritualBox-Install-Ubuntu/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016-12/VritualBox-Install-Ubuntu/" class="post-title-link" itemprop="url">VritualBox 安裝 Ubuntu</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-19 17:18:23" itemprop="dateCreated datePublished" datetime="2016-12-19T17:18:23+08:00">2016-12-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-05-17 19:49:08" itemprop="dateModified" datetime="2019-05-17T19:49:08+08:00">2019-05-17</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>後來不再使用VirtualBox直接在Windows上使用Cmder+Git</p>
-<h2 id="基本安裝"><a href="#基本安裝" class="headerlink" title="基本安裝"></a>基本安裝</h2><ul>
-<li>检查操作系统 cpu 虚拟化已经打开。</li>
-<li>如果使用无线网络（PCI），必须安装官方驱动 </li>
-</ul>
-<p>创建虚拟主机、安装操作系统</p>
-<h2 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射"></a>端口映射</h2><p>“设置”》“网络”》“网卡1”》“高级”》“端口转发”添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Apache,    TCP,    127.0.0.1,    80,    ,    80</span><br><span class="line">SSH,    TCP,    127.0.0.1,    2222,    ,    22</span><br><span class="line">Mysql,    TCP,    127.0.0.1,    3306,    ,    3306</span><br></pre></td></tr></table></figure>
-<p>注意</p>
-<p>用xshell链接时，不能用命令行 ssh <a href="mailto:root@127.0.0.1" target="_blank" rel="noopener">root@127.0.0.1</a>:2222 鏈接。 必須新創建一個“会话”</p>
-<h2 id="共享文件"><a href="#共享文件" class="headerlink" title="共享文件"></a>共享文件</h2><ul>
-<li>“设置”》“共享文件夹” 中添加 ‘vagrant’ ‘D:\Htodcs’ 。 注意 不能勾选开机自动挂载</li>
-<li>开启虚拟主机，“设备”》“安装增强功能”会自动挂载iso到cdrom</li>
-<li>登录到操作页面， 执行</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#安装相关软件</span><br><span class="line">sudo apt-get install gcc </span><br><span class="line">sudo apt-get install build-essential linux-headers-$(uname -r)</span><br><span class="line">#挂载</span><br><span class="line">sudo mount /dev/cdrom /mnt</span><br><span class="line">#执行</span><br><span class="line">sudo ./VBoxLinuxAdditions.run</span><br><span class="line">mkdir -p /vagrant</span><br><span class="line">mount -t vboxsf vagrant /vagrant</span><br></pre></td></tr></table></figure>
-<h3 id="开机自动挂载"><a href="#开机自动挂载" class="headerlink" title="开机自动挂载"></a>开机自动挂载</h3><h4 id="rc-loacl"><a href="#rc-loacl" class="headerlink" title="rc.loacl"></a>rc.loacl</h4><p>在/etc/rc.loal 加入  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t vboxsf vagrant /vagrant</span><br></pre></td></tr></table></figure>
-<h4 id="crontab"><a href="#crontab" class="headerlink" title="crontab"></a>crontab</h4><p>一些比较新的系统没有 rc.local 所以使用 crontab <code>@reboot</code> 设定</p>
-<p>在 crontab 中加入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@reboot mount -t vboxsf vagrant /vagrant</span><br></pre></td></tr></table></figure>
-<h2 id="命令行启动"><a href="#命令行启动" class="headerlink" title="命令行启动"></a>命令行启动</h2><p>创建 vbox_up.bat<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd C:\Program Files\Oracle\VirtualBox</span><br><span class="line">VBoxManage startvm &quot;ubuntu&quot; -type headless</span><br></pre></td></tr></table></figure></p>
-<p>创建 vbox_down.bat<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd C:\Program Files\Oracle\VirtualBox</span><br><span class="line">VBoxManage controlvm &quot;ubuntu&quot; acpipowerbutton</span><br></pre></td></tr></table></figure></p>
-<p>并将这两个文件加入到 环境变量 PATH 中。 这样执行 vbox_up 开启虚拟主机 。vbox_down 关闭虚拟主机<br>说明 “ubuntu” 必须有 引号， ubuntu 是创建的虚拟主机的名称</p>
-<h2 id="Ubuntu-設定"><a href="#Ubuntu-設定" class="headerlink" title="Ubuntu 設定"></a>Ubuntu 設定</h2><h3 id="Apache设定"><a href="#Apache设定" class="headerlink" title="Apache设定"></a>Apache设定</h3><p>由于使用 virtualbox 共享文件，有时候出现缓存。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### Apache 配置添加:</span></span><br><span class="line">EnableSendfile off</span><br></pre></td></tr></table></figure>
-<p>在 /etc/apache2/sites-available/000-default.conf 中加入</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory "/vagrant"&gt;  </span><br><span class="line">	Options Indexes FollowSymLinks  </span><br><span class="line">	AllowOverride All  </span><br><span class="line">	Require all granted  </span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
-<p>啟動mod_rewrite，執行以下命令 <code>sudo a2enmod rewrite</code></p>
-<h3 id="PHP设定"><a href="#PHP设定" class="headerlink" title="PHP设定"></a>PHP设定</h3><p>安装&amp;开启 mcrypt</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php-mcrypt</span><br><span class="line">sudo phpenmod mcrypt</span><br></pre></td></tr></table></figure>
-<h3 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h3><p>必须要设定权限，以及允许远程访问。 my.cnf 修改：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">bind-address</span>  = <span class="number">0.0</span>.<span class="number">0.0</span></span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1000,7 +970,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">143</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1032,7 +1002,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

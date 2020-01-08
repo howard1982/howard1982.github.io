@@ -208,6 +208,102 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/VritualBox-Install-Ubuntu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016-12/VritualBox-Install-Ubuntu/" class="post-title-link" itemprop="url">VritualBox 安裝 Ubuntu</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-19 17:18:23" itemprop="dateCreated datePublished" datetime="2016-12-19T17:18:23+08:00">2016-12-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-17 19:49:08" itemprop="dateModified" datetime="2019-05-17T19:49:08+08:00">2019-05-17</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>後來不再使用VirtualBox直接在Windows上使用Cmder+Git</p>
+<h2 id="基本安裝"><a href="#基本安裝" class="headerlink" title="基本安裝"></a>基本安裝</h2><ul>
+<li>检查操作系统 cpu 虚拟化已经打开。</li>
+<li>如果使用无线网络（PCI），必须安装官方驱动 </li>
+</ul>
+<p>创建虚拟主机、安装操作系统</p>
+<h2 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射"></a>端口映射</h2><p>“设置”》“网络”》“网卡1”》“高级”》“端口转发”添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Apache,    TCP,    127.0.0.1,    80,    ,    80</span><br><span class="line">SSH,    TCP,    127.0.0.1,    2222,    ,    22</span><br><span class="line">Mysql,    TCP,    127.0.0.1,    3306,    ,    3306</span><br></pre></td></tr></table></figure>
+<p>注意</p>
+<p>用xshell链接时，不能用命令行 ssh <a href="mailto:root@127.0.0.1" target="_blank" rel="noopener">root@127.0.0.1</a>:2222 鏈接。 必須新創建一個“会话”</p>
+<h2 id="共享文件"><a href="#共享文件" class="headerlink" title="共享文件"></a>共享文件</h2><ul>
+<li>“设置”》“共享文件夹” 中添加 ‘vagrant’ ‘D:\Htodcs’ 。 注意 不能勾选开机自动挂载</li>
+<li>开启虚拟主机，“设备”》“安装增强功能”会自动挂载iso到cdrom</li>
+<li>登录到操作页面， 执行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#安装相关软件</span><br><span class="line">sudo apt-get install gcc </span><br><span class="line">sudo apt-get install build-essential linux-headers-$(uname -r)</span><br><span class="line">#挂载</span><br><span class="line">sudo mount /dev/cdrom /mnt</span><br><span class="line">#执行</span><br><span class="line">sudo ./VBoxLinuxAdditions.run</span><br><span class="line">mkdir -p /vagrant</span><br><span class="line">mount -t vboxsf vagrant /vagrant</span><br></pre></td></tr></table></figure>
+<h3 id="开机自动挂载"><a href="#开机自动挂载" class="headerlink" title="开机自动挂载"></a>开机自动挂载</h3><h4 id="rc-loacl"><a href="#rc-loacl" class="headerlink" title="rc.loacl"></a>rc.loacl</h4><p>在/etc/rc.loal 加入  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t vboxsf vagrant /vagrant</span><br></pre></td></tr></table></figure>
+<h4 id="crontab"><a href="#crontab" class="headerlink" title="crontab"></a>crontab</h4><p>一些比较新的系统没有 rc.local 所以使用 crontab <code>@reboot</code> 设定</p>
+<p>在 crontab 中加入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@reboot mount -t vboxsf vagrant /vagrant</span><br></pre></td></tr></table></figure>
+<h2 id="命令行启动"><a href="#命令行启动" class="headerlink" title="命令行启动"></a>命令行启动</h2><p>创建 vbox_up.bat<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd C:\Program Files\Oracle\VirtualBox</span><br><span class="line">VBoxManage startvm &quot;ubuntu&quot; -type headless</span><br></pre></td></tr></table></figure></p>
+<p>创建 vbox_down.bat<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd C:\Program Files\Oracle\VirtualBox</span><br><span class="line">VBoxManage controlvm &quot;ubuntu&quot; acpipowerbutton</span><br></pre></td></tr></table></figure></p>
+<p>并将这两个文件加入到 环境变量 PATH 中。 这样执行 vbox_up 开启虚拟主机 。vbox_down 关闭虚拟主机<br>说明 “ubuntu” 必须有 引号， ubuntu 是创建的虚拟主机的名称</p>
+<h2 id="Ubuntu-設定"><a href="#Ubuntu-設定" class="headerlink" title="Ubuntu 設定"></a>Ubuntu 設定</h2><h3 id="Apache设定"><a href="#Apache设定" class="headerlink" title="Apache设定"></a>Apache设定</h3><p>由于使用 virtualbox 共享文件，有时候出现缓存。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### Apache 配置添加:</span></span><br><span class="line">EnableSendfile off</span><br></pre></td></tr></table></figure>
+<p>在 /etc/apache2/sites-available/000-default.conf 中加入</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory "/vagrant"&gt;  </span><br><span class="line">	Options Indexes FollowSymLinks  </span><br><span class="line">	AllowOverride All  </span><br><span class="line">	Require all granted  </span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
+<p>啟動mod_rewrite，執行以下命令 <code>sudo a2enmod rewrite</code></p>
+<h3 id="PHP设定"><a href="#PHP设定" class="headerlink" title="PHP设定"></a>PHP设定</h3><p>安装&amp;开启 mcrypt</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php-mcrypt</span><br><span class="line">sudo phpenmod mcrypt</span><br></pre></td></tr></table></figure>
+<h3 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h3><p>必须要设定权限，以及允许远程访问。 my.cnf 修改：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">bind-address</span>  = <span class="number">0.0</span>.<span class="number">0.0</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/linux-sed/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -870,92 +966,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/ssh-key-login/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016-12/ssh-key-login/" class="post-title-link" itemprop="url">SSH KEY 登錄</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-11 14:57:36" itemprop="dateCreated datePublished" datetime="2016-12-11T14:57:36+08:00">2016-12-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2017-01-02 17:00:01" itemprop="dateModified" datetime="2017-01-02T17:00:01+08:00">2017-01-02</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><p>key生成的方法</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa # 在 ~/.ssh 目录下生成  id_rsa,id_rsa.pub</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 将 id_rsa.pub 加入到 远端主机 ~/.ssh/authorized_keys	</span><br><span class="line">cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>修改权限！！ 必须修改远端主机上 文档的权限， 否则会报错！</span><br><span class="line">chmod 700 .ssh</span><br><span class="line">chmod 600 authorized_keys</span><br></pre></td></tr></table></figure>
-<h3 id="配置（連接時長）"><a href="#配置（連接時長）" class="headerlink" title="配置（連接時長）"></a>配置（連接時長）</h3><p>本地端（客戶端）設定 在 ~.ssh\config 中添加。 实际目录是 C:\Users\Howard.ssh</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Host *</span><br><span class="line">    ServerAliveInterval 60</span><br></pre></td></tr></table></figure>
-<p>每60秒会发一个KeepAlive请求</p>
-<h3 id="登錄時顯示信息信息"><a href="#登錄時顯示信息信息" class="headerlink" title="登錄時顯示信息信息"></a>登錄時顯示信息信息</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -v root@diana.poikl.com</span><br></pre></td></tr></table></figure>
-<h3 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h3><ul>
-<li><a href="http://www.cnblogs.com/dudu/archive/2013/02/07/ssh-write-failed-broken-pipe.html" target="_blank" rel="noopener">http://www.cnblogs.com/dudu/archive/2013/02/07/ssh-write-failed-broken-pipe.html</a></li>
-<li><a href="http://www.cyberciti.biz/faq/create-ssh-config-file-on-linux-unix/" target="_blank" rel="noopener">http://www.cyberciti.biz/faq/create-ssh-config-file-on-linux-unix/</a></li>
-</ul>
-<h2 id="plink"><a href="#plink" class="headerlink" title="plink"></a>plink</h2><p>plink.exe使用private key 時，必須把通過ssh生成的private key通過 PuTTYgen.exe轉換一下</p>
-<ul>
-<li>打開 puttygen</li>
-<li>選擇  Conversions-&gt;Import key 導入 private key</li>
-<li>點擊按鈕 Save private key</li>
-</ul>
-<h2 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h2><p>使用private key 登錄。 </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -C -i ~/.ssh/howard_rsa root@abc.com:/root/phpcs.phar ./</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>-i ~/.ssh/as_rsa</code> 對應的private key</li>
-<li><code>-C</code> 加速網絡傳輸（壓縮傳輸？）</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1006,7 +1016,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">142</span>
+          <span class="site-state-item-count">143</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1038,7 +1048,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
