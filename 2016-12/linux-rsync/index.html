@@ -50,18 +50,18 @@
   };
 </script>
 
-  <meta name="description" content="先建立一个空目录 1mkdir /data/blank  用rsync删除目标目录 123rsync --delete-before -d -a -H -v --progress --stats /data/blank/ /var/edatacache/# or rsync --delete-before -d /data/blank/ /var/edatacache/   选项说明：  –de">
+  <meta name="description" content="快速删除大量小文件 先建立一个空目录  1mkdir /data/blank  用rsync删除目标目录  123rsync --delete-before -d -a -H -v --progress --stats /data/blank/ /var/edatacache/# or rsync --delete-before -d /data/blank/ /var/edatacache/ 同">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 快速删除大量小文件">
 <meta property="og:url" content="http://blog.howard/2016-12/linux-rsync/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="先建立一个空目录 1mkdir /data/blank  用rsync删除目标目录 123rsync --delete-before -d -a -H -v --progress --stats /data/blank/ /var/edatacache/# or rsync --delete-before -d /data/blank/ /var/edatacache/   选项说明：  –de">
+<meta property="og:description" content="快速删除大量小文件 先建立一个空目录  1mkdir /data/blank  用rsync删除目标目录  123rsync --delete-before -d -a -H -v --progress --stats /data/blank/ /var/edatacache/# or rsync --delete-before -d /data/blank/ /var/edatacache/ 同">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-01-26T02:14:30.315Z">
+<meta property="og:updated_time" content="2020-02-11T08:58:34.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 快速删除大量小文件">
-<meta name="twitter:description" content="先建立一个空目录 1mkdir /data/blank  用rsync删除目标目录 123rsync --delete-before -d -a -H -v --progress --stats /data/blank/ /var/edatacache/# or rsync --delete-before -d /data/blank/ /var/edatacache/   选项说明：  –de">
+<meta name="twitter:description" content="快速删除大量小文件 先建立一个空目录  1mkdir /data/blank  用rsync删除目标目录  123rsync --delete-before -d -a -H -v --progress --stats /data/blank/ /var/edatacache/# or rsync --delete-before -d /data/blank/ /var/edatacache/ 同">
 
 <link rel="canonical" href="http://blog.howard/2016-12/linux-rsync/">
 
@@ -243,7 +243,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
+                <time title="修改时间：2020-02-11 16:58:34" itemprop="dateModified" datetime="2020-02-11T16:58:34+08:00">2020-02-11</time>
               </span>
 
           
@@ -257,16 +257,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <ol>
-<li><p>先建立一个空目录</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /data/blank</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>用rsync删除目标目录</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rsync --delete-before -d -a -H -v --progress --stats /data/blank/ /var/edatacache/</span><br><span class="line"><span class="meta">#</span> or </span><br><span class="line">rsync --delete-before -d /data/blank/ /var/edatacache/</span><br></pre></td></tr></table></figure>
-</li>
+        <h2 id="快速删除大量小文件"><a href="#快速删除大量小文件" class="headerlink" title="快速删除大量小文件"></a>快速删除大量小文件</h2><ol>
+<li>先建立一个空目录</li>
 </ol>
-<p>选项说明：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /data/blank</span><br></pre></td></tr></table></figure>
 <ol>
+<li>用rsync删除目标目录</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rsync --delete-before -d -a -H -v --progress --stats /data/blank/ /var/edatacache/</span><br><span class="line"><span class="meta">#</span> or </span><br><span class="line">rsync --delete-before -d /data/blank/ /var/edatacache/</span><br></pre></td></tr></table></figure>
+<h2 id="同步某个目录"><a href="#同步某个目录" class="headerlink" title="同步某个目录"></a>同步某个目录</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/rsync -a -v -P /home/hk/public_html/uploads/ hk@s1.ace.com:/home/hk/public_html/uploads/</span><br></pre></td></tr></table></figure>
+<h3 id="免密码-使用-key"><a href="#免密码-使用-key" class="headerlink" title="免密码 使用 key"></a>免密码 使用 key</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1. 生成key</span><br><span class="line">ssh-keygen -t rsa      //  （一路回车键）</span><br><span class="line"></span><br><span class="line">2. 拷贝到远程主机上</span><br><span class="line">ssh-copy-id -i  ~/.ssh/id_rsa.pub  root@IP   //原理就是把自己的公钥 添加到 对方的 au*** 那个文件里面   </span><br><span class="line"><span class="meta">#</span>ssh-copy-id -i ~/.ssh/id_rsa.pub “-p 2022 root@ip”  //如果不是默认22端口</span><br><span class="line"></span><br><span class="line">3. 验证：</span><br><span class="line">ssh root@ip            //不需要密码，说明成功！</span><br></pre></td></tr></table></figure>
+<h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><ol>
 <li>–delete-before 接收者在传输之前进行删除操作</li>
 <li>–progress 在传输时显示传输过程</li>
 <li>-a 归档模式，表示以递归方式传输文件，并保持所有文件属性</li>
@@ -339,6 +340,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#快速删除大量小文件"><span class="nav-number">1.</span> <span class="nav-text">快速删除大量小文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步某个目录"><span class="nav-number">2.</span> <span class="nav-text">同步某个目录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#免密码-使用-key"><span class="nav-number">2.1.</span> <span class="nav-text">免密码 使用 key</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数说明"><span class="nav-number">3.</span> <span class="nav-text">参数说明</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -354,7 +356,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">143</span>
+          <span class="site-state-item-count">144</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
