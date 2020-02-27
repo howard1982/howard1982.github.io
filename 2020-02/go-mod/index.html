@@ -50,20 +50,20 @@
   };
 </script>
 
-  <meta name="description" content="通過Capnel安裝的ClamAV程序在/usr/local/cpanel/3rdparty/bin下面。  /usr/local/cpanel/3rdparty/bin/clamscan /usr/local/cpanel/3rdparty/bin/freshclam  clamscan 命令檢查（殺毒）文檔 12345678# 檢查一個目錄/usr/local/cpanel/3rdparty/">
-<meta name="keywords" content="cpanel,ClamAV">
+  <meta name="description" content="设置建议直接设置 GO111MODULE=”on” 1go env -w GO111MODULE=on 给go mod 设置代理， 并添加私有域名 12go env -w GOPROXY=http://goproxy.cn,directgo env -w GOPRIVATE=*.my-abc.net 新建项目新建项目，或者是已有项目转为go mod 模式的 init 建议 1go mod init">
+<meta name="keywords" content="golang">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cpanel ClamAV 殺毒軟件">
-<meta property="og:url" content="http://blog.howard/2017-02/Cpanel-ClamAV/index.html">
+<meta property="og:title" content="go mod 模塊">
+<meta property="og:url" content="http://blog.howard/2020-02/go-mod/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="通過Capnel安裝的ClamAV程序在/usr/local/cpanel/3rdparty/bin下面。  /usr/local/cpanel/3rdparty/bin/clamscan /usr/local/cpanel/3rdparty/bin/freshclam  clamscan 命令檢查（殺毒）文檔 12345678# 檢查一個目錄/usr/local/cpanel/3rdparty/">
+<meta property="og:description" content="设置建议直接设置 GO111MODULE=”on” 1go env -w GO111MODULE=on 给go mod 设置代理， 并添加私有域名 12go env -w GOPROXY=http://goproxy.cn,directgo env -w GOPRIVATE=*.my-abc.net 新建项目新建项目，或者是已有项目转为go mod 模式的 init 建议 1go mod init">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-02-16T12:51:38.742Z">
+<meta property="og:updated_time" content="2020-02-27T05:33:07.332Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cpanel ClamAV 殺毒軟件">
-<meta name="twitter:description" content="通過Capnel安裝的ClamAV程序在/usr/local/cpanel/3rdparty/bin下面。  /usr/local/cpanel/3rdparty/bin/clamscan /usr/local/cpanel/3rdparty/bin/freshclam  clamscan 命令檢查（殺毒）文檔 12345678# 檢查一個目錄/usr/local/cpanel/3rdparty/">
+<meta name="twitter:title" content="go mod 模塊">
+<meta name="twitter:description" content="设置建议直接设置 GO111MODULE=”on” 1go env -w GO111MODULE=on 给go mod 设置代理， 并添加私有域名 12go env -w GOPROXY=http://goproxy.cn,directgo env -w GOPRIVATE=*.my-abc.net 新建项目新建项目，或者是已有项目转为go mod 模式的 init 建议 1go mod init">
 
-<link rel="canonical" href="http://blog.howard/2017-02/Cpanel-ClamAV/">
+<link rel="canonical" href="http://blog.howard/2020-02/go-mod/">
 
 
 <script id="page-configurations">
@@ -77,7 +77,7 @@
   };
 </script>
 
-  <title>Cpanel ClamAV 殺毒軟件 | Howard's Blog</title>
+  <title>go mod 模塊 | Howard's Blog</title>
   
 
 
@@ -213,7 +213,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-02/Cpanel-ClamAV/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2020-02/go-mod/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -226,7 +226,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Cpanel ClamAV 殺毒軟件
+          go mod 模塊
         </h1>
 
         <div class="post-meta">
@@ -237,7 +237,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2017-02-16 20:38:00 / 修改时间：20:51:38" itemprop="dateCreated datePublished" datetime="2017-02-16T20:38:00+08:00">2017-02-16</time>
+              <time title="创建时间：2020-02-27 13:18:09 / 修改时间：13:33:07" itemprop="dateCreated datePublished" datetime="2020-02-27T13:18:09+08:00">2020-02-27</time>
             </span>
 
           
@@ -251,14 +251,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>通過Capnel安裝的ClamAV程序在/usr/local/cpanel/3rdparty/bin下面。</p>
-<ul>
-<li>/usr/local/cpanel/3rdparty/bin/clamscan</li>
-<li>/usr/local/cpanel/3rdparty/bin/freshclam</li>
-</ul>
-<h2 id="clamscan-命令"><a href="#clamscan-命令" class="headerlink" title="clamscan 命令"></a>clamscan 命令</h2><p>檢查（殺毒）文檔</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 檢查一個目錄</span><br><span class="line">/usr/local/cpanel/3rdparty/bin/clamscan -ri /home/iconbuil/public_html</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 檢查多個目錄</span><br><span class="line">/usr/local/cpanel/3rdparty/bin/clamscan -ri /home/*/public_html</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 檢查并刪除</span><br><span class="line">/usr/local/cpanel/3rdparty/bin/clamscan -ri --remove /home/*/public_html</span><br></pre></td></tr></table></figure>
-<h2 id="freshclam-命令"><a href="#freshclam-命令" class="headerlink" title="freshclam 命令"></a>freshclam 命令</h2><p>升級病毒庫</p>
+        <h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>建议直接设置 GO111MODULE=”on”</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> env -w GO111MODULE=on</span><br></pre></td></tr></table></figure>
+<p>给go mod 设置代理， 并添加私有域名</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> env -w GOPROXY=http:<span class="comment">//goproxy.cn,direct</span></span><br><span class="line"><span class="keyword">go</span> env -w GOPRIVATE=*.my-abc.net</span><br></pre></td></tr></table></figure>
+<h2 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h2><p>新建项目，或者是已有项目转为go mod 模式的 init 建议</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> mod init  域名/组名/项目名</span><br></pre></td></tr></table></figure>
+<p>eg： code.my-abc.net/tools/pptp</p>
 
     </div>
 
@@ -268,25 +267,21 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/cpanel/" rel="tag"># cpanel</a>
-              <a href="/tags/ClamAV/" rel="tag"># ClamAV</a>
+              <a href="/tags/golang/" rel="tag"># golang</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2017-02/doctrine1-2/" rel="next" title="doctrine 1.2">
-                  <i class="fa fa-chevron-left"></i> doctrine 1.2
+                <a href="/2020-02/php-ext/" rel="next" title="单独编译 php 扩展">
+                  <i class="fa fa-chevron-left"></i> 单独编译 php 扩展
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2017-02/r1soft/" rel="prev" title="R1soft 備份失敗">
-                  R1soft 備份失敗 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
       </footer>
@@ -325,7 +320,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#clamscan-命令"><span class="nav-number">1.</span> <span class="nav-text">clamscan 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#freshclam-命令"><span class="nav-number">2.</span> <span class="nav-text">freshclam 命令</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置"><span class="nav-number">1.</span> <span class="nav-text">设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建项目"><span class="nav-number">2.</span> <span class="nav-text">新建项目</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
