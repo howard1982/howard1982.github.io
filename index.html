@@ -233,7 +233,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-02-27 13:18:09 / 修改时间：13:33:07" itemprop="dateCreated datePublished" datetime="2020-02-27T13:18:09+08:00">2020-02-27</time>
+              <time title="创建时间：2020-02-27 13:18:09 / 修改时间：13:41:44" itemprop="dateCreated datePublished" datetime="2020-02-27T13:18:09+08:00">2020-02-27</time>
             </span>
 
           
@@ -250,7 +250,7 @@
           <h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>建议直接设置 GO111MODULE=”on”</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> env -w GO111MODULE=on</span><br></pre></td></tr></table></figure>
 <p>给go mod 设置代理， 并添加私有域名</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> env -w GOPROXY=http:<span class="comment">//goproxy.cn,direct</span></span><br><span class="line"><span class="keyword">go</span> env -w GOPRIVATE=*.my-abc.net</span><br></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> env -w GOPROXY=http:<span class="comment">//goproxy.cn,direct</span></span><br><span class="line"><span class="comment">// or</span></span><br><span class="line"><span class="keyword">go</span> env -w GOPROXY=https:<span class="comment">//mirrors.aliyun.com/goproxy/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">go</span> env -w GOPRIVATE=*.my-abc.net</span><br></pre></td></tr></table></figure>
 <h2 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h2><p>新建项目，或者是已有项目转为go mod 模式的 init 建议</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> mod init  域名/组名/项目名</span><br></pre></td></tr></table></figure>
 <p>eg： code.my-abc.net/tools/pptp</p>
