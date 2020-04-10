@@ -282,6 +282,8 @@
 <h2 id="查看表佔用空間大小"><a href="#查看表佔用空間大小" class="headerlink" title="查看表佔用空間大小"></a>查看表佔用空間大小</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#檢查 eximstats 資料庫下所有的表磁盤大小</span></span><br><span class="line"><span class="keyword">SELECT</span> TABLE_NAME, <span class="keyword">round</span>((DATA_LENGTH+INDEX_LENGTH)/<span class="number">1024</span>/<span class="number">1024</span>,<span class="number">2</span>) <span class="keyword">AS</span> Size_MB, TABLE_ROWS <span class="keyword">FROM</span> information_schema.TABLES </span><br><span class="line"><span class="keyword">WHERE</span> TABLE_SCHEMA=<span class="string">'eximstats'</span>;</span><br><span class="line"><span class="comment">#檢查某個表，增加判斷條件</span></span><br><span class="line">AND TABLE_NAME='smtp'</span><br></pre></td></tr></table></figure>
 <h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><p>Mysql執行Sql語句時出現不兼容的問題一般情況下是 默認的 <code>sql-mode</code> 不一樣了。</p>
 <p>詳見 <a href="/2018-10/mysql-sql-mode/">sql-mode</a></p>
+<h2 id="php7-mysql-shim"><a href="#php7-mysql-shim" class="headerlink" title="php7 mysql shim"></a>php7 mysql shim</h2><p>一些老程如果升級php 不能直接用 <code>mysql_connect</code> 函數。 已經被移除。</p>
+<p><code>composer require dshafik/php7-mysql-shim</code> 來fix。</p>
 
       
     </div>
