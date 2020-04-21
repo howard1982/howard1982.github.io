@@ -208,6 +208,80 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-05/cxs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019-05/cxs/" class="post-title-link" itemprop="url">CXS (ConfigServer eXploit Scanner)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-29 09:39:39" itemprop="dateCreated datePublished" datetime="2019-05-29T09:39:39+08:00">2019-05-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-07-29 13:49:20" itemprop="dateModified" datetime="2019-07-29T13:49:20+08:00">2019-07-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><ul>
+<li>手动检查命令 ： <code>cxs .</code></li>
+<li>排除 <code>World writeable directory</code> 信息： <code>cxs --options mMOLfSGchexdnZDRru .</code> 去掉了 <code>w</code>。</li>
+</ul>
+<p>参考：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--options [-/+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options</span><br></pre></td></tr></table></figure>
+<p>详细说明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">m = regex pattern match</span><br><span class="line">M = fingerprint match</span><br><span class="line">v = virus</span><br><span class="line">O = socket</span><br><span class="line">L = symlink</span><br><span class="line">f = suspicious file</span><br><span class="line">F = skipped directory with too many entries</span><br><span class="line">S = SUID file</span><br><span class="line">G = GUID file</span><br><span class="line">c = core dump file</span><br><span class="line">C = core dump file deleted</span><br><span class="line">h = suspected exploit file</span><br><span class="line">e = Linux binary or executable file</span><br><span class="line">x = Windows binary or executable file</span><br><span class="line">d = suspicious directory name</span><br><span class="line">n = hidden directory owned by nobody user</span><br><span class="line">w = world writable directory</span><br><span class="line">W = world writable directory - chmod to 755</span><br><span class="line">T = script file - identifies PHP, Perl, and other script files as suspicious</span><br><span class="line">E = email script</span><br><span class="line">D = Decoded PHP encoded (e.g. base64) file scan match</span><br><span class="line">R = Match the PHP decode regex</span><br><span class="line">P = Search D/B config files and attempt user login via FTP. Match on success</span><br><span class="line">Z = compressed file - scan within zip, tar, tar.gz and tar.bz2 files</span><br><span class="line">! = Scan timeout per file B&lt;--timemax&gt;</span><br><span class="line">[Zzzzzzz] = sleeping for 60 seconds as load average is &gt; --throttle [num]</span><br></pre></td></tr></table></figure></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>修改 <code>/etc/cxs/cxswatch.conf</code> 文檔中的 <code>options</code> 屬性</p>
+<h2 id="cxs-IP-Reputation-System"><a href="#cxs-IP-Reputation-System" class="headerlink" title="cxs IP Reputation System"></a>cxs IP Reputation System</h2><p>編輯 <code>cxs.blocklists</code> 設定哪些需要開啟</p>
+<p>如果有類似 <code>CXS_LF_SSHD</code> <code>CXS_LF_CPANEL</code> 的防火墻規則。 需要先刪除 <code>/var/lib/csf/csf.block.CXS_LF_SSHD</code> 對應的ip 然後在重啟 csf <code>csf -ra</code></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-05/cpanel-ftp-over-tls/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -804,74 +878,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-10/cpanel-dkim/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2018-10/cpanel-dkim/" class="post-title-link" itemprop="url">cpanel 设置 DKIM</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2018-10-29 17:15:56 / 修改时间：17:26:04" itemprop="dateCreated datePublished" datetime="2018-10-29T17:15:56+08:00">2018-10-29</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在Cpanel中 开启 DKIM 认证。 你会得到：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">default._domainkey	14400	IN	TXT	&quot;v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuEPKF+B2vVgcYXItl03aLOXJgBmQ6V3KzG/cnA4uc7IWkHpH1F3slXpSlUtR2jTqFCEUqKKJ3/0NExrsWoncANpLBtKNpi/xX9XGSLBpN1/Ukua5iLQtcdSnApuuyxY/8wpAQYBb5oB7TRAUVxp7XrDpv7eEfMOfe8m1kMjvOX+qEqugSyJ2qxH6n6JfOs9QE&quot; rjrBupqUkIt1Y4qB9pyzog7PF4ls3JsP7F6ZfrMY+kJbFlp1NTOF7Ws199K7hwcvb8NhZP60JGDwGHq8NZJHosvIaZoECfpdSLrqoJownCum80kgjSfCRBKboZ2TvD/q41CYyTVcV/ODcaWhhjG8wIDAQAB\;</span><br></pre></td></tr></table></figure>
-<p>如果在其他 DNS 设定txt记录。 应该是</p>
-<p><code>default._domainkey</code> 对应：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuEPKF+B2vVgcYXItl03aLOXJgBmQ6V3KzG/cnA4uc7IWkHpH1F3slXpSlUtR2jTqFCEUqKKJ3/0NExrsWoncANpLBtKNpi/xX9XGSLBpN1/Ukua5iLQtcdSnApuuyxY/8wpAQYBb5oB7TRAUVxp7XrDpv7eEfMOfe8m1kMjvOX+qEqugSyJ2qxH6n6JfOs9QErjrBupqUkIt1Y4qB9pyzog7PF4ls3JsP7F6ZfrMY+kJbFlp1NTOF7Ws199K7hwcvb8NhZP60JGDwGHq8NZJHosvIaZoECfpdSLrqoJownCum80kgjSfCRBKboZ2TvD/q41CYyTVcV/ODcaWhhjG8wIDAQAB</span><br></pre></td></tr></table></figure>
-<ul>
-<li>去除开头的 <code>&quot;</code> 双引号</li>
-<li>去除中间的 <code>&quot;</code> 双引号+空格</li>
-<li>去除结尾的 <code>\;</code> 斜线+分号</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -922,14 +928,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">145</span>
+          <span class="site-state-item-count">146</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-count">47</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
