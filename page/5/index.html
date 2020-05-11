@@ -208,6 +208,67 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-09/http-header/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018-09/http-header/" class="post-title-link" itemprop="url">http header</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2018-09-10 15:45:30 / 修改时间：16:19:45" itemprop="dateCreated datePublished" datetime="2018-09-10T15:45:30+08:00">2018-09-10</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="請求"><a href="#請求" class="headerlink" title="請求"></a>請求</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST /path HTTP/1.1</span><br><span class="line">Host: example.com</span><br><span class="line"></span><br><span class="line">foo=bar&amp;baz=bat</span><br></pre></td></tr></table></figure>
+<h2 id="相應"><a href="#相應" class="headerlink" title="相應"></a>相應</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: text/plain</span><br><span class="line"></span><br><span class="line">这是返回的消息内容</span><br></pre></td></tr></table></figure>
+<h2 id="其他參考"><a href="#其他參考" class="headerlink" title="其他參考"></a>其他參考</h2><p><a href="./2016-12/php-curl/">PHP curl</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-09/socket/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -785,81 +846,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-05/php-pdo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2018-05/php-pdo/" class="post-title-link" itemprop="url">PHP PDO 操作</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-05-29 16:21:53" itemprop="dateCreated datePublished" datetime="2018-05-29T16:21:53+08:00">2018-05-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-08-29 18:14:02" itemprop="dateModified" datetime="2018-08-29T18:14:02+08:00">2018-08-29</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="連接"><a href="#連接" class="headerlink" title="連接"></a>連接</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$dbh = <span class="keyword">new</span> PDO(<span class="string">'mysql:dbname=db;host=localhost'</span>, <span class="string">'root'</span>, <span class="string">'password'</span>);</span><br></pre></td></tr></table></figure>
-<p>or</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$dsn = <span class="string">'mysql:dbname=db;host=localhost'</span>;</span><br><span class="line">$user = <span class="string">'root'</span>;</span><br><span class="line">$password = <span class="string">'password'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    $dbh = <span class="keyword">new</span> PDO($dsn, $user, $password);</span><br><span class="line">&#125; <span class="keyword">catch</span> (PDOException $e) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'Connection failed: '</span> . $e-&gt;getMessage();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="设定只显示-key"><a href="#设定只显示-key" class="headerlink" title="设定只显示 key"></a>设定只显示 key</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$dbh-&gt;setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);</span><br></pre></td></tr></table></figure>
-<h2 id="query-和-prepare-区别"><a href="#query-和-prepare-区别" class="headerlink" title="query 和 prepare 区别"></a>query 和 prepare 区别</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$sth = $dbh-&gt;query($sql);</span><br><span class="line"><span class="comment"># 等同于</span></span><br><span class="line">$sth = $dbh-&gt;prepare($sql);</span><br><span class="line">$sth-&gt;execute();</span><br></pre></td></tr></table></figure>
-<h2 id="获取结果"><a href="#获取结果" class="headerlink" title="获取结果"></a>获取结果</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>($row = $sth-&gt;fetch()) &#123;</span><br><span class="line">    print_r($row);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line"><span class="keyword">foreach</span>($sth-&gt;fetchAll() <span class="keyword">as</span> $row) &#123;</span><br><span class="line">    print_r($row);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="PDOStatement-execute"><a href="#PDOStatement-execute" class="headerlink" title="PDOStatement::execute"></a>PDOStatement::execute</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$sth = $dbh-&gt;prepare(<span class="string">"update icrm_contact set email2 = ? where id = ?"</span>);</span><br><span class="line">$sth-&gt;execute(<span class="keyword">array</span>($email, $id));</span><br></pre></td></tr></table></figure>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$sth = $dbh-&gt;prepare(<span class="string">"update icrm_contact set email2 = ? where id = ?"</span>);</span><br><span class="line">$sth-&gt;bindValue(<span class="number">1</span>, <span class="string">'howard@080.net'</span>);</span><br><span class="line">$sth-&gt;bindValue(<span class="number">2</span>, <span class="string">'1'</span>);</span><br><span class="line">$sth-&gt;execute();</span><br></pre></td></tr></table></figure>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$sth = $dbh-&gt;prepare(<span class="string">"update icrm_contact set email2 = :email where id = :id"</span>);</span><br><span class="line">$sth-&gt;bindValue(<span class="string">':email'</span>, <span class="string">'howard@080.net'</span>);</span><br><span class="line">$sth-&gt;bindValue(<span class="string">':id'</span>, <span class="string">'1'</span>);</span><br><span class="line">$sth-&gt;execute();</span><br></pre></td></tr></table></figure>
-<h2 id="PDOStatement-bindValue"><a href="#PDOStatement-bindValue" class="headerlink" title="PDOStatement::bindValue"></a>PDOStatement::bindValue</h2><p>把一个值绑定到一个参数， 例如 把 <a href="mailto:`howard@080.net" target="_blank" rel="noopener">`howard@080.net</a><code>綁定到</code>:email`</p>
-<h2 id="PDOStatement-bindParam"><a href="#PDOStatement-bindParam" class="headerlink" title="PDOStatement::bindParam"></a>PDOStatement::bindParam</h2><p>绑定一个参数到指定的变量名，例如 把 <code>$email</code> 這個變量 綁定到 <code>:email</code>。<br>當保存多個的時候 直接修改 <code>$email</code> 對應的值。然後執行<code>$sth-&gt;execute()</code> 就可以了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -910,7 +896,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">146</span>
+          <span class="site-state-item-count">147</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

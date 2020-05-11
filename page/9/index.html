@@ -208,6 +208,82 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-02/r1soft/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017-02/r1soft/" class="post-title-link" itemprop="url">R1soft 備份失敗</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-02-24 16:31:39" itemprop="dateCreated datePublished" datetime="2017-02-24T16:31:39+08:00">2017-02-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-11-12 16:30:00" itemprop="dateModified" datetime="2018-11-12T16:30:00+08:00">2018-11-12</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="安裝錯誤"><a href="#安裝錯誤" class="headerlink" title="安裝錯誤"></a>安裝錯誤</h2><p>錯誤訊息提示要執行<code>r1soft-setup --get-module</code>.<br>但是報錯：kernel的版本信息和kernel-devel 版本對不上。</p>
+<p>所以一次執行：</p>
+<ul>
+<li>yum install kernel-devel-$(uname -r)</li>
+<li>r1soft-setup –get-module –no-binary</li>
+<li>/etc/init.d/cdp-agent restart</li>
+</ul>
+<p><a href="http://www.mickgenie.com/r1soft-replication-driver-missing/" target="_blank" rel="noopener">參考</a></p>
+<h2 id="更新Server-Key"><a href="#更新Server-Key" class="headerlink" title="更新Server Key"></a>更新Server Key</h2><p>都安裝好之後，要記得在 Agent 端將 Server 端的 Key 複製</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">serverbackup-setup --get-key [Manager_URL]</span><br></pre></td></tr></table></figure>
+<p>例如：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 執行</span><br><span class="line">serverbackup-setup --get-key http://r1back.abc.com/public_info</span><br><span class="line"><span class="meta">#</span> 會顯示</span><br><span class="line">Key ‘r1back.abc.com’ successfully installed</span><br></pre></td></tr></table></figure></p>
+<p><a href="http://wiki.r1soft.com/display/ServerBackup/Add+key+to+Linux+Backup+Agent" target="_blank" rel="noopener">參考</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-02/Cpanel-ClamAV/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -813,81 +889,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-01/golang-mysql/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017-01/golang-mysql/" class="post-title-link" itemprop="url">go学习笔记 -- mysql基本操作</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-01-08 14:11:49" itemprop="dateCreated datePublished" datetime="2017-01-08T14:11:49+08:00">2017-01-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2017-02-01 16:29:05" itemprop="dateModified" datetime="2017-02-01T16:29:05+08:00">2017-02-01</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="加载包"><a href="#加载包" class="headerlink" title="加载包"></a>加载包</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"database/sql"</span></span><br><span class="line">	_ <span class="string">"github.com/go-sql-driver/mysql"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p><code>_ &quot;github.com/go-sql-driver/mysql&quot;</code>表示只加载 “github.com/go-sql-driver/mysql” 包的 init。<br>然后统一有 标准的 <code>database/sql</code>调用</p>
-<h2 id="连接Mysql"><a href="#连接Mysql" class="headerlink" title="连接Mysql"></a>连接Mysql</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">db, err := sql.Open(<span class="string">"mysql"</span>, <span class="string">"root:xxx@/test"</span>)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="built_in">panic</span>(err)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">defer</span> db.Close()</span><br></pre></td></tr></table></figure>
-<ul>
-<li>连接本地的test资料库</li>
-<li>如果连接识别抛出异常</li>
-<li><code>defer db.Close()</code> 当程序结束时，执行关闭mysql连接。</li>
-</ul>
-<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rows, err := db.Query(<span class="string">"SELECT id, area FROM zip limit 3"</span>)</span><br><span class="line"><span class="keyword">defer</span> rows.Close()</span><br></pre></td></tr></table></figure>
-<h2 id="处理查询结果"><a href="#处理查询结果" class="headerlink" title="处理查询结果"></a>处理查询结果</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> rows.Next() &#123;</span><br><span class="line">    <span class="keyword">var</span> id <span class="keyword">int</span></span><br><span class="line">    <span class="keyword">var</span> area <span class="keyword">string</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> err := rows.Scan(&amp;id, &amp;area); err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="built_in">panic</span>(err)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fmt.Printf(<span class="string">"%d \t %s\n"</span>, id, area)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>必须通过 <code>rows.Scan()</code> 读取到对应变量</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -938,7 +939,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">146</span>
+          <span class="site-state-item-count">147</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
