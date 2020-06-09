@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -50,20 +50,20 @@
   };
 </script>
 
-  <meta name="description" content="目的：不登錄cpanel的情況下，讓客戶可以訪問awstats。 以下先說操作步驟，最後在回復原因。 步驟 創建子域名設定獨立目錄 c.xxx.com 下載awstats-7.7.tar.gz 接下wwwroot目錄下的 cgi-bin icon 目錄 到 c.xxx.com 目錄下（根據實際情況 修改icon名稱） 複製~/tmp/awstats/ssl下conf文檔到~/c.xxx.com/c">
-<meta name="keywords" content="cpanel">
+  <meta name="description" content="目的：不登錄cpanel的情況下，讓客戶可以訪問awstats。 以下先說操作步驟，最後在回復原因。 步驟 創建子域名設定獨立目錄 c.xxx.com 下載awstats-7.7.tar.gz 接下wwwroot目錄下的 cgi-bin icon 目錄 到 c.xxx.com 目錄下（根據實際情況 修改icon名稱） 複製~&#x2F;tmp&#x2F;awstats&#x2F;ssl下conf文檔到~&#x2F;c.xxx.com&#x2F;c">
 <meta property="og:type" content="article">
 <meta property="og:title" content="cpanel-awstats">
-<meta property="og:url" content="http://blog.howard/2018-11/cpanel-awstats/index.html">
+<meta property="og:url" content="http://blog.howard.me/2018-11/cpanel-awstats/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="目的：不登錄cpanel的情況下，讓客戶可以訪問awstats。 以下先說操作步驟，最後在回復原因。 步驟 創建子域名設定獨立目錄 c.xxx.com 下載awstats-7.7.tar.gz 接下wwwroot目錄下的 cgi-bin icon 目錄 到 c.xxx.com 目錄下（根據實際情況 修改icon名稱） 複製~/tmp/awstats/ssl下conf文檔到~/c.xxx.com/c">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-08T07:48:51.896Z">
+<meta property="og:description" content="目的：不登錄cpanel的情況下，讓客戶可以訪問awstats。 以下先說操作步驟，最後在回復原因。 步驟 創建子域名設定獨立目錄 c.xxx.com 下載awstats-7.7.tar.gz 接下wwwroot目錄下的 cgi-bin icon 目錄 到 c.xxx.com 目錄下（根據實際情況 修改icon名稱） 複製~&#x2F;tmp&#x2F;awstats&#x2F;ssl下conf文檔到~&#x2F;c.xxx.com&#x2F;c">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-11-08T01:25:27.000Z">
+<meta property="article:modified_time" content="2018-11-08T07:48:51.896Z">
+<meta property="article:author" content="Howard">
+<meta property="article:tag" content="cpanel">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="cpanel-awstats">
-<meta name="twitter:description" content="目的：不登錄cpanel的情況下，讓客戶可以訪問awstats。 以下先說操作步驟，最後在回復原因。 步驟 創建子域名設定獨立目錄 c.xxx.com 下載awstats-7.7.tar.gz 接下wwwroot目錄下的 cgi-bin icon 目錄 到 c.xxx.com 目錄下（根據實際情況 修改icon名稱） 複製~/tmp/awstats/ssl下conf文檔到~/c.xxx.com/c">
 
-<link rel="canonical" href="http://blog.howard/2018-11/cpanel-awstats/">
+<link rel="canonical" href="http://blog.howard.me/2018-11/cpanel-awstats/">
 
 
 <script id="page-configurations">
@@ -213,7 +213,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-11/cpanel-awstats/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-11/cpanel-awstats/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -328,7 +328,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#步驟"><span class="nav-number">1.</span> <span class="nav-text">步驟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FAQ"><span class="nav-number">2.</span> <span class="nav-text">FAQ</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#為什麼要新建子域名"><span class="nav-number">2.1.</span> <span class="nav-text">為什麼要新建子域名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#為什麼不用cronb程序定期讀取log文檔"><span class="nav-number">2.2.</span> <span class="nav-text">為什麼不用cronb程序定期讀取log文檔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#為什麼讀取-tmp-awstats-ssl-而不是-tmp-awstats-下的config-文檔"><span class="nav-number">2.3.</span> <span class="nav-text">為什麼讀取 ~/tmp/awstats/ssl 而不是 ~/tmp/awstats/ 下的config 文檔</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#步驟"><span class="nav-number">1.</span> <span class="nav-text">步驟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FAQ"><span class="nav-number">2.</span> <span class="nav-text">FAQ</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#為什麼要新建子域名"><span class="nav-number">2.1.</span> <span class="nav-text">為什麼要新建子域名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#為什麼不用cronb程序定期讀取log文檔"><span class="nav-number">2.2.</span> <span class="nav-text">為什麼不用cronb程序定期讀取log文檔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#為什麼讀取-tmp-awstats-ssl-而不是-tmp-awstats-下的config-文檔"><span class="nav-number">2.3.</span> <span class="nav-text">為什麼讀取 ~&#x2F;tmp&#x2F;awstats&#x2F;ssl 而不是 ~&#x2F;tmp&#x2F;awstats&#x2F; 下的config 文檔</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -382,10 +382,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -410,9 +410,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -423,7 +431,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

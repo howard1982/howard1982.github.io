@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -50,20 +50,21 @@
   };
 </script>
 
-  <meta name="description" content="命令 手动检查命令 ： cxs . 排除 World writeable directory 信息： cxs --options mMOLfSGchexdnZDRru . 去掉了 w。  参考： 1--options [-/+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options 详细说明12345678910111213141516171819202">
-<meta name="keywords" content="linux,cpanel">
+  <meta name="description" content="命令 手动检查命令 ： cxs . 排除 World writeable directory 信息： cxs --options mMOLfSGchexdnZDRru . 去掉了 w。  参考： 1--options [-&#x2F;+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options  详细说明 1234567891011121314151617">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CXS (ConfigServer eXploit Scanner)">
-<meta property="og:url" content="http://blog.howard/2019-05/cxs/index.html">
+<meta property="og:url" content="http://blog.howard.me/2019-05/cxs/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="命令 手动检查命令 ： cxs . 排除 World writeable directory 信息： cxs --options mMOLfSGchexdnZDRru . 去掉了 w。  参考： 1--options [-/+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options 详细说明12345678910111213141516171819202">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-29T05:49:20.723Z">
+<meta property="og:description" content="命令 手动检查命令 ： cxs . 排除 World writeable directory 信息： cxs --options mMOLfSGchexdnZDRru . 去掉了 w。  参考： 1--options [-&#x2F;+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options  详细说明 1234567891011121314151617">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-05-29T01:39:39.000Z">
+<meta property="article:modified_time" content="2019-07-29T05:49:20.723Z">
+<meta property="article:author" content="Howard">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="cpanel">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CXS (ConfigServer eXploit Scanner)">
-<meta name="twitter:description" content="命令 手动检查命令 ： cxs . 排除 World writeable directory 信息： cxs --options mMOLfSGchexdnZDRru . 去掉了 w。  参考： 1--options [-/+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options 详细说明12345678910111213141516171819202">
 
-<link rel="canonical" href="http://blog.howard/2019-05/cxs/">
+<link rel="canonical" href="http://blog.howard.me/2019-05/cxs/">
 
 
 <script id="page-configurations">
@@ -213,7 +214,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-05/cxs/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-05/cxs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -262,8 +263,11 @@
 <li>排除 <code>World writeable directory</code> 信息： <code>cxs --options mMOLfSGchexdnZDRru .</code> 去掉了 <code>w</code>。</li>
 </ul>
 <p>参考：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--options [-/+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options</span><br></pre></td></tr></table></figure>
-<p>详细说明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">m = regex pattern match</span><br><span class="line">M = fingerprint match</span><br><span class="line">v = virus</span><br><span class="line">O = socket</span><br><span class="line">L = symlink</span><br><span class="line">f = suspicious file</span><br><span class="line">F = skipped directory with too many entries</span><br><span class="line">S = SUID file</span><br><span class="line">G = GUID file</span><br><span class="line">c = core dump file</span><br><span class="line">C = core dump file deleted</span><br><span class="line">h = suspected exploit file</span><br><span class="line">e = Linux binary or executable file</span><br><span class="line">x = Windows binary or executable file</span><br><span class="line">d = suspicious directory name</span><br><span class="line">n = hidden directory owned by nobody user</span><br><span class="line">w = world writable directory</span><br><span class="line">W = world writable directory - chmod to 755</span><br><span class="line">T = script file - identifies PHP, Perl, and other script files as suspicious</span><br><span class="line">E = email script</span><br><span class="line">D = Decoded PHP encoded (e.g. base64) file scan match</span><br><span class="line">R = Match the PHP decode regex</span><br><span class="line">P = Search D/B config files and attempt user login via FTP. Match on success</span><br><span class="line">Z = compressed file - scan within zip, tar, tar.gz and tar.bz2 files</span><br><span class="line">! = Scan timeout per file B&lt;--timemax&gt;</span><br><span class="line">[Zzzzzzz] = sleeping for 60 seconds as load average is &gt; --throttle [num]</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--options [-&#x2F;+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options</span><br></pre></td></tr></table></figure>
+
+<p>详细说明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">m &#x3D; regex pattern match</span><br><span class="line">M &#x3D; fingerprint match</span><br><span class="line">v &#x3D; virus</span><br><span class="line">O &#x3D; socket</span><br><span class="line">L &#x3D; symlink</span><br><span class="line">f &#x3D; suspicious file</span><br><span class="line">F &#x3D; skipped directory with too many entries</span><br><span class="line">S &#x3D; SUID file</span><br><span class="line">G &#x3D; GUID file</span><br><span class="line">c &#x3D; core dump file</span><br><span class="line">C &#x3D; core dump file deleted</span><br><span class="line">h &#x3D; suspected exploit file</span><br><span class="line">e &#x3D; Linux binary or executable file</span><br><span class="line">x &#x3D; Windows binary or executable file</span><br><span class="line">d &#x3D; suspicious directory name</span><br><span class="line">n &#x3D; hidden directory owned by nobody user</span><br><span class="line">w &#x3D; world writable directory</span><br><span class="line">W &#x3D; world writable directory - chmod to 755</span><br><span class="line">T &#x3D; script file - identifies PHP, Perl, and other script files as suspicious</span><br><span class="line">E &#x3D; email script</span><br><span class="line">D &#x3D; Decoded PHP encoded (e.g. base64) file scan match</span><br><span class="line">R &#x3D; Match the PHP decode regex</span><br><span class="line">P &#x3D; Search D&#x2F;B config files and attempt user login via FTP. Match on success</span><br><span class="line">Z &#x3D; compressed file - scan within zip, tar, tar.gz and tar.bz2 files</span><br><span class="line">! &#x3D; Scan timeout per file B&lt;--timemax&gt;</span><br><span class="line">[Zzzzzzz] &#x3D; sleeping for 60 seconds as load average is &gt; --throttle [num]</span><br></pre></td></tr></table></figure>
+
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>修改 <code>/etc/cxs/cxswatch.conf</code> 文檔中的 <code>options</code> 屬性</p>
 <h2 id="cxs-IP-Reputation-System"><a href="#cxs-IP-Reputation-System" class="headerlink" title="cxs IP Reputation System"></a>cxs IP Reputation System</h2><p>編輯 <code>cxs.blocklists</code> 設定哪些需要開啟</p>
 <p>如果有類似 <code>CXS_LF_SSHD</code> <code>CXS_LF_CPANEL</code> 的防火墻規則。 需要先刪除 <code>/var/lib/csf/csf.block.CXS_LF_SSHD</code> 對應的ip 然後在重啟 csf <code>csf -ra</code></p>
@@ -387,10 +391,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -415,9 +419,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -428,7 +440,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -50,20 +50,20 @@
   };
 </script>
 
-  <meta name="description" content="SSHkey生成的方法 12345678ssh-keygen -t rsa # 在 ~/.ssh 目录下生成  id_rsa,id_rsa.pub# 将 id_rsa.pub 加入到 远端主机 ~/.ssh/authorized_keys	cat id_rsa.pub &amp;gt;&amp;gt; ~/.ssh/authorized_keys#修改权限！！ 必须修改远端主机上 文档的权限， 否则会报错！chm">
-<meta name="keywords" content="ssh">
+  <meta name="description" content="SSHkey生成的方法 12345678ssh-keygen -t rsa # 在 ~&#x2F;.ssh 目录下生成  id_rsa,id_rsa.pub# 将 id_rsa.pub 加入到 远端主机 ~&#x2F;.ssh&#x2F;authorized_keys	cat id_rsa.pub &gt;&gt; ~&#x2F;.ssh&#x2F;authorized_keys#修改权限！！ 必须修改远端主机上 文档的权限， 否则会报错！chm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SSH KEY 登錄">
-<meta property="og:url" content="http://blog.howard/2016-12/ssh-key-login/index.html">
+<meta property="og:url" content="http://blog.howard.me/2016-12/ssh-key-login/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="SSHkey生成的方法 12345678ssh-keygen -t rsa # 在 ~/.ssh 目录下生成  id_rsa,id_rsa.pub# 将 id_rsa.pub 加入到 远端主机 ~/.ssh/authorized_keys	cat id_rsa.pub &amp;gt;&amp;gt; ~/.ssh/authorized_keys#修改权限！！ 必须修改远端主机上 文档的权限， 否则会报错！chm">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-01-02T09:00:01.000Z">
+<meta property="og:description" content="SSHkey生成的方法 12345678ssh-keygen -t rsa # 在 ~&#x2F;.ssh 目录下生成  id_rsa,id_rsa.pub# 将 id_rsa.pub 加入到 远端主机 ~&#x2F;.ssh&#x2F;authorized_keys	cat id_rsa.pub &gt;&gt; ~&#x2F;.ssh&#x2F;authorized_keys#修改权限！！ 必须修改远端主机上 文档的权限， 否则会报错！chm">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-12-11T06:57:36.000Z">
+<meta property="article:modified_time" content="2017-01-02T09:00:01.000Z">
+<meta property="article:author" content="Howard">
+<meta property="article:tag" content="ssh">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SSH KEY 登錄">
-<meta name="twitter:description" content="SSHkey生成的方法 12345678ssh-keygen -t rsa # 在 ~/.ssh 目录下生成  id_rsa,id_rsa.pub# 将 id_rsa.pub 加入到 远端主机 ~/.ssh/authorized_keys	cat id_rsa.pub &amp;gt;&amp;gt; ~/.ssh/authorized_keys#修改权限！！ 必须修改远端主机上 文档的权限， 否则会报错！chm">
 
-<link rel="canonical" href="http://blog.howard/2016-12/ssh-key-login/">
+<link rel="canonical" href="http://blog.howard.me/2016-12/ssh-key-login/">
 
 
 <script id="page-configurations">
@@ -213,7 +213,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/ssh-key-login/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/ssh-key-login/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -258,12 +258,16 @@
 
       
         <h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><p>key生成的方法</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa # 在 ~/.ssh 目录下生成  id_rsa,id_rsa.pub</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 将 id_rsa.pub 加入到 远端主机 ~/.ssh/authorized_keys	</span><br><span class="line">cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>修改权限！！ 必须修改远端主机上 文档的权限， 否则会报错！</span><br><span class="line">chmod 700 .ssh</span><br><span class="line">chmod 600 authorized_keys</span><br></pre></td></tr></table></figure>
-<h3 id="copy-id"><a href="#copy-id" class="headerlink" title="copy id"></a>copy id</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id -i  ~/.ssh/id_rsa.pub  root@IP</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa # 在 ~/.ssh 目录下生成  id_rsa,id_rsa.pub</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将 id_rsa.pub 加入到 远端主机 ~/.ssh/authorized_keys	</span></span><br><span class="line">cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">修改权限！！ 必须修改远端主机上 文档的权限， 否则会报错！</span></span><br><span class="line">chmod 700 .ssh</span><br><span class="line">chmod 600 authorized_keys</span><br></pre></td></tr></table></figure>
+
+<h3 id="copy-id"><a href="#copy-id" class="headerlink" title="copy id"></a>copy id</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id -i  ~&#x2F;.ssh&#x2F;id_rsa.pub  root@IP</span><br></pre></td></tr></table></figure>
+
 <h3 id="配置（連接時長）"><a href="#配置（連接時長）" class="headerlink" title="配置（連接時長）"></a>配置（連接時長）</h3><p>本地端（客戶端）設定 在 <code>~\.ssh\config</code> 中添加。 实际目录是 <code>C:\Users\Howard\.ssh</code></p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Host *</span><br><span class="line">    ServerAliveInterval 60</span><br></pre></td></tr></table></figure>
+
 <p>每60秒会发一个KeepAlive请求</p>
 <h3 id="登錄時顯示信息信息"><a href="#登錄時顯示信息信息" class="headerlink" title="登錄時顯示信息信息"></a>登錄時顯示信息信息</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -v root@diana.poikl.com</span><br></pre></td></tr></table></figure>
+
 <h3 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h3><ul>
 <li><a href="http://www.cnblogs.com/dudu/archive/2013/02/07/ssh-write-failed-broken-pipe.html" target="_blank" rel="noopener">http://www.cnblogs.com/dudu/archive/2013/02/07/ssh-write-failed-broken-pipe.html</a></li>
 <li><a href="http://www.cyberciti.biz/faq/create-ssh-config-file-on-linux-unix/" target="_blank" rel="noopener">http://www.cyberciti.biz/faq/create-ssh-config-file-on-linux-unix/</a></li>
@@ -276,6 +280,7 @@
 </ul>
 <h2 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h2><p>使用private key 登錄。 </p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -C -i ~/.ssh/howard_rsa root@abc.com:/root/phpcs.phar ./</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><code>-i ~/.ssh/as_rsa</code> 對應的private key</li>
 <li><code>-C</code> 加速網絡傳輸（壓縮傳輸？）</li>
@@ -399,10 +404,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -427,9 +432,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -440,7 +453,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

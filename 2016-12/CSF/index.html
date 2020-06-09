@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -50,20 +50,20 @@
   };
 </script>
 
-  <meta name="description" content="攔截登陸失敗的設定Login Failure Blocking and Alerts 123456789LF_SELECT = 1 #表示僅僅屏蔽某個ip訪問server的端口 ， 端口設定見 PORTS_*LF_SSHD = 5 #失敗幾次？LF_SSHD_PERM = 1 #屏蔽時間長度 0 不屏蔽， 1 永久屏蔽， 900(非1、0其他數字)表示屏蔽900秒，屏蔽900秒属于临时屏蔽（Tem">
-<meta name="keywords" content="linux">
+  <meta name="description" content="攔截登陸失敗的設定Login Failure Blocking and Alerts 123456789LF_SELECT &#x3D; 1 #表示僅僅屏蔽某個ip訪問server的端口 ， 端口設定見 PORTS_*LF_SSHD &#x3D; 5 #失敗幾次？LF_SSHD_PERM &#x3D; 1 #屏蔽時間長度 0 不屏蔽， 1 永久屏蔽， 900(非1、0其他數字)表示屏蔽900秒，屏蔽900秒属于临时屏蔽（Tem">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSF设置">
-<meta property="og:url" content="http://blog.howard/2016-12/CSF/index.html">
+<meta property="og:url" content="http://blog.howard.me/2016-12/CSF/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="攔截登陸失敗的設定Login Failure Blocking and Alerts 123456789LF_SELECT = 1 #表示僅僅屏蔽某個ip訪問server的端口 ， 端口設定見 PORTS_*LF_SSHD = 5 #失敗幾次？LF_SSHD_PERM = 1 #屏蔽時間長度 0 不屏蔽， 1 永久屏蔽， 900(非1、0其他數字)表示屏蔽900秒，屏蔽900秒属于临时屏蔽（Tem">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-29T05:45:20.426Z">
+<meta property="og:description" content="攔截登陸失敗的設定Login Failure Blocking and Alerts 123456789LF_SELECT &#x3D; 1 #表示僅僅屏蔽某個ip訪問server的端口 ， 端口設定見 PORTS_*LF_SSHD &#x3D; 5 #失敗幾次？LF_SSHD_PERM &#x3D; 1 #屏蔽時間長度 0 不屏蔽， 1 永久屏蔽， 900(非1、0其他數字)表示屏蔽900秒，屏蔽900秒属于临时屏蔽（Tem">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-12-24T06:40:12.000Z">
+<meta property="article:modified_time" content="2019-07-29T05:45:20.426Z">
+<meta property="article:author" content="Howard">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSF设置">
-<meta name="twitter:description" content="攔截登陸失敗的設定Login Failure Blocking and Alerts 123456789LF_SELECT = 1 #表示僅僅屏蔽某個ip訪問server的端口 ， 端口設定見 PORTS_*LF_SSHD = 5 #失敗幾次？LF_SSHD_PERM = 1 #屏蔽時間長度 0 不屏蔽， 1 永久屏蔽， 900(非1、0其他數字)表示屏蔽900秒，屏蔽900秒属于临时屏蔽（Tem">
 
-<link rel="canonical" href="http://blog.howard/2016-12/CSF/">
+<link rel="canonical" href="http://blog.howard.me/2016-12/CSF/">
 
 
 <script id="page-configurations">
@@ -213,7 +213,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/CSF/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/CSF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -259,13 +259,17 @@
       
         <h2 id="攔截登陸失敗的設定"><a href="#攔截登陸失敗的設定" class="headerlink" title="攔截登陸失敗的設定"></a>攔截登陸失敗的設定</h2><p>Login Failure Blocking and Alerts</p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">LF_SELECT</span> = <span class="number">1</span> <span class="comment">#表示僅僅屏蔽某個ip訪問server的端口 ， 端口設定見 PORTS_*</span></span><br><span class="line"></span><br><span class="line"><span class="attr">LF_SSHD</span> = <span class="number">5</span> <span class="comment">#失敗幾次？</span></span><br><span class="line"><span class="attr">LF_SSHD_PERM</span> = <span class="number">1</span> <span class="comment">#屏蔽時間長度 0 不屏蔽， 1 永久屏蔽， 900(非1、0其他數字)表示屏蔽900秒，屏蔽900秒属于临时屏蔽（Temporary IP blocking）</span></span><br><span class="line"><span class="attr">LF_SSHD_PERM</span> = <span class="number">900</span> <span class="comment"># 代表临时屏蔽</span></span><br><span class="line"></span><br><span class="line"><span class="attr">LF_INTERVAL</span> = <span class="number">3600</span> <span class="comment"># 統計刷新週期， 按照上面的例子是 3600秒內登陸失敗5次。 就永久屏蔽</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Temp to Perm/Netblock Settings</span></span><br></pre></td></tr></table></figure>
+
 <p>Temporary to Permanent IP blocking<br>意思是临时屏蔽IP 设定为 永久屏蔽IP</p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">LF_PERMBLOCK_INTERVAL</span> = <span class="number">86400</span></span><br><span class="line"><span class="attr">LF_PERMBLOCK_COUNT</span> = <span class="number">4</span></span><br><span class="line"><span class="comment"># 表示 86400 秒内 被例如临时屏蔽名单 4次 则转换为 永久屏蔽</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="停止發送alerts-Mail到Root"><a href="#停止發送alerts-Mail到Root" class="headerlink" title="停止發送alerts Mail到Root"></a>停止發送alerts Mail到Root</h2><p>增加自動清除，每週一執行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 0 * * 1 /usr/bin/rsync --delete-before -a -H -v --progress --stats /root/Maildir/empty/ /root/Maildir/new/  &gt;/dev/null 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 0 * * 1 &#x2F;usr&#x2F;bin&#x2F;rsync --delete-before -a -H -v --progress --stats &#x2F;root&#x2F;Maildir&#x2F;empty&#x2F; &#x2F;root&#x2F;Maildir&#x2F;new&#x2F;  &gt;&#x2F;dev&#x2F;null 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
+
 <h2 id="修改-High-5-minute-load-average-alert-Mail"><a href="#修改-High-5-minute-load-average-alert-Mail" class="headerlink" title="修改 [High 5 minute load average alert] Mail"></a>修改 [High 5 minute load average alert] Mail</h2><p><a href="https://forum.configserver.com/viewtopic.php?t=3221" target="_blank" rel="noopener">參考1</a><br><a href="https://www.grandmstramrod.co.uk/lfd-high-5-minute-load-average-alert/" target="_blank" rel="noopener">參考2</a></p>
 <h3 id="etc-csf-load-sh"><a href="#etc-csf-load-sh" class="headerlink" title="/etc/csf/load.sh"></a>/etc/csf/load.sh</h3><p>創建 <code>/etc/csf/load.sh</code> 。並 修改權限 <code>chmod +x /etc/csf/load.sh</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/sh</span><br><span class="line"><span class="meta">&gt;</span>/etc/csf/csf.report</span><br><span class="line">iostat -d 1 5 &gt;&gt; /etc/csf/csf.report</span><br><span class="line">iostat -x -d 1 5 &gt;&gt; /etc/csf/csf.report</span><br><span class="line">iotop -o -P -b -k -n 3 -d 2 &gt;&gt; /etc/csf/csf.report</span><br><span class="line">mpstat -P ALL &gt;&gt; /etc/csf/csf.report</span><br><span class="line">top -b -n 1 &gt;&gt; /etc/csf/csf.report</span><br><span class="line">netstat -autpn</span><br><span class="line">echo "report on $(date +"%Y-%m-%d %T")" | mailx -s "polo - Load Report" -a /etc/csf/csf.report root</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">/etc/csf/csf.report</span></span><br><span class="line">iostat -d 1 5 &gt;&gt; /etc/csf/csf.report</span><br><span class="line">iostat -x -d 1 5 &gt;&gt; /etc/csf/csf.report</span><br><span class="line">iotop -o -P -b -k -n 3 -d 2 &gt;&gt; /etc/csf/csf.report</span><br><span class="line">mpstat -P ALL &gt;&gt; /etc/csf/csf.report</span><br><span class="line">top -b -n 1 &gt;&gt; /etc/csf/csf.report</span><br><span class="line">netstat -autpn</span><br><span class="line">echo "report on $(date +"%Y-%m-%d %T")" | mailx -s "polo - Load Report" -a /etc/csf/csf.report root</span><br></pre></td></tr></table></figure>
+
 <p>以上內容將發生給 root。 記得設定 <code>/root/.forward</code></p>
 <h3 id="設定-csf-conf"><a href="#設定-csf-conf" class="headerlink" title="設定 csf.conf"></a>設定 csf.conf</h3><p>修改 文檔 <code>/etc/csf/csf.conf</code> 設定 <code>PT_LOAD_ACTION = &quot;/etc/csf/load.sh&quot;</code></p>
 <h3 id="設定-root-forward"><a href="#設定-root-forward" class="headerlink" title="設定 root .forward"></a>設定 root .forward</h3><p>修改 <code>/root/.forward</code> 文檔。因為</p>
@@ -334,7 +338,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#攔截登陸失敗的設定"><span class="nav-number">1.</span> <span class="nav-text">攔截登陸失敗的設定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#停止發送alerts-Mail到Root"><span class="nav-number">2.</span> <span class="nav-text">停止發送alerts Mail到Root</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改-High-5-minute-load-average-alert-Mail"><span class="nav-number">3.</span> <span class="nav-text">修改 [High 5 minute load average alert] Mail</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#etc-csf-load-sh"><span class="nav-number">3.1.</span> <span class="nav-text">/etc/csf/load.sh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#設定-csf-conf"><span class="nav-number">3.2.</span> <span class="nav-text">設定 csf.conf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#設定-root-forward"><span class="nav-number">3.3.</span> <span class="nav-text">設定 root .forward</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-number">4.</span> <span class="nav-text">常用命令</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#攔截登陸失敗的設定"><span class="nav-number">1.</span> <span class="nav-text">攔截登陸失敗的設定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#停止發送alerts-Mail到Root"><span class="nav-number">2.</span> <span class="nav-text">停止發送alerts Mail到Root</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改-High-5-minute-load-average-alert-Mail"><span class="nav-number">3.</span> <span class="nav-text">修改 [High 5 minute load average alert] Mail</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#etc-csf-load-sh"><span class="nav-number">3.1.</span> <span class="nav-text">&#x2F;etc&#x2F;csf&#x2F;load.sh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#設定-csf-conf"><span class="nav-number">3.2.</span> <span class="nav-text">設定 csf.conf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#設定-root-forward"><span class="nav-number">3.3.</span> <span class="nav-text">設定 root .forward</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用命令"><span class="nav-number">4.</span> <span class="nav-text">常用命令</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -388,10 +392,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -416,9 +420,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -429,7 +441,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -52,13 +52,13 @@
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="Howard&#39;s Blog">
-<meta property="og:url" content="http://blog.howard/page/9/index.html">
+<meta property="og:url" content="http://blog.howard.me/page/9/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Howard">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Howard&#39;s Blog">
 
-<link rel="canonical" href="http://blog.howard/page/9/">
+<link rel="canonical" href="http://blog.howard.me/page/9/">
 
 
 <script id="page-configurations">
@@ -208,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-02/r1soft/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-02/r1soft/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -263,7 +263,10 @@
 <p><a href="http://www.mickgenie.com/r1soft-replication-driver-missing/" target="_blank" rel="noopener">參考</a></p>
 <h2 id="更新Server-Key"><a href="#更新Server-Key" class="headerlink" title="更新Server Key"></a>更新Server Key</h2><p>都安裝好之後，要記得在 Agent 端將 Server 端的 Key 複製</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">serverbackup-setup --get-key [Manager_URL]</span><br></pre></td></tr></table></figure>
-<p>例如：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 執行</span><br><span class="line">serverbackup-setup --get-key http://r1back.abc.com/public_info</span><br><span class="line"><span class="meta">#</span> 會顯示</span><br><span class="line">Key ‘r1back.abc.com’ successfully installed</span><br></pre></td></tr></table></figure></p>
+
+<p>例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 執行</span></span><br><span class="line">serverbackup-setup --get-key http://r1back.abc.com/public_info</span><br><span class="line"><span class="meta">#</span><span class="bash"> 會顯示</span></span><br><span class="line">Key ‘r1back.abc.com’ successfully installed</span><br></pre></td></tr></table></figure>
+
 <p><a href="http://wiki.r1soft.com/display/ServerBackup/Add+key+to+Linux+Backup+Agent" target="_blank" rel="noopener">參考</a></p>
 
       
@@ -284,7 +287,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-02/Cpanel-ClamAV/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-02/Cpanel-ClamAV/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -329,7 +332,8 @@
 <li>/usr/local/cpanel/3rdparty/bin/freshclam</li>
 </ul>
 <h2 id="clamscan-命令"><a href="#clamscan-命令" class="headerlink" title="clamscan 命令"></a>clamscan 命令</h2><p>檢查（殺毒）文檔</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 檢查一個目錄</span><br><span class="line">/usr/local/cpanel/3rdparty/bin/clamscan -ri /home/iconbuil/public_html</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 檢查多個目錄</span><br><span class="line">/usr/local/cpanel/3rdparty/bin/clamscan -ri /home/*/public_html</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 檢查并刪除</span><br><span class="line">/usr/local/cpanel/3rdparty/bin/clamscan -ri --remove /home/*/public_html</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 檢查一個目錄</span></span><br><span class="line">/usr/local/cpanel/3rdparty/bin/clamscan -ri /home/iconbuil/public_html</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 檢查多個目錄</span></span><br><span class="line">/usr/local/cpanel/3rdparty/bin/clamscan -ri /home/*/public_html</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 檢查并刪除</span></span><br><span class="line">/usr/local/cpanel/3rdparty/bin/clamscan -ri --remove /home/*/public_html</span><br></pre></td></tr></table></figure>
+
 <h2 id="freshclam-命令"><a href="#freshclam-命令" class="headerlink" title="freshclam 命令"></a>freshclam 命令</h2><p>升級病毒庫</p>
 
       
@@ -350,7 +354,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-02/doctrine1-2/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-02/doctrine1-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -391,7 +395,9 @@
       
           <p>Doctrine 1.2 的一些操作</p>
 <h2 id="Delete-批量刪除"><a href="#Delete-批量刪除" class="headerlink" title="Delete 批量刪除"></a>Delete 批量刪除</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Doctrine_Query::create()</span><br><span class="line">    -&gt;delete(<span class="string">'User'</span>)</span><br><span class="line">    -&gt;where(<span class="string">'address_id = ?'</span>, <span class="number">11</span>)</span><br><span class="line">    -&gt;execute();</span><br></pre></td></tr></table></figure>
+
 <h2 id="Insert-批量增加"><a href="#Insert-批量增加" class="headerlink" title="Insert 批量增加"></a>Insert 批量增加</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$i = <span class="number">0</span>;</span><br><span class="line">$p = <span class="keyword">new</span> Doctrine_Collection(<span class="string">'User'</span>);</span><br><span class="line"><span class="keyword">foreach</span> ($ids <span class="keyword">as</span> $id) &#123;</span><br><span class="line">    $p[$i]-&gt;product_id = $id;</span><br><span class="line">    $p[$i]-&gt;download_id = <span class="keyword">$this</span>-&gt;id;</span><br><span class="line"></span><br><span class="line">    $i++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$p-&gt;save();</span><br></pre></td></tr></table></figure>
+
 <h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a href="http://doctrine.readthedocs.io/en/latest/en/index.html" target="_blank" rel="noopener">http://doctrine.readthedocs.io/en/latest/en/index.html</a></p>
 
       
@@ -412,7 +418,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-02/exim/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-02/exim/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -475,7 +481,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-02/php-configuration-file/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-02/php-configuration-file/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -536,7 +542,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-01/share/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-01/share/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -601,7 +607,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-01/cpanel/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-01/cpanel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -656,9 +662,11 @@
 <li>LF_SCRIPT_PERM = On 如果超過上限則修改執行文件權限</li>
 </ul>
 <h2 id="Cpanel-每小時Mail-數量"><a href="#Cpanel-每小時Mail-數量" class="headerlink" title="Cpanel 每小時Mail 數量"></a>Cpanel 每小時Mail 數量</h2><ul>
-<li>MAX_EMAIL_PER_HOUR-$domain=300 in /var/cpanel/users/$account</li>
+<li><p>MAX_EMAIL_PER_HOUR-$domain=300 in /var/cpanel/users/$account</p>
+</li>
 <li><p>Run the <code>/usr/local/cpanel/scripts/updateuserdomains</code> script.</p>
-<h2 id="更新使用空間"><a href="#更新使用空間" class="headerlink" title="更新使用空間"></a>更新使用空間</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/scripts/fixquotas</span><br></pre></td></tr></table></figure>
+<h2 id="更新使用空間"><a href="#更新使用空間" class="headerlink" title="更新使用空間"></a>更新使用空間</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;scripts&#x2F;fixquotas</span><br></pre></td></tr></table></figure>
+
 <h2 id="park-domain-失敗"><a href="#park-domain-失敗" class="headerlink" title="park domain 失敗"></a>park domain 失敗</h2></li>
 </ul>
 <p><code>WHM &gt; Tweak Settings &gt; Domains &gt; Allow Remote Domains</code> 設定為 <code>On</code></p>
@@ -682,7 +690,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-01/google-map-api/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-01/google-map-api/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -730,8 +738,9 @@
           <p>目前需要對Map Api 設定 key。</p>
 <p>需要到 <a href="https://console.developers.google.com/apis" target="_blank" rel="noopener">https://console.developers.google.com/apis</a>  <code>凭据</code> 中添加并设定key</p>
 <h2 id="相关程序"><a href="#相关程序" class="headerlink" title="相关程序"></a>相关程序</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$keys = <span class="string">''</span>;</span><br><span class="line"><span class="keyword">if</span>($_SERVER[<span class="string">'SERVER_NAME'</span>]==<span class="string">'aaa.com.tw'</span>||$_SERVER[<span class="string">'SERVER_NAME'</span>]==<span class="string">'www.aaa.com.tw'</span>) &#123;</span><br><span class="line">	$keys = <span class="string">'&amp;key=AIzaSyCYWg75ZNxn9b8iO6UTY-Ldax'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"http://maps.google.com.tw/maps/api/js?sensor=false&lt;?=$keys?&gt;"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
 <h2 id="语系和地区设定"><a href="#语系和地区设定" class="headerlink" title="语系和地区设定"></a>语系和地区设定</h2><p>language 和 region 设定</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">dir</span>=<span class="string">"rtl"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&amp;language=en&amp;region=TW"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">dir</span>=<span class="string">"rtl"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&amp;language=en&amp;region=TW"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -750,7 +759,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-01/sql-select-go-php-python/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-01/sql-select-go-php-python/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -797,10 +806,13 @@
       
           <h2 id="php"><a href="#php" class="headerlink" title="php"></a>php</h2><p>自帶的Pdo查詢可以很簡單的返回以字段名稱為key值得數組</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getFruit</span><span class="params">($conn)</span> </span>&#123;</span><br><span class="line">    $sql = <span class="string">'SELECT name, color, calories FROM fruit ORDER BY name'</span>;</span><br><span class="line">    <span class="keyword">foreach</span> ($conn-&gt;query($sql) <span class="keyword">as</span> $row) &#123;</span><br><span class="line">        <span class="keyword">print</span> $row[<span class="string">'name'</span>] . <span class="string">"\t"</span>;</span><br><span class="line">        <span class="keyword">print</span> $row[<span class="string">'color'</span>] . <span class="string">"\t"</span>;</span><br><span class="line">        <span class="keyword">print</span> $row[<span class="string">'calories'</span>] . <span class="string">"\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="go"><a href="#go" class="headerlink" title="go"></a>go</h2><p>自帶的查詢只能通過<code>rows.Scan()</code>方法逐個對應变量。所以推荐使用ORM (gorm)。</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">rows, err := db.Query(<span class="string">"SELECT id, area, area_detail FROM zip limit 2"</span>)</span><br><span class="line"><span class="keyword">defer</span> rows.Close()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> rows.Next() &#123;</span><br><span class="line">    <span class="keyword">var</span> id <span class="keyword">int</span></span><br><span class="line">    <span class="keyword">var</span> area <span class="keyword">string</span></span><br><span class="line">    <span class="keyword">var</span> area_detail <span class="keyword">string</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> err := rows.Scan(&amp;id, &amp;area, &amp;area_detail); err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="built_in">panic</span>(err)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fmt.Printf(<span class="string">"%d \t %s \t %s\n"</span>, id, area, area_detail)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="python"><a href="#python" class="headerlink" title="python"></a>python</h2><p>自带功能只能获取<code>tuple</code>列表（只有数字为key）。所以推荐使用ORM (sqlalchemy)。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cursor.execute(<span class="string">'select * from t1'</span>)</span><br><span class="line">value = cursor.fetchall()</span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> value:</span><br><span class="line">    print(n, <span class="string">"\n"</span>)</span><br></pre></td></tr></table></figure>
+
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>如果是简单的使用， php用自带的就能满足。 go和python如果不用orm就很麻烦。</p>
 
       
@@ -821,7 +833,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-01/golang-orm/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-01/golang-orm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -867,6 +879,7 @@
 
       
           <h2 id="加載包"><a href="#加載包" class="headerlink" title="加載包"></a>加載包</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"github.com/jinzhu/gorm"</span></span><br><span class="line">	_ <span class="string">"github.com/jinzhu/gorm/dialects/mysql"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
 <p><code>github.com/jinzhu/gorm/dialects/mysql</code> 是為了方便記憶的，實際自動引用第三方的插件<code>github.com/go-sql-driver/mysql</code></p>
 <h2 id="定義表對應的數據"><a href="#定義表對應的數據" class="headerlink" title="定義表對應的數據"></a>定義表對應的數據</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Zip <span class="keyword">struct</span> &#123;</span><br><span class="line">	ID         <span class="keyword">uint</span> <span class="string">`gorm:"primary_key"`</span></span><br><span class="line">	Area       <span class="keyword">string</span></span><br><span class="line">	AreaDetail <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(Zip)</span> <span class="title">TableName</span><span class="params">()</span> <span class="title">string</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">"zip"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
@@ -874,6 +887,7 @@
 <li>如果定義類型中加入 <code>gorm.Model</code> 自動回引入 <code>CreatedAt</code>等</li>
 </ul>
 <h2 id="連接數據庫"><a href="#連接數據庫" class="headerlink" title="連接數據庫"></a>連接數據庫</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db, err := gorm.Open(<span class="string">"mysql"</span>, <span class="string">"root:123@/test?charset=utf8"</span>)</span><br><span class="line"><span class="keyword">defer</span> db.Close()</span><br></pre></td></tr></table></figure>
+
 <h2 id="查詢"><a href="#查詢" class="headerlink" title="查詢"></a>查詢</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 是否顯示log記錄</span></span><br><span class="line"><span class="comment">// db.LogMode(true)</span></span><br><span class="line"></span><br><span class="line">zip := Zip&#123;&#125;</span><br><span class="line">db.Order(<span class="string">"id desc"</span>).Last(&amp;zip)</span><br><span class="line">log.Print(zip.ID, <span class="string">"\n"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> zips = []Zip&#123;&#125;</span><br><span class="line">db.Where(<span class="string">"language = ?"</span>, <span class="string">"tw"</span>).Order(<span class="string">"id desc"</span>).Limit(<span class="number">10</span>).Find(&amp;zips)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> _, z := <span class="keyword">range</span> zips &#123;</span><br><span class="line">    log.Printf(<span class="string">"%d, %s\n"</span>, z.ID, z.AreaDetail)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
@@ -977,10 +991,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -1005,9 +1019,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -1018,7 +1040,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

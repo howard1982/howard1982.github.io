@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -50,20 +50,20 @@
   };
 </script>
 
-  <meta name="description" content="设置建议直接设置 GO111MODULE=”on” 1go env -w GO111MODULE=on 给go mod 设置代理， 并添加私有域名 12345go env -w GOPROXY=http://goproxy.cn,direct// orgo env -w GOPROXY=https://mirrors.aliyun.com/goproxy/go env -w GOPRIVATE=*">
-<meta name="keywords" content="golang">
+  <meta name="description" content="设置建议直接设置 GO111MODULE&#x3D;”on” 1go env -w GO111MODULE&#x3D;on  给go mod 设置代理， 并添加私有域名 12345go env -w GOPROXY&#x3D;http:&#x2F;&#x2F;goproxy.cn,direct&#x2F;&#x2F; orgo env -w GOPROXY&#x3D;https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;goproxy&#x2F;go env -w GOPRIVATE&#x3D;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="go mod 模塊">
-<meta property="og:url" content="http://blog.howard/2020-02/go-mod/index.html">
+<meta property="og:url" content="http://blog.howard.me/2020-02/go-mod/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="设置建议直接设置 GO111MODULE=”on” 1go env -w GO111MODULE=on 给go mod 设置代理， 并添加私有域名 12345go env -w GOPROXY=http://goproxy.cn,direct// orgo env -w GOPROXY=https://mirrors.aliyun.com/goproxy/go env -w GOPRIVATE=*">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-27T05:41:44.974Z">
+<meta property="og:description" content="设置建议直接设置 GO111MODULE&#x3D;”on” 1go env -w GO111MODULE&#x3D;on  给go mod 设置代理， 并添加私有域名 12345go env -w GOPROXY&#x3D;http:&#x2F;&#x2F;goproxy.cn,direct&#x2F;&#x2F; orgo env -w GOPROXY&#x3D;https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;goproxy&#x2F;go env -w GOPRIVATE&#x3D;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-27T05:18:09.000Z">
+<meta property="article:modified_time" content="2020-02-27T05:41:44.974Z">
+<meta property="article:author" content="Howard">
+<meta property="article:tag" content="golang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="go mod 模塊">
-<meta name="twitter:description" content="设置建议直接设置 GO111MODULE=”on” 1go env -w GO111MODULE=on 给go mod 设置代理， 并添加私有域名 12345go env -w GOPROXY=http://goproxy.cn,direct// orgo env -w GOPROXY=https://mirrors.aliyun.com/goproxy/go env -w GOPRIVATE=*">
 
-<link rel="canonical" href="http://blog.howard/2020-02/go-mod/">
+<link rel="canonical" href="http://blog.howard.me/2020-02/go-mod/">
 
 
 <script id="page-configurations">
@@ -213,7 +213,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2020-02/go-mod/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-02/go-mod/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -253,10 +253,13 @@
       
         <h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>建议直接设置 GO111MODULE=”on”</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> env -w GO111MODULE=on</span><br></pre></td></tr></table></figure>
+
 <p>给go mod 设置代理， 并添加私有域名</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> env -w GOPROXY=http:<span class="comment">//goproxy.cn,direct</span></span><br><span class="line"><span class="comment">// or</span></span><br><span class="line"><span class="keyword">go</span> env -w GOPROXY=https:<span class="comment">//mirrors.aliyun.com/goproxy/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">go</span> env -w GOPRIVATE=*.my-abc.net</span><br></pre></td></tr></table></figure>
+
 <h2 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h2><p>新建项目，或者是已有项目转为go mod 模式的 init 建议</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> mod init  域名/组名/项目名</span><br></pre></td></tr></table></figure>
+
 <p>eg： code.my-abc.net/tools/pptp</p>
 
     </div>
@@ -377,10 +380,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -405,9 +408,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -418,7 +429,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -50,20 +50,20 @@
   };
 </script>
 
-  <meta name="description" content="单用户一般的git ssh登录 生成 rsa key。 把public key 上传到网站上 https://bitbucket.org/account/user/&amp;lt;username&amp;gt;/ssh-keys/  1ssh-keygen -t rsa -C &amp;quot;username&amp;quot; 特殊设定git remote url 必须是 `git@bitbucket.org:/.git">
-<meta name="keywords" content="git">
+  <meta name="description" content="单用户一般的git ssh登录 生成 rsa key。 把public key 上传到网站上 https:&#x2F;&#x2F;bitbucket.org&#x2F;account&#x2F;user&#x2F;&lt;username&gt;&#x2F;ssh-keys&#x2F;  1ssh-keygen -t rsa -C &quot;username&quot;  特殊设定git remote url 必须是 git@bitbucket.org:&lt;a">
 <meta property="og:type" content="article">
 <meta property="og:title" content="bitbucket.org ssh 无验证码登录">
-<meta property="og:url" content="http://blog.howard/2017-01/bitbucket-org-ssh-login/index.html">
+<meta property="og:url" content="http://blog.howard.me/2017-01/bitbucket-org-ssh-login/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="单用户一般的git ssh登录 生成 rsa key。 把public key 上传到网站上 https://bitbucket.org/account/user/&amp;lt;username&amp;gt;/ssh-keys/  1ssh-keygen -t rsa -C &amp;quot;username&amp;quot; 特殊设定git remote url 必须是 `git@bitbucket.org:/.git">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-01-26T02:14:30.377Z">
+<meta property="og:description" content="单用户一般的git ssh登录 生成 rsa key。 把public key 上传到网站上 https:&#x2F;&#x2F;bitbucket.org&#x2F;account&#x2F;user&#x2F;&lt;username&gt;&#x2F;ssh-keys&#x2F;  1ssh-keygen -t rsa -C &quot;username&quot;  特殊设定git remote url 必须是 git@bitbucket.org:&lt;a">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-01-06T08:05:11.000Z">
+<meta property="article:modified_time" content="2017-01-26T02:14:30.377Z">
+<meta property="article:author" content="Howard">
+<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bitbucket.org ssh 无验证码登录">
-<meta name="twitter:description" content="单用户一般的git ssh登录 生成 rsa key。 把public key 上传到网站上 https://bitbucket.org/account/user/&amp;lt;username&amp;gt;/ssh-keys/  1ssh-keygen -t rsa -C &amp;quot;username&amp;quot; 特殊设定git remote url 必须是 `git@bitbucket.org:/.git">
 
-<link rel="canonical" href="http://blog.howard/2017-01/bitbucket-org-ssh-login/">
+<link rel="canonical" href="http://blog.howard.me/2017-01/bitbucket-org-ssh-login/">
 
 
 <script id="page-configurations">
@@ -213,7 +213,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-01/bitbucket-org-ssh-login/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-01/bitbucket-org-ssh-login/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -262,12 +262,15 @@
 <li>把public key 上传到网站上 <code>https://bitbucket.org/account/user/&lt;username&gt;/ssh-keys/</code></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;username&quot;</span><br></pre></td></tr></table></figure>
-<h3 id="特殊设定"><a href="#特殊设定" class="headerlink" title="特殊设定"></a>特殊设定</h3><p>git remote url 必须是 <a href="mailto:`git@bitbucket.org" target="_blank" rel="noopener">`git@bitbucket.org</a>:<accountname>/<reponame>.git`</reponame></accountname></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin git@bitbucket.org:&lt;accountname&gt;/&lt;reponame&gt;.git</span><br><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+
+<h3 id="特殊设定"><a href="#特殊设定" class="headerlink" title="特殊设定"></a>特殊设定</h3><p>git remote url 必须是 <code>git@bitbucket.org:&lt;accountname&gt;/&lt;reponame&gt;.git</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin git@bitbucket.org:&lt;accountname&gt;&#x2F;&lt;reponame&gt;.git</span><br><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+
 <h2 id="多用户"><a href="#多用户" class="headerlink" title="多用户"></a>多用户</h2><p>如果你有多个帐号， 就需要用到 <code>IdentitiesOnly yes</code>选项。</p>
 <p>例如在 .ssh/config 中增加第二个用户</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host bitbucket.org-user2</span><br><span class="line">     HostName bitbucket.org</span><br><span class="line">     User git</span><br><span class="line">     IdentityFile ~/.ssh/user2_rsa</span><br><span class="line">     IdentitiesOnly yes</span><br></pre></td></tr></table></figure>
-<p>注意，同样的remote url也要设定为 <a href="mailto:`git@bitbucket.org-user2" target="_blank" rel="noopener">`git@bitbucket.org-user2</a>:user2/blog.git`</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host bitbucket.org-user2</span><br><span class="line">     HostName bitbucket.org</span><br><span class="line">     User git</span><br><span class="line">     IdentityFile ~&#x2F;.ssh&#x2F;user2_rsa</span><br><span class="line">     IdentitiesOnly yes</span><br></pre></td></tr></table></figure>
+
+<p>注意，同样的remote url也要设定为 <code>git@bitbucket.org-user2:user2/blog.git</code></p>
 
     </div>
 
@@ -387,10 +390,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -415,9 +418,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -428,7 +439,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -52,13 +52,13 @@
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="Howard&#39;s Blog">
-<meta property="og:url" content="http://blog.howard/page/12/index.html">
+<meta property="og:url" content="http://blog.howard.me/page/12/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Howard">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Howard&#39;s Blog">
 
-<link rel="canonical" href="http://blog.howard/page/12/">
+<link rel="canonical" href="http://blog.howard.me/page/12/">
 
 
 <script id="page-configurations">
@@ -208,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/font/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/font/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -274,7 +274,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/FileZilla-Server/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/FileZilla-Server/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -339,7 +339,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/js-url/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/js-url/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -385,9 +385,14 @@
 
       
           <p>需要 url.min.js 插件 <a href="https://github.com/websanova/js-url" target="_blank" rel="noopener">https://github.com/websanova/js-url</a></p>
-<p>根据当前url重新生成URL对应的search   (window.location.search)<br>调用方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">makeUrl(&apos;sort&apos;, &apos;price_asc&apos;);</span><br><span class="line">makeUrl(&apos;sort&apos;, &apos;price_asc&apos;, &apos;pn&apos;, 2);</span><br></pre></td></tr></table></figure></p>
-<p>url 插件简单例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$.url(&apos;?&apos;) // 返回所有get变量</span><br><span class="line">$.url(&apos;?pn&apos;) // 返回 get变量中 pn 对应的值， 如果没有则返回 undefined</span><br></pre></td></tr></table></figure></p>
-<p>函数代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function makeUrl(key, value)</span><br><span class="line">&#123;</span><br><span class="line">    var s = $.url(&apos;?&apos;);</span><br><span class="line">    s[key] = value;</span><br><span class="line">    </span><br><span class="line">    var k1 =  arguments[2] ? arguments[2] : &apos;&apos;;</span><br><span class="line">    var v1 =   arguments[3] ? arguments[3] : &apos;&apos;;</span><br><span class="line">    if(k1!=&apos;&apos;) &#123;</span><br><span class="line">        s[k1] = v1;</span><br><span class="line">    &#125;</span><br><span class="line">    var url = window.location.pathname+&quot;?&quot;</span><br><span class="line">    for(var v in s) &#123;</span><br><span class="line">        url += v+&apos;=&apos;+s[v]+&apos;&amp;&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    url = url.substr(0, url.length-1);</span><br><span class="line">    return url;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>根据当前url重新生成URL对应的search   (window.location.search)<br>调用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">makeUrl(&#39;sort&#39;, &#39;price_asc&#39;);</span><br><span class="line">makeUrl(&#39;sort&#39;, &#39;price_asc&#39;, &#39;pn&#39;, 2);</span><br></pre></td></tr></table></figure>
+
+<p>url 插件简单例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$.url(&#39;?&#39;) &#x2F;&#x2F; 返回所有get变量</span><br><span class="line">$.url(&#39;?pn&#39;) &#x2F;&#x2F; 返回 get变量中 pn 对应的值， 如果没有则返回 undefined</span><br></pre></td></tr></table></figure>
+
+<p>函数代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function makeUrl(key, value)</span><br><span class="line">&#123;</span><br><span class="line">    var s &#x3D; $.url(&#39;?&#39;);</span><br><span class="line">    s[key] &#x3D; value;</span><br><span class="line">    </span><br><span class="line">    var k1 &#x3D;  arguments[2] ? arguments[2] : &#39;&#39;;</span><br><span class="line">    var v1 &#x3D;   arguments[3] ? arguments[3] : &#39;&#39;;</span><br><span class="line">    if(k1!&#x3D;&#39;&#39;) &#123;</span><br><span class="line">        s[k1] &#x3D; v1;</span><br><span class="line">    &#125;</span><br><span class="line">    var url &#x3D; window.location.pathname+&quot;?&quot;</span><br><span class="line">    for(var v in s) &#123;</span><br><span class="line">        url +&#x3D; v+&#39;&#x3D;&#39;+s[v]+&#39;&amp;&#39;;</span><br><span class="line">    &#125;</span><br><span class="line">    url &#x3D; url.substr(0, url.length-1);</span><br><span class="line">    return url;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -407,7 +412,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/linux-wc/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/linux-wc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -452,10 +457,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>统计某文件夹下文件的个数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l |grep &quot;^-&quot;|wc -l</span><br></pre></td></tr></table></figure></p>
-<p>统计某文件夹下目录的个数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l |grep &quot;^d&quot;|wc -l</span><br></pre></td></tr></table></figure></p>
-<p>统计文件夹下文件的个数，包括子文件夹里的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -lR|grep &quot;^-&quot;|wc -l</span><br></pre></td></tr></table></figure></p>
+          <p>统计某文件夹下文件的个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l |grep &quot;^-&quot;|wc -l</span><br></pre></td></tr></table></figure>
 
+<p>统计某文件夹下目录的个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l |grep &quot;^d&quot;|wc -l</span><br></pre></td></tr></table></figure>
+
+<p>统计文件夹下文件的个数，包括子文件夹里的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -lR|grep &quot;^-&quot;|wc -l</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -474,7 +483,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/linux-find/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/linux-find/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -520,11 +529,15 @@
 
       
           <h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find [path...] [expression]</span><br></pre></td></tr></table></figure>
-<h2 id="查找某兩個目錄，"><a href="#查找某兩個目錄，" class="headerlink" title="查找某兩個目錄，"></a>查找某兩個目錄，</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find &#123;name080,090.net&#125;/application/&#123;config,helpers&#125;/ -type f</span><br></pre></td></tr></table></figure>
-<h2 id="修改30分鐘前的-刪除"><a href="#修改30分鐘前的-刪除" class="headerlink" title="修改30分鐘前的 刪除"></a>修改30分鐘前的 刪除</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find &#123;name080,090.net&#125;/application/&#123;config,helpers&#125;/ -type f -mtime +30  -delete</span><br></pre></td></tr></table></figure>
+
+<h2 id="查找某兩個目錄，"><a href="#查找某兩個目錄，" class="headerlink" title="查找某兩個目錄，"></a>查找某兩個目錄，</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find &#123;name080,090.net&#125;&#x2F;application&#x2F;&#123;config,helpers&#125;&#x2F; -type f</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改30分鐘前的-刪除"><a href="#修改30分鐘前的-刪除" class="headerlink" title="修改30分鐘前的 刪除"></a>修改30分鐘前的 刪除</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find &#123;name080,090.net&#125;&#x2F;application&#x2F;&#123;config,helpers&#125;&#x2F; -type f -mtime +30  -delete</span><br></pre></td></tr></table></figure>
+
 <h2 id="查詢并修改權限"><a href="#查詢并修改權限" class="headerlink" title="查詢并修改權限"></a>查詢并修改權限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -name &quot;*.php&quot; | xargs chmod 640</span><br></pre></td></tr></table></figure>
-<h2 id="查询权限是777的文档"><a href="#查询权限是777的文档" class="headerlink" title="查询权限是777的文档"></a>查询权限是777的文档</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find ./ -type d -perm 777</span><br></pre></td></tr></table></figure>
-<h2 id="刪除亂碼或特殊文字命名的文檔"><a href="#刪除亂碼或特殊文字命名的文檔" class="headerlink" title="刪除亂碼或特殊文字命名的文檔"></a>刪除亂碼或特殊文字命名的文檔</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 獲取 inode number</span><br><span class="line">ls -il</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 刪除文檔</span><br><span class="line">find . -inum 2890693 -delete</span><br><span class="line"><span class="meta">#</span> 刪除目錄</span><br><span class="line">find . -inum 1367 -exec rm -rf &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+<h2 id="查询权限是777的文档"><a href="#查询权限是777的文档" class="headerlink" title="查询权限是777的文档"></a>查询权限是777的文档</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find .&#x2F; -type d -perm 777</span><br></pre></td></tr></table></figure>
+
+<h2 id="刪除亂碼或特殊文字命名的文檔"><a href="#刪除亂碼或特殊文字命名的文檔" class="headerlink" title="刪除亂碼或特殊文字命名的文檔"></a>刪除亂碼或特殊文字命名的文檔</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 獲取 inode number</span></span><br><span class="line">ls -il</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 刪除文檔</span></span><br><span class="line">find . -inum 2890693 -delete</span><br><span class="line"><span class="meta">#</span><span class="bash"> 刪除目錄</span></span><br><span class="line">find . -inum 1367 -exec rm -rf &#123;&#125; \;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -544,7 +557,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/gzip-bzip2-zip/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/gzip-bzip2-zip/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -589,8 +602,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> gzip filename.txt</span><br><span class="line"><span class="meta">#</span> 将filename变成filename.txt.gz</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> bzip2 filename.txt</span><br><span class="line"><span class="meta">#</span> 将filename变成filename.txt.bz2</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span> zip filename</span><br><span class="line"><span class="meta">#</span> 将filename变成filename.txt.zip</span><br></pre></td></tr></table></figure>
-<h2 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> gunzip filename.gz</span><br><span class="line"><span class="meta">$</span> bunzip2 filename.bz2</span><br><span class="line"><span class="meta">$</span> unzip filename.zip</span><br></pre></td></tr></table></figure>
+          <h2 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gzip filename.txt</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将filename变成filename.txt.gz</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> bzip2 filename.txt</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将filename变成filename.txt.bz2</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> zip filename</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将filename变成filename.txt.zip</span></span><br></pre></td></tr></table></figure>
+<h2 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gunzip filename.gz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> bunzip2 filename.bz2</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> unzip filename.zip</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -609,7 +622,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/tar/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/tar/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -654,12 +667,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="排除某個目錄"><a href="#排除某個目錄" class="headerlink" title="排除某個目錄"></a>排除某個目錄</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -czf www.tar.gz public_html/ --exclude=public_html/upload --exclude=public_html/pmd --exclude=public_html/_back_20101010</span><br><span class="line">tar -czf www.tar.gz /home/abc/public_html --exclude=/home/abc/public_html/upload</span><br></pre></td></tr></table></figure>
+          <h2 id="排除某個目錄"><a href="#排除某個目錄" class="headerlink" title="排除某個目錄"></a>排除某個目錄</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -czf www.tar.gz public_html&#x2F; --exclude&#x3D;public_html&#x2F;upload --exclude&#x3D;public_html&#x2F;pmd --exclude&#x3D;public_html&#x2F;_back_20101010</span><br><span class="line">tar -czf www.tar.gz &#x2F;home&#x2F;abc&#x2F;public_html --exclude&#x3D;&#x2F;home&#x2F;abc&#x2F;public_html&#x2F;upload</span><br></pre></td></tr></table></figure>
+
 <p>生成 <a href="http://www.tar.gz" target="_blank" rel="noopener">www.tar.gz</a> 文档， 压缩源目录为 public_html/</p>
 <p>–exclude=public_html/upload 是指 排除这个目录或文档。</p>
 <p>注意： 要排除的目录（文档）名称必须与源目录的名称相对应。如果是相对目录必须都是相对目录。 如果是绝对目录必须全是绝对目录。</p>
 <h2 id="查看tar包中的文檔"><a href="#查看tar包中的文檔" class="headerlink" title="查看tar包中的文檔"></a>查看tar包中的文檔</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar tvf test.tar.gz</span><br></pre></td></tr></table></figure>
-<h2 id="解壓其中的某個文檔"><a href="#解壓其中的某個文檔" class="headerlink" title="解壓其中的某個文檔"></a>解壓其中的某個文檔</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxfv test.tar.gz home/oracle/xiaoming/bbed/bbed.par</span><br></pre></td></tr></table></figure>
+
+<h2 id="解壓其中的某個文檔"><a href="#解壓其中的某個文檔" class="headerlink" title="解壓其中的某個文檔"></a>解壓其中的某個文檔</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxfv test.tar.gz home&#x2F;oracle&#x2F;xiaoming&#x2F;bbed&#x2F;bbed.par</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -679,7 +694,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/chattr-lsattr/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/chattr-lsattr/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -724,9 +739,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>lsattr 显示文件的属性<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">[root]#</span>lsattr</span><br><span class="line">----i-------- ./ff</span><br></pre></td></tr></table></figure></p>
-<p>chattr 命令 修改文件（目錄）属性能够提高系统的安全性  (只有超级权限的用户才具有使用该命令的权限)<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">[root]#</span>lsattr  # 默認情況下</span><br><span class="line">------------- ./ff</span><br><span class="line"> </span><br><span class="line"><span class="meta">[root]#</span>chattr +i ff</span><br><span class="line"><span class="meta">[root]#</span>lsattr</span><br><span class="line">----i-------- ./ff</span><br></pre></td></tr></table></figure></p>
-<p>chattr命令的用法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chattr [ -RV ] [ -v version ] [ mode ] files...</span><br></pre></td></tr></table></figure></p>
+          <p>lsattr 显示文件的属性</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">[root]#</span><span class="bash">lsattr</span></span><br><span class="line">----i-------- ./ff</span><br></pre></td></tr></table></figure>
+
+<p>chattr 命令 修改文件（目錄）属性能够提高系统的安全性  (只有超级权限的用户才具有使用该命令的权限)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">[root]#</span><span class="bash">lsattr  <span class="comment"># 默認情況下</span></span></span><br><span class="line">------------- ./ff</span><br><span class="line"> </span><br><span class="line"><span class="meta">[root]#</span><span class="bash">chattr +i ff</span></span><br><span class="line"><span class="meta">[root]#</span><span class="bash">lsattr</span></span><br><span class="line">----i-------- ./ff</span><br></pre></td></tr></table></figure>
+
+<p>chattr命令的用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chattr [ -RV ] [ -v version ] [ mode ] files...</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><ul>
 <li>：在原有参数设定基础上，追加参数。</li>
@@ -738,8 +759,10 @@
 </li>
 <li><p>i ：设定文件不能被删除、改名、设定链接关系，同时不能写入或新增内容。i参数对于文件 系统的安全设置有很大帮助。</p>
 </li>
-<li>a：即append，设定该参数后，只能向文件中添加数据，而不能删除，多用于服务器日志文 件安全，只有root才能设定这个属性。</li>
-<li>j：即journal，设定此参数使得当通过mount参数：data=ordered 或者 data=writeback 挂 载的文件系统，文件在写入时会先被记录(在journal中)。如果filesystem被设定参数为 data=journal，则该参数自动失效。</li>
+<li><p>a：即append，设定该参数后，只能向文件中添加数据，而不能删除，多用于服务器日志文 件安全，只有root才能设定这个属性。</p>
+</li>
+<li><p>j：即journal，设定此参数使得当通过mount参数：data=ordered 或者 data=writeback 挂 载的文件系统，文件在写入时会先被记录(在journal中)。如果filesystem被设定参数为 data=journal，则该参数自动失效。</p>
+</li>
 </ul>
 
       
@@ -760,7 +783,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/php-APCu/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/php-APCu/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -826,7 +849,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/sqlserver-2008/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/sqlserver-2008/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -982,10 +1005,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -1010,9 +1033,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -1023,7 +1054,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -50,20 +50,21 @@
   };
 </script>
 
-  <meta name="description" content="通過Capnel安裝的ClamAV程序在/usr/local/cpanel/3rdparty/bin下面。  /usr/local/cpanel/3rdparty/bin/clamscan /usr/local/cpanel/3rdparty/bin/freshclam  clamscan 命令檢查（殺毒）文檔 12345678# 檢查一個目錄/usr/local/cpanel/3rdparty/">
-<meta name="keywords" content="cpanel,ClamAV">
+  <meta name="description" content="通過Capnel安裝的ClamAV程序在&#x2F;usr&#x2F;local&#x2F;cpanel&#x2F;3rdparty&#x2F;bin下面。  &#x2F;usr&#x2F;local&#x2F;cpanel&#x2F;3rdparty&#x2F;bin&#x2F;clamscan &#x2F;usr&#x2F;local&#x2F;cpanel&#x2F;3rdparty&#x2F;bin&#x2F;freshclam  clamscan 命令檢查（殺毒）文檔 12345678# 檢查一個目錄&#x2F;usr&#x2F;local&#x2F;cpanel&#x2F;3rdparty&#x2F;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cpanel ClamAV 殺毒軟件">
-<meta property="og:url" content="http://blog.howard/2017-02/Cpanel-ClamAV/index.html">
+<meta property="og:url" content="http://blog.howard.me/2017-02/Cpanel-ClamAV/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="通過Capnel安裝的ClamAV程序在/usr/local/cpanel/3rdparty/bin下面。  /usr/local/cpanel/3rdparty/bin/clamscan /usr/local/cpanel/3rdparty/bin/freshclam  clamscan 命令檢查（殺毒）文檔 12345678# 檢查一個目錄/usr/local/cpanel/3rdparty/">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-02-16T12:51:38.742Z">
+<meta property="og:description" content="通過Capnel安裝的ClamAV程序在&#x2F;usr&#x2F;local&#x2F;cpanel&#x2F;3rdparty&#x2F;bin下面。  &#x2F;usr&#x2F;local&#x2F;cpanel&#x2F;3rdparty&#x2F;bin&#x2F;clamscan &#x2F;usr&#x2F;local&#x2F;cpanel&#x2F;3rdparty&#x2F;bin&#x2F;freshclam  clamscan 命令檢查（殺毒）文檔 12345678# 檢查一個目錄&#x2F;usr&#x2F;local&#x2F;cpanel&#x2F;3rdparty&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-02-16T12:38:00.000Z">
+<meta property="article:modified_time" content="2017-02-16T12:51:38.742Z">
+<meta property="article:author" content="Howard">
+<meta property="article:tag" content="cpanel">
+<meta property="article:tag" content="ClamAV">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cpanel ClamAV 殺毒軟件">
-<meta name="twitter:description" content="通過Capnel安裝的ClamAV程序在/usr/local/cpanel/3rdparty/bin下面。  /usr/local/cpanel/3rdparty/bin/clamscan /usr/local/cpanel/3rdparty/bin/freshclam  clamscan 命令檢查（殺毒）文檔 12345678# 檢查一個目錄/usr/local/cpanel/3rdparty/">
 
-<link rel="canonical" href="http://blog.howard/2017-02/Cpanel-ClamAV/">
+<link rel="canonical" href="http://blog.howard.me/2017-02/Cpanel-ClamAV/">
 
 
 <script id="page-configurations">
@@ -213,7 +214,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-02/Cpanel-ClamAV/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-02/Cpanel-ClamAV/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -257,7 +258,8 @@
 <li>/usr/local/cpanel/3rdparty/bin/freshclam</li>
 </ul>
 <h2 id="clamscan-命令"><a href="#clamscan-命令" class="headerlink" title="clamscan 命令"></a>clamscan 命令</h2><p>檢查（殺毒）文檔</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 檢查一個目錄</span><br><span class="line">/usr/local/cpanel/3rdparty/bin/clamscan -ri /home/iconbuil/public_html</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 檢查多個目錄</span><br><span class="line">/usr/local/cpanel/3rdparty/bin/clamscan -ri /home/*/public_html</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 檢查并刪除</span><br><span class="line">/usr/local/cpanel/3rdparty/bin/clamscan -ri --remove /home/*/public_html</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 檢查一個目錄</span></span><br><span class="line">/usr/local/cpanel/3rdparty/bin/clamscan -ri /home/iconbuil/public_html</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 檢查多個目錄</span></span><br><span class="line">/usr/local/cpanel/3rdparty/bin/clamscan -ri /home/*/public_html</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 檢查并刪除</span></span><br><span class="line">/usr/local/cpanel/3rdparty/bin/clamscan -ri --remove /home/*/public_html</span><br></pre></td></tr></table></figure>
+
 <h2 id="freshclam-命令"><a href="#freshclam-命令" class="headerlink" title="freshclam 命令"></a>freshclam 命令</h2><p>升級病毒庫</p>
 
     </div>
@@ -379,10 +381,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -407,9 +409,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -420,7 +430,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

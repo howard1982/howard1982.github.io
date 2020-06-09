@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -50,20 +50,20 @@
   };
 </script>
 
-  <meta name="description" content="有些編輯器不能定義多個字體。默認的又是宋體（簡體）。 所以只能FontLink給Consolas設定中文。 註冊表位置1HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink 新增 Consolas新增 多字符串值 名稱為 Consolas 對應的內容為1234MSYH.TTC,Micr">
-<meta name="keywords" content="windows">
+  <meta name="description" content="有些編輯器不能定義多個字體。默認的又是宋體（簡體）。 所以只能FontLink給Consolas設定中文。 註冊表位置1HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink  新增 Consolas新增 多字符串值 名稱為 Consolas 對應的內容為 1234MSYH.TTC,Mi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用fontlink解決consoles中文字體">
-<meta property="og:url" content="http://blog.howard/2016-12/windows-fontlink/index.html">
+<meta property="og:url" content="http://blog.howard.me/2016-12/windows-fontlink/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="有些編輯器不能定義多個字體。默認的又是宋體（簡體）。 所以只能FontLink給Consolas設定中文。 註冊表位置1HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink 新增 Consolas新增 多字符串值 名稱為 Consolas 對應的內容為1234MSYH.TTC,Micr">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-18T06:22:10.110Z">
+<meta property="og:description" content="有些編輯器不能定義多個字體。默認的又是宋體（簡體）。 所以只能FontLink給Consolas設定中文。 註冊表位置1HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink  新增 Consolas新增 多字符串值 名稱為 Consolas 對應的內容為 1234MSYH.TTC,Mi">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-12-28T06:56:09.000Z">
+<meta property="article:modified_time" content="2018-10-18T06:22:10.110Z">
+<meta property="article:author" content="Howard">
+<meta property="article:tag" content="windows">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用fontlink解決consoles中文字體">
-<meta name="twitter:description" content="有些編輯器不能定義多個字體。默認的又是宋體（簡體）。 所以只能FontLink給Consolas設定中文。 註冊表位置1HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink 新增 Consolas新增 多字符串值 名稱為 Consolas 對應的內容為1234MSYH.TTC,Micr">
 
-<link rel="canonical" href="http://blog.howard/2016-12/windows-fontlink/">
+<link rel="canonical" href="http://blog.howard.me/2016-12/windows-fontlink/">
 
 
 <script id="page-configurations">
@@ -213,7 +213,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/windows-fontlink/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/windows-fontlink/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -259,8 +259,11 @@
       
         <p>有些編輯器不能定義多個字體。默認的又是宋體（簡體）。 所以只能FontLink給Consolas設定中文。</p>
 <h2 id="註冊表位置"><a href="#註冊表位置" class="headerlink" title="註冊表位置"></a>註冊表位置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink</span><br></pre></td></tr></table></figure>
+
 <h2 id="新增-Consolas"><a href="#新增-Consolas" class="headerlink" title="新增 Consolas"></a>新增 Consolas</h2><p>新增 <code>多字符串值</code> 名稱為 <code>Consolas</code></p>
-<p>對應的內容為<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MSYH.TTC,Microsoft YaHei,128,96</span><br><span class="line">MSYH.TTC,Microsoft YaHei</span><br><span class="line">MEIRYO.TTC,Meiryo UI,128,96</span><br><span class="line">MEIRYO.TTC,Meiryo UI</span><br></pre></td></tr></table></figure></p>
+<p>對應的內容為</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MSYH.TTC,Microsoft YaHei,128,96</span><br><span class="line">MSYH.TTC,Microsoft YaHei</span><br><span class="line">MEIRYO.TTC,Meiryo UI,128,96</span><br><span class="line">MEIRYO.TTC,Meiryo UI</span><br></pre></td></tr></table></figure>
+
 <p>這裡的內容是系統自帶的 <code>Segoe UI</code> 的內容。用網絡上提供的內容，反而不美觀。</p>
 
     </div>
@@ -381,10 +384,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -409,9 +412,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -422,7 +433,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

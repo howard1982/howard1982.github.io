@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -50,20 +50,21 @@
   };
 </script>
 
-  <meta name="description" content=".htaccess 文档 一般12345678Options +FollowSymLinksRewriteEngine On RewriteCond %&amp;#123;REQUEST_FILENAME&amp;#125; !-dRewriteRule ^(.+)/$ http://%&amp;#123;HTTP_HOST&amp;#125;/$1 [R=301,L] RewriteCond %&amp;#123;REQUEST_FI">
-<meta name="keywords" content="linux,apache">
+  <meta name="description" content=".htaccess 文档 一般12345678Options +FollowSymLinksRewriteEngine On RewriteCond %&amp;#123;REQUEST_FILENAME&amp;#125; !-dRewriteRule ^(.+)&#x2F;$ http:&#x2F;&#x2F;%&amp;#123;HTTP_HOST&amp;#125;&#x2F;$1 [R&#x3D;301,L] Rewr">
 <meta property="og:type" content="article">
 <meta property="og:title" content=".htaccess">
-<meta property="og:url" content="http://blog.howard/2016-12/htaccess/index.html">
+<meta property="og:url" content="http://blog.howard.me/2016-12/htaccess/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content=".htaccess 文档 一般12345678Options +FollowSymLinksRewriteEngine On RewriteCond %&amp;#123;REQUEST_FILENAME&amp;#125; !-dRewriteRule ^(.+)/$ http://%&amp;#123;HTTP_HOST&amp;#125;/$1 [R=301,L] RewriteCond %&amp;#123;REQUEST_FI">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-11T06:21:56.165Z">
+<meta property="og:description" content=".htaccess 文档 一般12345678Options +FollowSymLinksRewriteEngine On RewriteCond %&amp;#123;REQUEST_FILENAME&amp;#125; !-dRewriteRule ^(.+)&#x2F;$ http:&#x2F;&#x2F;%&amp;#123;HTTP_HOST&amp;#125;&#x2F;$1 [R&#x3D;301,L] Rewr">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-12-25T06:54:48.000Z">
+<meta property="article:modified_time" content="2020-05-11T06:21:56.165Z">
+<meta property="article:author" content="Howard">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="apache">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content=".htaccess">
-<meta name="twitter:description" content=".htaccess 文档 一般12345678Options +FollowSymLinksRewriteEngine On RewriteCond %&amp;#123;REQUEST_FILENAME&amp;#125; !-dRewriteRule ^(.+)/$ http://%&amp;#123;HTTP_HOST&amp;#125;/$1 [R=301,L] RewriteCond %&amp;#123;REQUEST_FI">
 
-<link rel="canonical" href="http://blog.howard/2016-12/htaccess/">
+<link rel="canonical" href="http://blog.howard.me/2016-12/htaccess/">
 
 
 <script id="page-configurations">
@@ -213,7 +214,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/htaccess/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/htaccess/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -258,16 +259,22 @@
 
       
         <p>.htaccess 文档</p>
-<h2 id="一般"><a href="#一般" class="headerlink" title="一般"></a>一般</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Options +FollowSymLinks</span><br><span class="line">RewriteEngine On</span><br><span class="line"> </span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</span><br><span class="line">RewriteRule ^(.+)/$ http://%&#123;HTTP_HOST&#125;/$1 [R=301,L]</span><br><span class="line"> </span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</span><br><span class="line">RewriteRule ^ index.php [L]</span><br></pre></td></tr></table></figure>
+<h2 id="一般"><a href="#一般" class="headerlink" title="一般"></a>一般</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Options +FollowSymLinks</span><br><span class="line">RewriteEngine On</span><br><span class="line"> </span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</span><br><span class="line">RewriteRule ^(.+)&#x2F;$ http:&#x2F;&#x2F;%&#123;HTTP_HOST&#125;&#x2F;$1 [R&#x3D;301,L]</span><br><span class="line"> </span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</span><br><span class="line">RewriteRule ^ index.php [L]</span><br></pre></td></tr></table></figure>
+
 <p><code>Options +FollowSymLinks</code></p>
 <p>在 某些服务器配置中，mod_rewrite要求有followsymlinks，否则会显示500内部服务器错误。</p>
 <h2 id="禁止所有请求"><a href="#禁止所有请求" class="headerlink" title="禁止所有请求"></a>禁止所有请求</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deny from all</span><br></pre></td></tr></table></figure>
+
 <p>一般用于 <code>vendor</code> <code>application</code> 目录</p>
 <h2 id="禁止列出目錄"><a href="#禁止列出目錄" class="headerlink" title="禁止列出目錄"></a>禁止列出目錄</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Options -Indexes</span><br></pre></td></tr></table></figure>
-<h2 id="強制-www"><a href="#強制-www" class="headerlink" title="強制 www"></a>強制 www</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RewriteCond %&#123;HTTP_HOST&#125; !^www\. [NC]</span><br><span class="line">RewriteCond %&#123;REQUEST_URI&#125; !(\.well\-known) # 排除url</span><br><span class="line">RewriteRule ^(.*)$ https://www.%&#123;HTTP_HOST&#125;/$1 [R=301,L]</span><br></pre></td></tr></table></figure>
-<h2 id="強制HTTPS"><a href="#強制HTTPS" class="headerlink" title="強制HTTPS"></a>強制HTTPS</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RewriteCond %&#123;HTTPS&#125; off</span><br><span class="line">RewriteCond %&#123;REQUEST_URI&#125; !(\.well\-known) # 排除url</span><br><span class="line">RewriteRule ^(.*)$ https://%&#123;SERVER_NAME&#125;%&#123;REQUEST_URI&#125; [L,R]</span><br></pre></td></tr></table></figure>
+
+<h2 id="強制-www"><a href="#強制-www" class="headerlink" title="強制 www"></a>強制 www</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RewriteCond %&#123;HTTP_HOST&#125; !^www\. [NC]</span><br><span class="line">RewriteCond %&#123;REQUEST_URI&#125; !(\.well\-known) # 排除url</span><br><span class="line">RewriteRule ^(.*)$ https:&#x2F;&#x2F;www.%&#123;HTTP_HOST&#125;&#x2F;$1 [R&#x3D;301,L]</span><br></pre></td></tr></table></figure>
+
+<h2 id="強制HTTPS"><a href="#強制HTTPS" class="headerlink" title="強制HTTPS"></a>強制HTTPS</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RewriteCond %&#123;HTTPS&#125; off</span><br><span class="line">RewriteCond %&#123;REQUEST_URI&#125; !(\.well\-known) # 排除url</span><br><span class="line">RewriteRule ^(.*)$ https:&#x2F;&#x2F;%&#123;SERVER_NAME&#125;%&#123;REQUEST_URI&#125; [L,R]</span><br></pre></td></tr></table></figure>
+
 <h2 id="顯示臨時頁面"><a href="#顯示臨時頁面" class="headerlink" title="顯示臨時頁面"></a>顯示臨時頁面</h2><p>.htaccess</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RewriteEngine on</span><br><span class="line"></span><br><span class="line">RewriteCond $1 !^(2\.php)</span><br><span class="line">RewriteRule ^(.*)$ 2.php/$1 [L]</span><br></pre></td></tr></table></figure>
+
 <p>2.php</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Name080<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"padding: 40px 20px;font-size: 24px"</span>&gt;</span>網站維護中 ... <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
     </div>
@@ -389,10 +396,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -417,9 +424,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -430,7 +445,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -51,19 +51,19 @@
 </script>
 
   <meta name="description" content="Import VS Import..from import subpackage1.a # 将模块subpackage.a导入全局命名空间，例如访问a中属性时用 subpackage1.a.attr from subpackage1 import a #　将模块a导入全局命名空间，例如访问a中属性时用a.attr_a from subpackage.a import attr_a # 将模块a的属">
-<meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python">
-<meta property="og:url" content="http://blog.howard/2017-09/python/index.html">
+<meta property="og:url" content="http://blog.howard.me/2017-09/python/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
 <meta property="og:description" content="Import VS Import..from import subpackage1.a # 将模块subpackage.a导入全局命名空间，例如访问a中属性时用 subpackage1.a.attr from subpackage1 import a #　将模块a导入全局命名空间，例如访问a中属性时用a.attr_a from subpackage.a import attr_a # 将模块a的属">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-06T13:46:11.414Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-09-15T00:49:50.000Z">
+<meta property="article:modified_time" content="2018-09-06T13:46:11.414Z">
+<meta property="article:author" content="Howard">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python">
-<meta name="twitter:description" content="Import VS Import..from import subpackage1.a # 将模块subpackage.a导入全局命名空间，例如访问a中属性时用 subpackage1.a.attr from subpackage1 import a #　将模块a导入全局命名空间，例如访问a中属性时用a.attr_a from subpackage.a import attr_a # 将模块a的属">
 
-<link rel="canonical" href="http://blog.howard/2017-09/python/">
+<link rel="canonical" href="http://blog.howard.me/2017-09/python/">
 
 
 <script id="page-configurations">
@@ -213,7 +213,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-09/python/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-09/python/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -264,6 +264,8 @@
 </ul>
 <h2 id="資料庫數據修改"><a href="#資料庫數據修改" class="headerlink" title="資料庫數據修改"></a>資料庫數據修改</h2><p>不手動該執行 commit 真個程序執行完才會更新到資料庫</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">conn = mysql.connector.connect(host=<span class="string">'localhost'</span>,user=<span class="string">'dn'</span>, password=<span class="string">'xxx'</span>, database=<span class="string">'dn'</span>,charset=<span class="string">'utf8'</span>)</span><br><span class="line">cursor = conn.cursor()</span><br><span class="line"></span><br><span class="line">update_sql = <span class="string">"update one_off_domain set has_ssl = %s where id = %s"</span></span><br><span class="line">cursor.execute(update_sql, (<span class="number">-1</span>, id))</span><br><span class="line">conn.commit()</span><br><span class="line"></span><br><span class="line">conn.close()</span><br></pre></td></tr></table></figure>
+
+
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>文档测试或者执行</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">print</span> __name__</span><br></pre></td></tr></table></figure>
     </div>
@@ -384,10 +386,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -412,9 +414,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -425,7 +435,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -50,20 +50,20 @@
   };
 </script>
 
-  <meta name="description" content="安裝錯誤錯誤訊息提示要執行r1soft-setup --get-module.但是報錯：kernel的版本信息和kernel-devel 版本對不上。 所以一次執行：  yum install kernel-devel-$(uname -r) r1soft-setup –get-module –no-binary /etc/init.d/cdp-agent restart  參考 更新Server">
-<meta name="keywords" content="linux">
+  <meta name="description" content="安裝錯誤錯誤訊息提示要執行r1soft-setup --get-module.但是報錯：kernel的版本信息和kernel-devel 版本對不上。 所以一次執行：  yum install kernel-devel-$(uname -r) r1soft-setup –get-module –no-binary &#x2F;etc&#x2F;init.d&#x2F;cdp-agent restart  參考 更新Server">
 <meta property="og:type" content="article">
 <meta property="og:title" content="R1soft 備份失敗">
-<meta property="og:url" content="http://blog.howard/2017-02/r1soft/index.html">
+<meta property="og:url" content="http://blog.howard.me/2017-02/r1soft/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="安裝錯誤錯誤訊息提示要執行r1soft-setup --get-module.但是報錯：kernel的版本信息和kernel-devel 版本對不上。 所以一次執行：  yum install kernel-devel-$(uname -r) r1soft-setup –get-module –no-binary /etc/init.d/cdp-agent restart  參考 更新Server">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-12T08:30:00.518Z">
+<meta property="og:description" content="安裝錯誤錯誤訊息提示要執行r1soft-setup --get-module.但是報錯：kernel的版本信息和kernel-devel 版本對不上。 所以一次執行：  yum install kernel-devel-$(uname -r) r1soft-setup –get-module –no-binary &#x2F;etc&#x2F;init.d&#x2F;cdp-agent restart  參考 更新Server">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-02-24T08:31:39.000Z">
+<meta property="article:modified_time" content="2018-11-12T08:30:00.518Z">
+<meta property="article:author" content="Howard">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="R1soft 備份失敗">
-<meta name="twitter:description" content="安裝錯誤錯誤訊息提示要執行r1soft-setup --get-module.但是報錯：kernel的版本信息和kernel-devel 版本對不上。 所以一次執行：  yum install kernel-devel-$(uname -r) r1soft-setup –get-module –no-binary /etc/init.d/cdp-agent restart  參考 更新Server">
 
-<link rel="canonical" href="http://blog.howard/2017-02/r1soft/">
+<link rel="canonical" href="http://blog.howard.me/2017-02/r1soft/">
 
 
 <script id="page-configurations">
@@ -213,7 +213,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-02/r1soft/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-02/r1soft/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -267,7 +267,10 @@
 <p><a href="http://www.mickgenie.com/r1soft-replication-driver-missing/" target="_blank" rel="noopener">參考</a></p>
 <h2 id="更新Server-Key"><a href="#更新Server-Key" class="headerlink" title="更新Server Key"></a>更新Server Key</h2><p>都安裝好之後，要記得在 Agent 端將 Server 端的 Key 複製</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">serverbackup-setup --get-key [Manager_URL]</span><br></pre></td></tr></table></figure>
-<p>例如：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 執行</span><br><span class="line">serverbackup-setup --get-key http://r1back.abc.com/public_info</span><br><span class="line"><span class="meta">#</span> 會顯示</span><br><span class="line">Key ‘r1back.abc.com’ successfully installed</span><br></pre></td></tr></table></figure></p>
+
+<p>例如：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 執行</span></span><br><span class="line">serverbackup-setup --get-key http://r1back.abc.com/public_info</span><br><span class="line"><span class="meta">#</span><span class="bash"> 會顯示</span></span><br><span class="line">Key ‘r1back.abc.com’ successfully installed</span><br></pre></td></tr></table></figure>
+
 <p><a href="http://wiki.r1soft.com/display/ServerBackup/Add+key+to+Linux+Backup+Agent" target="_blank" rel="noopener">參考</a></p>
 
     </div>
@@ -388,10 +391,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -416,9 +419,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -429,7 +440,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

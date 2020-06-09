@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -50,20 +50,21 @@
   };
 </script>
 
-  <meta name="description" content="零散的记录， 不是很系统的内容。 spring boot用注解代替了XML配置。上手比较简单。 类似一个执行容器。用注解的方式指定Bean，将Bean映射到具体变量。扫描所有类的注解后，开始分配。并执行指定函数。 开始http://start.spring.io/ 可以下载一个空的含有配置文档以及pom.xml文档。 ~\src\main\resources\application.propert">
-<meta name="keywords" content="spring,java">
+  <meta name="description" content="零散的记录， 不是很系统的内容。 spring boot用注解代替了XML配置。上手比较简单。 类似一个执行容器。用注解的方式指定Bean，将Bean映射到具体变量。扫描所有类的注解后，开始分配。并执行指定函数。 开始http:&#x2F;&#x2F;start.spring.io&#x2F; 可以下载一个空的含有配置文档以及pom.xml文档。 ~\src\main\resources\application.propert">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring Boot Jdbc练习">
-<meta property="og:url" content="http://blog.howard/2017-03/spring-boot-jdbc/index.html">
+<meta property="og:url" content="http://blog.howard.me/2017-03/spring-boot-jdbc/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="零散的记录， 不是很系统的内容。 spring boot用注解代替了XML配置。上手比较简单。 类似一个执行容器。用注解的方式指定Bean，将Bean映射到具体变量。扫描所有类的注解后，开始分配。并执行指定函数。 开始http://start.spring.io/ 可以下载一个空的含有配置文档以及pom.xml文档。 ~\src\main\resources\application.propert">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-03-03T12:27:27.879Z">
+<meta property="og:description" content="零散的记录， 不是很系统的内容。 spring boot用注解代替了XML配置。上手比较简单。 类似一个执行容器。用注解的方式指定Bean，将Bean映射到具体变量。扫描所有类的注解后，开始分配。并执行指定函数。 开始http:&#x2F;&#x2F;start.spring.io&#x2F; 可以下载一个空的含有配置文档以及pom.xml文档。 ~\src\main\resources\application.propert">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-03-03T12:06:43.000Z">
+<meta property="article:modified_time" content="2017-03-03T12:27:27.879Z">
+<meta property="article:author" content="Howard">
+<meta property="article:tag" content="spring">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring Boot Jdbc练习">
-<meta name="twitter:description" content="零散的记录， 不是很系统的内容。 spring boot用注解代替了XML配置。上手比较简单。 类似一个执行容器。用注解的方式指定Bean，将Bean映射到具体变量。扫描所有类的注解后，开始分配。并执行指定函数。 开始http://start.spring.io/ 可以下载一个空的含有配置文档以及pom.xml文档。 ~\src\main\resources\application.propert">
 
-<link rel="canonical" href="http://blog.howard/2017-03/spring-boot-jdbc/">
+<link rel="canonical" href="http://blog.howard.me/2017-03/spring-boot-jdbc/">
 
 
 <script id="page-configurations">
@@ -213,7 +214,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-03/spring-boot-jdbc/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-03/spring-boot-jdbc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -258,20 +259,23 @@
 <p><code>~\src\main\resources\application.properties</code>文档是spring的配置文档。</p>
 <h3 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h3><ul>
 <li><p><code>@SpringBootApplication</code> 从这里开始</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GncApplication</span> <span class="keyword">implements</span> <span class="title">CommandLineRunner</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(GncApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String... strings)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GncApplication</span> <span class="keyword">implements</span> <span class="title">CommandLineRunner</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(GncApplication<span class="class">.<span class="keyword">class</span>, <span class="title">args</span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String... strings)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>@Autowired</code> 自动映射。</p>
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="meta">@Qualifier</span>(<span class="string">"jdbcMysqlTemplate"</span>)</span><br><span class="line"><span class="keyword">private</span> JdbcTemplate jdbcMysqlTemplate;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 如果名稱變量名稱 沒有對應的 <span class="doctag">@Bean</span>。 可以用 <span class="doctag">@Qualifier</span>("jdbcMysqlTemplate") 指定</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> JdbcTemplate jdbcSqlServerTemplate;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><code>@Configuration</code> 配置注解</li>
 <li><code>@Bean</code> Bean名称，返回一个Bean</li>
 <li><code>@ConfigurationProperties</code> 指定读取文档<code>application.properties</code>中的特殊内容 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ApplicationConfig</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> JdbcTemplate <span class="title">jdbcMysqlTemplate</span><span class="params">(@Qualifier(value = <span class="string">"mysqlDataSource"</span>)</span> DataSource mysqlDataSource) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> JdbcTemplate(mysqlDataSource);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span>(name = <span class="string">"jdbcSqlServerTemplate"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> JdbcTemplate <span class="title">jdbcSqlServerTemplate</span><span class="params">(@Qualifier(value = <span class="string">"sqlServerDataSource"</span>)</span> DataSource sqlServerDataSource) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> JdbcTemplate(sqlServerDataSource);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 使用 <span class="doctag">@Bean</span> 時，如果沒有名稱，則默認為function的名稱 <span class="doctag">@Bean</span>(name = "jdbcSqlServerTemplate")</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@Primary</span></span><br><span class="line">    <span class="meta">@ConfigurationProperties</span>(prefix=<span class="string">"spring.datasource.mysql"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">mysqlDataSource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> DataSourceBuilder.create().build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@ConfigurationProperties</span>(prefix=<span class="string">"spring.datasource.mssql"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">sqlServerDataSource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> DataSourceBuilder.create().build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="mvn"><a href="#mvn" class="headerlink" title="mvn"></a>mvn</h2><p>mvn 打包并运行。<br>打包会把所有需要的jar包一起打包。<code>pring-boot-app-0.1.jar</code> 按照实际情况替换。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mvn package</span><br><span class="line">java -jar target\spring-boot-app-0.1.jar</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -392,10 +396,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -420,9 +424,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -433,7 +445,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

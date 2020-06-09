@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -50,20 +50,20 @@
   };
 </script>
 
-  <meta name="description" content="POST123456789101112131415$data = array(&apos;name&apos; =&amp;gt; &apos;Foo&apos;, &apos;Email&apos; =&amp;gt; &apos;abc@example.com&apos;);$ch = curl_init();curl_setopt($ch, CURLOPT_URL, &apos;http://localhost/tmp/a.php&apos;);curl_setopt($ch, CURLOPT_HEADE">
-<meta name="keywords" content="php">
+  <meta name="description" content="POST123456789101112131415$data &#x3D; array(&#39;name&#39; &#x3D;&gt; &#39;Foo&#39;, &#39;Email&#39; &#x3D;&gt; &#39;abc@example.com&#39;);$ch &#x3D; curl_init();curl_setopt($ch, CURLOPT_URL, &#39;http:&#x2F;&#x2F;localhost&#x2F;tmp&#x2F;a.php&#39;);curl_setopt($ch, CURLOPT_HEADE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP CURL">
-<meta property="og:url" content="http://blog.howard/2016-12/php-curl/index.html">
+<meta property="og:url" content="http://blog.howard.me/2016-12/php-curl/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="POST123456789101112131415$data = array(&apos;name&apos; =&amp;gt; &apos;Foo&apos;, &apos;Email&apos; =&amp;gt; &apos;abc@example.com&apos;);$ch = curl_init();curl_setopt($ch, CURLOPT_URL, &apos;http://localhost/tmp/a.php&apos;);curl_setopt($ch, CURLOPT_HEADE">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-05-10T07:55:31.881Z">
+<meta property="og:description" content="POST123456789101112131415$data &#x3D; array(&#39;name&#39; &#x3D;&gt; &#39;Foo&#39;, &#39;Email&#39; &#x3D;&gt; &#39;abc@example.com&#39;);$ch &#x3D; curl_init();curl_setopt($ch, CURLOPT_URL, &#39;http:&#x2F;&#x2F;localhost&#x2F;tmp&#x2F;a.php&#39;);curl_setopt($ch, CURLOPT_HEADE">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-12-25T05:39:52.000Z">
+<meta property="article:modified_time" content="2017-05-10T07:55:31.881Z">
+<meta property="article:author" content="Howard">
+<meta property="article:tag" content="php">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP CURL">
-<meta name="twitter:description" content="POST123456789101112131415$data = array(&apos;name&apos; =&amp;gt; &apos;Foo&apos;, &apos;Email&apos; =&amp;gt; &apos;abc@example.com&apos;);$ch = curl_init();curl_setopt($ch, CURLOPT_URL, &apos;http://localhost/tmp/a.php&apos;);curl_setopt($ch, CURLOPT_HEADE">
 
-<link rel="canonical" href="http://blog.howard/2016-12/php-curl/">
+<link rel="canonical" href="http://blog.howard.me/2016-12/php-curl/">
 
 
 <script id="page-configurations">
@@ -213,7 +213,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/php-curl/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/php-curl/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -258,10 +258,15 @@
 
       
         <h2 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$data = <span class="keyword">array</span>(<span class="string">'name'</span> =&gt; <span class="string">'Foo'</span>, <span class="string">'Email'</span> =&gt; <span class="string">'abc@example.com'</span>);</span><br><span class="line"></span><br><span class="line">$ch = curl_init();</span><br><span class="line">curl_setopt($ch, CURLOPT_URL, <span class="string">'http://localhost/tmp/a.php'</span>);</span><br><span class="line"></span><br><span class="line">curl_setopt($ch, CURLOPT_HEADER, <span class="number">0</span>);  <span class="comment">// 启用时会将头文件的信息作为数据流输出。</span></span><br><span class="line">curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="number">1</span>); <span class="comment">// 在启用CURLOPT_RETURNTRANSFER的时候，返回原生的（Raw）输出。</span></span><br><span class="line">curl_setopt($ch, CURLOPT_TIMEOUT, <span class="number">30</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_POST, <span class="number">1</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data)); <span class="comment">// http_build_query 可以避免一些不兼容問題</span></span><br><span class="line"></span><br><span class="line">$s = curl_exec($ch);</span><br><span class="line">curl_close($ch);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $s;</span><br></pre></td></tr></table></figure>
+
 <h2 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$url = <span class="string">'http://bac.com'</span></span><br><span class="line">$url .= <span class="string">'?'</span>.http_build_query($postField);</span><br><span class="line">$ch = curl_init();</span><br><span class="line">curl_setopt($ch, CURLOPT_URL, $url);</span><br><span class="line">curl_setopt($ch, CURLOPT_HEADER, <span class="number">0</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="number">1</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_TIMEOUT, <span class="number">30</span>);</span><br><span class="line">$data = curl_exec($ch);</span><br><span class="line">curl_close($ch);</span><br></pre></td></tr></table></figure>
+
 <h2 id="强制声明字符-charset"><a href="#强制声明字符-charset" class="headerlink" title="强制声明字符 charset"></a>强制声明字符 charset</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl_setopt($ch, CURLOPT_HTTPHEADER, <span class="keyword">array</span>(<span class="string">'Content-Type:application/x-www-form-urlencoded; charset=utf-8'</span>));</span><br></pre></td></tr></table></figure>
+
 <h2 id="JSON格式传递数据"><a href="#JSON格式传递数据" class="headerlink" title="JSON格式传递数据"></a>JSON格式传递数据</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$header[] = <span class="string">'Content-Type: application/json'</span>;</span><br><span class="line">$header[] = <span class="string">'Accept: application/json'</span>;</span><br><span class="line">curl_setopt($ch, CURLOPT_HTTPHEADER, $header);</span><br><span class="line">curl_setopt($ch, CURLOPT_POST, <span class="number">1</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($param));</span><br></pre></td></tr></table></figure>
+
 <h2 id="SSL"><a href="#SSL" class="headerlink" title="SSL"></a>SSL</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, <span class="keyword">FALSE</span>); </span><br><span class="line">curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, <span class="keyword">FALSE</span>);</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>CURLOPT_SSL_VERIFYPEER<br>禁用后cURL将终止从服务端进行验证。<br>使用CURLOPT_CAINFO选项设置证书使用CURLOPT_CAPATH选项设置证书目录<br>如果CURLOPT_SSL_VERIFYPEER(默认值为2)被启用，CURLOPT_SSL_VERIFYHOST需要被设置成TRUE否则设置为FALSE。</p>
 </li>
@@ -389,10 +394,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -417,9 +422,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -430,7 +443,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

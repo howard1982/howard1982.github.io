@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -50,20 +50,20 @@
   };
 </script>
 
-  <meta name="description" content="常用命令安裝某個項目1composer create-project laravel/laravel path --prefer-dist 安裝 larave 到 path 目錄。--prefer-dist 为了强制使用压缩包，而不是克隆源代码。 更新软件包1composer update 只更新 Calss1composer dump-autoload 为生产环境作准备1composer dum">
-<meta name="keywords" content="php">
+  <meta name="description" content="常用命令安裝某個項目1composer create-project laravel&#x2F;laravel path --prefer-dist  安裝 larave 到 path 目錄。--prefer-dist 为了强制使用压缩包，而不是克隆源代码。 更新软件包1composer update  只更新 Calss1composer dump-autoload  为生产环境作准备1composer">
 <meta property="og:type" content="article">
 <meta property="og:title" content="composer命令">
-<meta property="og:url" content="http://blog.howard/2016-12/composer/index.html">
+<meta property="og:url" content="http://blog.howard.me/2016-12/composer/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="常用命令安裝某個項目1composer create-project laravel/laravel path --prefer-dist 安裝 larave 到 path 目錄。--prefer-dist 为了强制使用压缩包，而不是克隆源代码。 更新软件包1composer update 只更新 Calss1composer dump-autoload 为生产环境作准备1composer dum">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-18T02:47:02.482Z">
+<meta property="og:description" content="常用命令安裝某個項目1composer create-project laravel&#x2F;laravel path --prefer-dist  安裝 larave 到 path 目錄。--prefer-dist 为了强制使用压缩包，而不是克隆源代码。 更新软件包1composer update  只更新 Calss1composer dump-autoload  为生产环境作准备1composer">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-12-24T06:35:32.000Z">
+<meta property="article:modified_time" content="2019-07-18T02:47:02.482Z">
+<meta property="article:author" content="Howard">
+<meta property="article:tag" content="php">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="composer命令">
-<meta name="twitter:description" content="常用命令安裝某個項目1composer create-project laravel/laravel path --prefer-dist 安裝 larave 到 path 目錄。--prefer-dist 为了强制使用压缩包，而不是克隆源代码。 更新软件包1composer update 只更新 Calss1composer dump-autoload 为生产环境作准备1composer dum">
 
-<link rel="canonical" href="http://blog.howard/2016-12/composer/">
+<link rel="canonical" href="http://blog.howard.me/2016-12/composer/">
 
 
 <script id="page-configurations">
@@ -213,7 +213,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/composer/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/composer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -258,16 +258,24 @@
 
       
         <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="安裝某個項目"><a href="#安裝某個項目" class="headerlink" title="安裝某個項目"></a>安裝某個項目</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer create-project laravel/laravel path --prefer-dist</span><br></pre></td></tr></table></figure>
+
 <p>安裝 larave 到 path 目錄。<code>--prefer-dist</code> 为了强制使用压缩包，而不是克隆源代码。</p>
 <h3 id="更新软件包"><a href="#更新软件包" class="headerlink" title="更新软件包"></a>更新软件包</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer update</span><br></pre></td></tr></table></figure>
+
 <h3 id="只更新-Calss"><a href="#只更新-Calss" class="headerlink" title="只更新 Calss"></a>只更新 Calss</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer dump-autoload</span><br></pre></td></tr></table></figure>
+
 <h3 id="为生产环境作准备"><a href="#为生产环境作准备" class="headerlink" title="为生产环境作准备"></a>为生产环境作准备</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer dump-autoload --optimize</span><br></pre></td></tr></table></figure>
+
 <p>或者</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">composer update --no-dev --optimize-autoloader</span><br><span class="line"><span class="meta">#</span> or</span><br><span class="line">composer update --optimize-autoloader</span><br></pre></td></tr></table></figure>
-<h2 id="更改镜像源-repo"><a href="#更改镜像源-repo" class="headerlink" title="更改镜像源 repo"></a>更改镜像源 repo</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 显示配置</span><br><span class="line">composer config -g  -l</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 取消全局配置</span><br><span class="line">composer config -g --unset repos.packagist</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 全局使用 huawei 镜像源</span><br><span class="line">composer config -g repo.packagist composer https://mirrors.huaweicloud.com/repository/php</span><br></pre></td></tr></table></figure>
-<h3 id="CRM-Composer源管理工具"><a href="#CRM-Composer源管理工具" class="headerlink" title="CRM - Composer源管理工具"></a>CRM - Composer源管理工具</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 安装</span><br><span class="line">composer global require slince/composer-registry-manager</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>列出所有可使用的镜像</span><br><span class="line">composer repo:ls</span><br><span class="line"><span class="meta">#</span>切换镜像</span><br><span class="line">composer repo:use</span><br></pre></td></tr></table></figure>
-<h3 id="Composer源"><a href="#Composer源" class="headerlink" title="Composer源"></a>Composer源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ composer repo:ls</span><br><span class="line"></span><br><span class="line"> --- --------------- ------------------------------------------------</span><br><span class="line">      composer        https://packagist.org</span><br><span class="line">      phpcomposer     https://packagist.phpcomposer.com</span><br><span class="line">      aliyun          https://mirrors.aliyun.com/composer</span><br><span class="line">      tencent         https://mirrors.cloud.tencent.com/composer</span><br><span class="line">      huawei          https://mirrors.huaweicloud.com/repository/php</span><br><span class="line">      laravel-china   https://packagist.laravel-china.org</span><br><span class="line">  *   cnpkg           https://php.cnpkg.org</span><br><span class="line">      sjtug           https://packagist.mirrors.sjtug.sjtu.edu.cn</span><br><span class="line"> --- --------------- ------------------------------------------------</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">composer update --no-dev --optimize-autoloader</span><br><span class="line"><span class="meta">#</span><span class="bash"> or</span></span><br><span class="line">composer update --optimize-autoloader</span><br></pre></td></tr></table></figure>
+
+<h2 id="更改镜像源-repo"><a href="#更改镜像源-repo" class="headerlink" title="更改镜像源 repo"></a>更改镜像源 repo</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 显示配置</span></span><br><span class="line">composer config -g  -l</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 取消全局配置</span></span><br><span class="line">composer config -g --unset repos.packagist</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 全局使用 huawei 镜像源</span></span><br><span class="line">composer config -g repo.packagist composer https://mirrors.huaweicloud.com/repository/php</span><br></pre></td></tr></table></figure>
+
+<h3 id="CRM-Composer源管理工具"><a href="#CRM-Composer源管理工具" class="headerlink" title="CRM - Composer源管理工具"></a>CRM - Composer源管理工具</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装</span></span><br><span class="line">composer global require slince/composer-registry-manager</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">列出所有可使用的镜像</span></span><br><span class="line">composer repo:ls</span><br><span class="line"><span class="meta">#</span><span class="bash">切换镜像</span></span><br><span class="line">composer repo:use</span><br></pre></td></tr></table></figure>
+
+<h3 id="Composer源"><a href="#Composer源" class="headerlink" title="Composer源"></a>Composer源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ composer repo:ls</span><br><span class="line"></span><br><span class="line"> --- --------------- ------------------------------------------------</span><br><span class="line">      composer        https:&#x2F;&#x2F;packagist.org</span><br><span class="line">      phpcomposer     https:&#x2F;&#x2F;packagist.phpcomposer.com</span><br><span class="line">      aliyun          https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;composer</span><br><span class="line">      tencent         https:&#x2F;&#x2F;mirrors.cloud.tencent.com&#x2F;composer</span><br><span class="line">      huawei          https:&#x2F;&#x2F;mirrors.huaweicloud.com&#x2F;repository&#x2F;php</span><br><span class="line">      laravel-china   https:&#x2F;&#x2F;packagist.laravel-china.org</span><br><span class="line">  *   cnpkg           https:&#x2F;&#x2F;php.cnpkg.org</span><br><span class="line">      sjtug           https:&#x2F;&#x2F;packagist.mirrors.sjtug.sjtu.edu.cn</span><br><span class="line"> --- --------------- ------------------------------------------------</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -386,10 +394,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -414,9 +422,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -427,7 +443,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

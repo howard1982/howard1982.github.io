@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -53,16 +53,16 @@
   <meta name="description" content="後來不再使用VirtualBox直接在Windows上使用Cmder+Git 基本安裝 检查操作系统 cpu 虚拟化已经打开。 如果使用无线网络（PCI），必须安装官方驱动   创建虚拟主机、安装操作系统 端口映射“设置”》“网络”》“网卡1”》“高级”》“端口转发”添加 123Apache,    TCP,    127.0.0.1,    80,    ,    80SSH,    TCP,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VritualBox 安裝 Ubuntu">
-<meta property="og:url" content="http://blog.howard/2016-12/VritualBox-Install-Ubuntu/index.html">
+<meta property="og:url" content="http://blog.howard.me/2016-12/VritualBox-Install-Ubuntu/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
 <meta property="og:description" content="後來不再使用VirtualBox直接在Windows上使用Cmder+Git 基本安裝 检查操作系统 cpu 虚拟化已经打开。 如果使用无线网络（PCI），必须安装官方驱动   创建虚拟主机、安装操作系统 端口映射“设置”》“网络”》“网卡1”》“高级”》“端口转发”添加 123Apache,    TCP,    127.0.0.1,    80,    ,    80SSH,    TCP,">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-17T11:49:08.855Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-12-19T09:18:23.000Z">
+<meta property="article:modified_time" content="2019-05-17T11:49:08.855Z">
+<meta property="article:author" content="Howard">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VritualBox 安裝 Ubuntu">
-<meta name="twitter:description" content="後來不再使用VirtualBox直接在Windows上使用Cmder+Git 基本安裝 检查操作系统 cpu 虚拟化已经打开。 如果使用无线网络（PCI），必须安装官方驱动   创建虚拟主机、安装操作系统 端口映射“设置”》“网络”》“网卡1”》“高级”》“端口转发”添加 123Apache,    TCP,    127.0.0.1,    80,    ,    80SSH,    TCP,">
 
-<link rel="canonical" href="http://blog.howard/2016-12/VritualBox-Install-Ubuntu/">
+<link rel="canonical" href="http://blog.howard.me/2016-12/VritualBox-Install-Ubuntu/">
 
 
 <script id="page-configurations">
@@ -212,7 +212,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/VritualBox-Install-Ubuntu/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/VritualBox-Install-Ubuntu/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -264,31 +264,43 @@
 <p>创建虚拟主机、安装操作系统</p>
 <h2 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射"></a>端口映射</h2><p>“设置”》“网络”》“网卡1”》“高级”》“端口转发”添加</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Apache,    TCP,    127.0.0.1,    80,    ,    80</span><br><span class="line">SSH,    TCP,    127.0.0.1,    2222,    ,    22</span><br><span class="line">Mysql,    TCP,    127.0.0.1,    3306,    ,    3306</span><br></pre></td></tr></table></figure>
+
 <p>注意</p>
-<p>用xshell链接时，不能用命令行 ssh <a href="mailto:root@127.0.0.1" target="_blank" rel="noopener">root@127.0.0.1</a>:2222 鏈接。 必須新創建一個“会话”</p>
+<p>用xshell链接时，不能用命令行 ssh <a href="mailto:root@127.0.0.1">root@127.0.0.1</a>:2222 鏈接。 必須新創建一個“会话”</p>
 <h2 id="共享文件"><a href="#共享文件" class="headerlink" title="共享文件"></a>共享文件</h2><ul>
 <li>“设置”》“共享文件夹” 中添加 ‘vagrant’ ‘D:\Htodcs’ 。 注意 不能勾选开机自动挂载</li>
 <li>开启虚拟主机，“设备”》“安装增强功能”会自动挂载iso到cdrom</li>
 <li>登录到操作页面， 执行</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#安装相关软件</span><br><span class="line">sudo apt-get install gcc </span><br><span class="line">sudo apt-get install build-essential linux-headers-$(uname -r)</span><br><span class="line">#挂载</span><br><span class="line">sudo mount /dev/cdrom /mnt</span><br><span class="line">#执行</span><br><span class="line">sudo ./VBoxLinuxAdditions.run</span><br><span class="line">mkdir -p /vagrant</span><br><span class="line">mount -t vboxsf vagrant /vagrant</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#安装相关软件</span><br><span class="line">sudo apt-get install gcc </span><br><span class="line">sudo apt-get install build-essential linux-headers-$(uname -r)</span><br><span class="line">#挂载</span><br><span class="line">sudo mount &#x2F;dev&#x2F;cdrom &#x2F;mnt</span><br><span class="line">#执行</span><br><span class="line">sudo .&#x2F;VBoxLinuxAdditions.run</span><br><span class="line">mkdir -p &#x2F;vagrant</span><br><span class="line">mount -t vboxsf vagrant &#x2F;vagrant</span><br></pre></td></tr></table></figure>
+
 <h3 id="开机自动挂载"><a href="#开机自动挂载" class="headerlink" title="开机自动挂载"></a>开机自动挂载</h3><h4 id="rc-loacl"><a href="#rc-loacl" class="headerlink" title="rc.loacl"></a>rc.loacl</h4><p>在/etc/rc.loal 加入  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t vboxsf vagrant /vagrant</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t vboxsf vagrant &#x2F;vagrant</span><br></pre></td></tr></table></figure>
+
 <h4 id="crontab"><a href="#crontab" class="headerlink" title="crontab"></a>crontab</h4><p>一些比较新的系统没有 rc.local 所以使用 crontab <code>@reboot</code> 设定</p>
 <p>在 crontab 中加入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@reboot mount -t vboxsf vagrant /vagrant</span><br></pre></td></tr></table></figure>
-<h2 id="命令行启动"><a href="#命令行启动" class="headerlink" title="命令行启动"></a>命令行启动</h2><p>创建 vbox_up.bat<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd C:\Program Files\Oracle\VirtualBox</span><br><span class="line">VBoxManage startvm &quot;ubuntu&quot; -type headless</span><br></pre></td></tr></table></figure></p>
-<p>创建 vbox_down.bat<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd C:\Program Files\Oracle\VirtualBox</span><br><span class="line">VBoxManage controlvm &quot;ubuntu&quot; acpipowerbutton</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@reboot mount -t vboxsf vagrant &#x2F;vagrant</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="命令行启动"><a href="#命令行启动" class="headerlink" title="命令行启动"></a>命令行启动</h2><p>创建 vbox_up.bat</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd C:\Program Files\Oracle\VirtualBox</span><br><span class="line">VBoxManage startvm &quot;ubuntu&quot; -type headless</span><br></pre></td></tr></table></figure>
+
+<p>创建 vbox_down.bat</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd C:\Program Files\Oracle\VirtualBox</span><br><span class="line">VBoxManage controlvm &quot;ubuntu&quot; acpipowerbutton</span><br></pre></td></tr></table></figure>
+
 <p>并将这两个文件加入到 环境变量 PATH 中。 这样执行 vbox_up 开启虚拟主机 。vbox_down 关闭虚拟主机<br>说明 “ubuntu” 必须有 引号， ubuntu 是创建的虚拟主机的名称</p>
 <h2 id="Ubuntu-設定"><a href="#Ubuntu-設定" class="headerlink" title="Ubuntu 設定"></a>Ubuntu 設定</h2><h3 id="Apache设定"><a href="#Apache设定" class="headerlink" title="Apache设定"></a>Apache设定</h3><p>由于使用 virtualbox 共享文件，有时候出现缓存。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### Apache 配置添加:</span></span><br><span class="line">EnableSendfile off</span><br></pre></td></tr></table></figure>
+
 <p>在 /etc/apache2/sites-available/000-default.conf 中加入</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory "/vagrant"&gt;  </span><br><span class="line">	Options Indexes FollowSymLinks  </span><br><span class="line">	AllowOverride All  </span><br><span class="line">	Require all granted  </span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
+
 <p>啟動mod_rewrite，執行以下命令 <code>sudo a2enmod rewrite</code></p>
 <h3 id="PHP设定"><a href="#PHP设定" class="headerlink" title="PHP设定"></a>PHP设定</h3><p>安装&amp;开启 mcrypt</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php-mcrypt</span><br><span class="line">sudo phpenmod mcrypt</span><br></pre></td></tr></table></figure>
-<h3 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h3><p>必须要设定权限，以及允许远程访问。 my.cnf 修改：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">bind-address</span>  = <span class="number">0.0</span>.<span class="number">0.0</span></span><br></pre></td></tr></table></figure></p>
 
+<h3 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h3><p>必须要设定权限，以及允许远程访问。 my.cnf 修改：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">bind-address</span>  = <span class="number">0.0</span>.<span class="number">0.0</span></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -404,10 +416,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -432,9 +444,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -445,7 +465,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -52,13 +52,13 @@
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="Howard&#39;s Blog">
-<meta property="og:url" content="http://blog.howard/index.html">
+<meta property="og:url" content="http://blog.howard.me/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Howard">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Howard&#39;s Blog">
 
-<link rel="canonical" href="http://blog.howard/">
+<link rel="canonical" href="http://blog.howard.me/">
 
 
 <script id="page-configurations">
@@ -208,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2020-04/nat-vps/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-04/nat-vps/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -262,15 +262,20 @@
 </ol>
 <p>参考 <a href="https://wzfou.com/nat-vps/" target="_blank" rel="noopener">https://wzfou.com/nat-vps/</a></p>
 <h3 id="nat"><a href="#nat" class="headerlink" title="nat"></a>nat</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -F</span><br><span class="line">iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to 61.63.160.113</span><br><span class="line"></span><br><span class="line">service iptables save</span><br><span class="line">service iptables restart</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>-t&lt;表&gt;：指定要操纵的表；</li>
-<li>-A：向规则链中添加条目；</li>
-<li>-o&lt;网络接口&gt;：指定数据包要离开本机所使用的网络接口。 </li>
+<li><p>-t&lt;表&gt;：指定要操纵的表；</p>
+</li>
+<li><p>-A：向规则链中添加条目；</p>
+</li>
+<li><p>-o&lt;网络接口&gt;：指定数据包要离开本机所使用的网络接口。 </p>
+</li>
 <li><p>-j&lt;目标&gt;：指定要跳转的目标；</p>
 </li>
 <li><p>而”POSTROUTING”是“路由规则”之后的动作。</p>
 </li>
-<li>SNAT：Source NAT(POSTROUTING链)：源地址转换，请求由内网的主机发起，修改IP源，外网的目的地址不变。</li>
+<li><p>SNAT：Source NAT(POSTROUTING链)：源地址转换，请求由内网的主机发起，修改IP源，外网的目的地址不变。</p>
+</li>
 </ul>
 
       
@@ -291,7 +296,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2020-04/docker/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-04/docker/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -331,6 +336,7 @@
 
       
           <h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker search php</span><br><span class="line">docker pull php</span><br></pre></td></tr></table></figure>
+
 <h2 id="執行一個文檔"><a href="#執行一個文檔" class="headerlink" title="執行一個文檔"></a>執行一個文檔</h2><p><code>docker run  -v /root/myapp:/usr/src/myapp  -w /usr/src/myapp php php i.php</code></p>
 <ol>
 <li>-v /root/myapp:/usr/src/myapp : 将主机中当前目录下的 myapp 挂载到容器的 /usr/src/myapp。</li>
@@ -373,7 +379,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2020-02/go-mod/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-02/go-mod/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -414,10 +420,13 @@
       
           <h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>建议直接设置 GO111MODULE=”on”</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> env -w GO111MODULE=on</span><br></pre></td></tr></table></figure>
+
 <p>给go mod 设置代理， 并添加私有域名</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> env -w GOPROXY=http:<span class="comment">//goproxy.cn,direct</span></span><br><span class="line"><span class="comment">// or</span></span><br><span class="line"><span class="keyword">go</span> env -w GOPROXY=https:<span class="comment">//mirrors.aliyun.com/goproxy/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">go</span> env -w GOPRIVATE=*.my-abc.net</span><br></pre></td></tr></table></figure>
+
 <h2 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h2><p>新建项目，或者是已有项目转为go mod 模式的 init 建议</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> mod init  域名/组名/项目名</span><br></pre></td></tr></table></figure>
+
 <p>eg： code.my-abc.net/tools/pptp</p>
 
       
@@ -438,7 +447,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2020-02/php-ext/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-02/php-ext/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -478,12 +487,13 @@
 
       
           <h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd ext/mbstring/</span><br><span class="line">/opt/php72/bin/phpize</span><br><span class="line">./configure  --enable-my_module --with-php-config=/opt/php72/bin/php-config</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
 <ol>
 <li><code>/opt/php72</code> 是已经存在的php 安装目录。</li>
 <li>单独编译 mbstring 模块</li>
 </ol>
-<h2 id="配置-amp-加载"><a href="#配置-amp-加载" class="headerlink" title="配置&amp;加载"></a>配置&amp;加载</h2><p>在文档中 <code>/opt/php72/lib/php.ini</code> 增加一下内容<br><code>`
-extension=/opt/php72/lib/php/extensions/no-debug-non-zts-20170718/mbstring.so</code></p>
+<h2 id="配置-amp-加载"><a href="#配置-amp-加载" class="headerlink" title="配置&amp;加载"></a>配置&amp;加载</h2><p>在文档中 <code>/opt/php72/lib/php.ini</code> 增加一下内容</p>
+<p>```<br>extension=/opt/php72/lib/php/extensions/no-debug-non-zts-20170718/mbstring.so<br>``</p>
 
       
     </div>
@@ -503,7 +513,7 @@ extension=/opt/php72/lib/php/extensions/no-debug-non-zts-20170718/mbstring.so</c
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2020-01/check-mobile/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-01/check-mobile/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -562,7 +572,7 @@ extension=/opt/php72/lib/php/extensions/no-debug-non-zts-20170718/mbstring.so</c
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-12/logrotate/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-12/logrotate/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -603,7 +613,8 @@ extension=/opt/php72/lib/php/extensions/no-debug-non-zts-20170718/mbstring.so</c
       
           <p>logrotate 是个十分有用的工具，它可以自动对日志进行截断（或轮循）、压缩以及删除旧的日志文件。</p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><code>/etc/logrotate.d/cwp</code> 文档</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/apache/domlogs/*.log &#123;</span><br><span class="line">    daily</span><br><span class="line">    rotate 5</span><br><span class="line">    compress</span><br><span class="line">    missingok</span><br><span class="line">    notifempty</span><br><span class="line">    minsize 20M</span><br><span class="line">    create 644 nobody root</span><br><span class="line">    sharedscripts</span><br><span class="line">    postrotate</span><br><span class="line">        if [ -f /var/run/nginx.pid ]; then</span><br><span class="line">            kill -USR1 `cat /var/run/nginx.pid`</span><br><span class="line">        fi</span><br><span class="line">        if [ -f /usr/local/apache/logs/httpd.pid ]; then</span><br><span class="line">            /usr/local/apache/bin/apachectl graceful</span><br><span class="line">        fi</span><br><span class="line">    endscript</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;local&#x2F;apache&#x2F;domlogs&#x2F;*.log &#123;</span><br><span class="line">    daily</span><br><span class="line">    rotate 5</span><br><span class="line">    compress</span><br><span class="line">    missingok</span><br><span class="line">    notifempty</span><br><span class="line">    minsize 20M</span><br><span class="line">    create 644 nobody root</span><br><span class="line">    sharedscripts</span><br><span class="line">    postrotate</span><br><span class="line">        if [ -f &#x2F;var&#x2F;run&#x2F;nginx.pid ]; then</span><br><span class="line">            kill -USR1 &#96;cat &#x2F;var&#x2F;run&#x2F;nginx.pid&#96;</span><br><span class="line">        fi</span><br><span class="line">        if [ -f &#x2F;usr&#x2F;local&#x2F;apache&#x2F;logs&#x2F;httpd.pid ]; then</span><br><span class="line">            &#x2F;usr&#x2F;local&#x2F;apache&#x2F;bin&#x2F;apachectl graceful</span><br><span class="line">        fi</span><br><span class="line">    endscript</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><ol>
 <li>检测 <code>/usr/sbin/logrotate -dv /etc/logrotate.d/cwp</code></li>
 <li>强制执行 <code>/usr/sbin/logrotate -fv /etc/logrotate.d/cwp</code></li>
@@ -627,7 +638,7 @@ extension=/opt/php72/lib/php/extensions/no-debug-non-zts-20170718/mbstring.so</c
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-12/IBM-Storage-Api/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-12/IBM-Storage-Api/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -671,11 +682,14 @@ extension=/opt/php72/lib/php/extensions/no-debug-non-zts-20170718/mbstring.so</c
 <h2 id="install"><a href="#install" class="headerlink" title="install"></a>install</h2><p><code>pip install awscli</code></p>
 <h2 id="參數"><a href="#參數" class="headerlink" title="參數"></a>參數</h2><p><code>{Access Key ID}</code> <code>{Secret Access Key}</code> 需要創建服務憑證 例如</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"cos_hmac_keys": &#123;</span><br><span class="line">    "access_key_id": "xxxx",</span><br><span class="line">    "secret_access_key": "ddddd"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p><code>{endpoint}</code> 在 <code>存储区 》 配置</code> 中有详细的记录。 </p>
 <h2 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h2><p><code>~/.aws/credentials</code></p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[default]</span></span><br><span class="line"><span class="attr">aws_access_key_id</span> = &#123;Access Key ID&#125;</span><br><span class="line"><span class="attr">aws_secret_access_key</span> = &#123;Secret Access Key&#125;</span><br></pre></td></tr></table></figure>
+
 <p>Crontab 下自動執行 可以使用 全局變量覆蓋</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export AWS_ACCESS_KEY_ID="&#123;Access Key ID&#125;"</span><br><span class="line">export AWS_SECRET_ACCESS_KEY="&#123;Secret Access Key&#125;"</span><br></pre></td></tr></table></figure>
+
 <h2 id="预签名Url"><a href="#预签名Url" class="headerlink" title="预签名Url"></a>预签名Url</h2><p>参考 <a href="https://cloud.ibm.com/docs/services/cloud-object-storage/cli?topic=cloud-object-storage-presign-url" target="_blank" rel="noopener">https://cloud.ibm.com/docs/services/cloud-object-storage/cli?topic=cloud-object-storage-presign-url</a></p>
 <p>使用 awscli 命令最为快捷</p>
 
@@ -697,7 +711,7 @@ extension=/opt/php72/lib/php/extensions/no-debug-non-zts-20170718/mbstring.so</c
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-10/jQuery-noConflict/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-10/jQuery-noConflict/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -742,7 +756,7 @@ extension=/opt/php72/lib/php/extensions/no-debug-non-zts-20170718/mbstring.so</c
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"other_lib.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script src=<span class="string">"jquery.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    $.noConflict();</span><br><span class="line">    jQuery( <span class="built_in">document</span> ).ready(<span class="function"><span class="keyword">function</span>(<span class="params"> $ </span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Code that uses jQuery's $ can follow here.</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// Code that uses other library's $ can follow here.</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+          <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"other_lib.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;script src="jquery.js"&gt;&lt;/</span>script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    $.noConflict();</span><br><span class="line">    jQuery( <span class="built_in">document</span> ).ready(<span class="function"><span class="keyword">function</span>(<span class="params"> $ </span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Code that uses jQuery's $ can follow here.</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// Code that uses other library's $ can follow here.</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -762,7 +776,7 @@ extension=/opt/php72/lib/php/extensions/no-debug-non-zts-20170718/mbstring.so</c
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-10/incremental-back/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-10/incremental-back/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -803,6 +817,7 @@ extension=/opt/php72/lib/php/extensions/no-debug-non-zts-20170718/mbstring.so</c
       
           <p>以文件为最小的单位。 利用 linux 的硬链接 (Hard link) 特性（多个link不会增加磁盘，删除某个不会影响其他的）空间来实现。</p>
 <h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0. 根据原始内容S0, 创建最初的备份内容  V1</span><br><span class="line">-- 开始增量备份 --</span><br><span class="line">1. 根据 V1 创建 V2 。 规则： 创建所有目录，ln 硬链接所有文档 。</span><br><span class="line">2. 通过 rsync 命令。同步S0最新的内容到 V2</span><br><span class="line">-- 结束 --</span><br></pre></td></tr></table></figure>
+
 <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ol>
 <li>通过 <code>ls -i</code> 命令  可以查看文件的编号。 如果编号一样则表示是 硬链接。或用 <code>stat [file]</code> 命令查看更详细的信息</li>
 <li>同步命令 <code>rsync -vzrtopg --delete dir_a dir_b</code></li>
@@ -827,7 +842,7 @@ extension=/opt/php72/lib/php/extensions/no-debug-non-zts-20170718/mbstring.so</c
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-08/cpanle-outlook-25port/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-08/cpanle-outlook-25port/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -972,10 +987,10 @@ extension=/opt/php72/lib/php/extensions/no-debug-non-zts-20170718/mbstring.so</c
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -1000,9 +1015,17 @@ extension=/opt/php72/lib/php/extensions/no-debug-non-zts-20170718/mbstring.so</c
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -1013,7 +1036,9 @@ extension=/opt/php72/lib/php/extensions/no-debug-non-zts-20170718/mbstring.so</c
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

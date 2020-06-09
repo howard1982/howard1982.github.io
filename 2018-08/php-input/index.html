@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -50,20 +50,20 @@
   };
 </script>
 
-  <meta name="description" content="php://input 用來接收數據。 form 表單一般情況下html form 表單提交的類型是 application/x-www-form-urlencoded 或者 multipart/form-data。用 $_POST就能直接獲取。 JSON如果對方發送的數據是 application/json 12$data = file_get_contents(&apos;php://input&apos;);$">
-<meta name="keywords" content="php">
+  <meta name="description" content="php:&#x2F;&#x2F;input 用來接收數據。 form 表單一般情況下html form 表單提交的類型是 application&#x2F;x-www-form-urlencoded 或者 multipart&#x2F;form-data。用 $_POST就能直接獲取。 JSON如果對方發送的數據是 application&#x2F;json 12$data &#x3D; file_get_contents(&#39;php:&#x2F;&#x2F;input&#39;);$">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php:&#x2F;&#x2F;input">
-<meta property="og:url" content="http://blog.howard/2018-08/php-input/index.html">
+<meta property="og:url" content="http://blog.howard.me/2018-08/php-input/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="php://input 用來接收數據。 form 表單一般情況下html form 表單提交的類型是 application/x-www-form-urlencoded 或者 multipart/form-data。用 $_POST就能直接獲取。 JSON如果對方發送的數據是 application/json 12$data = file_get_contents(&apos;php://input&apos;);$">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-29T00:25:14.476Z">
+<meta property="og:description" content="php:&#x2F;&#x2F;input 用來接收數據。 form 表單一般情況下html form 表單提交的類型是 application&#x2F;x-www-form-urlencoded 或者 multipart&#x2F;form-data。用 $_POST就能直接獲取。 JSON如果對方發送的數據是 application&#x2F;json 12$data &#x3D; file_get_contents(&#39;php:&#x2F;&#x2F;input&#39;);$">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-08-29T00:04:24.000Z">
+<meta property="article:modified_time" content="2018-08-29T00:25:14.476Z">
+<meta property="article:author" content="Howard">
+<meta property="article:tag" content="php">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="php:&#x2F;&#x2F;input">
-<meta name="twitter:description" content="php://input 用來接收數據。 form 表單一般情況下html form 表單提交的類型是 application/x-www-form-urlencoded 或者 multipart/form-data。用 $_POST就能直接獲取。 JSON如果對方發送的數據是 application/json 12$data = file_get_contents(&apos;php://input&apos;);$">
 
-<link rel="canonical" href="http://blog.howard/2018-08/php-input/">
+<link rel="canonical" href="http://blog.howard.me/2018-08/php-input/">
 
 
 <script id="page-configurations">
@@ -213,7 +213,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-08/php-input/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-08/php-input/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -255,6 +255,7 @@
 <h2 id="form-表單"><a href="#form-表單" class="headerlink" title="form 表單"></a>form 表單</h2><p>一般情況下html form 表單提交的類型是 <code>application/x-www-form-urlencoded</code> 或者 <code>multipart/form-data</code>。用 <code>$_POST</code>就能直接獲取。</p>
 <h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><p>如果對方發送的數據是 <code>application/json</code></p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$data = file_get_contents(<span class="string">'php://input'</span>);</span><br><span class="line">$data = json_decode($data, <span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
+
 <h2 id="php-發送JSON數據"><a href="#php-發送JSON數據" class="headerlink" title="php 發送JSON數據"></a>php 發送JSON數據</h2><p>參見 <a href="./2016-12/php-curl/">PHP curl</a></p>
 
     </div>
@@ -375,10 +376,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -403,9 +404,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -416,7 +425,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -50,20 +50,20 @@
   };
 </script>
 
-  <meta name="description" content="打印錯誤直接在頁面輸出錯誤報告 12display_errors = Onerror_reporting = E_ALL &amp;amp; ~E_DEPRECATED  display_errors 是否打開顯示錯誤報告 error_reporting 輸出錯誤等級  保存錯誤123log_errors = Onlog_errors_max_len = 1024error_log = error_log">
-<meta name="keywords" content="php">
+  <meta name="description" content="打印錯誤直接在頁面輸出錯誤報告 12display_errors &#x3D; Onerror_reporting &#x3D; E_ALL &amp; ~E_DEPRECATED   display_errors 是否打開顯示錯誤報告 error_reporting 輸出錯誤等級  保存錯誤123log_errors &#x3D; Onlog_errors_max_len &#x3D; 1024">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php 錯誤處理">
-<meta property="og:url" content="http://blog.howard/2017-12/php-error/index.html">
+<meta property="og:url" content="http://blog.howard.me/2017-12/php-error/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="打印錯誤直接在頁面輸出錯誤報告 12display_errors = Onerror_reporting = E_ALL &amp;amp; ~E_DEPRECATED  display_errors 是否打開顯示錯誤報告 error_reporting 輸出錯誤等級  保存錯誤123log_errors = Onlog_errors_max_len = 1024error_log = error_log">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-05T08:51:19.330Z">
+<meta property="og:description" content="打印錯誤直接在頁面輸出錯誤報告 12display_errors &#x3D; Onerror_reporting &#x3D; E_ALL &amp; ~E_DEPRECATED   display_errors 是否打開顯示錯誤報告 error_reporting 輸出錯誤等級  保存錯誤123log_errors &#x3D; Onlog_errors_max_len &#x3D; 1024">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-12-05T06:23:07.000Z">
+<meta property="article:modified_time" content="2017-12-05T08:51:19.330Z">
+<meta property="article:author" content="Howard">
+<meta property="article:tag" content="php">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="php 錯誤處理">
-<meta name="twitter:description" content="打印錯誤直接在頁面輸出錯誤報告 12display_errors = Onerror_reporting = E_ALL &amp;amp; ~E_DEPRECATED  display_errors 是否打開顯示錯誤報告 error_reporting 輸出錯誤等級  保存錯誤123log_errors = Onlog_errors_max_len = 1024error_log = error_log">
 
-<link rel="canonical" href="http://blog.howard/2017-12/php-error/">
+<link rel="canonical" href="http://blog.howard.me/2017-12/php-error/">
 
 
 <script id="page-configurations">
@@ -213,7 +213,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-12/php-error/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-12/php-error/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -252,12 +252,14 @@
 
       
         <h2 id="打印錯誤"><a href="#打印錯誤" class="headerlink" title="打印錯誤"></a>打印錯誤</h2><p>直接在頁面輸出錯誤報告</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">display_errors = On</span><br><span class="line">error_reporting = E_ALL &amp; ~E_DEPRECATED</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">display_errors &#x3D; On</span><br><span class="line">error_reporting &#x3D; E_ALL &amp; ~E_DEPRECATED</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>display_errors 是否打開顯示錯誤報告</li>
 <li>error_reporting 輸出錯誤等級</li>
 </ul>
-<h2 id="保存錯誤"><a href="#保存錯誤" class="headerlink" title="保存錯誤"></a>保存錯誤</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">log_errors = On</span><br><span class="line">log_errors_max_len = 1024</span><br><span class="line">error_log = error_log</span><br></pre></td></tr></table></figure>
+<h2 id="保存錯誤"><a href="#保存錯誤" class="headerlink" title="保存錯誤"></a>保存錯誤</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">log_errors &#x3D; On</span><br><span class="line">log_errors_max_len &#x3D; 1024</span><br><span class="line">error_log &#x3D; error_log</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>log_errors 是否存儲</li>
 <li>log_errors_max_len 每個錯誤報告長度， 0 表示錯誤報告所有內容</li>
@@ -382,10 +384,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -410,9 +412,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -423,7 +433,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

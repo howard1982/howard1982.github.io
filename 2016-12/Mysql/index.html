@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -51,19 +51,19 @@
 </script>
 
   <meta name="description" content="存储引擎选择 MyISAM管理非事务表。它提供高速存储和检索，以及全文搜索能力。如果应用中需要执行大量的SELECT查询，那么MyISAM是更好的选择。 InnoDB用于事务处理应用程序，具有众多特性，包括ACID事务支持。如果应用中需要执行大量的INSERT或UPDATE操作，则应该使用InnoDB，这样可以提高多用户并发操作的性能。  字段 char vs varchar 類型char 固定长">
-<meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mysql整理">
-<meta property="og:url" content="http://blog.howard/2016-12/Mysql/index.html">
+<meta property="og:url" content="http://blog.howard.me/2016-12/Mysql/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
 <meta property="og:description" content="存储引擎选择 MyISAM管理非事务表。它提供高速存储和检索，以及全文搜索能力。如果应用中需要执行大量的SELECT查询，那么MyISAM是更好的选择。 InnoDB用于事务处理应用程序，具有众多特性，包括ACID事务支持。如果应用中需要执行大量的INSERT或UPDATE操作，则应该使用InnoDB，这样可以提高多用户并发操作的性能。  字段 char vs varchar 類型char 固定长">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-01-03T06:55:00.000Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-12-19T09:24:44.000Z">
+<meta property="article:modified_time" content="2017-01-03T06:55:00.000Z">
+<meta property="article:author" content="Howard">
+<meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mysql整理">
-<meta name="twitter:description" content="存储引擎选择 MyISAM管理非事务表。它提供高速存储和检索，以及全文搜索能力。如果应用中需要执行大量的SELECT查询，那么MyISAM是更好的选择。 InnoDB用于事务处理应用程序，具有众多特性，包括ACID事务支持。如果应用中需要执行大量的INSERT或UPDATE操作，则应该使用InnoDB，这样可以提高多用户并发操作的性能。  字段 char vs varchar 類型char 固定长">
 
-<link rel="canonical" href="http://blog.howard/2016-12/Mysql/">
+<link rel="canonical" href="http://blog.howard.me/2016-12/Mysql/">
 
 
 <script id="page-configurations">
@@ -213,7 +213,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2016-12/Mysql/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/Mysql/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -275,15 +275,23 @@
 <p>对于InnoDB表，尽量使用varchar，因为它的数据行内部存储格式对固定长度的数据行和可变长度的数据行不加区分（所有数据行共用一个表头部分，这个标头部分存放着指向各有关数据列的指针），所以使用char类型不见得会比使用varchar类型好。事实上，因为char类型通常要比varchar类型占用更多的空间，所以从减少空间占用量和减少磁盘i/o的角度，使用varchar类型反而更有利. </p>
 <h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>在 cpanel 中的 <code>eximstats</code> 表用的是 MyISAM表。 <code>email</code> <code>ip</code> <code>domain</code> 等字段用的是char字段。这样统计查询比较快。</p>
 <h2 id="命令行查詢"><a href="#命令行查詢" class="headerlink" title="命令行查詢"></a>命令行查詢</h2><h3 id="G-列表顯示具體內容"><a href="#G-列表顯示具體內容" class="headerlink" title="\G 列表顯示具體內容"></a>\G 列表顯示具體內容</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> gnc_order <span class="keyword">where</span> order_no <span class="keyword">like</span> <span class="string">'E005244'</span> <span class="keyword">limit</span> <span class="number">1</span> \G;</span><br></pre></td></tr></table></figure>
+
 <h2 id="导出-amp-導入"><a href="#导出-amp-導入" class="headerlink" title="导出&amp;導入"></a>导出&amp;導入</h2><h3 id="导出整个数据库"><a href="#导出整个数据库" class="headerlink" title="导出整个数据库"></a>导出整个数据库</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u 用户名 -p 数据库名 &gt; 导出的文件名</span><br><span class="line">mysqldump -u wcnc -p smgp_apps_wcnc &gt; wcnc.sql</span><br></pre></td></tr></table></figure>
+
 <h3 id="忽略某個表"><a href="#忽略某個表" class="headerlink" title="忽略某個表"></a>忽略某個表</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p 数据库名 --ignore-table=数据库名.表名 &gt; db.sql</span><br><span class="line">mysqldump -u root -p 数据库名 --ignore-table=数据库名.表名1 --ignore-table=数据库名.表名2 &gt; db.sql</span><br></pre></td></tr></table></figure>
+
 <h3 id="导出一个表"><a href="#导出一个表" class="headerlink" title="导出一个表"></a>导出一个表</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u 用户名 -p 数据库名 表名&gt; 导出的文件名</span><br><span class="line">mysqldump -u wcnc -p smgp_apps_wcnc users&gt; wcnc_users.sql</span><br></pre></td></tr></table></figure>
-<h3 id="导出一个数据库结构"><a href="#导出一个数据库结构" class="headerlink" title="导出一个数据库结构"></a>导出一个数据库结构</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u wcnc -p -d --add-drop-table smgp_apps_wcnc &gt;d:wcnc_db.sql</span><br><span class="line"><span class="meta">#</span>-d 没有数据 --add-drop-table 在每个create语句之前增加一个drop table</span><br></pre></td></tr></table></figure>
-<h3 id="导入数据库"><a href="#导入数据库" class="headerlink" title="导入数据库"></a>导入数据库</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>常用source 命令</span><br><span class="line"><span class="meta">#</span>进入mysql数据库控制台，</span><br><span class="line">mysql -u root -p</span><br><span class="line"><span class="meta">mysql&gt;</span>use 数据库</span><br><span class="line"><span class="meta">#</span>然后使用source命令，后面参数为脚本文件(如这里用到的.sql)</span><br><span class="line"><span class="meta">mysql&gt;</span>source d:wcnc_db.sql</span><br></pre></td></tr></table></figure>
+
+<h3 id="导出一个数据库结构"><a href="#导出一个数据库结构" class="headerlink" title="导出一个数据库结构"></a>导出一个数据库结构</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u wcnc -p -d --add-drop-table smgp_apps_wcnc &gt;d:wcnc_db.sql</span><br><span class="line"><span class="meta">#</span><span class="bash">-d 没有数据 --add-drop-table 在每个create语句之前增加一个drop table</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="导入数据库"><a href="#导入数据库" class="headerlink" title="导入数据库"></a>导入数据库</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">常用<span class="built_in">source</span> 命令</span></span><br><span class="line"><span class="meta">#</span><span class="bash">进入mysql数据库控制台，</span></span><br><span class="line">mysql -u root -p</span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash">use 数据库</span></span><br><span class="line"><span class="meta">#</span><span class="bash">然后使用<span class="built_in">source</span>命令，后面参数为脚本文件(如这里用到的.sql)</span></span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"><span class="built_in">source</span> d:wcnc_db.sql</span></span><br></pre></td></tr></table></figure>
+
 <p>mysql导入建表sql语句时中文注释的乱码问题的解决办法如下：<br>在sql文件开头加上 <code>SET NAMES &#39;utf8&#39;;</code></p>
 <h2 id="用戶管理"><a href="#用戶管理" class="headerlink" title="用戶管理"></a>用戶管理</h2><h3 id="創建"><a href="#創建" class="headerlink" title="創建"></a>創建</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 創建一個用戶&amp;權限</span></span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'dns2'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'15***'</span>;</span><br><span class="line"><span class="comment"># 創建一個用戶&amp;權限 (只能訪問dns2資料庫，只允許某個ip訪問)</span></span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> dns2.* <span class="keyword">TO</span> <span class="string">'dns2'</span>@<span class="string">'119.81.172.50'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'16******'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新權限</span></span><br><span class="line"><span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</span><br></pre></td></tr></table></figure>
 <h3 id="修改密碼"><a href="#修改密碼" class="headerlink" title="修改密碼"></a>修改密碼</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">password</span> <span class="keyword">for</span> root@localhost = <span class="keyword">password</span>(<span class="string">'16***'</span>)</span><br></pre></td></tr></table></figure>
+
 <h2 id="查看表佔用空間大小"><a href="#查看表佔用空間大小" class="headerlink" title="查看表佔用空間大小"></a>查看表佔用空間大小</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#檢查 eximstats 資料庫下所有的表磁盤大小</span></span><br><span class="line"><span class="keyword">SELECT</span> TABLE_NAME, <span class="keyword">round</span>((DATA_LENGTH+INDEX_LENGTH)/<span class="number">1024</span>/<span class="number">1024</span>,<span class="number">2</span>) <span class="keyword">AS</span> Size_MB, TABLE_ROWS <span class="keyword">FROM</span> information_schema.TABLES </span><br><span class="line"><span class="keyword">WHERE</span> TABLE_SCHEMA=<span class="string">'eximstats'</span>;</span><br><span class="line"><span class="comment">#檢查某個表，增加判斷條件</span></span><br><span class="line">AND TABLE_NAME='smtp'</span><br></pre></td></tr></table></figure>
+
 <h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><p>Mysql執行Sql語句時出現不兼容的問題一般情況下是 默認的 <code>sql-mode</code> 不一樣了。</p>
 <p>詳見 <a href="/2018-10/mysql-sql-mode/">sql-mode</a></p>
 <h2 id="php7-mysql-shim"><a href="#php7-mysql-shim" class="headerlink" title="php7 mysql shim"></a>php7 mysql shim</h2><p>一些老程如果升級php 不能直接用 <code>mysql_connect</code> 函數。 已經被移除。</p>
@@ -407,10 +415,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -435,9 +443,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -448,7 +464,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -50,20 +50,21 @@
   };
 </script>
 
-  <meta name="description" content="基本配置vim /etc/postfix/main.cf 12345678910111213myhostname: smtp1.m2.com.tw #  设置系统的主机名mydomain: m2.com.tw # 设置域名（我们将让此处设置将成为E-mail地址“@”后面的部分）myorigin: $mydomain # 将发信地址“@”后面的部分设置为域名（非系统主机名）inet_interfa">
-<meta name="keywords" content="linux,mail server">
+  <meta name="description" content="基本配置vim &#x2F;etc&#x2F;postfix&#x2F;main.cf 12345678910111213myhostname: smtp1.m2.com.tw #  设置系统的主机名mydomain: m2.com.tw # 设置域名（我们将让此处设置将成为E-mail地址“@”后面的部分）myorigin: $mydomain # 将发信地址“@”后面的部分设置为域名（非系统主机名）inet_interfa">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Postfix 配置">
-<meta property="og:url" content="http://blog.howard/2017-09/postfix/index.html">
+<meta property="og:url" content="http://blog.howard.me/2017-09/postfix/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="基本配置vim /etc/postfix/main.cf 12345678910111213myhostname: smtp1.m2.com.tw #  设置系统的主机名mydomain: m2.com.tw # 设置域名（我们将让此处设置将成为E-mail地址“@”后面的部分）myorigin: $mydomain # 将发信地址“@”后面的部分设置为域名（非系统主机名）inet_interfa">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-08T06:32:21.788Z">
+<meta property="og:description" content="基本配置vim &#x2F;etc&#x2F;postfix&#x2F;main.cf 12345678910111213myhostname: smtp1.m2.com.tw #  设置系统的主机名mydomain: m2.com.tw # 设置域名（我们将让此处设置将成为E-mail地址“@”后面的部分）myorigin: $mydomain # 将发信地址“@”后面的部分设置为域名（非系统主机名）inet_interfa">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-09-05T02:29:08.000Z">
+<meta property="article:modified_time" content="2017-09-08T06:32:21.788Z">
+<meta property="article:author" content="Howard">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="mail server">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Postfix 配置">
-<meta name="twitter:description" content="基本配置vim /etc/postfix/main.cf 12345678910111213myhostname: smtp1.m2.com.tw #  设置系统的主机名mydomain: m2.com.tw # 设置域名（我们将让此处设置将成为E-mail地址“@”后面的部分）myorigin: $mydomain # 将发信地址“@”后面的部分设置为域名（非系统主机名）inet_interfa">
 
-<link rel="canonical" href="http://blog.howard/2017-09/postfix/">
+<link rel="canonical" href="http://blog.howard.me/2017-09/postfix/">
 
 
 <script id="page-configurations">
@@ -213,7 +214,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2017-09/postfix/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-09/postfix/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -259,17 +260,20 @@
       
         <h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><p><code>vim /etc/postfix/main.cf</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">myhostname: smtp1.m2.com.tw #  设置系统的主机名</span><br><span class="line"></span><br><span class="line">mydomain: m2.com.tw # 设置域名（我们将让此处设置将成为E-mail地址“@”后面的部分）</span><br><span class="line"></span><br><span class="line">myorigin: $mydomain # 将发信地址“@”后面的部分设置为域名（非系统主机名）</span><br><span class="line"></span><br><span class="line">inet_interfaces: all # 接受来自所有网络的请求</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 指定发给本地邮件的域名</span></span><br><span class="line">mydestination: $myhostname, localhost.$mydomain, localhost, $mydomain</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mynetworks: 192.168.1.0/24, 127.0.0.0/8 #設定網路, 例如</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">home_mailbox:Maildir/ # 改成 Maildir風格 但是這種沒辦法用mail命令讀取</span><br></pre></td></tr></table></figure>
-<h3 id="更新-aliases"><a href="#更新-aliases" class="headerlink" title="更新 aliases"></a>更新 aliases</h3><p>重新指向 例如<br>jojo 的邮箱转寄到 root<br>root 转移到 <a href="mailto:howard@080.net" target="_blank" rel="noopener">howard@080.net</a></p>
+
+<h3 id="更新-aliases"><a href="#更新-aliases" class="headerlink" title="更新 aliases"></a>更新 aliases</h3><p>重新指向 例如<br>jojo 的邮箱转寄到 root<br>root 转移到 <a href="mailto:howard@080.net">howard@080.net</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/aliases</span><br><span class="line">newaliases</span><br></pre></td></tr></table></figure>
+
+
 <h2 id="log"><a href="#log" class="headerlink" title="log"></a>log</h2><p>log位置是：/var/log/maillog</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看一些注意內容</span></span><br><span class="line">egrep '(reject|warning|error|fatal|panic):' /var/log/maillog</span><br><span class="line">tail -f /var/log/maillog |grep -e "Pass|LOGIN"</span><br></pre></td></tr></table></figure>
+
 <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="查看邮件队列"><a href="#查看邮件队列" class="headerlink" title="查看邮件队列"></a>查看邮件队列</h3><ul>
 <li>mailq </li>
 <li>postqueue -p <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">如果队列序号加了*号表示为活动队列</span><br><span class="line">如果队列序号加了!号表示为延期队列</span><br><span class="line">如果队列序号没有*与!号表示为等待队列</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="查看內容"><a href="#查看內容" class="headerlink" title="查看內容"></a>查看內容</h3><ul>
+<h3 id="查看內容"><a href="#查看內容" class="headerlink" title="查看內容"></a>查看內容</h3></li>
 <li>postcat -q DBA3F1A9</li>
 </ul>
 <h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
@@ -278,7 +282,9 @@
 <li>postsuper -r ALL重新排队所有邮件</li>
 </ul>
 <h2 id="重啟"><a href="#重啟" class="headerlink" title="重啟"></a>重啟</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart  postfix.service</span><br></pre></td></tr></table></figure>
+
 <h2 id="telnet-測試"><a href="#telnet-測試" class="headerlink" title="telnet 測試"></a>telnet 測試</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">telnet m2.com.tw 25</span><br><span class="line">ehlo m2.com.tw</span><br><span class="line">mail from: root@m2.com.tw</span><br><span class="line">rcpt to: root@m2.com.tw</span><br><span class="line">data</span><br><span class="line">Subject: My first mail on Postfix</span><br><span class="line">Hi,</span><br><span class="line">Are you there?</span><br><span class="line">regards,</span><br><span class="line">Admin</span><br><span class="line">. (Type the .[dot] in a new Line and press Enter )</span><br><span class="line">quit</span><br></pre></td></tr></table></figure>
+
 <h2 id="阅读"><a href="#阅读" class="headerlink" title="阅读"></a>阅读</h2><p><code>mail</code> 或 <code>mutt</code> 命令可以读取 /var/mail/root中的邮件内容。 </p>
 <p>推荐 <code>mutt</code></p>
 
@@ -401,10 +407,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -429,9 +435,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -442,7 +456,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

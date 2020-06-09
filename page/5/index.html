@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -52,13 +52,13 @@
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="Howard&#39;s Blog">
-<meta property="og:url" content="http://blog.howard/page/5/index.html">
+<meta property="og:url" content="http://blog.howard.me/page/5/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Howard">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Howard&#39;s Blog">
 
-<link rel="canonical" href="http://blog.howard/page/5/">
+<link rel="canonical" href="http://blog.howard.me/page/5/">
 
 
 <script id="page-configurations">
@@ -208,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-09/http-header/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-09/http-header/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -247,8 +247,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="請求"><a href="#請求" class="headerlink" title="請求"></a>請求</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST /path HTTP/1.1</span><br><span class="line">Host: example.com</span><br><span class="line"></span><br><span class="line">foo=bar&amp;baz=bat</span><br></pre></td></tr></table></figure>
-<h2 id="相應"><a href="#相應" class="headerlink" title="相應"></a>相應</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Content-Type: text/plain</span><br><span class="line"></span><br><span class="line">这是返回的消息内容</span><br></pre></td></tr></table></figure>
+          <h2 id="請求"><a href="#請求" class="headerlink" title="請求"></a>請求</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST &#x2F;path HTTP&#x2F;1.1</span><br><span class="line">Host: example.com</span><br><span class="line"></span><br><span class="line">foo&#x3D;bar&amp;baz&#x3D;bat</span><br></pre></td></tr></table></figure>
+
+<h2 id="相應"><a href="#相應" class="headerlink" title="相應"></a>相應</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HTTP&#x2F;1.1 200 OK</span><br><span class="line">Content-Type: text&#x2F;plain</span><br><span class="line"></span><br><span class="line">这是返回的消息内容</span><br></pre></td></tr></table></figure>
+
 <h2 id="其他參考"><a href="#其他參考" class="headerlink" title="其他參考"></a>其他參考</h2><p><a href="./2016-12/php-curl/">PHP curl</a></p>
 
       
@@ -269,7 +271,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-09/socket/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-09/socket/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -335,7 +337,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-08/php-input/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-08/php-input/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -378,6 +380,7 @@
 <h2 id="form-表單"><a href="#form-表單" class="headerlink" title="form 表單"></a>form 表單</h2><p>一般情況下html form 表單提交的類型是 <code>application/x-www-form-urlencoded</code> 或者 <code>multipart/form-data</code>。用 <code>$_POST</code>就能直接獲取。</p>
 <h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><p>如果對方發送的數據是 <code>application/json</code></p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$data = file_get_contents(<span class="string">'php://input'</span>);</span><br><span class="line">$data = json_decode($data, <span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
+
 <h2 id="php-發送JSON數據"><a href="#php-發送JSON數據" class="headerlink" title="php 發送JSON數據"></a>php 發送JSON數據</h2><p>參見 <a href="./2016-12/php-curl/">PHP curl</a></p>
 
       
@@ -398,7 +401,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-08/gcp/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-08/gcp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -457,7 +460,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-08/goto-https/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-08/goto-https/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -503,10 +506,12 @@
 
       
           <p>修改 .htaccess 文件</p>
-<h2 id="跳轉到-www-域名"><a href="#跳轉到-www-域名" class="headerlink" title="跳轉到 www 域名"></a>跳轉到 www 域名</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RewriteCond %&#123;HTTP_HOST&#125; !^www\. [NC]</span><br><span class="line">RewriteCond %&#123;REQUEST_URI&#125; !(\.well\-known) # 排除url</span><br><span class="line">RewriteRule ^(.*)$ http://www.%&#123;HTTP_HOST&#125;/$1 [R=301,L]</span><br></pre></td></tr></table></figure>
-<h2 id="HTTPS-跳轉"><a href="#HTTPS-跳轉" class="headerlink" title="HTTPS 跳轉"></a>HTTPS 跳轉</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RewriteCond %&#123;HTTPS&#125; off</span><br><span class="line">RewriteRule ^(.*)$ https://%&#123;SERVER_NAME&#125;%&#123;REQUEST_URI&#125; [L,R=301]</span><br></pre></td></tr></table></figure>
+<h2 id="跳轉到-www-域名"><a href="#跳轉到-www-域名" class="headerlink" title="跳轉到 www 域名"></a>跳轉到 www 域名</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RewriteCond %&#123;HTTP_HOST&#125; !^www\. [NC]</span><br><span class="line">RewriteCond %&#123;REQUEST_URI&#125; !(\.well\-known) # 排除url</span><br><span class="line">RewriteRule ^(.*)$ http:&#x2F;&#x2F;www.%&#123;HTTP_HOST&#125;&#x2F;$1 [R&#x3D;301,L]</span><br></pre></td></tr></table></figure>
+
+<h2 id="HTTPS-跳轉"><a href="#HTTPS-跳轉" class="headerlink" title="HTTPS 跳轉"></a>HTTPS 跳轉</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RewriteCond %&#123;HTTPS&#125; off</span><br><span class="line">RewriteRule ^(.*)$ https:&#x2F;&#x2F;%&#123;SERVER_NAME&#125;%&#123;REQUEST_URI&#125; [L,R&#x3D;301]</span><br></pre></td></tr></table></figure>
+
 <p>不含某個url，例如不包含 payback 的url</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RewriteCond %&#123;HTTPS&#125; off</span><br><span class="line">RewriteCond %&#123;REQUEST_URI&#125; !(payback)</span><br><span class="line">RewriteRule ^(.*)$ https://%&#123;SERVER_NAME&#125;%&#123;REQUEST_URI&#125; [L,R=301]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RewriteCond %&#123;HTTPS&#125; off</span><br><span class="line">RewriteCond %&#123;REQUEST_URI&#125; !(payback)</span><br><span class="line">RewriteRule ^(.*)$ https:&#x2F;&#x2F;%&#123;SERVER_NAME&#125;%&#123;REQUEST_URI&#125; [L,R&#x3D;301]</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -525,7 +530,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-07/regexp/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-07/regexp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -585,7 +590,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-07/python-module/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-07/python-module/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -652,7 +657,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-07/php-openssl/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-07/php-openssl/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -698,6 +703,7 @@
 
       
           <h2 id="生成csr-以及-private-key"><a href="#生成csr-以及-private-key" class="headerlink" title="生成csr 以及 private key"></a>生成csr 以及 private key</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$dn = <span class="keyword">array</span>(</span><br><span class="line">    <span class="string">"countryName"</span> =&gt; <span class="string">"TW"</span>,</span><br><span class="line">    <span class="string">"stateOrProvinceName"</span> =&gt; <span class="string">"Taipei"</span>,</span><br><span class="line">    <span class="string">"organizationName"</span> =&gt; <span class="string">"瑋德國際股份有限公司"</span>, <span class="comment">// 公司名稱</span></span><br><span class="line">    <span class="string">"organizationalUnitName"</span> =&gt; <span class="string">"資訊部"</span>, <span class="comment">// 部門</span></span><br><span class="line">    <span class="string">"commonName"</span> =&gt; <span class="string">"nealsyardremedies.com.tw"</span>, <span class="comment">// domain</span></span><br><span class="line">    <span class="string">"emailAddress"</span> =&gt; <span class="string">"itsupport@10over10.com.tw"</span>,</span><br><span class="line">);</span><br><span class="line"><span class="comment">// Generate a new private (and public) key pair</span></span><br><span class="line">$privkey = openssl_pkey_new(<span class="keyword">array</span>(</span><br><span class="line">    <span class="string">"private_key_bits"</span> =&gt; <span class="number">2048</span>,</span><br><span class="line">    <span class="string">"private_key_type"</span> =&gt; OPENSSL_KEYTYPE_RSA,</span><br><span class="line">));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Generate a certificate signing request</span></span><br><span class="line">$csr = openssl_csr_new($dn, $privkey, <span class="keyword">array</span>(<span class="string">'digest_alg'</span> =&gt; <span class="string">'sha512'</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// openssl_csr_export($csr, $csrout) and var_dump($csrout);</span></span><br><span class="line"><span class="comment">// openssl_pkey_export($privkey, $pkeyout) and var_dump($pkeyout);</span></span><br><span class="line"></span><br><span class="line">openssl_csr_export_to_file($csr, <span class="string">'nealsyardremedies_com_tw.csr'</span>);  <span class="comment">// 保存到文檔</span></span><br><span class="line">openssl_pkey_export_to_file($privkey, <span class="string">'nealsyardremedies_com_tw.key'</span>);</span><br></pre></td></tr></table></figure>
+
 <h2 id="讀取-csr"><a href="#讀取-csr" class="headerlink" title="讀取 csr"></a>讀取 csr</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">"Content-Type: text/html; charset=UTF-8"</span>);</span><br><span class="line">$str = <span class="string">'-----BEGIN CERTIFICATE REQUEST-----</span></span><br><span class="line"><span class="string">MIIC7jCCAdYCAQAwgagxCzAJBgNVBAYTAlRXMQ8wDQYDVQQIDAZUYWlwZWkxJzAl</span></span><br><span class="line"><span class="string">BgNVBAoMHueRi+W+t+Wci+mam+iCoeS7veaciemZkOWFrOWPuDESMBAGA1UECwwJ</span></span><br><span class="line"><span class="string">6LOH6KiK6YOoMSEwHwYDVQQDDBhuZWFsc3lhcmRyZW1lZGllcy5jb20udHcxKDAm</span></span><br><span class="line"><span class="string">BgkqhkiG9w0BCQEWGWl0c3VwcG9ydEAxMG92ZXIxMC5jb20udHcwggEiMA0GCSqG</span></span><br><span class="line"><span class="string">SIb3DQEBAQUAA4IBDwAwggEKAoIBAQDFYutxHda/r8O/fGwBjVTs3Kl97HROeFs9</span></span><br><span class="line"><span class="string">dhMXLvmaHrwU/DuHY9f+Wj94K0kZhFe21QtVC0DL9jgNrYTJ8Is7mVbVKmiN8sYH</span></span><br><span class="line"><span class="string">UwGeEqqHAXdJ/m/0f7aGlWjxd6myZzOIXmsf3SYwKwGKwowIMxSAP1jryOoFresp</span></span><br><span class="line"><span class="string">tk0BDMDavsJLhcdvUd3oximaMOvyOvWZN5uj2kYh7YYpTVAQZn3dJDb0B5kIl2dG</span></span><br><span class="line"><span class="string">GvpTKWgAw3oH8Ak9zMZT9y0/sAmjsxkPil6jgbRz6d40V9xgCixofpwYGnEF5hRO</span></span><br><span class="line"><span class="string">O1VhLZIcVDC0NaeyM8Tfgv/ODvU/xlHKfz3CbKG1KxXRXFeIAxbDAgMBAAGgADAN</span></span><br><span class="line"><span class="string">BgkqhkiG9w0BAQ0FAAOCAQEAMZOSVoZWQhvZ/g+cnSHmrxzK9JCUeKoD0wlFuiww</span></span><br><span class="line"><span class="string">KRmHaYFuZcStTj/52M65zXhtx6OXFjsoMJSf4OyGTYjfexH7Zqv2zfBuKQBuPSL7</span></span><br><span class="line"><span class="string">GfLy9zcNLabuSYlbfQ1PNvycXb4ZhJJ2TI62XGXnfg5zeW4tHN0Mvt+/UxWkNmVu</span></span><br><span class="line"><span class="string">CTGTdbd3bgjnnggJQZI6Z7AKsaeeqF5zgtkws+lwZoG3BbcXPWxoxI+Ms3JhxXzg</span></span><br><span class="line"><span class="string">Mx0Z1INiQM7rhvA5tB3HG+VsBcTya08QA4HASjHOTesInZvgUM2QbQqxAKldiJex</span></span><br><span class="line"><span class="string">ho4OnmOUhCPWiUoDTq2y7FvfjFwMzst06EkYsYj2Zw/oQQ==</span></span><br><span class="line"><span class="string">-----END CERTIFICATE REQUEST-----'</span>;</span><br><span class="line">var_dump(openssl_csr_get_subject($str));</span><br></pre></td></tr></table></figure>
 
       
@@ -718,7 +724,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-06/monolog/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-06/monolog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -777,7 +783,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-06/install-python/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-06/install-python/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -934,10 +940,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -962,9 +968,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -975,7 +989,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

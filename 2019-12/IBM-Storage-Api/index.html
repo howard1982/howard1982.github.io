@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -50,19 +50,19 @@
   };
 </script>
 
-  <meta name="description" content="參考 https://cloud.ibm.com/docs/services/cloud-object-storage/cli?topic=cloud-object-storage-aws-cli AWS CLIAWS 的官方命令行界面与 IBM COS S3 API 兼容。 installpip install awscli 參數{Access Key ID} {Secret Access Ke">
+  <meta name="description" content="參考 https:&#x2F;&#x2F;cloud.ibm.com&#x2F;docs&#x2F;services&#x2F;cloud-object-storage&#x2F;cli?topic&#x3D;cloud-object-storage-aws-cli AWS CLIAWS 的官方命令行界面与 IBM COS S3 API 兼容。 installpip install awscli 參數{Access Key ID} {Secret Access Ke">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IBM Storage Api">
-<meta property="og:url" content="http://blog.howard/2019-12/IBM-Storage-Api/index.html">
+<meta property="og:url" content="http://blog.howard.me/2019-12/IBM-Storage-Api/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="參考 https://cloud.ibm.com/docs/services/cloud-object-storage/cli?topic=cloud-object-storage-aws-cli AWS CLIAWS 的官方命令行界面与 IBM COS S3 API 兼容。 installpip install awscli 參數{Access Key ID} {Secret Access Ke">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-17T07:30:18.952Z">
+<meta property="og:description" content="參考 https:&#x2F;&#x2F;cloud.ibm.com&#x2F;docs&#x2F;services&#x2F;cloud-object-storage&#x2F;cli?topic&#x3D;cloud-object-storage-aws-cli AWS CLIAWS 的官方命令行界面与 IBM COS S3 API 兼容。 installpip install awscli 參數{Access Key ID} {Secret Access Ke">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-12-17T06:46:26.000Z">
+<meta property="article:modified_time" content="2019-12-17T07:30:18.952Z">
+<meta property="article:author" content="Howard">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IBM Storage Api">
-<meta name="twitter:description" content="參考 https://cloud.ibm.com/docs/services/cloud-object-storage/cli?topic=cloud-object-storage-aws-cli AWS CLIAWS 的官方命令行界面与 IBM COS S3 API 兼容。 installpip install awscli 參數{Access Key ID} {Secret Access Ke">
 
-<link rel="canonical" href="http://blog.howard/2019-12/IBM-Storage-Api/">
+<link rel="canonical" href="http://blog.howard.me/2019-12/IBM-Storage-Api/">
 
 
 <script id="page-configurations">
@@ -212,7 +212,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-12/IBM-Storage-Api/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-12/IBM-Storage-Api/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -255,11 +255,14 @@
 <h2 id="install"><a href="#install" class="headerlink" title="install"></a>install</h2><p><code>pip install awscli</code></p>
 <h2 id="參數"><a href="#參數" class="headerlink" title="參數"></a>參數</h2><p><code>{Access Key ID}</code> <code>{Secret Access Key}</code> 需要創建服務憑證 例如</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"cos_hmac_keys": &#123;</span><br><span class="line">    "access_key_id": "xxxx",</span><br><span class="line">    "secret_access_key": "ddddd"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p><code>{endpoint}</code> 在 <code>存储区 》 配置</code> 中有详细的记录。 </p>
 <h2 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h2><p><code>~/.aws/credentials</code></p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[default]</span></span><br><span class="line"><span class="attr">aws_access_key_id</span> = &#123;Access Key ID&#125;</span><br><span class="line"><span class="attr">aws_secret_access_key</span> = &#123;Secret Access Key&#125;</span><br></pre></td></tr></table></figure>
+
 <p>Crontab 下自動執行 可以使用 全局變量覆蓋</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export AWS_ACCESS_KEY_ID="&#123;Access Key ID&#125;"</span><br><span class="line">export AWS_SECRET_ACCESS_KEY="&#123;Secret Access Key&#125;"</span><br></pre></td></tr></table></figure>
+
 <h2 id="预签名Url"><a href="#预签名Url" class="headerlink" title="预签名Url"></a>预签名Url</h2><p>参考 <a href="https://cloud.ibm.com/docs/services/cloud-object-storage/cli?topic=cloud-object-storage-presign-url" target="_blank" rel="noopener">https://cloud.ibm.com/docs/services/cloud-object-storage/cli?topic=cloud-object-storage-presign-url</a></p>
 <p>使用 awscli 命令最为快捷</p>
 
@@ -378,10 +381,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -406,9 +409,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -419,7 +430,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

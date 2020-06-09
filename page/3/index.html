@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -52,13 +52,13 @@
 
   <meta property="og:type" content="website">
 <meta property="og:title" content="Howard&#39;s Blog">
-<meta property="og:url" content="http://blog.howard/page/3/index.html">
+<meta property="og:url" content="http://blog.howard.me/page/3/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Howard">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Howard&#39;s Blog">
 
-<link rel="canonical" href="http://blog.howard/page/3/">
+<link rel="canonical" href="http://blog.howard.me/page/3/">
 
 
 <script id="page-configurations">
@@ -208,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-06/jquery-version/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-06/jquery-version/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -249,6 +249,7 @@
       
           <p>查看使用中的jQuery 的版本</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jQuery.fn.jquery</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jQuery().jquery</span><br></pre></td></tr></table></figure>
 
       
@@ -269,7 +270,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-05/cxs/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-05/cxs/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -319,8 +320,11 @@
 <li>排除 <code>World writeable directory</code> 信息： <code>cxs --options mMOLfSGchexdnZDRru .</code> 去掉了 <code>w</code>。</li>
 </ul>
 <p>参考：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--options [-/+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options</span><br></pre></td></tr></table></figure>
-<p>详细说明<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">m = regex pattern match</span><br><span class="line">M = fingerprint match</span><br><span class="line">v = virus</span><br><span class="line">O = socket</span><br><span class="line">L = symlink</span><br><span class="line">f = suspicious file</span><br><span class="line">F = skipped directory with too many entries</span><br><span class="line">S = SUID file</span><br><span class="line">G = GUID file</span><br><span class="line">c = core dump file</span><br><span class="line">C = core dump file deleted</span><br><span class="line">h = suspected exploit file</span><br><span class="line">e = Linux binary or executable file</span><br><span class="line">x = Windows binary or executable file</span><br><span class="line">d = suspicious directory name</span><br><span class="line">n = hidden directory owned by nobody user</span><br><span class="line">w = world writable directory</span><br><span class="line">W = world writable directory - chmod to 755</span><br><span class="line">T = script file - identifies PHP, Perl, and other script files as suspicious</span><br><span class="line">E = email script</span><br><span class="line">D = Decoded PHP encoded (e.g. base64) file scan match</span><br><span class="line">R = Match the PHP decode regex</span><br><span class="line">P = Search D/B config files and attempt user login via FTP. Match on success</span><br><span class="line">Z = compressed file - scan within zip, tar, tar.gz and tar.bz2 files</span><br><span class="line">! = Scan timeout per file B&lt;--timemax&gt;</span><br><span class="line">[Zzzzzzz] = sleeping for 60 seconds as load average is &gt; --throttle [num]</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--options [-&#x2F;+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options</span><br></pre></td></tr></table></figure>
+
+<p>详细说明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">m &#x3D; regex pattern match</span><br><span class="line">M &#x3D; fingerprint match</span><br><span class="line">v &#x3D; virus</span><br><span class="line">O &#x3D; socket</span><br><span class="line">L &#x3D; symlink</span><br><span class="line">f &#x3D; suspicious file</span><br><span class="line">F &#x3D; skipped directory with too many entries</span><br><span class="line">S &#x3D; SUID file</span><br><span class="line">G &#x3D; GUID file</span><br><span class="line">c &#x3D; core dump file</span><br><span class="line">C &#x3D; core dump file deleted</span><br><span class="line">h &#x3D; suspected exploit file</span><br><span class="line">e &#x3D; Linux binary or executable file</span><br><span class="line">x &#x3D; Windows binary or executable file</span><br><span class="line">d &#x3D; suspicious directory name</span><br><span class="line">n &#x3D; hidden directory owned by nobody user</span><br><span class="line">w &#x3D; world writable directory</span><br><span class="line">W &#x3D; world writable directory - chmod to 755</span><br><span class="line">T &#x3D; script file - identifies PHP, Perl, and other script files as suspicious</span><br><span class="line">E &#x3D; email script</span><br><span class="line">D &#x3D; Decoded PHP encoded (e.g. base64) file scan match</span><br><span class="line">R &#x3D; Match the PHP decode regex</span><br><span class="line">P &#x3D; Search D&#x2F;B config files and attempt user login via FTP. Match on success</span><br><span class="line">Z &#x3D; compressed file - scan within zip, tar, tar.gz and tar.bz2 files</span><br><span class="line">! &#x3D; Scan timeout per file B&lt;--timemax&gt;</span><br><span class="line">[Zzzzzzz] &#x3D; sleeping for 60 seconds as load average is &gt; --throttle [num]</span><br></pre></td></tr></table></figure>
+
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>修改 <code>/etc/cxs/cxswatch.conf</code> 文檔中的 <code>options</code> 屬性</p>
 <h2 id="cxs-IP-Reputation-System"><a href="#cxs-IP-Reputation-System" class="headerlink" title="cxs IP Reputation System"></a>cxs IP Reputation System</h2><p>編輯 <code>cxs.blocklists</code> 設定哪些需要開啟</p>
 <p>如果有類似 <code>CXS_LF_SSHD</code> <code>CXS_LF_CPANEL</code> 的防火墻規則。 需要先刪除 <code>/var/lib/csf/csf.block.CXS_LF_SSHD</code> 對應的ip 然後在重啟 csf <code>csf -ra</code></p>
@@ -343,7 +347,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-05/cpanel-ftp-over-tls/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-05/cpanel-ftp-over-tls/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -391,6 +395,7 @@
           <h2 id="狀況"><a href="#狀況" class="headerlink" title="狀況"></a>狀況</h2><p>cpanel 設定的 ftp over tls 總是列表失敗。</p>
 <h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>原因是 ftp 的被動模式(Passive)沒有正常運行。防火墻(csf)攔截了。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/pure-ftpd.conf | grep PassivePortRange</span><br><span class="line"><span class="meta">#</span><span class="bash"> 可以看到</span></span><br><span class="line">PassivePortRange 49152 65534</span><br></pre></td></tr></table></figure>
+
 <h2 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h2><p>csf 設定文檔 的 <code>TCP_IN</code> 增加 <code>49152:65534</code>。並重啟。</p>
 
       
@@ -411,7 +416,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-03/git-branch/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-03/git-branch/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -451,7 +456,9 @@
 
       
           <h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git branch # 查看本地分支</span><br><span class="line">git branch &lt;name&gt; # 創建</span><br><span class="line">git checkout -b dev # 創建並切換到 dev 分支</span><br><span class="line">git checkout master # 切換分支</span><br><span class="line"></span><br><span class="line">git branch -d dev # 刪除本地分支</span><br></pre></td></tr></table></figure>
+
 <h2 id="遠程分支"><a href="#遠程分支" class="headerlink" title="遠程分支"></a>遠程分支</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/xxx0/xxx.git # 關聯遠程分支</span><br><span class="line">git branch -a # 查看所有分支</span><br><span class="line">git push origin dev # 上傳本地分支到遠程</span><br><span class="line"></span><br><span class="line">git push origin --delete dev # 刪除遠程分支</span><br></pre></td></tr></table></figure>
+
 <h2 id="合併分支"><a href="#合併分支" class="headerlink" title="合併分支"></a>合併分支</h2><p>合併 <code>dev</code> 分支 到 <code>master</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git merge dev</span><br></pre></td></tr></table></figure>
       
@@ -472,7 +479,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-02/systemd/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-02/systemd/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -519,18 +526,31 @@
       
           <p>systemd systemctl</p>
 <h2 id="systemctl-常用命令"><a href="#systemctl-常用命令" class="headerlink" title="systemctl 常用命令"></a>systemctl 常用命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">systemctl list-unit-files # 列出所有配置文件</span><br><span class="line">systemctl list-unit-files --type=service # 列表所有 service</span><br><span class="line">systemctl list-unit-files | grep php # 搜索 php</span><br><span class="line"></span><br><span class="line">systemctl stauts httpd</span><br><span class="line">systemctl restart httpd</span><br><span class="line">systemctl stop httpd</span><br><span class="line">systemctl start httpd</span><br></pre></td></tr></table></figure>
+
 <h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>安装基本python插件</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install flask</span><br><span class="line">pip install gunicorn</span><br></pre></td></tr></table></figure>
+
 <p>创建文档 <code>/root/bin/rot13.py</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route("/")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello World!"</span></span><br></pre></td></tr></table></figure>
-<p>测试以上程序<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/bin/gunicorn -w 4 -b 127.0.0.1:8080 rot13:app</span><br></pre></td></tr></table></figure></p>
+
+<p>测试以上程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;local&#x2F;bin&#x2F;gunicorn -w 4 -b 127.0.0.1:8080 rot13:app</span><br></pre></td></tr></table></figure>
+
 <h2 id="配置-systemd"><a href="#配置-systemd" class="headerlink" title="配置 systemd"></a>配置 systemd</h2><p>Systemd是一个系统管理守护进程、工具和库的集合</p>
 <p>创建文档<code>/etc/systemd/system/rot13.service</code></p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Unit]</span></span><br><span class="line"><span class="attr">Description</span>=ROT13 demo service</span><br><span class="line"><span class="attr">After</span>=network.target</span><br><span class="line"><span class="attr">After</span>=syslog.target</span><br><span class="line"></span><br><span class="line"><span class="section">[Service]</span></span><br><span class="line"><span class="attr">Type</span>=simple</span><br><span class="line"><span class="attr">Restart</span>=always</span><br><span class="line"><span class="attr">User</span>=root</span><br><span class="line"><span class="attr">WorkingDirectory</span>=/root/bin</span><br><span class="line"><span class="attr">ExecStart</span>=/usr/local/bin/gunicorn -w <span class="number">4</span> -b <span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">8080</span> rot13:app</span><br><span class="line"></span><br><span class="line"><span class="section">[Install]</span></span><br><span class="line"><span class="attr">WantedBy</span>=multi-user.target</span><br></pre></td></tr></table></figure>
-<p>启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start rot13.service</span><br></pre></td></tr></table></figure></p>
-<p>开机启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable rot13.service</span><br></pre></td></tr></table></figure></p>
+
+<p>启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start rot13.service</span><br></pre></td></tr></table></figure>
+
+<p>开机启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable rot13.service</span><br></pre></td></tr></table></figure>
+
 <h3 id="配置说明"><a href="#配置说明" class="headerlink" title="配置说明"></a>配置说明</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Restart</span>=<span class="literal">no</span> <span class="comment"># (默认值) 表示不会被重启。</span></span><br><span class="line"></span><br><span class="line"><span class="attr">Restart</span>=always <span class="comment">#表示会被无条件的重启</span></span><br><span class="line"></span><br><span class="line"><span class="attr">Restart</span>=<span class="literal">on</span>-failure</span><br></pre></td></tr></table></figure>
-<h2 id="配置防火墙"><a href="#配置防火墙" class="headerlink" title="配置防火墙"></a>配置防火墙</h2><p>Ubuntu 为例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow 8080</span><br></pre></td></tr></table></figure></p>
+
+<h2 id="配置防火墙"><a href="#配置防火墙" class="headerlink" title="配置防火墙"></a>配置防火墙</h2><p>Ubuntu 为例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow 8080</span><br></pre></td></tr></table></figure>
+
 <h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a href="https://www.cnblogs.com/zwcry/p/9602756.html" target="_blank" rel="noopener">https://www.cnblogs.com/zwcry/p/9602756.html</a></p>
 
       
@@ -551,7 +571,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-02/php-curl-json/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-02/php-curl-json/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -613,7 +633,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-01/apache-rewrite/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-01/apache-rewrite/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -663,7 +683,7 @@
 <p>没有 <code>RewriteBase</code> 跳转到了 <code>http://090.net/home2/net090/public_html/var/i.php</code></p>
 <h3 id="正确方法"><a href="#正确方法" class="headerlink" title="正确方法"></a>正确方法</h3><p><code>RewriteRule ^abc.php$ /var/i.php [R=302]</code></p>
 <h2 id="有定义-RewriteBase"><a href="#有定义-RewriteBase" class="headerlink" title="有定义 RewriteBase"></a>有定义 RewriteBase</h2><p>有 <code>RewriteBase /</code> 跳转到了 <code>http://090.net/i.php</code> 跳转到了根目录。因为是二级目录，所以这里 定义的 <code>RewriteBase</code> 错误了</p>
-<h3 id="正确方法-1"><a href="#正确方法-1" class="headerlink" title="正确方法"></a>正确方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RewriteBase /var</span><br><span class="line"></span><br><span class="line">RewriteRule ^abc.php$ i.php [R=302]</span><br></pre></td></tr></table></figure>
+<h3 id="正确方法-1"><a href="#正确方法-1" class="headerlink" title="正确方法"></a>正确方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RewriteBase &#x2F;var</span><br><span class="line"></span><br><span class="line">RewriteRule ^abc.php$ i.php [R&#x3D;302]</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -682,7 +702,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-11/outlook2016/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-11/outlook2016/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -747,7 +767,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-11/cpanel-awstats/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-11/cpanel-awstats/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -817,7 +837,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2018-11/cpanel-hinet-mail/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-11/cpanel-hinet-mail/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -965,10 +985,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -993,9 +1013,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -1006,7 +1034,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 

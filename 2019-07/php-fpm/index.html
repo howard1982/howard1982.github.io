@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 3.9.0">
+<meta name="generator" content="Hexo 4.2.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.4.2">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.4.2">
@@ -50,20 +50,20 @@
   };
 </script>
 
-  <meta name="description" content="设定说明 pm.max_children = 120 在同一时间最大的进程数 pm.max_requests = 500 每个进程处理多少个请求之后自动终止，可以有效防止内存溢出， pm.process_idle_timeout = 10 空闲多少秒之后进程会被kill，默认为10s  运行模式 pm = static 静态，始终保持一个固定数量的子进程，这个数由（pm.max_children）">
-<meta name="keywords" content="php">
+  <meta name="description" content="设定说明 pm.max_children &#x3D; 120 在同一时间最大的进程数 pm.max_requests &#x3D; 500 每个进程处理多少个请求之后自动终止，可以有效防止内存溢出， pm.process_idle_timeout &#x3D; 10 空闲多少秒之后进程会被kill，默认为10s  运行模式 pm &#x3D; static 静态，始终保持一个固定数量的子进程，这个数由（pm.max_children）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php-fpm 配置说明">
-<meta property="og:url" content="http://blog.howard/2019-07/php-fpm/index.html">
+<meta property="og:url" content="http://blog.howard.me/2019-07/php-fpm/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="设定说明 pm.max_children = 120 在同一时间最大的进程数 pm.max_requests = 500 每个进程处理多少个请求之后自动终止，可以有效防止内存溢出， pm.process_idle_timeout = 10 空闲多少秒之后进程会被kill，默认为10s  运行模式 pm = static 静态，始终保持一个固定数量的子进程，这个数由（pm.max_children）">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-23T05:46:22.117Z">
+<meta property="og:description" content="设定说明 pm.max_children &#x3D; 120 在同一时间最大的进程数 pm.max_requests &#x3D; 500 每个进程处理多少个请求之后自动终止，可以有效防止内存溢出， pm.process_idle_timeout &#x3D; 10 空闲多少秒之后进程会被kill，默认为10s  运行模式 pm &#x3D; static 静态，始终保持一个固定数量的子进程，这个数由（pm.max_children）">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-07-23T05:39:21.000Z">
+<meta property="article:modified_time" content="2019-07-23T05:46:22.117Z">
+<meta property="article:author" content="Howard">
+<meta property="article:tag" content="php">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="php-fpm 配置说明">
-<meta name="twitter:description" content="设定说明 pm.max_children = 120 在同一时间最大的进程数 pm.max_requests = 500 每个进程处理多少个请求之后自动终止，可以有效防止内存溢出， pm.process_idle_timeout = 10 空闲多少秒之后进程会被kill，默认为10s  运行模式 pm = static 静态，始终保持一个固定数量的子进程，这个数由（pm.max_children）">
 
-<link rel="canonical" href="http://blog.howard/2019-07/php-fpm/">
+<link rel="canonical" href="http://blog.howard.me/2019-07/php-fpm/">
 
 
 <script id="page-configurations">
@@ -213,7 +213,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard/2019-07/php-fpm/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-07/php-fpm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -380,10 +380,10 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Howard</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.9.0
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
   </div>
   <span class="post-meta-divider">|</span>
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.4.2
   </div>
 
         
@@ -408,9 +408,17 @@
   <script src="/lib/anime.min.js?v=3.1.0"></script>
   <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/utils.js?v=7.4.2"></script><script src="/js/motion.js?v=7.4.2"></script>
-<script src="/js/schemes/pisces.js?v=7.4.2"></script>
-<script src="/js/next-boot.js?v=7.4.2"></script>
+
+<script src="/js/utils.js?v=7.4.2.js"></script>
+
+<script src="/js/motion.js?v=7.4.2.js"></script>
+
+
+<script src="/js/schemes/pisces.js?v=7.4.2.js"></script>
+
+
+<script src="/js/next-boot.js?v=7.4.2.js"></script>
+
 
 
 
@@ -421,7 +429,9 @@
 
 
 
-  <script src="/js/local-search.js?v=7.4.2"></script>
+  
+<script src="/js/local-search.js?v=7.4.2.js"></script>
+
 
 
 
