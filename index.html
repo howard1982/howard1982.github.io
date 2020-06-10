@@ -208,6 +208,149 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-06/ftp-sync/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020-06/ftp-sync/" class="post-title-link" itemprop="url">ftp 同步</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-10 17:47:15 / 修改时间：17:51:01" itemprop="dateCreated datePublished" datetime="2020-06-10T17:47:15+08:00">2020-06-10</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="步驟"><a href="#步驟" class="headerlink" title="步驟"></a>步驟</h2><ol>
+<li><p>安裝 lftp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install lftp</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置</p>
+</li>
+</ol>
+<p><code>/etc/lftp.conf</code> 添加一下內容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set ssl:verify-certificate no</span><br><span class="line">set ftp:passive-mode off</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>程序</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">login="user"</span><br><span class="line">pass="password"</span><br><span class="line">host="1.2.3.4"</span><br><span class="line">remote_dir="/demo/uploads"</span><br><span class="line">local_dir="/home/xxxxx/public_html/uploads"</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">trap "rm -f /tmp/lftp-mirror.lock" SIGINT SIGTERM</span><br><span class="line">if [ -e /tmp/lftp-mirror.lock ]</span><br><span class="line">then</span><br><span class="line">echo "mirror is running already, rm /tmp/lftp-mirror.lock if this is false."</span><br><span class="line">exit 1</span><br><span class="line">else</span><br><span class="line">touch /tmp/mirror</span><br><span class="line">lftp -u $login,$pass ftp://$host &lt;&lt; EOF</span><br><span class="line">cd $remote_dir</span><br><span class="line">lcd $local_dir</span><br><span class="line">mirror -R -c --parallel=20</span><br><span class="line">quit</span><br><span class="line">EOF</span><br><span class="line">rm -f /tmp/lftp-mirror.lock</span><br><span class="line">trap - SIGINT SIGTERM</span><br><span class="line">exit 0</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>排程</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*&#x2F;15 * * * * &#x2F;root&#x2F;bin&#x2F;cn_rsync.sh</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-06/ConEmu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020-06/ConEmu/" class="post-title-link" itemprop="url">ConEmu</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-10 15:08:55 / 修改时间：17:47:55" itemprop="dateCreated datePublished" datetime="2020-06-10T15:08:55+08:00">2020-06-10</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>下载并解压 ConEmuPack.200604.7z。</p>
+<p>簡單的配置，使用 git-bash</p>
+<ol>
+<li><code>General</code> -&gt; <code>Cgoose color scheme</code> <code>Monokai</code></li>
+<li><code>General</code> -&gt; <code>Fonts</code></li>
+<li><code>General</code> -&gt; <code>Tab bar</code> 勾選 <code>Tabs on botton</code></li>
+<li><code>Features</code> -&gt; <code>Status bar</code> 取消勾選 <code>Show status bar</code></li>
+<li><code>Features</code> -&gt; <code>Transparency</code> 选择通明度</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-04/nat-vps/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -772,133 +915,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-10/incremental-back/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019-10/incremental-back/" class="post-title-link" itemprop="url">incremental back 增量备份</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-10-11 18:25:12 / 修改时间：18:36:55" itemprop="dateCreated datePublished" datetime="2019-10-11T18:25:12+08:00">2019-10-11</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>以文件为最小的单位。 利用 linux 的硬链接 (Hard link) 特性（多个link不会增加磁盘，删除某个不会影响其他的）空间来实现。</p>
-<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0. 根据原始内容S0, 创建最初的备份内容  V1</span><br><span class="line">-- 开始增量备份 --</span><br><span class="line">1. 根据 V1 创建 V2 。 规则： 创建所有目录，ln 硬链接所有文档 。</span><br><span class="line">2. 通过 rsync 命令。同步S0最新的内容到 V2</span><br><span class="line">-- 结束 --</span><br></pre></td></tr></table></figure>
-
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ol>
-<li>通过 <code>ls -i</code> 命令  可以查看文件的编号。 如果编号一样则表示是 硬链接。或用 <code>stat [file]</code> 命令查看更详细的信息</li>
-<li>同步命令 <code>rsync -vzrtopg --delete dir_a dir_b</code></li>
-<li>删除某个硬链接文档，不影响其他的</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-08/cpanle-outlook-25port/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019-08/cpanle-outlook-25port/" class="post-title-link" itemprop="url">cpanle smtp 25端口 outlook无法发送mail</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-08-12 15:03:36 / 修改时间：15:06:43" itemprop="dateCreated datePublished" datetime="2019-08-12T15:03:36+08:00">2019-08-12</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="问题，-0x800CCC80"><a href="#问题，-0x800CCC80" class="headerlink" title="问题， 0x800CCC80"></a>问题， 0x800CCC80</h2><p>outlook 提示 0x800CCC80 错误。<code>您的服务器不支持此客户端支持的任何验证方式</code></p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>登录 whm 并打开 <code>WHM &gt; Exim Configuration Manager &gt; Basic Editor &gt; Security</code></p>
-<p>设定 <code>Require clients to connect with SSL or issue the STARTTLS command before they are allowed to authenticate with the server.</code> 为 <code>off</code></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -949,14 +965,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">147</span>
+          <span class="site-state-item-count">149</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-count">48</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
