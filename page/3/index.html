@@ -208,6 +208,87 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-07/iptables/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019-07/iptables/" class="post-title-link" itemprop="url">iptables</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-07-01 17:02:42" itemprop="dateCreated datePublished" datetime="2019-07-01T17:02:42+08:00">2019-07-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-18 09:04:00" itemprop="dateModified" datetime="2019-09-18T09:04:00+08:00">2019-09-18</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="简单操作"><a href="#简单操作" class="headerlink" title="简单操作"></a>简单操作</h2><ul>
+<li>Table 表</li>
+<li>Chain 链</li>
+<li>iptables -D chain rulenum 清除某条</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Table  Chain            num   pkts bytes target     prot opt in     out     source               destination  </span><br><span class="line">filter CXS_LF_CPANEL    12       0     0 DROP       all  --  *      *       203.195.218.49       0.0.0.0&#x2F;0</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查找</span></span><br><span class="line">iptables -L CXS_LF_CPANEL --line-numbers | grep xxx.xxx.xxx</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 刪除， 157就是對應的number</span></span><br><span class="line">iptables -D CXS_LF_CPANEL 157</span><br></pre></td></tr></table></figure>
+
+<h2 id="cxs"><a href="#cxs" class="headerlink" title="cxs"></a>cxs</h2><p>如果有類似 <code>CXS_LF_SSHD</code> <code>CXS_LF_CPANEL</code> 的防火墻規則。 需要先刪除 <code>/var/lib/csf/csf.block.CXS_LF_SSHD</code> 對應的ip 然後在重啟 csf <code>csf -ra</code></p>
+<p>[參考 cxs][/2019-05/cxs/]</p>
+<h2 id="快速刪除"><a href="#快速刪除" class="headerlink" title="快速刪除"></a>快速刪除</h2><p><code>iptables -S</code>。 因爲 <code>iptables -L</code> 在規則很多的時候很慢。找到了其他參數 <code>-S, --list-rules</code> 。例如 <code>iptables -S CXS_LF_SSHD</code> CXS_LF_SSHD 是 chain 的名稱</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查找</span></span><br><span class="line">iptables -S CXS_LF_SSHD | grep 51.77.213.181</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 得到結果</span></span><br><span class="line">-A CXS_LF_SSHD -s 178.62.30.249/32 -j DROP</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 刪除， 157就是對應的number</span></span><br><span class="line">iptables -D CXS_LF_SSHD -s 178.62.30.249/32 -j DROP</span><br></pre></td></tr></table></figure>
+
+<p><code>-s 178.62.30.249/32 -j DROP</code> 是 查詢結果中的規則</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-06/ajax-cors/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -821,71 +902,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-11/outlook2016/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2018-11/outlook2016/" class="post-title-link" itemprop="url">Outlook 2016 设定</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2018-11-12 14:33:01 / 修改时间：15:01:56" itemprop="dateCreated datePublished" datetime="2018-11-12T14:33:01+08:00">2018-11-12</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>很客户使用 Outlook。所以作为维护人员，一些设定比较难找，但也得知道。</p>
-<h2 id="查看-amp-修改SMTP等连接属性"><a href="#查看-amp-修改SMTP等连接属性" class="headerlink" title="查看&amp;修改SMTP等连接属性"></a>查看&amp;修改SMTP等连接属性</h2><p>这个隐藏的太深了 :( 。操作步骤如下：</p>
-<p>文件 》 选项 》 高级 》 发送和接收 》 编辑 》 “选择某个邮箱账号” 》 账号属性 》 高级</p>
-<h2 id="查看-Mail-header"><a href="#查看-Mail-header" class="headerlink" title="查看 Mail header"></a>查看 Mail header</h2><ul>
-<li>要双击邮件，在独立的窗口打开这个邮件。</li>
-<li>文件 》 属性 》 Internet 邮件头</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -936,7 +952,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">149</span>
+          <span class="site-state-item-count">150</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
