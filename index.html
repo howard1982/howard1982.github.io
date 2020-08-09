@@ -208,6 +208,127 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-08/golang-web/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020-08/golang-web/" class="post-title-link" itemprop="url">golang web framework</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-09 15:35:18 / 修改时间：17:15:28" itemprop="dateCreated datePublished" datetime="2020-08-09T15:35:18+08:00">2020-08-09</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="gin-gonic-gin"><a href="#gin-gonic-gin" class="headerlink" title="gin-gonic/gin"></a>gin-gonic/gin</h2><p><a href="https://github.com/gin-gonic/gin" target="_blank" rel="noopener">https://github.com/gin-gonic/gin</a></p>
+<p>web framework， 用作 api/微框架 很简单</p>
+<h3 id="范例"><a href="#范例" class="headerlink" title="范例"></a>范例</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	...</span><br><span class="line"></span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">authCheck</span><span class="params">()</span> <span class="title">gin</span>.<span class="title">HandlerFunc</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		time := c.GetHeader(<span class="string">"_time"</span>)</span><br><span class="line">		token := c.GetHeader(<span class="string">"_token"</span>)</span><br><span class="line"></span><br><span class="line">		sum := fmt.Sprintf(<span class="string">"%x"</span>, sha256.Sum256([]<span class="keyword">byte</span>(time+<span class="string">"***"</span>)))</span><br><span class="line">		<span class="keyword">if</span> sum != token &#123;</span><br><span class="line">			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H&#123;<span class="string">"Message"</span>: <span class="string">"Unauthorized"</span>&#125;)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		c.Next()</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> appVersion = <span class="string">"1.0.2"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">updateAcme</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">    domain := c.DefaultPostForm(<span class="string">"domain"</span>, <span class="string">""</span>)</span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    c.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">        <span class="string">"state"</span>:   <span class="string">"error"</span>,</span><br><span class="line">        <span class="string">"message"</span>: <span class="string">"get cert error."</span>,</span><br><span class="line">        <span class="string">"version"</span>: appVersion,</span><br><span class="line">        <span class="string">"cmdStr"</span>:  cmdStr,</span><br><span class="line">    &#125;)</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	gin.SetMode(gin.ReleaseMode) <span class="comment">// prod</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//r := gin.New()</span></span><br><span class="line">	r := gin.Default()</span><br><span class="line"></span><br><span class="line">	r.Use(authCheck())</span><br><span class="line"></span><br><span class="line">	r.POST(<span class="string">"/up_acme"</span>, updateAcme)</span><br><span class="line"></span><br><span class="line">	dir, _ := filepath.Abs(filepath.Dir(os.Args[<span class="number">0</span>]))</span><br><span class="line">	r.RunTLS(<span class="string">":9008"</span>, dir+<span class="string">"/ssl/server.pem"</span>, dir+<span class="string">"/ssl/server.key"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-08/golang-cli/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020-08/golang-cli/" class="post-title-link" itemprop="url">golang cli</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-09 15:35:13 / 修改时间：15:45:55" itemprop="dateCreated datePublished" datetime="2020-08-09T15:35:13+08:00">2020-08-09</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="urfave-cli-v2"><a href="#urfave-cli-v2" class="headerlink" title="urfave/cli v2"></a>urfave/cli v2</h2><p>文档 <a href="https://github.com/urfave/cli" target="_blank" rel="noopener">https://github.com/urfave/cli</a></p>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p><code>spf13/cobra</code> 和 <code>urfave/cli</code> 都是很好的 cli framework。</p>
+<p><code>urfave/cli</code> 更简洁一些；<code>spf13/cobra</code> 支持 generator，协助生成项目，功能更强大一些；</p>
+<h3 id="范例"><a href="#范例" class="headerlink" title="范例"></a>范例</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">	<span class="string">"github.com/urfave/cli/v2"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	app := &amp;cli.App&#123;</span><br><span class="line">		Commands: []*cli.Command&#123;</span><br><span class="line">			&#123;</span><br><span class="line">				Name:  <span class="string">"run"</span>,</span><br><span class="line">				Usage: <span class="string">"complete a task on the list"</span>,</span><br><span class="line">				Action: <span class="function"><span class="keyword">func</span><span class="params">(c *cli.Context)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">					backupRun()</span><br><span class="line">					backupClean()</span><br><span class="line">					<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">				&#125;,</span><br><span class="line">			&#125;,</span><br><span class="line">		&#125;,</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	err := app.Run(os.Args)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(err)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-06/php-error-log/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -772,131 +893,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-01/check-mobile/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020-01/check-mobile/" class="post-title-link" itemprop="url">检查是是否手机访问</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-01-08 17:40:37 / 修改时间：17:48:00" itemprop="dateCreated datePublished" datetime="2020-01-08T17:40:37+08:00">2020-01-08</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>这里有很多方法 <a href="http://detectmobilebrowsers.com/" target="_blank" rel="noopener">http://detectmobilebrowsers.com/</a>  <code>php</code> <code>apache</code> <code>js</code> 都有。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-12/logrotate/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019-12/logrotate/" class="post-title-link" itemprop="url">logrotate 日期切割</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-26 14:23:52 / 修改时间：14:30:00" itemprop="dateCreated datePublished" datetime="2019-12-26T14:23:52+08:00">2019-12-26</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>logrotate 是个十分有用的工具，它可以自动对日志进行截断（或轮循）、压缩以及删除旧的日志文件。</p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><code>/etc/logrotate.d/cwp</code> 文档</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;local&#x2F;apache&#x2F;domlogs&#x2F;*.log &#123;</span><br><span class="line">    daily</span><br><span class="line">    rotate 5</span><br><span class="line">    compress</span><br><span class="line">    missingok</span><br><span class="line">    notifempty</span><br><span class="line">    minsize 20M</span><br><span class="line">    create 644 nobody root</span><br><span class="line">    sharedscripts</span><br><span class="line">    postrotate</span><br><span class="line">        if [ -f &#x2F;var&#x2F;run&#x2F;nginx.pid ]; then</span><br><span class="line">            kill -USR1 &#96;cat &#x2F;var&#x2F;run&#x2F;nginx.pid&#96;</span><br><span class="line">        fi</span><br><span class="line">        if [ -f &#x2F;usr&#x2F;local&#x2F;apache&#x2F;logs&#x2F;httpd.pid ]; then</span><br><span class="line">            &#x2F;usr&#x2F;local&#x2F;apache&#x2F;bin&#x2F;apachectl graceful</span><br><span class="line">        fi</span><br><span class="line">    endscript</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><ol>
-<li>检测 <code>/usr/sbin/logrotate -dv /etc/logrotate.d/cwp</code></li>
-<li>强制执行 <code>/usr/sbin/logrotate -fv /etc/logrotate.d/cwp</code></li>
-</ol>
-<h2 id="重启信号"><a href="#重启信号" class="headerlink" title="重启信号"></a>重启信号</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kill -USR1 `cat /var/run/nginx.pid`</span><br><span class="line">kill -s HUP `cat /var/run/nginx.pid`</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -947,7 +943,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">151</span>
+          <span class="site-state-item-count">153</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

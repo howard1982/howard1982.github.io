@@ -208,6 +208,172 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/ssh-key-login/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016-12/ssh-key-login/" class="post-title-link" itemprop="url">SSH KEY 登錄</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-11 14:57:36" itemprop="dateCreated datePublished" datetime="2016-12-11T14:57:36+08:00">2016-12-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2017-01-02 17:00:01" itemprop="dateModified" datetime="2017-01-02T17:00:01+08:00">2017-01-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h2><p>key生成的方法</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa # 在 ~/.ssh 目录下生成  id_rsa,id_rsa.pub</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将 id_rsa.pub 加入到 远端主机 ~/.ssh/authorized_keys	</span></span><br><span class="line">cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">修改权限！！ 必须修改远端主机上 文档的权限， 否则会报错！</span></span><br><span class="line">chmod 700 .ssh</span><br><span class="line">chmod 600 authorized_keys</span><br></pre></td></tr></table></figure>
+
+<h3 id="copy-id"><a href="#copy-id" class="headerlink" title="copy id"></a>copy id</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id -i  ~&#x2F;.ssh&#x2F;id_rsa.pub  root@IP</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置（連接時長）"><a href="#配置（連接時長）" class="headerlink" title="配置（連接時長）"></a>配置（連接時長）</h3><p>本地端（客戶端）設定 在 <code>~\.ssh\config</code> 中添加。 实际目录是 <code>C:\Users\Howard\.ssh</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Host *</span><br><span class="line">    ServerAliveInterval 60</span><br></pre></td></tr></table></figure>
+
+<p>每60秒会发一个KeepAlive请求</p>
+<h3 id="登錄時顯示信息信息"><a href="#登錄時顯示信息信息" class="headerlink" title="登錄時顯示信息信息"></a>登錄時顯示信息信息</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -v root@diana.poikl.com</span><br></pre></td></tr></table></figure>
+
+<h3 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h3><ul>
+<li><a href="http://www.cnblogs.com/dudu/archive/2013/02/07/ssh-write-failed-broken-pipe.html" target="_blank" rel="noopener">http://www.cnblogs.com/dudu/archive/2013/02/07/ssh-write-failed-broken-pipe.html</a></li>
+<li><a href="http://www.cyberciti.biz/faq/create-ssh-config-file-on-linux-unix/" target="_blank" rel="noopener">http://www.cyberciti.biz/faq/create-ssh-config-file-on-linux-unix/</a></li>
+</ul>
+<h2 id="plink"><a href="#plink" class="headerlink" title="plink"></a>plink</h2><p>plink.exe使用private key 時，必須把通過ssh生成的private key通過 PuTTYgen.exe轉換一下</p>
+<ul>
+<li>打開 puttygen</li>
+<li>選擇  Conversions-&gt;Import key 導入 private key</li>
+<li>點擊按鈕 Save private key</li>
+</ul>
+<h2 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h2><p>使用private key 登錄。 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -C -i ~/.ssh/howard_rsa root@abc.com:/root/phpcs.phar ./</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-i ~/.ssh/as_rsa</code> 對應的private key</li>
+<li><code>-C</code> 加速網絡傳輸（壓縮傳輸？）</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/ruby-symbol/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016-12/ruby-symbol/" class="post-title-link" itemprop="url">Ruby Symbol（冒號）</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-11 14:53:39" itemprop="dateCreated datePublished" datetime="2016-12-11T14:53:39+08:00">2016-12-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>經常看到下面</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my_hash = [<span class="symbol">:foo=&gt;</span><span class="number">100</span>, <span class="symbol">:aa=&gt;<span class="string">"sss"</span></span>]</span><br></pre></td></tr></table></figure>
+
+<p>:foo 就是 Symbol 是一個唯一標示。 用作性能提升， 因為ruby中 string 是一個對象。 </p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">:foo</span></span><br><span class="line"><span class="symbol">:<span class="string">"foo"</span></span></span><br><span class="line"><span class="comment">#效果一樣</span></span><br></pre></td></tr></table></figure>
+
+<p>還有一種情況是 快速定義</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>  </span></span><br><span class="line">  <span class="keyword">attr_accessor</span> <span class="symbol">:whatever</span>  </span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>等價于</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>  </span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">whatever</span>  </span></span><br><span class="line">    @whatever  </span><br><span class="line">  <span class="keyword">end</span>  </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">whatever=</span><span class="params">(val)</span></span>  </span><br><span class="line">    @whatever = val  </span><br><span class="line">  <span class="keyword">end</span>  </span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/HeidiSQL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -331,7 +497,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">151</span>
+          <span class="site-state-item-count">153</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

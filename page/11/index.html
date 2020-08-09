@@ -208,6 +208,141 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-01/cpanel-ftpquota/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017-01/cpanel-ftpquota/" class="post-title-link" itemprop="url">cpanel ftpquota 問題</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-01-06 13:46:34" itemprop="dateCreated datePublished" datetime="2017-01-06T13:46:34+08:00">2017-01-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天遇到奇怪的现象， FTP客户端 总是提示 <code>quota exceeded</code>，无法上次文档。 但是查看cpanel的磁盘空间并没有满。</p>
+<p>网上查到的解决办法，删除 <code>ftpquota</code> 文档：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;home&#x2F;user&#x2F;etc</span><br><span class="line">mv ftpquota ftpquota_old</span><br><span class="line">touch ftpquota</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-01/php/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017-01/php/" class="post-title-link" itemprop="url">PHP常用函数</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-01-04 14:49:24" itemprop="dateCreated datePublished" datetime="2017-01-04T14:49:24+08:00">2017-01-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2018-05-08 13:15:59" itemprop="dateModified" datetime="2018-05-08T13:15:59+08:00">2018-05-08</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="pathinfo"><a href="#pathinfo" class="headerlink" title="pathinfo"></a>pathinfo</h2><p>返回文件路径的信息</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> pathinfo(<span class="string">'php.ini'</span>, PATHINFO_EXTENSION);</span><br><span class="line"><span class="comment">// 输出 ini</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="array-chunk"><a href="#array-chunk" class="headerlink" title="array_chunk"></a>array_chunk</h2><p>将一个数组分割成多个</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$input_array = <span class="keyword">array</span>(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>);</span><br><span class="line">print_r(array_chunk($input_array, <span class="number">2</span>));</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/windows-fontlink/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -796,193 +931,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/exim/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016-12/exim/" class="post-title-link" itemprop="url">Mail Queue管理。</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-25 15:46:59" itemprop="dateCreated datePublished" datetime="2016-12-25T15:46:59+08:00">2016-12-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2017-03-23 08:38:45" itemprop="dateModified" datetime="2017-03-23T08:38:45+08:00">2017-03-23</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="綜合使用"><a href="#綜合使用" class="headerlink" title="綜合使用"></a>綜合使用</h2><p>删除所有被冻结的邮件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exiqgrep -z -i | xargs exim -Mrm</span><br></pre></td></tr></table></figure>
-
-<p>删除所有5天前的队列邮件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exiqgrep -o 432000 -i | xargs exim -Mrm</span><br></pre></td></tr></table></figure>
-
-<p>冻结所有来自某一发件人的邮件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exiqgrep -i -f 发件人@zeknet.com | xargs exim -Mf</span><br></pre></td></tr></table></figure>
-
-<h2 id="exim基礎命令"><a href="#exim基礎命令" class="headerlink" title="exim基礎命令"></a>exim基礎命令</h2><p>删除邮件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exim Mrm Message-id</span><br></pre></td></tr></table></figure>
-
-<p>冻结邮件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exim Mf Message-id</span><br></pre></td></tr></table></figure>
-
-<p>解冻邮件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exim -Mt Message-id</span><br></pre></td></tr></table></figure>
-
-<p>查看邮件头</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exim -Mvh Message-id</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="exiqgrep-隊列查詢"><a href="#exiqgrep-隊列查詢" class="headerlink" title="exiqgrep 隊列查詢"></a>exiqgrep 隊列查詢</h2><p>查看来自指定发件人的所有队列邮件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exiqgrep -f [发件人]@domain</span><br></pre></td></tr></table></figure>
-
-<p>查看发给指定收件人的所有队列邮件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exiqgrep -r [收件人]@domain</span><br></pre></td></tr></table></figure>
-
-<p>查看1天前的队列邮件 (以秒为单位)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exiqgrep -o 86400</span><br></pre></td></tr></table></figure>
-
-<p>其他常用参数：</p>
-<ul>
-<li>-z 只查看被冻结的队列邮件</li>
-<li>-i 只显示邮件ID</li>
-<li>-c 只显示查找到的邮件数量</li>
-</ul>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>查看全部信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exiqgrep -a</span><br></pre></td></tr></table></figure>
-
-<p>查看exim队列中所有邮件信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exim -bp</span><br></pre></td></tr></table></figure>
-
-<p>汇总邮件队列信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exim -bp | exiqsumm</span><br></pre></td></tr></table></figure>
-
-<p>查看exim服务的当前工作情况</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exiwhat</span><br></pre></td></tr></table></figure>
-
-<p>删除所有 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exim -bp | awk &#39;&#x2F;^ *[0-9]+[mhd]&#x2F;&#123;print &quot;exim -Mrm &quot; $3&#125;&#39; | bash</span><br></pre></td></tr></table></figure>
-
-<p>以上內容 參考網絡文章 <a href="http://cn.hostease.com/xueyuan/381/" target="_blank" rel="noopener">http://cn.hostease.com/xueyuan/381/</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/npm/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016-12/npm/" class="post-title-link" itemprop="url">Nodejs NPM 簡介</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-25 15:41:02" itemprop="dateCreated datePublished" datetime="2016-12-25T15:41:02+08:00">2016-12-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-04-20 10:11:36" itemprop="dateModified" datetime="2018-04-20T10:11:36+08:00">2018-04-20</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><p>npm 是javascript包的管理工具。<br>可以把包安装成为全局（系统全局），从而可以作为系统命令来使用。<br>也可以把包安装成为某个项目目录下的模块<br>常见命令参照 <a href="http://dreamerslab.com/blog/tw/npm-basic-commands/" target="_blank" rel="noopener">http://dreamerslab.com/blog/tw/npm-basic-commands/</a></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装某个包成为全局包</span></span><br><span class="line">sudo npm install &lt;package name&gt; -g</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装到某个目录</span></span><br><span class="line">npm install &lt;package name&gt;</span><br></pre></td></tr></table></figure>
-
-<p>基本命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm ls # 查看</span><br><span class="line">npm install # 安装</span><br><span class="line">npm uninstall #卸载</span><br><span class="line">npm update  #更新 </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">加入 -g 来声明是全局操作</span></span><br><span class="line">sudo npm update -g</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1033,7 +981,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">151</span>
+          <span class="site-state-item-count">153</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
