@@ -916,7 +916,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2017-05-10 15:55:31" itemprop="dateModified" datetime="2017-05-10T15:55:31+08:00">2017-05-10</time>
+                <time title="修改时间：2020-08-11 14:45:33" itemprop="dateModified" datetime="2020-08-11T14:45:33+08:00">2020-08-11</time>
               </span>
 
           
@@ -938,7 +938,7 @@
 
 <h2 id="JSON格式传递数据"><a href="#JSON格式传递数据" class="headerlink" title="JSON格式传递数据"></a>JSON格式传递数据</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$header[] = <span class="string">'Content-Type: application/json'</span>;</span><br><span class="line">$header[] = <span class="string">'Accept: application/json'</span>;</span><br><span class="line">curl_setopt($ch, CURLOPT_HTTPHEADER, $header);</span><br><span class="line">curl_setopt($ch, CURLOPT_POST, <span class="number">1</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($param));</span><br></pre></td></tr></table></figure>
 
-<h2 id="SSL"><a href="#SSL" class="headerlink" title="SSL"></a>SSL</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, <span class="keyword">FALSE</span>); </span><br><span class="line">curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, <span class="keyword">FALSE</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="SSL"><a href="#SSL" class="headerlink" title="SSL"></a>SSL</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, <span class="keyword">FALSE</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, <span class="keyword">FALSE</span>);</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><p>CURLOPT_SSL_VERIFYPEER<br>禁用后cURL将终止从服务端进行验证。<br>使用CURLOPT_CAINFO选项设置证书使用CURLOPT_CAPATH选项设置证书目录<br>如果CURLOPT_SSL_VERIFYPEER(默认值为2)被启用，CURLOPT_SSL_VERIFYHOST需要被设置成TRUE否则设置为FALSE。</p>
@@ -947,8 +947,10 @@
 </li>
 </ul>
 <p>译者注：公用名(Common Name)一般来讲就是填写你将要申请SSL证书的域名 (domain)或子域名(sub domain)。</p>
+<h3 id="CURLOPT-SSL-VERIFYPEER"><a href="#CURLOPT-SSL-VERIFYPEER" class="headerlink" title="CURLOPT_SSL_VERIFYPEER"></a>CURLOPT_SSL_VERIFYPEER</h3><p>值為 <strong>FALSE</strong> 时，禁止 cURL 验证对等证书（peer’s certificate）。 <strong>连接仍将使用SSL加密</strong>，只是不会在使用正确验证的证书进行链接。</p>
 <h2 id="HTTP-basic-authentication"><a href="#HTTP-basic-authentication" class="headerlink" title="HTTP basic authentication"></a>HTTP basic authentication</h2><p>連接一個url， 需要提供用戶名和密碼的時候用到。</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl_setopt($curl, CURLOPT_USERPWD, <span class="string">"username:password"</span>);</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
