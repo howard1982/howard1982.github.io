@@ -361,10 +361,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2018-07-08 09:22:22 / 修改时间：10:11:30" itemprop="dateCreated datePublished" datetime="2018-07-08T09:22:22+08:00">2018-07-08</time>
+              <time title="创建时间：2018-07-08 09:22:22" itemprop="dateCreated datePublished" datetime="2018-07-08T09:22:22+08:00">2018-07-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-25 10:36:50" itemprop="dateModified" datetime="2020-08-25T10:36:50+08:00">2020-08-25</time>
+              </span>
 
           
 
@@ -386,6 +392,8 @@
 </ul>
 <h2 id="常用模塊"><a href="#常用模塊" class="headerlink" title="常用模塊"></a>常用模塊</h2><h3 id="cryptography"><a href="#cryptography" class="headerlink" title="cryptography"></a>cryptography</h3><p>加密 Openssl 相關模塊， 用于 csr crt 等ssl相关</p>
 <h3 id="hashlib"><a href="#hashlib" class="headerlink" title="hashlib"></a>hashlib</h3><p>md5 \ sha1 \ sha256 等加密</p>
+<h3 id="chardet"><a href="#chardet" class="headerlink" title="chardet"></a>chardet</h3><p>字符串编码相关</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> chardet</span><br><span class="line"></span><br><span class="line">a = <span class="string">b"\345\217\221\347\245\250\345\215\225\346\215\256"</span></span><br><span class="line"></span><br><span class="line">fencoding = chardet.detect(a)   <span class="comment">#判断当前字符串的格式（编码类型）</span></span><br><span class="line">print(fencoding)</span><br><span class="line"></span><br><span class="line">a = a.decode(<span class="string">'utf-8'</span>) <span class="comment">#编码类型为打印出来的fencoding编码类型</span></span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -554,10 +562,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2018-06-23 16:33:47 / 修改时间：16:38:38" itemprop="dateCreated datePublished" datetime="2018-06-23T16:33:47+08:00">2018-06-23</time>
+              <time title="创建时间：2018-06-23 16:33:47" itemprop="dateCreated datePublished" datetime="2018-06-23T16:33:47+08:00">2018-06-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-13 10:17:09" itemprop="dateModified" datetime="2020-08-13T10:17:09+08:00">2020-08-13</time>
+              </span>
 
           
 
@@ -585,6 +599,7 @@
 <li><code>yum install python3</code></li>
 </ul>
 <h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h3><p>Ubunut 16 以后默认自带Python3 可以直接使用 <code>/usr/bin/python3</code></p>
+<h2 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tgz</span><br><span class="line">tar -xzf Python-3.8.5.tgz</span><br><span class="line"><span class="built_in">cd</span> Python-3.8.5</span><br><span class="line">./configure --prefix=/opt/hd/python38 --<span class="built_in">enable</span>-optimizations</span><br><span class="line">make</span><br><span class="line">make <span class="built_in">test</span></span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
 
       
     </div>
