@@ -733,7 +733,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-09 11:17:41" itemprop="dateModified" datetime="2020-06-09T11:17:41+08:00">2020-06-09</time>
+                <time title="修改时间：2020-09-02 14:46:25" itemprop="dateModified" datetime="2020-09-02T14:46:25+08:00">2020-09-02</time>
               </span>
 
           
@@ -767,11 +767,13 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># openssl req -new -key private_key.pem -out req1.csr</span><br><span class="line">You are about to be asked to enter information that will be incorporated</span><br><span class="line">into your certificate request.</span><br><span class="line">What you are about to enter is what is called a Distinguished Name or a DN.</span><br><span class="line">There are quite a few fields but you can leave some blank</span><br><span class="line">For some fields there will be a default value,</span><br><span class="line">If you enter &#39;.&#39;, the field will be left blank.</span><br><span class="line">-----</span><br><span class="line">Country Name (2 letter code) [XX]:CN</span><br><span class="line">State or Province Name (full name) []:.</span><br><span class="line">Locality Name (eg, city) [Default City]:.</span><br><span class="line">Organization Name (eg, company) [Default Company Ltd]:.</span><br><span class="line">Organizational Unit Name (eg, section) []:.</span><br><span class="line">Common Name (eg, your name or your server&#39;s hostname) []:www.abc.com</span><br><span class="line">Email Address []:</span><br><span class="line"> </span><br><span class="line">Please enter the following &#39;extra&#39; attributes    # 下面两项几乎不用考虑，留空即可</span><br><span class="line">to be sent with your certificate request</span><br><span class="line">A challenge password []:.</span><br><span class="line">An optional company name []:.</span><br></pre></td></tr></table></figure>
 
 <h2 id="ssl"><a href="#ssl" class="headerlink" title="ssl"></a>ssl</h2><p>普通的csr crt private-key 都好理解。</p>
-<h3 id="chain"><a href="#chain" class="headerlink" title="chain"></a>chain</h3><p>.chain 则对应的是 crt 中 Issuer 的 ssl证书（crt）</p>
-<h3 id="CA-amp-ca-bundle"><a href="#CA-amp-ca-bundle" class="headerlink" title="CA &amp; ca-bundle"></a>CA &amp; ca-bundle</h3><p>CA - 证书颁发机构英文简称为CA，负责签发、作废和保存证书，CA签发的证书称为CA证书</p>
+<h3 id="chain-amp-ca-crt-amp-ca-cer"><a href="#chain-amp-ca-crt-amp-ca-cer" class="headerlink" title="chain &amp; ca.crt &amp; ca.cer"></a>chain &amp; ca.crt &amp; ca.cer</h3><p>.chain 或 ca.crt 或 ca.cer 本质都一样只是名字不同，对应的是 crt 中 Issuer 的 ssl证书（crt）</p>
+<h3 id="CA-amp-ca-bundle-amp-fullchain"><a href="#CA-amp-ca-bundle-amp-fullchain" class="headerlink" title="CA &amp; ca-bundle  &amp; fullchain"></a>CA &amp; ca-bundle  &amp; fullchain</h3><p>CA - 证书颁发机构英文简称为CA，负责签发、作废和保存证书，CA签发的证书称为CA证书</p>
 <p>abc-com.ca-bundle 是一組 CA证书。本质上也是一种crt (CERTIFICATE)。</p>
 <p>.ca-bundle 中有多个 crt (CERTIFICATE) 是逐层对应 Issuer 的 ssl证书（crt）。 </p>
 <p>第一个内容和 .chain 一样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fullchain &#x3D; domain.crt + ca.crt</span><br></pre></td></tr></table></figure>
+
 <h2 id="创建多域名-csr"><a href="#创建多域名-csr" class="headerlink" title="创建多域名 csr"></a>创建多域名 csr</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成 privatekey</span></span><br><span class="line">openssl genrsa -out private_key.pem 4096 </span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成csr, 详见 ssl.conf</span></span><br><span class="line">openssl req -new -key private_key.pem -out req1.csr -config ssl.conf</span><br></pre></td></tr></table></figure>
 
 <p>ssl.conf</p>
