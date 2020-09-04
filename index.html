@@ -208,6 +208,73 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-09/bind-named-query-log/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020-09/bind-named-query-log/" class="post-title-link" itemprop="url">bind-named-query-log</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-04 13:25:02 / 修改时间：13:33:51" itemprop="dateCreated datePublished" datetime="2020-09-04T13:25:02+08:00">2020-09-04</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="開啟-Bind-記錄-Query-Log"><a href="#開啟-Bind-記錄-Query-Log" class="headerlink" title="開啟 Bind 記錄 Query Log"></a>開啟 Bind 記錄 Query Log</h2><p>編輯 <code>/etc/named.conf</code><br>添加一些設置，最後應該長得類似這樣：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">logging &#123;</span><br><span class="line">   channel default_debug &#123;</span><br><span class="line">        file &quot;data&#x2F;named.run&quot; versions 10 size 100m;</span><br><span class="line">           severity dynamic;</span><br><span class="line">   &#125;;</span><br><span class="line">   channel query-log &#123;</span><br><span class="line">        file &quot;data&#x2F;named_query.log&quot; versions 10 size 500m;</span><br><span class="line">        severity info;</span><br><span class="line">        print-time yes;</span><br><span class="line">    &#125;;</span><br><span class="line">   category queries &#123; query-log;&#125;;</span><br><span class="line">   category default &#123; default_debug;&#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>注意：log 文件必須在 /var/named/data/ 底下，並且 屬性是 named:named</p>
+<p>確認之後，重啟 named. cpanel 命令 <code>/scripts/restartsrv_named</code></p>
+<h2 id="統計分析Log"><a href="#統計分析Log" class="headerlink" title="統計分析Log"></a>統計分析Log</h2><p>Github 上面有一些工具現成的  <a href="https://github.com/search?utf8=%E2%9C%93&amp;q=bind+log&amp;type=" target="_blank" rel="noopener">https://github.com/search?utf8=%E2%9C%93&amp;q=bind+log&amp;type=</a></p>
+<p><a href="https://github.com/Matty9191/bind-query-log-statistics" target="_blank" rel="noopener">https://github.com/Matty9191/bind-query-log-statistics</a></p>
+<p><code>bind-query-log-stats.py</code> 根據實際情況 添加或編輯 173行 。以下是我的例子</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">elif</span> len(chopped) == <span class="number">11</span>:</span><br><span class="line">    timestamp = chopped[<span class="number">0</span>] + <span class="string">" "</span> + chopped[<span class="number">1</span>]</span><br><span class="line">    client_ip = chopped[<span class="number">3</span>].split(<span class="string">"#"</span>)[<span class="number">0</span>]</span><br><span class="line">    rr_type = chopped[<span class="number">8</span>]</span><br><span class="line">    dns_question = chopped[<span class="number">6</span>]</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-08/golang-web/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -827,72 +894,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-02/php-ext/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020-02/php-ext/" class="post-title-link" itemprop="url">单独编译 php 扩展</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-02-11 16:23:25 / 修改时间：16:44:58" itemprop="dateCreated datePublished" datetime="2020-02-11T16:23:25+08:00">2020-02-11</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd ext/mbstring/</span><br><span class="line">/opt/php72/bin/phpize</span><br><span class="line">./configure  --enable-my_module --with-php-config=/opt/php72/bin/php-config</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li><code>/opt/php72</code> 是已经存在的php 安装目录。</li>
-<li>单独编译 mbstring 模块</li>
-</ol>
-<h2 id="配置-amp-加载"><a href="#配置-amp-加载" class="headerlink" title="配置&amp;加载"></a>配置&amp;加载</h2><p>在文档中 <code>/opt/php72/lib/php.ini</code> 增加一下内容</p>
-<p>```<br>extension=/opt/php72/lib/php/extensions/no-debug-non-zts-20170718/mbstring.so<br>``</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -943,7 +944,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">153</span>
+          <span class="site-state-item-count">154</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
