@@ -309,7 +309,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-12-05 16:21:37" itemprop="dateModified" datetime="2018-12-05T16:21:37+08:00">2018-12-05</time>
+                <time title="修改时间：2021-01-21 11:48:04" itemprop="dateModified" datetime="2021-01-21T11:48:04+08:00">2021-01-21</time>
               </span>
 
           
@@ -323,13 +323,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="distinct-去除重複"><a href="#distinct-去除重複" class="headerlink" title="distinct 去除重複"></a>distinct 去除重複</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> email <span class="keyword">from</span> <span class="keyword">member</span></span><br></pre></td></tr></table></figure>
+          <h2 id="去除重複"><a href="#去除重複" class="headerlink" title="去除重複"></a>去除重複</h2><h3 id="distinct"><a href="#distinct" class="headerlink" title="distinct"></a>distinct</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> email <span class="keyword">from</span> <span class="keyword">member</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="group-by"><a href="#group-by" class="headerlink" title="group by"></a>group by</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> email <span class="keyword">from</span> <span class="keyword">member</span> <span class="keyword">group</span> <span class="keyword">by</span> email</span><br></pre></td></tr></table></figure>
 
 <h2 id="HAVING-語句"><a href="#HAVING-語句" class="headerlink" title="HAVING 語句"></a>HAVING 語句</h2><p>配合 <code>GROUP BY</code> 使用。在<code>WHERE</code>語句執行完，把資料讀入內存后，再次過濾。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> m.email, <span class="keyword">COUNT</span>(m.email) <span class="keyword">AS</span> cc <span class="keyword">FROM</span> <span class="keyword">member</span> <span class="keyword">AS</span> m <span class="keyword">WHERE</span> m.age &gt; <span class="number">10</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> m.email</span><br><span class="line"><span class="keyword">HAVING</span> cc &gt; <span class="number">1</span></span><br></pre></td></tr></table></figure>
 
 <p>以上SQL可看為2步驟</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 第一步 過濾數據并讀取到內容，并計算 count */</span></span><br><span class="line"><span class="keyword">SELECT</span> m.email, <span class="keyword">COUNT</span>(m.email) <span class="keyword">AS</span> cc <span class="keyword">FROM</span> <span class="keyword">member</span> <span class="keyword">AS</span> m <span class="keyword">WHERE</span> m.age &gt; <span class="number">10</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> m.email</span><br><span class="line"><span class="comment">/* 第二步 在以上結果的基礎上進行過濾*/</span></span><br><span class="line"><span class="keyword">HAVING</span> cc &gt; <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="EXISTS"><a href="#EXISTS" class="headerlink" title="EXISTS"></a>EXISTS</h2><p>用于检查子查询是否至少会返回一行数据，该子查询实际上并不返回任何数据，而是返回值True或False<br>EXISTS 指定一个子查询，检测 行 的存在。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="string">`test`</span> <span class="keyword">where</span> <span class="string">`type`</span> = <span class="string">'AA'</span> </span><br><span class="line"><span class="keyword">and</span> <span class="keyword">exists</span> (<span class="keyword">select</span> * <span class="keyword">from</span> <span class="string">`company`</span> <span class="keyword">where</span> <span class="string">`test`</span>.<span class="string">`uid`</span> = <span class="string">`company`</span>.<span class="string">`uid`</span> <span class="keyword">and</span> <span class="string">`company`</span> <span class="keyword">like</span> <span class="string">'%BB%'</span>) </span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="string">`pid`</span> <span class="keyword">desc</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
