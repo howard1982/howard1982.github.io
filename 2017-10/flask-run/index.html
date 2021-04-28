@@ -58,7 +58,7 @@
 <meta property="og:description" content="FlaskPython Web 框架 安装1pip install flask  创建文档创建 h1.py 1234567from flask import Flaskapp &#x3D; Flask(__name__)@app.route(&quot;&#x2F;&quot;)def hello():    return &quot;Hello World!&quot;  Gunicorn作为一个HTTP Server 安装1pip install gu">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2017-10-21T09:14:52.000Z">
-<meta property="article:modified_time" content="2021-04-26T11:42:51.850Z">
+<meta property="article:modified_time" content="2021-04-28T05:30:31.268Z">
 <meta property="article:author" content="Howard">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="flask">
@@ -244,7 +244,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-26 19:42:51" itemprop="dateModified" datetime="2021-04-26T19:42:51+08:00">2021-04-26</time>
+                <time title="修改时间：2021-04-28 13:30:31" itemprop="dateModified" datetime="2021-04-28T13:30:31+08:00">2021-04-28</time>
               </span>
 
           
@@ -282,7 +282,8 @@
 <p>注意 ip 0.0.0.0 對應所有ip。</p>
 <h4 id="简单的启动"><a href="#简单的启动" class="headerlink" title="简单的启动"></a>简单的启动</h4><p>修改 <code>/etc/rc.local</code> 文档</p>
 <p><code>nohup gunicorn -w 4 -b 0.0.0.0:8080 /root/bin/h1:app &amp;</code></p>
-<h2 id="uWSGI"><a href="#uWSGI" class="headerlink" title="uWSGI"></a>uWSGI</h2><p>h1.py 增加 執行文件，或配置虛擬環境 virtualenv</p>
+<h2 id="uWSGI"><a href="#uWSGI" class="headerlink" title="uWSGI"></a>uWSGI</h2><h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h3><p><code>pip3 install uwsgi</code></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>h1.py 增加 執行文件，或配置虛擬環境 virtualenv</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python3</span><br><span class="line">from flask import Flask</span><br><span class="line"></span><br><span class="line">app &#x3D; Flask(__name__)</span><br><span class="line"></span><br><span class="line">@app.route(&quot;&#x2F;&quot;)</span><br><span class="line">def hello():</span><br><span class="line">    return &quot;Hello World!&quot;</span><br></pre></td></tr></table></figure>
 
 <p>virtualenv 參考 <a href="https://www.cnblogs.com/oyaisusu/p/13817081.html" target="_blank" rel="noopener">https://www.cnblogs.com/oyaisusu/p/13817081.html</a></p>
@@ -291,6 +292,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[uwsgi]</span><br><span class="line">http&#x3D;:8180</span><br><span class="line">wsgi-file&#x3D;&#x2F;root&#x2F;bin&#x2F;h1.py</span><br><span class="line">callable&#x3D;app</span><br></pre></td></tr></table></figure>
 
 <p>執行命令 <code>uwsgi uwsgi.ini</code></p>
+<blockquote>
+<p>为什么有了uWSGI为什么还需要nginx？因为nginx具备优秀的静态内容处理能力，然后将动态内容转发给uWSGI服务器，这样可以达到很好的客户端响应。</p>
+</blockquote>
 
     </div>
 
@@ -357,7 +361,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Flask"><span class="nav-number">1.</span> <span class="nav-text">Flask</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建文档"><span class="nav-number">1.2.</span> <span class="nav-text">创建文档</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gunicorn"><span class="nav-number">2.</span> <span class="nav-text">Gunicorn</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-1"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行"><span class="nav-number">2.2.</span> <span class="nav-text">运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#開機啟動"><span class="nav-number">2.3.</span> <span class="nav-text">開機啟動</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简单的启动"><span class="nav-number">2.3.1.</span> <span class="nav-text">简单的启动</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uWSGI"><span class="nav-number">3.</span> <span class="nav-text">uWSGI</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#命令執行"><span class="nav-number">3.1.</span> <span class="nav-text">命令執行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文檔"><span class="nav-number">3.2.</span> <span class="nav-text">配置文檔</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Flask"><span class="nav-number">1.</span> <span class="nav-text">Flask</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建文档"><span class="nav-number">1.2.</span> <span class="nav-text">创建文档</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gunicorn"><span class="nav-number">2.</span> <span class="nav-text">Gunicorn</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-1"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行"><span class="nav-number">2.2.</span> <span class="nav-text">运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#開機啟動"><span class="nav-number">2.3.</span> <span class="nav-text">開機啟動</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简单的启动"><span class="nav-number">2.3.1.</span> <span class="nav-text">简单的启动</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uWSGI"><span class="nav-number">3.</span> <span class="nav-text">uWSGI</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安裝"><span class="nav-number">3.1.</span> <span class="nav-text">安裝</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">3.2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令執行"><span class="nav-number">3.3.</span> <span class="nav-text">命令執行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文檔"><span class="nav-number">3.4.</span> <span class="nav-text">配置文檔</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
