@@ -208,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/FileZilla-Server/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-01/share/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -222,7 +222,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2016-12/FileZilla-Server/" class="post-title-link" itemprop="url">VPS FTP 被动模式 (windows)</a>
+            <a href="/2017-01/share/" class="post-title-link" itemprop="url">頁面分享</a>
         </h1>
 
         <div class="post-meta">
@@ -232,7 +232,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-12-25 15:21:48" itemprop="dateCreated datePublished" datetime="2016-12-25T15:21:48+08:00">2016-12-25</time>
+              <time title="创建时间：2017-01-17 13:48:05" itemprop="dateCreated datePublished" datetime="2017-01-17T13:48:05+08:00">2017-01-17</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -253,7 +253,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>安裝 FileZilla Server<br>安裝好以後，添加用戶以及對應目錄<br>設置 》 被動模式　，　設定改好　允許端口範圍　（5000-6000）<br>在防火牆中 打開端口， 21,5000-6000 </p>
+          <h2 id="LinkedIn"><a href="#LinkedIn" class="headerlink" title="LinkedIn"></a>LinkedIn</h2><p><a href="https://developer.linkedin.com/docs/share-on-linkedin" target="_blank" rel="noopener">https://developer.linkedin.com/docs/share-on-linkedin</a><br>Customized URL 可以很快的實現share</p>
 
       
     </div>
@@ -273,7 +273,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/js-url/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-01/golang-log/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -287,7 +287,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2016-12/js-url/" class="post-title-link" itemprop="url">Javascript 重新生成URL Search</a>
+            <a href="/2017-01/golang-log/" class="post-title-link" itemprop="url">go学习笔记 -- 标准库 log</a>
         </h1>
 
         <div class="post-meta">
@@ -297,7 +297,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-12-25 15:19:13" itemprop="dateCreated datePublished" datetime="2016-12-25T15:19:13+08:00">2016-12-25</time>
+              <time title="创建时间：2017-01-08 14:02:56" itemprop="dateCreated datePublished" datetime="2017-01-08T14:02:56+08:00">2017-01-08</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -318,15 +318,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>需要 url.min.js 插件 <a href="https://github.com/websanova/js-url" target="_blank" rel="noopener">https://github.com/websanova/js-url</a></p>
-<p>根据当前url重新生成URL对应的search   (window.location.search)<br>调用方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">makeUrl(&#39;sort&#39;, &#39;price_asc&#39;);</span><br><span class="line">makeUrl(&#39;sort&#39;, &#39;price_asc&#39;, &#39;pn&#39;, 2);</span><br></pre></td></tr></table></figure>
+          <p>简单的例子：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"log"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    log.Fatal(<span class="string">"Come with fatal,exit with 1 \n"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>url 插件简单例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$.url(&#39;?&#39;) &#x2F;&#x2F; 返回所有get变量</span><br><span class="line">$.url(&#39;?pn&#39;) &#x2F;&#x2F; 返回 get变量中 pn 对应的值， 如果没有则返回 undefined</span><br></pre></td></tr></table></figure>
-
-<p>函数代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function makeUrl(key, value)</span><br><span class="line">&#123;</span><br><span class="line">    var s &#x3D; $.url(&#39;?&#39;);</span><br><span class="line">    s[key] &#x3D; value;</span><br><span class="line">    </span><br><span class="line">    var k1 &#x3D;  arguments[2] ? arguments[2] : &#39;&#39;;</span><br><span class="line">    var v1 &#x3D;   arguments[3] ? arguments[3] : &#39;&#39;;</span><br><span class="line">    if(k1!&#x3D;&#39;&#39;) &#123;</span><br><span class="line">        s[k1] &#x3D; v1;</span><br><span class="line">    &#125;</span><br><span class="line">    var url &#x3D; window.location.pathname+&quot;?&quot;</span><br><span class="line">    for(var v in s) &#123;</span><br><span class="line">        url +&#x3D; v+&#39;&#x3D;&#39;+s[v]+&#39;&amp;&#39;;</span><br><span class="line">    &#125;</span><br><span class="line">    url &#x3D; url.substr(0, url.length-1);</span><br><span class="line">    return url;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h2><ul>
+<li><code>log.Print[f|ln]</code> 等同与 fmt.Print[f|ln]</li>
+<li><code>log.Fatal[f|ln]</code> 等同与 fmt.Print[f|ln] 后 执行 os.Exit(1)</li>
+<li><code>log.Panic[f|ln]</code> 等同与 fmt.Print[f|ln] 的内容由 panic 抛出异常</li>
+</ul>
 
       
     </div>
@@ -346,7 +345,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/linux-wc/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-01/golang-orm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -360,7 +359,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2016-12/linux-wc/" class="post-title-link" itemprop="url">Linux文件統計</a>
+            <a href="/2017-01/golang-orm/" class="post-title-link" itemprop="url">go学习笔记 -- ORM(gorm)</a>
         </h1>
 
         <div class="post-meta">
@@ -370,7 +369,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-12-25 15:17:33" itemprop="dateCreated datePublished" datetime="2016-12-25T15:17:33+08:00">2016-12-25</time>
+              <time title="创建时间：2017-01-08 14:30:09" itemprop="dateCreated datePublished" datetime="2017-01-08T14:30:09+08:00">2017-01-08</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -391,14 +390,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>统计某文件夹下文件的个数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l |grep &quot;^-&quot;|wc -l</span><br></pre></td></tr></table></figure>
+          <h2 id="加載包"><a href="#加載包" class="headerlink" title="加載包"></a>加載包</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"github.com/jinzhu/gorm"</span></span><br><span class="line">	_ <span class="string">"github.com/jinzhu/gorm/dialects/mysql"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
-<p>统计某文件夹下目录的个数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l |grep &quot;^d&quot;|wc -l</span><br></pre></td></tr></table></figure>
+<p><code>github.com/jinzhu/gorm/dialects/mysql</code> 是為了方便記憶的，實際自動引用第三方的插件<code>github.com/go-sql-driver/mysql</code></p>
+<h2 id="定義表對應的數據"><a href="#定義表對應的數據" class="headerlink" title="定義表對應的數據"></a>定義表對應的數據</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Zip <span class="keyword">struct</span> &#123;</span><br><span class="line">	ID         <span class="keyword">uint</span> <span class="string">`gorm:"primary_key"`</span></span><br><span class="line">	Area       <span class="keyword">string</span></span><br><span class="line">	AreaDetail <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(Zip)</span> <span class="title">TableName</span><span class="params">()</span> <span class="title">string</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">"zip"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>重新定義表的名字為 zip， 否則默認為 zips 。</li>
+<li>如果定義類型中加入 <code>gorm.Model</code> 自動回引入 <code>CreatedAt</code>等</li>
+</ul>
+<h2 id="連接數據庫"><a href="#連接數據庫" class="headerlink" title="連接數據庫"></a>連接數據庫</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db, err := gorm.Open(<span class="string">"mysql"</span>, <span class="string">"root:123@/test?charset=utf8"</span>)</span><br><span class="line"><span class="keyword">defer</span> db.Close()</span><br></pre></td></tr></table></figure>
 
-<p>统计文件夹下文件的个数，包括子文件夹里的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -lR|grep &quot;^-&quot;|wc -l</span><br></pre></td></tr></table></figure>
+<h2 id="查詢"><a href="#查詢" class="headerlink" title="查詢"></a>查詢</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 是否顯示log記錄</span></span><br><span class="line"><span class="comment">// db.LogMode(true)</span></span><br><span class="line"></span><br><span class="line">zip := Zip&#123;&#125;</span><br><span class="line">db.Order(<span class="string">"id desc"</span>).Last(&amp;zip)</span><br><span class="line">log.Print(zip.ID, <span class="string">"\n"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> zips = []Zip&#123;&#125;</span><br><span class="line">db.Where(<span class="string">"language = ?"</span>, <span class="string">"tw"</span>).Order(<span class="string">"id desc"</span>).Limit(<span class="number">10</span>).Find(&amp;zips)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> _, z := <span class="keyword">range</span> zips &#123;</span><br><span class="line">    log.Printf(<span class="string">"%d, %s\n"</span>, z.ID, z.AreaDetail)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -417,7 +419,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/linux-find/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-01/bitbucket-org-ssh-login/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -431,7 +433,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2016-12/linux-find/" class="post-title-link" itemprop="url">find 命令</a>
+            <a href="/2017-01/bitbucket-org-ssh-login/" class="post-title-link" itemprop="url">bitbucket.org ssh 无验证码登录</a>
         </h1>
 
         <div class="post-meta">
@@ -441,81 +443,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-12-25 15:15:51" itemprop="dateCreated datePublished" datetime="2016-12-25T15:15:51+08:00">2016-12-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-10-25 14:15:39" itemprop="dateModified" datetime="2018-10-25T14:15:39+08:00">2018-10-25</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find [path...] [expression]</span><br></pre></td></tr></table></figure>
-
-<h2 id="查找某兩個目錄，"><a href="#查找某兩個目錄，" class="headerlink" title="查找某兩個目錄，"></a>查找某兩個目錄，</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find &#123;name080,090.net&#125;&#x2F;application&#x2F;&#123;config,helpers&#125;&#x2F; -type f</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改30分鐘前的-刪除"><a href="#修改30分鐘前的-刪除" class="headerlink" title="修改30分鐘前的 刪除"></a>修改30分鐘前的 刪除</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find &#123;name080,090.net&#125;&#x2F;application&#x2F;&#123;config,helpers&#125;&#x2F; -type f -mtime +30  -delete</span><br></pre></td></tr></table></figure>
-
-<h2 id="查詢并修改權限"><a href="#查詢并修改權限" class="headerlink" title="查詢并修改權限"></a>查詢并修改權限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -name &quot;*.php&quot; | xargs chmod 640</span><br></pre></td></tr></table></figure>
-<h2 id="查询权限是777的文档"><a href="#查询权限是777的文档" class="headerlink" title="查询权限是777的文档"></a>查询权限是777的文档</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find .&#x2F; -type d -perm 777</span><br></pre></td></tr></table></figure>
-
-<h2 id="刪除亂碼或特殊文字命名的文檔"><a href="#刪除亂碼或特殊文字命名的文檔" class="headerlink" title="刪除亂碼或特殊文字命名的文檔"></a>刪除亂碼或特殊文字命名的文檔</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 獲取 inode number</span></span><br><span class="line">ls -il</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 刪除文檔</span></span><br><span class="line">find . -inum 2890693 -delete</span><br><span class="line"><span class="meta">#</span><span class="bash"> 刪除目錄</span></span><br><span class="line">find . -inum 1367 -exec rm -rf &#123;&#125; \;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/gzip-bzip2-zip/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016-12/gzip-bzip2-zip/" class="post-title-link" itemprop="url">gzip bzip2 zip 压缩解压</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-25 15:11:03" itemprop="dateCreated datePublished" datetime="2016-12-25T15:11:03+08:00">2016-12-25</time>
+              <time title="创建时间：2017-01-06 16:05:11" itemprop="dateCreated datePublished" datetime="2017-01-06T16:05:11+08:00">2017-01-06</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -536,8 +464,229 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gzip filename.txt</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将filename变成filename.txt.gz</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> bzip2 filename.txt</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将filename变成filename.txt.bz2</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> zip filename</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将filename变成filename.txt.zip</span></span><br></pre></td></tr></table></figure>
-<h2 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gunzip filename.gz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> bunzip2 filename.bz2</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> unzip filename.zip</span></span><br></pre></td></tr></table></figure>
+          <h2 id="单用户"><a href="#单用户" class="headerlink" title="单用户"></a>单用户</h2><h3 id="一般的git-ssh登录"><a href="#一般的git-ssh登录" class="headerlink" title="一般的git ssh登录"></a>一般的git ssh登录</h3><ul>
+<li>生成 rsa key。</li>
+<li>把public key 上传到网站上 <code>https://bitbucket.org/account/user/&lt;username&gt;/ssh-keys/</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;username&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="特殊设定"><a href="#特殊设定" class="headerlink" title="特殊设定"></a>特殊设定</h3><p>git remote url 必须是 <code>git@bitbucket.org:&lt;accountname&gt;/&lt;reponame&gt;.git</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url origin git@bitbucket.org:&lt;accountname&gt;&#x2F;&lt;reponame&gt;.git</span><br><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+
+<h2 id="多用户"><a href="#多用户" class="headerlink" title="多用户"></a>多用户</h2><p>如果你有多个帐号， 就需要用到 <code>IdentitiesOnly yes</code>选项。</p>
+<p>例如在 .ssh/config 中增加第二个用户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host bitbucket.org-user2</span><br><span class="line">     HostName bitbucket.org</span><br><span class="line">     User git</span><br><span class="line">     IdentityFile ~&#x2F;.ssh&#x2F;user2_rsa</span><br><span class="line">     IdentitiesOnly yes</span><br></pre></td></tr></table></figure>
+
+<p>注意，同样的remote url也要设定为 <code>git@bitbucket.org-user2:user2/blog.git</code></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/windows10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016-12/windows10/" class="post-title-link" itemprop="url">windows10</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-19 16:52:51" itemprop="dateCreated datePublished" datetime="2016-12-19T16:52:51+08:00">2016-12-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="下載最新的ISO"><a href="#下載最新的ISO" class="headerlink" title="下載最新的ISO"></a>下載最新的ISO</h1><p>打開頁面 <a href="https://www.microsoft.com/zh-cn/software-download/windows10" target="_blank" rel="noopener">https://www.microsoft.com/zh-cn/software-download/windows10</a></p>
+<p>直接回檢查到使用的是win10， 提示更新程序 Windows10Upgrade9252.exe 下載</p>
+<h2 id="Windows-選擇默認程序"><a href="#Windows-選擇默認程序" class="headerlink" title="Windows 選擇默認程序"></a>Windows 選擇默認程序</h2><p>今天Windows 10的选择默认程序失效了。<br>只能切换到老版的默认程序设定。 打开一下路径。 在“我的电脑”，右键，属性， 中找。</p>
+<blockquote>
+<p>控制面板\所有控制面板项\默认程序\设置默认程序</p>
+</blockquote>
+<p>然后再这里设定才可以。</p>
+<h2 id="windows-命令行启动-mysql"><a href="#windows-命令行启动-mysql" class="headerlink" title="windows 命令行启动 mysql"></a>windows 命令行启动 mysql</h2><p>必须以管理员身份运行命令行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start mysql</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-01/cpanel-ftpquota/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017-01/cpanel-ftpquota/" class="post-title-link" itemprop="url">cpanel ftpquota 問題</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-01-06 13:46:34" itemprop="dateCreated datePublished" datetime="2017-01-06T13:46:34+08:00">2017-01-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天遇到奇怪的现象， FTP客户端 总是提示 <code>quota exceeded</code>，无法上次文档。 但是查看cpanel的磁盘空间并没有满。</p>
+<p>网上查到的解决办法，删除 <code>ftpquota</code> 文档：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;home&#x2F;user&#x2F;etc</span><br><span class="line">mv ftpquota ftpquota_old</span><br><span class="line">touch ftpquota</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/supervisor/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016-12/supervisor/" class="post-title-link" itemprop="url">Supervisord 進程管理</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-25 15:31:25" itemprop="dateCreated datePublished" datetime="2016-12-25T15:31:25+08:00">2016-12-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#Debian Ubuntu</span><br><span class="line">apt-get install supervisor</span><br><span class="line">#other</span><br><span class="line">easy_install supervisor</span><br></pre></td></tr></table></figure>
+
+<p>配置可以參照<br><a href="https://rayed.com/wordpress/?p=1496" target="_blank" rel="noopener">https://rayed.com/wordpress/?p=1496</a><br>官網 <a href="http://supervisord.org/" target="_blank" rel="noopener">http://supervisord.org/</a><br>ubuntu 的配置文檔 /etc/supervisor/supervisord.conf<br>log文檔 /var/log/supervisor/ 目錄下</p>
+<h2 id="啟動"><a href="#啟動" class="headerlink" title="啟動"></a>啟動</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service supervisor start</span><br></pre></td></tr></table></figure>
+
+<h2 id="管理"><a href="#管理" class="headerlink" title="管理"></a>管理</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl stop all #停止全部进程，注：start、restart、stop都不会载入最新的配置文件。</span><br><span class="line">supervisorctl reload #载入最新的配置文件，停止原有进程并按新的配置启动、管理所有进程。</span><br><span class="line">supervisorctl update #根据最新的配置文件，启动新配置或有改动的进程，配置没有改动的进程不会受影响而重启。</span><br><span class="line"><span class="meta">#</span><span class="bash">注意：显示用stop停止掉的进程，用reload或者update都不会自动重启。</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -628,7 +777,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/chattr-lsattr/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/ruby-symbol/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -642,7 +791,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2016-12/chattr-lsattr/" class="post-title-link" itemprop="url">chattr和lsattr命令 linux鎖定</a>
+            <a href="/2016-12/ruby-symbol/" class="post-title-link" itemprop="url">Ruby Symbol（冒號）</a>
         </h1>
 
         <div class="post-meta">
@@ -652,7 +801,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-12-25 15:05:14" itemprop="dateCreated datePublished" datetime="2016-12-25T15:05:14+08:00">2016-12-25</time>
+              <time title="创建时间：2016-12-11 14:53:39" itemprop="dateCreated datePublished" datetime="2016-12-11T14:53:39+08:00">2016-12-11</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -673,32 +822,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>lsattr 显示文件的属性</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">[root]#</span><span class="bash">lsattr</span></span><br><span class="line">----i-------- ./ff</span><br></pre></td></tr></table></figure>
+          <p>經常看到下面</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my_hash = [<span class="symbol">:foo=&gt;</span><span class="number">100</span>, <span class="symbol">:aa=&gt;<span class="string">"sss"</span></span>]</span><br></pre></td></tr></table></figure>
 
-<p>chattr 命令 修改文件（目錄）属性能够提高系统的安全性  (只有超级权限的用户才具有使用该命令的权限)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">[root]#</span><span class="bash">lsattr  <span class="comment"># 默認情況下</span></span></span><br><span class="line">------------- ./ff</span><br><span class="line"> </span><br><span class="line"><span class="meta">[root]#</span><span class="bash">chattr +i ff</span></span><br><span class="line"><span class="meta">[root]#</span><span class="bash">lsattr</span></span><br><span class="line">----i-------- ./ff</span><br></pre></td></tr></table></figure>
+<p>:foo 就是 Symbol 是一個唯一標示。 用作性能提升， 因為ruby中 string 是一個對象。 </p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">:foo</span></span><br><span class="line"><span class="symbol">:<span class="string">"foo"</span></span></span><br><span class="line"><span class="comment">#效果一樣</span></span><br></pre></td></tr></table></figure>
 
-<p>chattr命令的用法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chattr [ -RV ] [ -v version ] [ mode ] files...</span><br></pre></td></tr></table></figure>
+<p>還有一種情況是 快速定義</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>  </span></span><br><span class="line">  <span class="keyword">attr_accessor</span> <span class="symbol">:whatever</span>  </span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><ul>
-<li>：在原有参数设定基础上，追加参数。</li>
-</ul>
-</li>
-<li><ul>
-<li>：在原有参数设定基础上，移除参数。</li>
-</ul>
-</li>
-<li><p>i ：设定文件不能被删除、改名、设定链接关系，同时不能写入或新增内容。i参数对于文件 系统的安全设置有很大帮助。</p>
-</li>
-<li><p>a：即append，设定该参数后，只能向文件中添加数据，而不能删除，多用于服务器日志文 件安全，只有root才能设定这个属性。</p>
-</li>
-<li><p>j：即journal，设定此参数使得当通过mount参数：data=ordered 或者 data=writeback 挂 载的文件系统，文件在写入时会先被记录(在journal中)。如果filesystem被设定参数为 data=journal，则该参数自动失效。</p>
-</li>
-</ul>
-
+<p>等價于</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>  </span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">whatever</span>  </span></span><br><span class="line">    @whatever  </span><br><span class="line">  <span class="keyword">end</span>  </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">whatever=</span><span class="params">(val)</span></span>  </span><br><span class="line">    @whatever = val  </span><br><span class="line">  <span class="keyword">end</span>  </span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -717,7 +851,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/php-APCu/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/shadowsocks-manyuser-server/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -731,7 +865,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2016-12/php-APCu/" class="post-title-link" itemprop="url">PHP加速 OpCache+APCu</a>
+            <a href="/2016-12/shadowsocks-manyuser-server/" class="post-title-link" itemprop="url">shadowsocks manyuser 安裝</a>
         </h1>
 
         <div class="post-meta">
@@ -741,7 +875,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-12-25 15:02:01" itemprop="dateCreated datePublished" datetime="2016-12-25T15:02:01+08:00">2016-12-25</time>
+              <time title="创建时间：2016-12-25 15:27:07" itemprop="dateCreated datePublished" datetime="2016-12-25T15:27:07+08:00">2016-12-25</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -762,168 +896,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>PHP5.5或者更高版本 自动加入了 opcache 缓存程序代码的功能。  但是不能缓存用户资料。<br>原本的 apc 和 opcache 部分功能冲突了， 又没有 opcache 效率高。<br>所以 APCu 出现了。 只能缓存用户自定义的资料。 接口和 apc 一样。 代码缓存 交给 opcache。</p>
-<p>所以有了<code>OpCache+APCu</code>或者<code>OpCache + Memcached( 或 Redis)</code></p>
+          <p>安裝 <a href="https://github.com/mengskysama/shadowsocks-rm.git" target="_blank" rel="noopener">https://github.com/mengskysama/shadowsocks-rm.git</a> 需要用到 cymysql 插件鏈接mysql。</p>
+<h2 id="Ubuntu安裝"><a href="#Ubuntu安裝" class="headerlink" title="Ubuntu安裝"></a>Ubuntu安裝</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">mysql</span></span><br><span class="line">apt-get install mysql-server mysql-client </span><br><span class="line"><span class="meta">#</span><span class="bash">git</span></span><br><span class="line">apt-get install git</span><br><span class="line"><span class="meta">#</span><span class="bash">進程管理</span></span><br><span class="line">apt-get install supervisor</span><br><span class="line"><span class="meta">#</span><span class="bash">python</span></span><br><span class="line">apt-get install python-pip python-m2crypto</span><br><span class="line">pip install cymysql</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
+<h2 id="Centos安裝"><a href="#Centos安裝" class="headerlink" title="Centos安裝"></a>Centos安裝</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">python</span></span><br><span class="line">yum install m2crypto python-setuptools</span><br><span class="line">easy_install pip</span><br><span class="line">pip install cymysql</span><br><span class="line"><span class="meta">#</span><span class="bash">git</span></span><br><span class="line">yum -y install git</span><br></pre></td></tr></table></figure>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+<h2 id="supervisor參考"><a href="#supervisor參考" class="headerlink" title="supervisor參考"></a>supervisor參考</h2><p><a href="https://rayed.com/wordpress/?p=1496" target="_blank" rel="noopener">https://rayed.com/wordpress/?p=1496</a></p>
+<h2 id="shadowsocks安裝"><a href="#shadowsocks安裝" class="headerlink" title="shadowsocks安裝"></a>shadowsocks安裝</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">下載源代碼</span></span><br><span class="line">git clone -b manyuser https://github.com/mengskysama/shadowsocks-rm.git</span><br><span class="line"><span class="meta">#</span><span class="bash"> 登錄MySQL 創建數據庫&amp;導入</span></span><br><span class="line">mysql -u root -p</span><br><span class="line">create database shadowsocks;</span><br><span class="line">use shadowsocks;</span><br><span class="line">source shadowsocks.sql;</span><br></pre></td></tr></table></figure>
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/sqlserver-2008/">
+<p>守護進程管理<br>創建文件 /etc/supervisor/conf.d/shadowsocks.conf （Ubuntu）<br>內容如下：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[program:shadowsocks]</span></span><br><span class="line"><span class="attr">command</span>=python /root/shadowsocks/shadowsocks/servers.py</span><br><span class="line"><span class="attr">autorestart</span>=<span class="literal">true</span></span><br><span class="line"><span class="attr">user</span>=root</span><br></pre></td></tr></table></figure>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
+<p>// centos 參照<br><a href="http://www.cmsky.com/shadowsocks-manyuser-sspanel/" target="_blank" rel="noopener">http://www.cmsky.com/shadowsocks-manyuser-sspanel/</a><br><a href="https://rayed.com/wordpress/?p=1496" target="_blank" rel="noopener">https://rayed.com/wordpress/?p=1496</a></p>
+<p>自定義用戶類型<br>編輯 shadowsocks/dbtransfer.py 約 91行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cur.execute(&quot;SELECT port, u, d, transfer_enable, passwd, switch, enable FROM user&quot;)</span><br></pre></td></tr></table></figure>
+<p>設定為想要的Sql語句</p>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016-12/sqlserver-2008/" class="post-title-link" itemprop="url">Sql Server 2008 远程连接配置</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-25 15:00:10" itemprop="dateCreated datePublished" datetime="2016-12-25T15:00:10+08:00">2016-12-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>参考</p>
-<p><a href="http://jingyan.baidu.com/article/6c67b1d6ca06f02787bb1ed1.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/6c67b1d6ca06f02787bb1ed1.html</a></p>
-<p>注意：</p>
-<ul>
-<li>设置完后必须重新启动Sql Server 服务</li>
-<li>打开防火墙1433端口</li>
-<li>第12步中， 【选择“IP 地址”选项卡，设置TCP的端口为“1433”】  最好把最下方的 “IPAll”设定：【TCP 动态端口 0，TCP 端口 1433】</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/htaccess/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016-12/htaccess/" class="post-title-link" itemprop="url">.htaccess</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-25 14:54:48" itemprop="dateCreated datePublished" datetime="2016-12-25T14:54:48+08:00">2016-12-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-16 17:49:11" itemprop="dateModified" datetime="2020-12-16T17:49:11+08:00">2020-12-16</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>.htaccess 文档</p>
-<p>一些特殊情況下，注意增加否定條件。譬如 <code>RewriteCond $1 !^(2\.php)</code> 否則apache會報錯。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RewriteCond $1 !^(2\.php)</span><br><span class="line">RewriteRule ^(.*)$ 2.php&#x2F;$1 [L]</span><br></pre></td></tr></table></figure>
-
-<h2 id="一般"><a href="#一般" class="headerlink" title="一般"></a>一般</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Options +FollowSymLinks</span><br><span class="line">RewriteEngine On</span><br><span class="line"> </span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</span><br><span class="line">RewriteRule ^(.+)&#x2F;$ http:&#x2F;&#x2F;%&#123;HTTP_HOST&#125;&#x2F;$1 [R&#x3D;301,L]</span><br><span class="line"> </span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</span><br><span class="line">RewriteRule ^ index.php [L]</span><br></pre></td></tr></table></figure>
-
-<p><code>Options +FollowSymLinks</code></p>
-<p>在 某些服务器配置中，mod_rewrite要求有followsymlinks，否则会显示500内部服务器错误。</p>
-<h2 id="禁止所有请求"><a href="#禁止所有请求" class="headerlink" title="禁止所有请求"></a>禁止所有请求</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deny from all</span><br></pre></td></tr></table></figure>
-
-<p>一般用于 <code>vendor</code> <code>application</code> 目录</p>
-<h2 id="禁止列出目錄"><a href="#禁止列出目錄" class="headerlink" title="禁止列出目錄"></a>禁止列出目錄</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Options -Indexes</span><br></pre></td></tr></table></figure>
-
-<h2 id="強制-www"><a href="#強制-www" class="headerlink" title="強制 www"></a>強制 www</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RewriteCond %&#123;HTTP_HOST&#125; !^www\. [NC]</span><br><span class="line">RewriteCond %&#123;REQUEST_URI&#125; !(\.well\-known) # 排除url</span><br><span class="line">RewriteRule ^(.*)$ https:&#x2F;&#x2F;www.%&#123;HTTP_HOST&#125;&#x2F;$1 [R&#x3D;301,L]</span><br></pre></td></tr></table></figure>
-
-<h2 id="強制HTTPS"><a href="#強制HTTPS" class="headerlink" title="強制HTTPS"></a>強制HTTPS</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RewriteCond %&#123;HTTPS&#125; off</span><br><span class="line">RewriteCond %&#123;REQUEST_URI&#125; !(\.well\-known) # 排除url</span><br><span class="line">RewriteRule ^(.*)$ https:&#x2F;&#x2F;%&#123;SERVER_NAME&#125;%&#123;REQUEST_URI&#125; [L,R]</span><br></pre></td></tr></table></figure>
-
-<h2 id="強制返回404"><a href="#強制返回404" class="headerlink" title="強制返回404"></a>強制返回404</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RewriteCond %&#123;HTTP_HOST&#125; &#x3D;abc.om</span><br><span class="line">RewriteRule ^(.*)$ - [R&#x3D;404,L]</span><br></pre></td></tr></table></figure>
-
-<h2 id="顯示臨時頁面"><a href="#顯示臨時頁面" class="headerlink" title="顯示臨時頁面"></a>顯示臨時頁面</h2><p>.htaccess</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RewriteEngine on</span><br><span class="line"></span><br><span class="line">RewriteCond $1 !^(2\.php)</span><br><span class="line">RewriteRule ^(.*)$ 2.php/$1 [L]</span><br></pre></td></tr></table></figure>
-
-<p>2.php</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Name080<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"padding: 40px 20px;font-size: 24px"</span>&gt;</span>網站維護中 ... <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
       
     </div>
 

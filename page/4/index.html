@@ -208,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-05/cxs/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/linux-rsync/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -222,7 +222,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019-05/cxs/" class="post-title-link" itemprop="url">CXS (ConfigServer eXploit Scanner)</a>
+            <a href="/2016-12/linux-rsync/" class="post-title-link" itemprop="url">Linux 快速删除大量小文件</a>
         </h1>
 
         <div class="post-meta">
@@ -232,14 +232,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-05-29 09:39:39" itemprop="dateCreated datePublished" datetime="2019-05-29T09:39:39+08:00">2019-05-29</time>
+              <time title="创建时间：2016-12-25 13:54:26" itemprop="dateCreated datePublished" datetime="2016-12-25T13:54:26+08:00">2016-12-25</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-07-29 13:49:20" itemprop="dateModified" datetime="2019-07-29T13:49:20+08:00">2019-07-29</time>
+                <time title="修改时间：2020-02-11 16:58:34" itemprop="dateModified" datetime="2020-02-11T16:58:34+08:00">2020-02-11</time>
               </span>
 
           
@@ -253,518 +253,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><ul>
-<li>手动检查命令 ： <code>cxs .</code></li>
-<li>排除 <code>World writeable directory</code> 信息： <code>cxs --options mMOLfSGchexdnZDRru .</code> 去掉了 <code>w</code>。</li>
-</ul>
-<p>参考：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--options [-&#x2F;+][mMOLfuSGcChexdnwWTEDZRrPUI] Exploit scan options</span><br></pre></td></tr></table></figure>
-
-<p>详细说明</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">m &#x3D; regex pattern match</span><br><span class="line">M &#x3D; fingerprint match</span><br><span class="line">v &#x3D; virus</span><br><span class="line">O &#x3D; socket</span><br><span class="line">L &#x3D; symlink</span><br><span class="line">f &#x3D; suspicious file</span><br><span class="line">F &#x3D; skipped directory with too many entries</span><br><span class="line">S &#x3D; SUID file</span><br><span class="line">G &#x3D; GUID file</span><br><span class="line">c &#x3D; core dump file</span><br><span class="line">C &#x3D; core dump file deleted</span><br><span class="line">h &#x3D; suspected exploit file</span><br><span class="line">e &#x3D; Linux binary or executable file</span><br><span class="line">x &#x3D; Windows binary or executable file</span><br><span class="line">d &#x3D; suspicious directory name</span><br><span class="line">n &#x3D; hidden directory owned by nobody user</span><br><span class="line">w &#x3D; world writable directory</span><br><span class="line">W &#x3D; world writable directory - chmod to 755</span><br><span class="line">T &#x3D; script file - identifies PHP, Perl, and other script files as suspicious</span><br><span class="line">E &#x3D; email script</span><br><span class="line">D &#x3D; Decoded PHP encoded (e.g. base64) file scan match</span><br><span class="line">R &#x3D; Match the PHP decode regex</span><br><span class="line">P &#x3D; Search D&#x2F;B config files and attempt user login via FTP. Match on success</span><br><span class="line">Z &#x3D; compressed file - scan within zip, tar, tar.gz and tar.bz2 files</span><br><span class="line">! &#x3D; Scan timeout per file B&lt;--timemax&gt;</span><br><span class="line">[Zzzzzzz] &#x3D; sleeping for 60 seconds as load average is &gt; --throttle [num]</span><br></pre></td></tr></table></figure>
-
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>修改 <code>/etc/cxs/cxswatch.conf</code> 文檔中的 <code>options</code> 屬性</p>
-<h2 id="cxs-IP-Reputation-System"><a href="#cxs-IP-Reputation-System" class="headerlink" title="cxs IP Reputation System"></a>cxs IP Reputation System</h2><p>編輯 <code>cxs.blocklists</code> 設定哪些需要開啟</p>
-<p>如果有類似 <code>CXS_LF_SSHD</code> <code>CXS_LF_CPANEL</code> 的防火墻規則。 需要先刪除 <code>/var/lib/csf/csf.block.CXS_LF_SSHD</code> 對應的ip 然後在重啟 csf <code>csf -ra</code></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-05/cpanel-ftp-over-tls/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019-05/cpanel-ftp-over-tls/" class="post-title-link" itemprop="url">cpanel ftp over TLS</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-05-10 16:41:41" itemprop="dateCreated datePublished" datetime="2019-05-10T16:41:41+08:00">2019-05-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-05-13 09:08:56" itemprop="dateModified" datetime="2019-05-13T09:08:56+08:00">2019-05-13</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="狀況"><a href="#狀況" class="headerlink" title="狀況"></a>狀況</h2><p>cpanel 設定的 ftp over tls 總是列表失敗。</p>
-<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>原因是 ftp 的被動模式(Passive)沒有正常運行。防火墻(csf)攔截了。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/pure-ftpd.conf | grep PassivePortRange</span><br><span class="line"><span class="meta">#</span><span class="bash"> 可以看到</span></span><br><span class="line">PassivePortRange 49152 65534</span><br></pre></td></tr></table></figure>
-
-<h2 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h2><p>csf 設定文檔 的 <code>TCP_IN</code> 增加 <code>49152:65534</code>。並重啟。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-03/git-branch/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019-03/git-branch/" class="post-title-link" itemprop="url">Git branch 分支</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-03-20 10:34:29 / 修改时间：10:43:31" itemprop="dateCreated datePublished" datetime="2019-03-20T10:34:29+08:00">2019-03-20</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git branch # 查看本地分支</span><br><span class="line">git branch &lt;name&gt; # 創建</span><br><span class="line">git checkout -b dev # 創建並切換到 dev 分支</span><br><span class="line">git checkout master # 切換分支</span><br><span class="line"></span><br><span class="line">git branch -d dev # 刪除本地分支</span><br></pre></td></tr></table></figure>
-
-<h2 id="遠程分支"><a href="#遠程分支" class="headerlink" title="遠程分支"></a>遠程分支</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https://github.com/xxx0/xxx.git # 關聯遠程分支</span><br><span class="line">git branch -a # 查看所有分支</span><br><span class="line">git push origin dev # 上傳本地分支到遠程</span><br><span class="line"></span><br><span class="line">git push origin --delete dev # 刪除遠程分支</span><br></pre></td></tr></table></figure>
-
-<h2 id="合併分支"><a href="#合併分支" class="headerlink" title="合併分支"></a>合併分支</h2><p>合併 <code>dev</code> 分支 到 <code>master</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git merge dev</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-02/systemd/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019-02/systemd/" class="post-title-link" itemprop="url">systemd 简单实例</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-02-20 17:53:48" itemprop="dateCreated datePublished" datetime="2019-02-20T17:53:48+08:00">2019-02-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-26 15:52:14" itemprop="dateModified" datetime="2021-04-26T15:52:14+08:00">2021-04-26</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>systemd systemctl</p>
-<h2 id="systemctl-常用命令"><a href="#systemctl-常用命令" class="headerlink" title="systemctl 常用命令"></a>systemctl 常用命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">systemctl list-unit-files # 列出所有配置文件</span><br><span class="line">systemctl list-unit-files --type=service # 列表所有 service</span><br><span class="line">systemctl list-unit-files | grep php # 搜索 php</span><br><span class="line"></span><br><span class="line">systemctl stauts httpd</span><br><span class="line">systemctl restart httpd</span><br><span class="line">systemctl stop httpd</span><br><span class="line">systemctl start httpd</span><br></pre></td></tr></table></figure>
-
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>安装基本python插件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install flask</span><br><span class="line">pip install gunicorn</span><br></pre></td></tr></table></figure>
-
-<p>创建文档 <code>/root/bin/rot13.py</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route("/")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello World!"</span></span><br></pre></td></tr></table></figure>
-
-<p>测试以上程序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;local&#x2F;bin&#x2F;gunicorn -w 4 -b 0.0.0.0:8080 rot13:app</span><br></pre></td></tr></table></figure>
-
-<h2 id="配置-systemd"><a href="#配置-systemd" class="headerlink" title="配置 systemd"></a>配置 systemd</h2><p>Systemd是一个系统管理守护进程、工具和库的集合</p>
-<p>创建文档<code>/etc/systemd/system/rot13.service</code></p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Unit]</span></span><br><span class="line"><span class="attr">Description</span>=ROT13 demo service</span><br><span class="line"><span class="attr">After</span>=network.target</span><br><span class="line"><span class="attr">After</span>=syslog.target</span><br><span class="line"></span><br><span class="line"><span class="section">[Service]</span></span><br><span class="line"><span class="attr">Type</span>=simple</span><br><span class="line"><span class="attr">Restart</span>=always</span><br><span class="line"><span class="attr">User</span>=root</span><br><span class="line"><span class="attr">WorkingDirectory</span>=/root/bin</span><br><span class="line"><span class="attr">ExecStart</span>=/usr/local/bin/gunicorn -w <span class="number">4</span> -b <span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">8080</span> rot13:app</span><br><span class="line"></span><br><span class="line"><span class="section">[Install]</span></span><br><span class="line"><span class="attr">WantedBy</span>=multi-user.target</span><br></pre></td></tr></table></figure>
-
-<p>启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start rot13.service</span><br></pre></td></tr></table></figure>
-
-<p>开机启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable rot13.service</span><br></pre></td></tr></table></figure>
-
-<h3 id="配置说明"><a href="#配置说明" class="headerlink" title="配置说明"></a>配置说明</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Restart</span>=<span class="literal">no</span> <span class="comment"># (默认值) 表示不会被重启。</span></span><br><span class="line"></span><br><span class="line"><span class="attr">Restart</span>=always <span class="comment">#表示会被无条件的重启</span></span><br><span class="line"></span><br><span class="line"><span class="attr">Restart</span>=<span class="literal">on</span>-failure</span><br></pre></td></tr></table></figure>
-
-<h2 id="配置防火墙"><a href="#配置防火墙" class="headerlink" title="配置防火墙"></a>配置防火墙</h2><p>Ubuntu 为例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow 8080</span><br></pre></td></tr></table></figure>
-
-<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a href="https://www.cnblogs.com/zwcry/p/9602756.html" target="_blank" rel="noopener">https://www.cnblogs.com/zwcry/p/9602756.html</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-02/php-curl-json/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019-02/php-curl-json/" class="post-title-link" itemprop="url">php curl 返回String 解析Json失敗</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-02-18 13:34:20 / 修改时间：13:37:37" itemprop="dateCreated datePublished" datetime="2019-02-18T13:34:20+08:00">2019-02-18</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>通過Curl獲取String，然後<code>json_decode</code>解析，失敗。肉眼看 沒有問題。</p>
-<p>通過<code>var_dump</code>查看，發現字符串長度不對。（應該是某些特殊的字符無法無法顯示，譬如對方某個php腳本用的utf8-bom）</p>
-<p>解決辦法：</p>
-<p><code>對方</code>的程序輸出的時候， 增加 <code>ob_clean()</code>。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-01/apache-rewrite/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019-01/apache-rewrite/" class="post-title-link" itemprop="url">apache rewrite RewriteRule</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-01-31 20:56:04" itemprop="dateCreated datePublished" datetime="2019-01-31T20:56:04+08:00">2019-01-31</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-11 20:37:05" itemprop="dateModified" datetime="2020-08-11T20:37:05+08:00">2020-08-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="RewriteRule-跳转-amp-重新指向"><a href="#RewriteRule-跳转-amp-重新指向" class="headerlink" title="RewriteRule 跳转&amp;重新指向"></a>RewriteRule 跳转&amp;重新指向</h2><p>以下都是在 二级目录 <code>~/public_html/var/</code> 做的测试。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">RewriteEngine on</span><br><span class="line"></span><br><span class="line">RewriteRule ^abc1$ v1.php [L]</span><br><span class="line">RewriteRule ^abc3$ &#x2F;var&#x2F;v1.php [L]</span><br><span class="line">RewriteRule ^abc4$ &#x2F;var&#x2F;v1.php [L,R&#x3D;302]</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>^abc1$ v1.php [L]</code> 等同于 <code>^abc3$ /var/v1.php [L]</code></li>
-<li><code>R=302</code> 或 <code>R=301</code> 跳转时，必须写绝对url路径！</li>
-</ul>
-<h3 id="RewriteBase"><a href="#RewriteBase" class="headerlink" title="RewriteBase"></a>RewriteBase</h3><p>通常默认的虚拟主机的网站在使用.htaccess 进行重写规则时不需要执行设置该指令. 因为 RewriteBase 默认值是该 .htaccess 文件所在的目录地址。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">RewriteEngine on</span><br><span class="line"></span><br><span class="line">RewriteBase &#x2F;var&#x2F;</span><br><span class="line"></span><br><span class="line">RewriteRule ^abc1$ v1.php [L]</span><br><span class="line"></span><br><span class="line">RewriteRule ^abc3$ &#x2F;var&#x2F;v1.php [L]</span><br><span class="line"></span><br><span class="line">RewriteRule ^abc4$ &#x2F;var&#x2F;v1.php [L,R&#x3D;302]</span><br><span class="line">RewriteRule ^abc5$ v1.php [L,R&#x3D;302]</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在指定了 <code>RewriteBase /var/</code> 所以 <code>^abc4$ /var/v1.php [L,R=302]</code> 等同于 <code>^abc5$ v1.php [L,R=302]</code></li>
-<li>如果使用了绝对路径 <code>/var/v1.php</code> 不会受 <code>RewriteBase /var/</code> 影响</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-11/outlook2016/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2018-11/outlook2016/" class="post-title-link" itemprop="url">Outlook 2016 设定</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2018-11-12 14:33:01 / 修改时间：15:01:56" itemprop="dateCreated datePublished" datetime="2018-11-12T14:33:01+08:00">2018-11-12</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>很客户使用 Outlook。所以作为维护人员，一些设定比较难找，但也得知道。</p>
-<h2 id="查看-amp-修改SMTP等连接属性"><a href="#查看-amp-修改SMTP等连接属性" class="headerlink" title="查看&amp;修改SMTP等连接属性"></a>查看&amp;修改SMTP等连接属性</h2><p>这个隐藏的太深了 :( 。操作步骤如下：</p>
-<p>文件 》 选项 》 高级 》 发送和接收 》 编辑 》 “选择某个邮箱账号” 》 账号属性 》 高级</p>
-<h2 id="查看-Mail-header"><a href="#查看-Mail-header" class="headerlink" title="查看 Mail header"></a>查看 Mail header</h2><ul>
-<li>要双击邮件，在独立的窗口打开这个邮件。</li>
-<li>文件 》 属性 》 Internet 邮件头</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-11/cpanel-awstats/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2018-11/cpanel-awstats/" class="post-title-link" itemprop="url">cpanel-awstats</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2018-11-08 09:25:27 / 修改时间：15:48:51" itemprop="dateCreated datePublished" datetime="2018-11-08T09:25:27+08:00">2018-11-08</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>目的：不登錄cpanel的情況下，讓客戶可以訪問awstats。</p>
-<p>以下先說操作步驟，最後在回復原因。</p>
-<h2 id="步驟"><a href="#步驟" class="headerlink" title="步驟"></a>步驟</h2><ol>
-<li>創建子域名設定獨立目錄 c.xxx.com</li>
-<li>下載awstats-7.7.tar.gz</li>
-<li>接下wwwroot目錄下的 <code>cgi-bin</code> <code>icon</code> 目錄 到 c.xxx.com 目錄下（根據實際情況 修改<code>icon</code>名稱）</li>
-<li>複製<code>~/tmp/awstats/ssl</code>下conf文檔到<code>~/c.xxx.com/cgi-bin/</code>。</li>
-<li>登錄到cpanel 在<code>目錄隱私權</code> 對 <code>c.xxx.com</code>目錄添加訪問用賬號密碼</li>
+          <h2 id="快速删除大量小文件"><a href="#快速删除大量小文件" class="headerlink" title="快速删除大量小文件"></a>快速删除大量小文件</h2><ol>
+<li>先建立一个空目录</li>
 </ol>
-<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><h3 id="為什麼要新建子域名"><a href="#為什麼要新建子域名" class="headerlink" title="為什麼要新建子域名"></a>為什麼要新建子域名</h3><p>Cpanel 手動增加http-basic認證失敗，只能利用panel 的<code>目錄隱私權</code>功能。</p>
-<h3 id="為什麼不用cronb程序定期讀取log文檔"><a href="#為什麼不用cronb程序定期讀取log文檔" class="headerlink" title="為什麼不用cronb程序定期讀取log文檔"></a>為什麼不用cronb程序定期讀取log文檔</h3><p>這裡是直接讀取的cpanel的配置文檔，cpanel自動個讀取。</p>
-<h3 id="為什麼讀取-tmp-awstats-ssl-而不是-tmp-awstats-下的config-文檔"><a href="#為什麼讀取-tmp-awstats-ssl-而不是-tmp-awstats-下的config-文檔" class="headerlink" title="為什麼讀取 ~/tmp/awstats/ssl 而不是 ~/tmp/awstats/ 下的config 文檔"></a>為什麼讀取 <code>~/tmp/awstats/ssl</code> 而不是 <code>~/tmp/awstats/</code> 下的config 文檔</h3><p>已經設定了 http 自動跳轉到https</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /data/blank</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>用rsync删除目标目录</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rsync --delete-before -d -a -H -v --progress --stats /data/blank/ /var/edatacache/</span><br><span class="line"><span class="meta">#</span><span class="bash"> or </span></span><br><span class="line">rsync --delete-before -d /data/blank/ /var/edatacache/</span><br></pre></td></tr></table></figure>
+
+<h2 id="同步某个目录"><a href="#同步某个目录" class="headerlink" title="同步某个目录"></a>同步某个目录</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/rsync -a -v -P /home/hk/public_html/uploads/ hk@s1.ace.com:/home/hk/public_html/uploads/</span><br></pre></td></tr></table></figure>
+
+<h3 id="免密码-使用-key"><a href="#免密码-使用-key" class="headerlink" title="免密码 使用 key"></a>免密码 使用 key</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1. 生成key</span><br><span class="line">ssh-keygen -t rsa      //  （一路回车键）</span><br><span class="line"></span><br><span class="line">2. 拷贝到远程主机上</span><br><span class="line">ssh-copy-id -i  ~/.ssh/id_rsa.pub  root@IP   //原理就是把自己的公钥 添加到 对方的 au*** 那个文件里面   </span><br><span class="line"><span class="meta">#</span><span class="bash">ssh-copy-id -i ~/.ssh/id_rsa.pub “-p 2022 root@ip”  //如果不是默认22端口</span></span><br><span class="line"></span><br><span class="line">3. 验证：</span><br><span class="line">ssh root@ip            //不需要密码，说明成功！</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><ol>
+<li>–delete-before 接收者在传输之前进行删除操作</li>
+<li>–progress 在传输时显示传输过程</li>
+<li>-a 归档模式，表示以递归方式传输文件，并保持所有文件属性</li>
+<li>-H 保持硬连接的文件</li>
+<li>-v 详细输出模式</li>
+<li>–stats 给出某些文件的传输状态</li>
+</ol>
 
       
     </div>
@@ -784,7 +295,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-11/cpanel-hinet-mail/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-02/php-ext/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -798,7 +309,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2018-11/cpanel-hinet-mail/" class="post-title-link" itemprop="url">cpanel 發送Mail 到 hinet信箱 失敗</a>
+            <a href="/2020-02/php-ext/" class="post-title-link" itemprop="url">单独编译 php 扩展</a>
         </h1>
 
         <div class="post-meta">
@@ -809,7 +320,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2018-11-01 13:56:59 / 修改时间：14:01:23" itemprop="dateCreated datePublished" datetime="2018-11-01T13:56:59+08:00">2018-11-01</time>
+              <time title="创建时间：2020-02-11 16:23:25 / 修改时间：16:44:58" itemprop="dateCreated datePublished" datetime="2020-02-11T16:23:25+08:00">2020-02-11</time>
             </span>
 
           
@@ -823,12 +334,496 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>最近出現一個問題。 cpanel發送Mail到hinet信箱會被列入垃圾信箱。</p>
-<p>比對了其他的Mail Server發送的信件。發現 Cpanel 的mail中多了很多<br><code>X-AntiAbuse</code>開頭的Mail Header。 </p>
-<h2 id="解決辦法-去掉-Mail-Header"><a href="#解決辦法-去掉-Mail-Header" class="headerlink" title="解決辦法 去掉 Mail Header"></a>解決辦法 去掉 Mail Header</h2><ul>
-<li>編輯 <code>/etc/exim.conf</code> 。 注釋掉所有 <code>headers_add = &quot;${perl{mailtrapheaders}}&quot;</code> 。</li>
-<li>重啟exim </li>
+          <h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd ext/mbstring/</span><br><span class="line">/opt/php72/bin/phpize</span><br><span class="line">./configure  --enable-my_module --with-php-config=/opt/php72/bin/php-config</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><code>/opt/php72</code> 是已经存在的php 安装目录。</li>
+<li>单独编译 mbstring 模块</li>
+</ol>
+<h2 id="配置-amp-加载"><a href="#配置-amp-加载" class="headerlink" title="配置&amp;加载"></a>配置&amp;加载</h2><p>在文档中 <code>/opt/php72/lib/php.ini</code> 增加一下内容</p>
+<p>```<br>extension=/opt/php72/lib/php/extensions/no-debug-non-zts-20170718/mbstring.so<br>``</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-01/check-mobile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020-01/check-mobile/" class="post-title-link" itemprop="url">检查是是否手机访问</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-01-08 17:40:37 / 修改时间：17:48:00" itemprop="dateCreated datePublished" datetime="2020-01-08T17:40:37+08:00">2020-01-08</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>这里有很多方法 <a href="http://detectmobilebrowsers.com/" target="_blank" rel="noopener">http://detectmobilebrowsers.com/</a>  <code>php</code> <code>apache</code> <code>js</code> 都有。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-10/apache-log/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018-10/apache-log/" class="post-title-link" itemprop="url">apache log 日志回滚</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-10-22 11:38:11" itemprop="dateCreated datePublished" datetime="2018-10-22T11:38:11+08:00">2018-10-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-26 14:23:27" itemprop="dateModified" datetime="2019-12-26T14:23:27+08:00">2019-12-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>防止 apache log过大。 注： 該方法 必須要額外寫<code>定期刪除</code>文檔功能。推薦使用 系統 <code>logrotate</code> 功能。</p>
+<h2 id="安装-rotatelogs"><a href="#安装-rotatelogs" class="headerlink" title="安装 rotatelogs"></a>安装 rotatelogs</h2><p>如果 /usr/local/apache/bin/rotatelogs 不存在则安装。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> centos 7</span></span><br><span class="line">yum install httpd-tools</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#ErrorLog &quot;logs&#x2F;error_log&quot;</span><br><span class="line">ErrorLog &quot;| &#x2F;usr&#x2F;local&#x2F;apache&#x2F;bin&#x2F;rotatelogs logs&#x2F;%Y_%m_%d_error_log 86400 480&quot;</span><br><span class="line"></span><br><span class="line">#CustomLog &quot;logs&#x2F;access_log&quot; common</span><br><span class="line">CustomLog &quot;| &#x2F;usr&#x2F;local&#x2F;apache&#x2F;bin&#x2F;rotatelogs logs&#x2F;%Y_%m_%d_access_log 86400 480&quot; common</span><br></pre></td></tr></table></figure>
+
+<p><code>86400 480</code> 是指 每个文档先知86400秒（24小时）。480 单位是分钟，时间偏移8小时（对应时区）。</p>
+<p>注： 必須要額外寫<code>定期刪除</code>文檔功能</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-12/IBM-Storage-Api/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019-12/IBM-Storage-Api/" class="post-title-link" itemprop="url">IBM Storage Api</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-17 14:46:26 / 修改时间：15:30:18" itemprop="dateCreated datePublished" datetime="2019-12-17T14:46:26+08:00">2019-12-17</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>參考 <a href="https://cloud.ibm.com/docs/services/cloud-object-storage/cli?topic=cloud-object-storage-aws-cli" target="_blank" rel="noopener">https://cloud.ibm.com/docs/services/cloud-object-storage/cli?topic=cloud-object-storage-aws-cli</a></p>
+<h1 id="AWS-CLI"><a href="#AWS-CLI" class="headerlink" title="AWS CLI"></a>AWS CLI</h1><p>AWS 的官方命令行界面与 IBM COS S3 API 兼容。</p>
+<h2 id="install"><a href="#install" class="headerlink" title="install"></a>install</h2><p><code>pip install awscli</code></p>
+<h2 id="參數"><a href="#參數" class="headerlink" title="參數"></a>參數</h2><p><code>{Access Key ID}</code> <code>{Secret Access Key}</code> 需要創建服務憑證 例如</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"cos_hmac_keys": &#123;</span><br><span class="line">    "access_key_id": "xxxx",</span><br><span class="line">    "secret_access_key": "ddddd"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>{endpoint}</code> 在 <code>存储区 》 配置</code> 中有详细的记录。 </p>
+<h2 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h2><p><code>~/.aws/credentials</code></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[default]</span></span><br><span class="line"><span class="attr">aws_access_key_id</span> = &#123;Access Key ID&#125;</span><br><span class="line"><span class="attr">aws_secret_access_key</span> = &#123;Secret Access Key&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Crontab 下自動執行 可以使用 全局變量覆蓋</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export AWS_ACCESS_KEY_ID="&#123;Access Key ID&#125;"</span><br><span class="line">export AWS_SECRET_ACCESS_KEY="&#123;Secret Access Key&#125;"</span><br></pre></td></tr></table></figure>
+
+<h2 id="预签名Url"><a href="#预签名Url" class="headerlink" title="预签名Url"></a>预签名Url</h2><p>参考 <a href="https://cloud.ibm.com/docs/services/cloud-object-storage/cli?topic=cloud-object-storage-presign-url" target="_blank" rel="noopener">https://cloud.ibm.com/docs/services/cloud-object-storage/cli?topic=cloud-object-storage-presign-url</a></p>
+<p>使用 awscli 命令最为快捷</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-04/javascript/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018-04/javascript/" class="post-title-link" itemprop="url">Javascript 模块,知识点</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-04-20 10:11:21" itemprop="dateCreated datePublished" datetime="2018-04-20T10:11:21+08:00">2018-04-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-22 14:32:03" itemprop="dateModified" datetime="2019-10-22T14:32:03+08:00">2019-10-22</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Lodash"><a href="#Lodash" class="headerlink" title="Lodash"></a>Lodash</h2><p>是一个一致性、模块化、高性能的 JavaScript 实用工具库。</p>
+<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p>Promise是专门为解决 js中回调而引起的各种问题，而产生的。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-10/jQuery-noConflict/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019-10/jQuery-noConflict/" class="post-title-link" itemprop="url">jQuery.noConflict()</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-21 11:26:43" itemprop="dateCreated datePublished" datetime="2019-10-21T11:26:43+08:00">2019-10-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-10-22 14:31:50" itemprop="dateModified" datetime="2019-10-22T14:31:50+08:00">2019-10-22</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"other_lib.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;script src="jquery.js"&gt;&lt;/</span>script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    $.noConflict();</span><br><span class="line">    jQuery( <span class="built_in">document</span> ).ready(<span class="function"><span class="keyword">function</span>(<span class="params"> $ </span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Code that uses jQuery's $ can follow here.</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// Code that uses other library's $ can follow here.</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-10/incremental-back/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019-10/incremental-back/" class="post-title-link" itemprop="url">incremental back 增量备份</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-10-11 18:25:12 / 修改时间：18:36:55" itemprop="dateCreated datePublished" datetime="2019-10-11T18:25:12+08:00">2019-10-11</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>以文件为最小的单位。 利用 linux 的硬链接 (Hard link) 特性（多个link不会增加磁盘，删除某个不会影响其他的）空间来实现。</p>
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0. 根据原始内容S0, 创建最初的备份内容  V1</span><br><span class="line">-- 开始增量备份 --</span><br><span class="line">1. 根据 V1 创建 V2 。 规则： 创建所有目录，ln 硬链接所有文档 。</span><br><span class="line">2. 通过 rsync 命令。同步S0最新的内容到 V2</span><br><span class="line">-- 结束 --</span><br></pre></td></tr></table></figure>
+
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ol>
+<li>通过 <code>ls -i</code> 命令  可以查看文件的编号。 如果编号一样则表示是 硬链接。或用 <code>stat [file]</code> 命令查看更详细的信息</li>
+<li>同步命令 <code>rsync -vzrtopg --delete dir_a dir_b</code></li>
+<li>删除某个硬链接文档，不影响其他的</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-07/iptables/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019-07/iptables/" class="post-title-link" itemprop="url">iptables</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-07-01 17:02:42" itemprop="dateCreated datePublished" datetime="2019-07-01T17:02:42+08:00">2019-07-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-18 09:04:00" itemprop="dateModified" datetime="2019-09-18T09:04:00+08:00">2019-09-18</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="简单操作"><a href="#简单操作" class="headerlink" title="简单操作"></a>简单操作</h2><ul>
+<li>Table 表</li>
+<li>Chain 链</li>
+<li>iptables -D chain rulenum 清除某条</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Table  Chain            num   pkts bytes target     prot opt in     out     source               destination  </span><br><span class="line">filter CXS_LF_CPANEL    12       0     0 DROP       all  --  *      *       203.195.218.49       0.0.0.0&#x2F;0</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查找</span></span><br><span class="line">iptables -L CXS_LF_CPANEL --line-numbers | grep xxx.xxx.xxx</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 刪除， 157就是對應的number</span></span><br><span class="line">iptables -D CXS_LF_CPANEL 157</span><br></pre></td></tr></table></figure>
+
+<h2 id="cxs"><a href="#cxs" class="headerlink" title="cxs"></a>cxs</h2><p>如果有類似 <code>CXS_LF_SSHD</code> <code>CXS_LF_CPANEL</code> 的防火墻規則。 需要先刪除 <code>/var/lib/csf/csf.block.CXS_LF_SSHD</code> 對應的ip 然後在重啟 csf <code>csf -ra</code></p>
+<p>[參考 cxs][/2019-05/cxs/]</p>
+<h2 id="快速刪除"><a href="#快速刪除" class="headerlink" title="快速刪除"></a>快速刪除</h2><p><code>iptables -S</code>。 因爲 <code>iptables -L</code> 在規則很多的時候很慢。找到了其他參數 <code>-S, --list-rules</code> 。例如 <code>iptables -S CXS_LF_SSHD</code> CXS_LF_SSHD 是 chain 的名稱</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查找</span></span><br><span class="line">iptables -S CXS_LF_SSHD | grep 51.77.213.181</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 得到結果</span></span><br><span class="line">-A CXS_LF_SSHD -s 178.62.30.249/32 -j DROP</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 刪除， 157就是對應的number</span></span><br><span class="line">iptables -D CXS_LF_SSHD -s 178.62.30.249/32 -j DROP</span><br></pre></td></tr></table></figure>
+
+<p><code>-s 178.62.30.249/32 -j DROP</code> 是 查詢結果中的規則</p>
 
       
     </div>
@@ -848,7 +843,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-10/mysql-sql-mode/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-08/cpanle-outlook-25port/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -862,7 +857,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2018-10/mysql-sql-mode/" class="post-title-link" itemprop="url">mysql sql-mode</a>
+            <a href="/2019-08/cpanle-outlook-25port/" class="post-title-link" itemprop="url">cpanle smtp 25端口 outlook无法发送mail</a>
         </h1>
 
         <div class="post-meta">
@@ -873,7 +868,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2018-10-30 09:41:39 / 修改时间：09:43:54" itemprop="dateCreated datePublished" datetime="2018-10-30T09:41:39+08:00">2018-10-30</time>
+              <time title="创建时间：2019-08-12 15:03:36 / 修改时间：15:06:43" itemprop="dateCreated datePublished" datetime="2019-08-12T15:03:36+08:00">2019-08-12</time>
             </span>
 
           
@@ -887,10 +882,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Mysql執行Sql語句時出現不兼容的問題一般情況下是 默認的 <code>sql-mode</code> 不一樣了。</p>
-<p>只要修改<code>sql-mode</code>就可以了。 </p>
-<p><code>/etc/my.cnf</code> 中增加 <code>sql-mode=&quot;NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION&quot;</code></p>
-<p><a href="https://dev.mysql.com/doc/refman/5.7/en/server-options.html#option_mysqld_sql-mode" target="_blank" rel="noopener">詳見 mysqld_sql-mode</a></p>
+          <h2 id="问题，-0x800CCC80"><a href="#问题，-0x800CCC80" class="headerlink" title="问题， 0x800CCC80"></a>问题， 0x800CCC80</h2><p>outlook 提示 0x800CCC80 错误。<code>您的服务器不支持此客户端支持的任何验证方式</code></p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>登录 whm 并打开 <code>WHM &gt; Exim Configuration Manager &gt; Basic Editor &gt; Security</code></p>
+<p>设定 <code>Require clients to connect with SSL or issue the STARTTLS command before they are allowed to authenticate with the server.</code> 为 <code>off</code></p>
 
       
     </div>

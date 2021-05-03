@@ -208,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/SPF/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/gzip-bzip2-zip/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -222,7 +222,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2016-12/SPF/" class="post-title-link" itemprop="url">SPF記錄</a>
+            <a href="/2016-12/gzip-bzip2-zip/" class="post-title-link" itemprop="url">gzip bzip2 zip 压缩解压</a>
         </h1>
 
         <div class="post-meta">
@@ -232,7 +232,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-12-19 17:36:06" itemprop="dateCreated datePublished" datetime="2016-12-19T17:36:06+08:00">2016-12-19</time>
+              <time title="创建时间：2016-12-25 15:11:03" itemprop="dateCreated datePublished" datetime="2016-12-25T15:11:03+08:00">2016-12-25</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -253,9 +253,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="什么是SPF"><a href="#什么是SPF" class="headerlink" title="什么是SPF"></a>什么是SPF</h2><p>是 Sender Policy Framework 的缩写，一种以IP地址认证电子邮件发件人身份的技术。 接收邮件方会首先检查域名的SPF记录，来确定发件人的IP地址是否被包含在SPF记录里面，如果在，就认为是一封正确的邮件，否则会认为是一封伪造的邮件进行退回。</p>
-<p>中文参考 <a href="http://www.renfei.org/blog/introduction-to-spf.html" target="_blank" rel="noopener">http://www.renfei.org/blog/introduction-to-spf.html</a><br>生成工具 <a href="http://www.spfwizard.net/" target="_blank" rel="noopener">http://www.spfwizard.net/</a></p>
-
+          <h2 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gzip filename.txt</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将filename变成filename.txt.gz</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> bzip2 filename.txt</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将filename变成filename.txt.bz2</span></span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> zip filename</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将filename变成filename.txt.zip</span></span><br></pre></td></tr></table></figure>
+<h2 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> gunzip filename.gz</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> bunzip2 filename.bz2</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> unzip filename.zip</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -274,7 +273,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/Mysql/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/firefox/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -288,7 +287,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2016-12/Mysql/" class="post-title-link" itemprop="url">Mysql整理</a>
+            <a href="/2016-12/firefox/" class="post-title-link" itemprop="url">Firefox瀏覽器</a>
         </h1>
 
         <div class="post-meta">
@@ -298,110 +297,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-12-19 17:24:44" itemprop="dateCreated datePublished" datetime="2016-12-19T17:24:44+08:00">2016-12-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2017-01-03 14:55:00" itemprop="dateModified" datetime="2017-01-03T14:55:00+08:00">2017-01-03</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="存储引擎选择"><a href="#存储引擎选择" class="headerlink" title="存储引擎选择"></a>存储引擎选择</h2><ul>
-<li>MyISAM管理非事务表。它提供高速存储和检索，以及全文搜索能力。如果应用中需要执行大量的SELECT查询，那么MyISAM是更好的选择。</li>
-<li>InnoDB用于事务处理应用程序，具有众多特性，包括ACID事务支持。如果应用中需要执行大量的INSERT或UPDATE操作，则应该使用InnoDB，这样可以提高多用户并发操作的性能。</li>
-</ul>
-<h2 id="字段-char-vs-varchar-類型"><a href="#字段-char-vs-varchar-類型" class="headerlink" title="字段 char vs varchar 類型"></a>字段 char vs varchar 類型</h2><h3 id="char"><a href="#char" class="headerlink" title="char"></a>char</h3><ul>
-<li>固定长度，最大长度255字节。</li>
-<li>(一定情况下)占用空间比较大，但是索引查询比较快</li>
-<li>推荐固定长度字段 或者 很短且需要索引的使用</li>
-</ul>
-<p>注意： PAD_CHAR_TO_FULL_LENGTH 时，在取数据时让尾部的空格保留</p>
-<h3 id="varchar"><a href="#varchar" class="headerlink" title="varchar"></a>varchar</h3><ul>
-<li>根据实际存储，可变长度，最大长度是65,532字节</li>
-<li>(一定情况下)占用空间比较大小，但是索引查询比较慢</li>
-</ul>
-<h3 id="存储类型区别"><a href="#存储类型区别" class="headerlink" title="存储类型区别"></a>存储类型区别</h3><p>对于MyISAM表，尽量使用Char，对于那些经常需要修改而容易形成碎片的myisam和isam数据表就更是如此，它的缺点就是<em>占用磁盘空间</em>； </p>
-<p>对于InnoDB表，尽量使用varchar，因为它的数据行内部存储格式对固定长度的数据行和可变长度的数据行不加区分（所有数据行共用一个表头部分，这个标头部分存放着指向各有关数据列的指针），所以使用char类型不见得会比使用varchar类型好。事实上，因为char类型通常要比varchar类型占用更多的空间，所以从减少空间占用量和减少磁盘i/o的角度，使用varchar类型反而更有利. </p>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>在 cpanel 中的 <code>eximstats</code> 表用的是 MyISAM表。 <code>email</code> <code>ip</code> <code>domain</code> 等字段用的是char字段。这样统计查询比较快。</p>
-<h2 id="命令行查詢"><a href="#命令行查詢" class="headerlink" title="命令行查詢"></a>命令行查詢</h2><h3 id="G-列表顯示具體內容"><a href="#G-列表顯示具體內容" class="headerlink" title="\G 列表顯示具體內容"></a>\G 列表顯示具體內容</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> gnc_order <span class="keyword">where</span> order_no <span class="keyword">like</span> <span class="string">'E005244'</span> <span class="keyword">limit</span> <span class="number">1</span> \G;</span><br></pre></td></tr></table></figure>
-
-<h2 id="导出-amp-導入"><a href="#导出-amp-導入" class="headerlink" title="导出&amp;導入"></a>导出&amp;導入</h2><h3 id="导出整个数据库"><a href="#导出整个数据库" class="headerlink" title="导出整个数据库"></a>导出整个数据库</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u 用户名 -p 数据库名 &gt; 导出的文件名</span><br><span class="line">mysqldump -u wcnc -p smgp_apps_wcnc &gt; wcnc.sql</span><br></pre></td></tr></table></figure>
-
-<h3 id="忽略某個表"><a href="#忽略某個表" class="headerlink" title="忽略某個表"></a>忽略某個表</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u root -p 数据库名 --ignore-table=数据库名.表名 &gt; db.sql</span><br><span class="line">mysqldump -u root -p 数据库名 --ignore-table=数据库名.表名1 --ignore-table=数据库名.表名2 &gt; db.sql</span><br></pre></td></tr></table></figure>
-
-<h3 id="导出一个表"><a href="#导出一个表" class="headerlink" title="导出一个表"></a>导出一个表</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u 用户名 -p 数据库名 表名&gt; 导出的文件名</span><br><span class="line">mysqldump -u wcnc -p smgp_apps_wcnc users&gt; wcnc_users.sql</span><br></pre></td></tr></table></figure>
-
-<h3 id="导出一个数据库结构"><a href="#导出一个数据库结构" class="headerlink" title="导出一个数据库结构"></a>导出一个数据库结构</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u wcnc -p -d --add-drop-table smgp_apps_wcnc &gt;d:wcnc_db.sql</span><br><span class="line"><span class="meta">#</span><span class="bash">-d 没有数据 --add-drop-table 在每个create语句之前增加一个drop table</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="导入数据库"><a href="#导入数据库" class="headerlink" title="导入数据库"></a>导入数据库</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">常用<span class="built_in">source</span> 命令</span></span><br><span class="line"><span class="meta">#</span><span class="bash">进入mysql数据库控制台，</span></span><br><span class="line">mysql -u root -p</span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash">use 数据库</span></span><br><span class="line"><span class="meta">#</span><span class="bash">然后使用<span class="built_in">source</span>命令，后面参数为脚本文件(如这里用到的.sql)</span></span><br><span class="line"><span class="meta">mysql&gt;</span><span class="bash"><span class="built_in">source</span> d:wcnc_db.sql</span></span><br></pre></td></tr></table></figure>
-
-<p>mysql导入建表sql语句时中文注释的乱码问题的解决办法如下：<br>在sql文件开头加上 <code>SET NAMES &#39;utf8&#39;;</code></p>
-<h2 id="用戶管理"><a href="#用戶管理" class="headerlink" title="用戶管理"></a>用戶管理</h2><h3 id="創建"><a href="#創建" class="headerlink" title="創建"></a>創建</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 創建一個用戶&amp;權限</span></span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'dns2'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'15***'</span>;</span><br><span class="line"><span class="comment"># 創建一個用戶&amp;權限 (只能訪問dns2資料庫，只允許某個ip訪問)</span></span><br><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> dns2.* <span class="keyword">TO</span> <span class="string">'dns2'</span>@<span class="string">'119.81.172.50'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'16******'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新權限</span></span><br><span class="line"><span class="keyword">FLUSH</span> <span class="keyword">PRIVILEGES</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="修改密碼"><a href="#修改密碼" class="headerlink" title="修改密碼"></a>修改密碼</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">password</span> <span class="keyword">for</span> root@localhost = <span class="keyword">password</span>(<span class="string">'16***'</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="查看表佔用空間大小"><a href="#查看表佔用空間大小" class="headerlink" title="查看表佔用空間大小"></a>查看表佔用空間大小</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#檢查 eximstats 資料庫下所有的表磁盤大小</span></span><br><span class="line"><span class="keyword">SELECT</span> TABLE_NAME, <span class="keyword">round</span>((DATA_LENGTH+INDEX_LENGTH)/<span class="number">1024</span>/<span class="number">1024</span>,<span class="number">2</span>) <span class="keyword">AS</span> Size_MB, TABLE_ROWS <span class="keyword">FROM</span> information_schema.TABLES </span><br><span class="line"><span class="keyword">WHERE</span> TABLE_SCHEMA=<span class="string">'eximstats'</span>;</span><br><span class="line"><span class="comment">#檢查某個表，增加判斷條件</span></span><br><span class="line">AND TABLE_NAME='smtp'</span><br></pre></td></tr></table></figure>
-
-<h2 id="兼容性"><a href="#兼容性" class="headerlink" title="兼容性"></a>兼容性</h2><p>Mysql執行Sql語句時出現不兼容的問題一般情況下是 默認的 <code>sql-mode</code> 不一樣了。</p>
-<p>詳見 <a href="/2018-10/mysql-sql-mode/">sql-mode</a></p>
-<h2 id="php7-mysql-shim"><a href="#php7-mysql-shim" class="headerlink" title="php7 mysql shim"></a>php7 mysql shim</h2><p>一些老程如果升級php 不能直接用 <code>mysql_connect</code> 函數。 已經被移除。</p>
-<p><code>composer require dshafik/php7-mysql-shim</code> 來fix。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/PHP-Excel/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016-12/PHP-Excel/" class="post-title-link" itemprop="url">PHP读取Excel</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-19 17:22:55" itemprop="dateCreated datePublished" datetime="2016-12-19T17:22:55+08:00">2016-12-19</time>
+              <time title="创建时间：2016-12-19 16:50:00" itemprop="dateCreated datePublished" datetime="2016-12-19T16:50:00+08:00">2016-12-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -422,7 +318,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">$PHPReader = <span class="keyword">new</span> PHPExcel_Reader_Excel2007();</span><br><span class="line">   <span class="keyword">if</span>(!$PHPReader-&gt;canRead($filePath))&#123;</span><br><span class="line">       $PHPReader = <span class="keyword">new</span> PHPExcel_Reader_Excel5();</span><br><span class="line">       <span class="keyword">if</span>(!$PHPReader-&gt;canRead($filePath))&#123;</span><br><span class="line">           delMyFile($filePath);</span><br><span class="line">           <span class="keyword">echo</span> <span class="string">'上傳文檔錯誤'</span>;</span><br><span class="line">           <span class="keyword">exit</span>;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//建立excel对象，此时你即可以通过excel对象读取文件，也可以通过它写入文件</span></span><br><span class="line">   $PHPExcel = $PHPReader-&gt;load($filePath);</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**读取excel文件中的第一个工作表*/</span></span><br><span class="line">   $currentSheet = $PHPExcel-&gt;getSheet(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**取得最大的列号*/</span></span><br><span class="line">   $allColumn = <span class="string">'K'</span>;<span class="comment">// $currentSheet-&gt;getHighestColumn();</span></span><br><span class="line">   <span class="comment">/**取得一共有多少行*/</span></span><br><span class="line">   $allRow = <span class="number">17</span>;<span class="comment">//$currentSheet-&gt;getHighestRow();</span></span><br><span class="line"></span><br><span class="line">   $arr = <span class="keyword">array</span>();</span><br><span class="line"></span><br><span class="line">   <span class="comment">//循环读取每个单元格的内容。注意行从1开始，列从A开始</span></span><br><span class="line">   <span class="keyword">for</span>($rowIndex=<span class="number">1</span>; $rowIndex&lt;=$allRow; $rowIndex++)&#123;</span><br><span class="line">       <span class="keyword">for</span>($colIndex=<span class="string">'A'</span>;$colIndex&lt;=$allColumn;$colIndex++)&#123;</span><br><span class="line">           $addr = $colIndex.$rowIndex;</span><br><span class="line">           $cell = $currentSheet-&gt;getCell($addr)-&gt;getValue();</span><br><span class="line">           <span class="keyword">if</span>($cell <span class="keyword">instanceof</span> PHPExcel_RichText)     <span class="comment">//富文本转换字符串</span></span><br><span class="line">               $cell = $cell-&gt;__toString();</span><br><span class="line"></span><br><span class="line">           $arr[$addr] = $cell;</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+          <h1 id="Tehems"><a href="#Tehems" class="headerlink" title="Tehems"></a>Tehems</h1><ul>
+<li>esafox</li>
+<li>have a fox dream</li>
+</ul>
+
       
     </div>
 
@@ -441,7 +341,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/VritualBox-Install-Ubuntu/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/font/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -455,7 +355,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2016-12/VritualBox-Install-Ubuntu/" class="post-title-link" itemprop="url">VritualBox 安裝 Ubuntu</a>
+            <a href="/2016-12/font/" class="post-title-link" itemprop="url">字体</a>
         </h1>
 
         <div class="post-meta">
@@ -465,14 +365,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-12-19 17:18:23" itemprop="dateCreated datePublished" datetime="2016-12-19T17:18:23+08:00">2016-12-19</time>
+              <time title="创建时间：2016-12-25 15:25:47" itemprop="dateCreated datePublished" datetime="2016-12-25T15:25:47+08:00">2016-12-25</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-05-17 19:49:08" itemprop="dateModified" datetime="2019-05-17T19:49:08+08:00">2019-05-17</time>
+                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
               </span>
 
           
@@ -486,51 +386,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>後來不再使用VirtualBox直接在Windows上使用Cmder+Git</p>
-<h2 id="基本安裝"><a href="#基本安裝" class="headerlink" title="基本安裝"></a>基本安裝</h2><ul>
-<li>检查操作系统 cpu 虚拟化已经打开。</li>
-<li>如果使用无线网络（PCI），必须安装官方驱动 </li>
-</ul>
-<p>创建虚拟主机、安装操作系统</p>
-<h2 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射"></a>端口映射</h2><p>“设置”》“网络”》“网卡1”》“高级”》“端口转发”添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Apache,    TCP,    127.0.0.1,    80,    ,    80</span><br><span class="line">SSH,    TCP,    127.0.0.1,    2222,    ,    22</span><br><span class="line">Mysql,    TCP,    127.0.0.1,    3306,    ,    3306</span><br></pre></td></tr></table></figure>
+          <p>Verdana 非等宽字体。总体可读性好些<br>Console  是等宽字体</p>
+<p>serif 字体通常不同笔顺的粗细有别，且起笔落笔处有多余的小折线。<br>sans-serif 字体笔画不论方向粗细相同，且起笔落笔没有多余折线。<br>中文字体中，可以与此类比：宋体相当于 serif 字体，黑体相当于 sans-serif 字体。</p>
 
-<p>注意</p>
-<p>用xshell链接时，不能用命令行 ssh <a href="mailto:root@127.0.0.1">root@127.0.0.1</a>:2222 鏈接。 必須新創建一個“会话”</p>
-<h2 id="共享文件"><a href="#共享文件" class="headerlink" title="共享文件"></a>共享文件</h2><ul>
-<li>“设置”》“共享文件夹” 中添加 ‘vagrant’ ‘D:\Htodcs’ 。 注意 不能勾选开机自动挂载</li>
-<li>开启虚拟主机，“设备”》“安装增强功能”会自动挂载iso到cdrom</li>
-<li>登录到操作页面， 执行</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#安装相关软件</span><br><span class="line">sudo apt-get install gcc </span><br><span class="line">sudo apt-get install build-essential linux-headers-$(uname -r)</span><br><span class="line">#挂载</span><br><span class="line">sudo mount &#x2F;dev&#x2F;cdrom &#x2F;mnt</span><br><span class="line">#执行</span><br><span class="line">sudo .&#x2F;VBoxLinuxAdditions.run</span><br><span class="line">mkdir -p &#x2F;vagrant</span><br><span class="line">mount -t vboxsf vagrant &#x2F;vagrant</span><br></pre></td></tr></table></figure>
-
-<h3 id="开机自动挂载"><a href="#开机自动挂载" class="headerlink" title="开机自动挂载"></a>开机自动挂载</h3><h4 id="rc-loacl"><a href="#rc-loacl" class="headerlink" title="rc.loacl"></a>rc.loacl</h4><p>在/etc/rc.loal 加入  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t vboxsf vagrant &#x2F;vagrant</span><br></pre></td></tr></table></figure>
-
-<h4 id="crontab"><a href="#crontab" class="headerlink" title="crontab"></a>crontab</h4><p>一些比较新的系统没有 rc.local 所以使用 crontab <code>@reboot</code> 设定</p>
-<p>在 crontab 中加入：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@reboot mount -t vboxsf vagrant &#x2F;vagrant</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="命令行启动"><a href="#命令行启动" class="headerlink" title="命令行启动"></a>命令行启动</h2><p>创建 vbox_up.bat</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd C:\Program Files\Oracle\VirtualBox</span><br><span class="line">VBoxManage startvm &quot;ubuntu&quot; -type headless</span><br></pre></td></tr></table></figure>
-
-<p>创建 vbox_down.bat</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd C:\Program Files\Oracle\VirtualBox</span><br><span class="line">VBoxManage controlvm &quot;ubuntu&quot; acpipowerbutton</span><br></pre></td></tr></table></figure>
-
-<p>并将这两个文件加入到 环境变量 PATH 中。 这样执行 vbox_up 开启虚拟主机 。vbox_down 关闭虚拟主机<br>说明 “ubuntu” 必须有 引号， ubuntu 是创建的虚拟主机的名称</p>
-<h2 id="Ubuntu-設定"><a href="#Ubuntu-設定" class="headerlink" title="Ubuntu 設定"></a>Ubuntu 設定</h2><h3 id="Apache设定"><a href="#Apache设定" class="headerlink" title="Apache设定"></a>Apache设定</h3><p>由于使用 virtualbox 共享文件，有时候出现缓存。</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### Apache 配置添加:</span></span><br><span class="line">EnableSendfile off</span><br></pre></td></tr></table></figure>
-
-<p>在 /etc/apache2/sites-available/000-default.conf 中加入</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory "/vagrant"&gt;  </span><br><span class="line">	Options Indexes FollowSymLinks  </span><br><span class="line">	AllowOverride All  </span><br><span class="line">	Require all granted  </span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
-
-<p>啟動mod_rewrite，執行以下命令 <code>sudo a2enmod rewrite</code></p>
-<h3 id="PHP设定"><a href="#PHP设定" class="headerlink" title="PHP设定"></a>PHP设定</h3><p>安装&amp;开启 mcrypt</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php-mcrypt</span><br><span class="line">sudo phpenmod mcrypt</span><br></pre></td></tr></table></figure>
-
-<h3 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h3><p>必须要设定权限，以及允许远程访问。 my.cnf 修改：</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">bind-address</span>  = <span class="number">0.0</span>.<span class="number">0.0</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -549,7 +407,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/linux-sed/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/ftp-wget/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -563,7 +421,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2016-12/linux-sed/" class="post-title-link" itemprop="url">sed命令</a>
+            <a href="/2016-12/ftp-wget/" class="post-title-link" itemprop="url">ftp & wget 下载</a>
         </h1>
 
         <div class="post-meta">
@@ -573,14 +431,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-12-19 17:02:26" itemprop="dateCreated datePublished" datetime="2016-12-19T17:02:26+08:00">2016-12-19</time>
+              <time title="创建时间：2016-12-25 14:43:00" itemprop="dateCreated datePublished" datetime="2016-12-25T14:43:00+08:00">2016-12-25</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-07-23 10:00:14" itemprop="dateModified" datetime="2019-07-23T10:00:14+08:00">2019-07-23</time>
+                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
               </span>
 
           
@@ -594,34 +452,89 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>sed 是一种编辑器，它一次处理一行内容。</p>
-<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed [OPTION]... &#123;script-only-if-no-other-script&#125; [input-file]...</span><br></pre></td></tr></table></figure>
+          <h2 id="ftp"><a href="#ftp" class="headerlink" title="ftp"></a>ftp</h2><p>登陸ftp</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">ftp    //shell下输入ftp命令,进入到ftp提示符</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">open IP</span></span><br></pre></td></tr></table></figure>
+<p>接下來自動提示 輸入 賬號&amp;密碼</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// get和mget命令用于从远程机上获取文件。get命令的一般格式为：</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">get 文件名</span></span><br><span class="line">//mget命令一次获取多个远程文件。mget命令的一般格式为：</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">mget 文件名列表</span></span><br><span class="line">//put和mput命令用于向远程机发送文件。Put命令的一般格式为：</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">put 文件名</span></span><br><span class="line">//mput命令一次发送多个本地文件，mput命令的一般格式为：</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">mput 文件名列表</span></span><br></pre></td></tr></table></figure>
 
-<p>以下是常用到的实例说明。</p>
-<h2 id="打印"><a href="#打印" class="headerlink" title="打印"></a>打印</h2><p>读取某行並打印</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//读取277000 到 302006 行</span><br><span class="line">sed -n '277000,302006p' exim_mainlog-20160904</span><br></pre></td></tr></table></figure>
+<h2 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h2><p>ftp 命令不支持目录下载. 通过wget得到解决</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget ftp://IP:PORT/www/* --ftp-user=xxx --ftp-password=xxx -r</span><br></pre></td></tr></table></figure>
+      
+    </div>
 
-<ul>
-<li>-n 使用安静(silent)模式。</li>
-<li>p  列印，亦即将某个选择的资料印出。通常 p 会与参数 sed -n 一起运作～</li>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/cput/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016-12/cput/" class="post-title-link" itemprop="url">cput 命令行同步上傳工具</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-12 17:09:02" itemprop="dateCreated datePublished" datetime="2016-12-12T17:09:02+08:00">2016-12-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="cput"><a href="#cput" class="headerlink" title="cput"></a>cput</h2><p>一個簡單的上傳小工具。（只能上傳，只能上傳同步目錄的文檔）</p>
+<p>一個shell腳本，使用curl命令，通過ftp協議快捷的上傳一個或多個文檔<br>shell腳本執行， bat腳本調用（最多9個文檔）</p>
+<h3 id="系統要求"><a href="#系統要求" class="headerlink" title="系統要求"></a>系統要求</h3><ul>
+<li>git</li>
+<li>cmder</li>
 </ul>
-<h2 id="替換"><a href="#替換" class="headerlink" title="替換"></a>替換</h2><p>替换，如果没有g标记，则只有每行第一个匹配的test被替换成mytest。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">在整行范围内把<span class="built_in">test</span>替换为mytest。</span></span><br><span class="line">sed -i 's/test/mytest/g' example</span><br></pre></td></tr></table></figure>
+<h2 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config git-ftp.user username</span><br><span class="line">git config git-ftp.url myweb.com</span><br><span class="line">git config git-ftp.password xxx</span><br><span class="line">git config git-ftp.remote-root "~/public_html/"</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>-i 直接修改读取的文件内容，而不是由屏幕输出</li>
-</ul>
-<p>通過grep搜索然後替換</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i 's/*-1//g' `grep "*-1" -rl .`</span><br></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cput appliction\views\front\en\index.php</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">子目錄下上傳多個</span></span><br><span class="line">cd appliction\</span><br><span class="line">cput views\front\en\index.php views\front\en\layout\top\top.php</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i 's/*-1//g' `grep -rl "*-1" --include="*.php" .`</span><br><span class="line">sed -i 's/*-1//g' `grep -rl "*-1" --include="*.htm" .`</span><br></pre></td></tr></table></figure>
+<h2 id="源代碼"><a href="#源代碼" class="headerlink" title="源代碼"></a>源代碼</h2><h3 id="cput-bat"><a href="#cput-bat" class="headerlink" title="cput.bat"></a>cput.bat</h3><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@sh cput.sh %<span class="number">1</span> %<span class="number">2</span> %<span class="number">3</span> %<span class="number">4</span> %<span class="number">5</span> %<span class="number">6</span> %<span class="number">7</span> %<span class="number">8</span> %<span class="number">9</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>–include=”*.php” 只搜素包含php結尾的文檔</li>
-</ul>
-<h2 id="刪除"><a href="#刪除" class="headerlink" title="刪除"></a>刪除</h2><p>刪除 含有 <code>TCP_IN Blocked</code> 的行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i '/TCP_IN Blocked/d' messages</span><br></pre></td></tr></table></figure>
-
+<h3 id="cput-sh"><a href="#cput-sh" class="headerlink" title="cput.sh"></a>cput.sh</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line">NOW_PATH="$(pwd)"</span><br><span class="line">REMOTE_PATH=''</span><br><span class="line">GIT_ROOT_PATH="$(git rev-parse --show-toplevel)"</span><br><span class="line">FTP_URL="$(git config --get "git-ftp.url")"</span><br><span class="line">FTP_USER="$(git config --get "git-ftp.user")"</span><br><span class="line">FTP_PASSWORD="$(git config --get "git-ftp.password")"</span><br><span class="line">FTP_REMOTE_ROOT="$(git config --get "git-ftp.remote-root")"</span><br><span class="line"><span class="meta">#</span><span class="bash"> base check</span></span><br><span class="line">if [ "$FTP_USER" = "" ];then</span><br><span class="line">    exit 1</span><br><span class="line">fi</span><br><span class="line"><span class="meta">#</span><span class="bash"> format REMOTE_ROOT</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="string">'~/public_html'</span> to <span class="string">'public_html/'</span></span></span><br><span class="line">if [ "$&#123;FTP_REMOTE_ROOT:0:2&#125;" == "~/" ];then</span><br><span class="line">    FTP_REMOTE_ROOT=$&#123;FTP_REMOTE_ROOT:1&#125;</span><br><span class="line">fi</span><br><span class="line">if [ "$&#123;FTP_REMOTE_ROOT:0:1&#125;" == "/" ];then</span><br><span class="line">    FTP_REMOTE_ROOT=$&#123;FTP_REMOTE_ROOT:1&#125;</span><br><span class="line">fi</span><br><span class="line">if ! echo "$FTP_REMOTE_ROOT" | egrep -q "/$";then</span><br><span class="line">    FTP_REMOTE_ROOT="$FTP_REMOTE_ROOT/"</span><br><span class="line">fi</span><br><span class="line"><span class="meta">#</span><span class="bash"> check path</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="keyword">if</span> <span class="keyword">in</span> subdir fix the REMOTE_PATH, ex: <span class="string">'application/'</span></span></span><br><span class="line">GIT_ROOT_PATH="$&#123;GIT_ROOT_PATH//\\/\/&#125;"</span><br><span class="line">NOW_PATH="$&#123;NOW_PATH//\\/\/&#125;"</span><br><span class="line">GIT_ROOT_PATH=$&#123;GIT_ROOT_PATH:2&#125;</span><br><span class="line">NOW_PATH=$&#123;NOW_PATH:2&#125;</span><br><span class="line">if [ "$GIT_ROOT_PATH"x != "$NOW_PATH"x ];then </span><br><span class="line">    STR_LEN=$&#123;#GIT_ROOT_PATH&#125;</span><br><span class="line">    REMOTE_PATH="$&#123;NOW_PATH:STR_LEN&#125;/"</span><br><span class="line">    REMOTE_PATH=$&#123;REMOTE_PATH:1&#125;</span><br><span class="line">fi</span><br><span class="line"><span class="meta">#</span><span class="bash"> <span class="built_in">set</span> curl args</span></span><br><span class="line">declare -a CURL_ARGS</span><br><span class="line">CURL_ARGS=(--globoff)</span><br><span class="line"><span class="meta">#</span><span class="bash">CURL_ARGS+=(-<span class="comment">#)</span></span></span><br><span class="line">CURL_ARGS+=(-u "$&#123;FTP_USER&#125;:$&#123;FTP_PASSWORD&#125;")</span><br><span class="line">CURL_ARGS+=(--ftp-create-dirs)</span><br><span class="line">upload_file() &#123;</span><br><span class="line">    SRC_FILE="$&#123;1//\\/\/&#125;"</span><br><span class="line">    DEST_FILE="$SRC_FILE"</span><br><span class="line">    CURL_ARGS+=(-T "$&#123;SRC_FILE&#125;")</span><br><span class="line">    CURL_ARGS+=("ftp://$FTP_URL/$&#123;FTP_REMOTE_ROOT&#125;$&#123;REMOTE_PATH&#125;$&#123;DEST_FILE&#125;")</span><br><span class="line">    echo "Upload ... ftp://$FTP_URL/$&#123;FTP_REMOTE_ROOT&#125;$&#123;REMOTE_PATH&#125;$&#123;DEST_FILE&#125;"</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"> run </span></span><br><span class="line">echo "---------"</span><br><span class="line">INT_I=0</span><br><span class="line">for var in $*</span><br><span class="line">do</span><br><span class="line">    # check file exit</span><br><span class="line">    if [ -f "$var" ];then</span><br><span class="line">        upload_file $var</span><br><span class="line">        INT_I+=1</span><br><span class="line">    fi</span><br><span class="line">done</span><br><span class="line">echo "---------"</span><br><span class="line">if [ $INT_I -gt 0 ];then</span><br><span class="line">    #echo "$&#123;CURL_ARGS[@]&#125;"</span><br><span class="line">    curl "$&#123;CURL_ARGS[@]&#125;"</span><br><span class="line">else</span><br><span class="line">    echo "do nothing."</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -710,7 +623,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/country-code/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/SPF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -724,7 +637,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2016-12/country-code/" class="post-title-link" itemprop="url">国别码 Country Code</a>
+            <a href="/2016-12/SPF/" class="post-title-link" itemprop="url">SPF記錄</a>
         </h1>
 
         <div class="post-meta">
@@ -734,14 +647,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-12-19 16:58:21" itemprop="dateCreated datePublished" datetime="2016-12-19T16:58:21+08:00">2016-12-19</time>
+              <time title="创建时间：2016-12-19 17:36:06" itemprop="dateCreated datePublished" datetime="2016-12-19T17:36:06+08:00">2016-12-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2017-05-31 14:30:58" itemprop="dateModified" datetime="2017-05-31T14:30:58+08:00">2017-05-31</time>
+                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
               </span>
 
           
@@ -755,151 +668,162 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="兩位國別碼-ISO-3166"><a href="#兩位國別碼-ISO-3166" class="headerlink" title="兩位國別碼 (ISO 3166)"></a>兩位國別碼 (ISO 3166)</h2><p>詳細的查看:</p>
+          <h2 id="什么是SPF"><a href="#什么是SPF" class="headerlink" title="什么是SPF"></a>什么是SPF</h2><p>是 Sender Policy Framework 的缩写，一种以IP地址认证电子邮件发件人身份的技术。 接收邮件方会首先检查域名的SPF记录，来确定发件人的IP地址是否被包含在SPF记录里面，如果在，就认为是一封正确的邮件，否则会认为是一封伪造的邮件进行退回。</p>
+<p>中文参考 <a href="http://www.renfei.org/blog/introduction-to-spf.html" target="_blank" rel="noopener">http://www.renfei.org/blog/introduction-to-spf.html</a><br>生成工具 <a href="http://www.spfwizard.net/" target="_blank" rel="noopener">http://www.spfwizard.net/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/Vritualizer-VNC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016-12/Vritualizer-VNC/" class="post-title-link" itemprop="url">Vritualizer VNC</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-24 14:58:27" itemprop="dateCreated datePublished" datetime="2016-12-24T14:58:27+08:00">2016-12-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>vnc ip 端口查找<br>在 【Launch VPS VNC】中查找ip和端口。<br>在 vps 編輯頁面 點擊 【VNC】然後查看源代碼， 查看對應的密碼。</p>
+<p>使用VNC Viewer</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/chattr-lsattr/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016-12/chattr-lsattr/" class="post-title-link" itemprop="url">chattr和lsattr命令 linux鎖定</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-25 15:05:14" itemprop="dateCreated datePublished" datetime="2016-12-25T15:05:14+08:00">2016-12-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>lsattr 显示文件的属性</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">[root]#</span><span class="bash">lsattr</span></span><br><span class="line">----i-------- ./ff</span><br></pre></td></tr></table></figure>
+
+<p>chattr 命令 修改文件（目錄）属性能够提高系统的安全性  (只有超级权限的用户才具有使用该命令的权限)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">[root]#</span><span class="bash">lsattr  <span class="comment"># 默認情況下</span></span></span><br><span class="line">------------- ./ff</span><br><span class="line"> </span><br><span class="line"><span class="meta">[root]#</span><span class="bash">chattr +i ff</span></span><br><span class="line"><span class="meta">[root]#</span><span class="bash">lsattr</span></span><br><span class="line">----i-------- ./ff</span><br></pre></td></tr></table></figure>
+
+<p>chattr命令的用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chattr [ -RV ] [ -v version ] [ mode ] files...</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li><a href="https://zh.wikipedia.org/wiki/%E5%9C%8B%E5%AE%B6%E5%9C%B0%E5%8D%80%E4%BB%A3%E7%A2%BC" target="_blank" rel="noopener">国家地区代码</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/ISO_3166-1" target="_blank" rel="noopener">ISO 3166</a></li>
+<li><ul>
+<li>：在原有参数设定基础上，追加参数。</li>
 </ul>
-<p>英國為 GB , 并為其保留 UK</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/windows10/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016-12/windows10/" class="post-title-link" itemprop="url">windows10</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-19 16:52:51" itemprop="dateCreated datePublished" datetime="2016-12-19T16:52:51+08:00">2016-12-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="下載最新的ISO"><a href="#下載最新的ISO" class="headerlink" title="下載最新的ISO"></a>下載最新的ISO</h1><p>打開頁面 <a href="https://www.microsoft.com/zh-cn/software-download/windows10" target="_blank" rel="noopener">https://www.microsoft.com/zh-cn/software-download/windows10</a></p>
-<p>直接回檢查到使用的是win10， 提示更新程序 Windows10Upgrade9252.exe 下載</p>
-<h2 id="Windows-選擇默認程序"><a href="#Windows-選擇默認程序" class="headerlink" title="Windows 選擇默認程序"></a>Windows 選擇默認程序</h2><p>今天Windows 10的选择默认程序失效了。<br>只能切换到老版的默认程序设定。 打开一下路径。 在“我的电脑”，右键，属性， 中找。</p>
-<blockquote>
-<p>控制面板\所有控制面板项\默认程序\设置默认程序</p>
-</blockquote>
-<p>然后再这里设定才可以。</p>
-<h2 id="windows-命令行启动-mysql"><a href="#windows-命令行启动-mysql" class="headerlink" title="windows 命令行启动 mysql"></a>windows 命令行启动 mysql</h2><p>必须以管理员身份运行命令行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start mysql</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/firefox/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016-12/firefox/" class="post-title-link" itemprop="url">Firefox瀏覽器</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-19 16:50:00" itemprop="dateCreated datePublished" datetime="2016-12-19T16:50:00+08:00">2016-12-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Tehems"><a href="#Tehems" class="headerlink" title="Tehems"></a>Tehems</h1><ul>
-<li>esafox</li>
-<li>have a fox dream</li>
+</li>
+<li><ul>
+<li>：在原有参数设定基础上，移除参数。</li>
+</ul>
+</li>
+<li><p>i ：设定文件不能被删除、改名、设定链接关系，同时不能写入或新增内容。i参数对于文件 系统的安全设置有很大帮助。</p>
+</li>
+<li><p>a：即append，设定该参数后，只能向文件中添加数据，而不能删除，多用于服务器日志文 件安全，只有root才能设定这个属性。</p>
+</li>
+<li><p>j：即journal，设定此参数使得当通过mount参数：data=ordered 或者 data=writeback 挂 载的文件系统，文件在写入时会先被记录(在journal中)。如果filesystem被设定参数为 data=journal，则该参数自动失效。</p>
+</li>
 </ul>
 
       

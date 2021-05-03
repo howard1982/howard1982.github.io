@@ -208,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-07/curl/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-09/php-http/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -222,81 +222,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2017-07/curl/" class="post-title-link" itemprop="url">Curl命令</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-07-04 14:35:16" itemprop="dateCreated datePublished" datetime="2017-07-04T14:35:16+08:00">2017-07-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-10 10:09:39" itemprop="dateModified" datetime="2020-11-10T10:09:39+08:00">2020-11-10</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="下載文檔"><a href="#下載文檔" class="headerlink" title="下載文檔"></a>下載文檔</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下載并保存為 api.pdf</span></span><br><span class="line">curl -o api.pdf https://r.webnic.cc/NewAPIDocument_eng.pdf</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 下載并保存為 NewAPIDocument_eng.pdf</span></span><br><span class="line">curl -O https://r.webnic.cc/NewAPIDocument_eng.pdf</span><br></pre></td></tr></table></figure>
-
-<h2 id="GET-amp-POST"><a href="#GET-amp-POST" class="headerlink" title="GET &amp; POST"></a>GET &amp; POST</h2><p>用GET方式 传递参数时，多个参数需要加上引号 (<code>&#39;</code>)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> GET</span></span><br><span class="line">curl https://api.github.com/user</span><br><span class="line">curl 'https://api.github.com/user?access_token=XXXXXXXXXX&amp;nc=ss'</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> POST</span></span><br><span class="line">curl -d "param1=value1&amp;param2=value" https://api.github.com</span><br><span class="line">curl --data "param1=value1&amp;param2=value" https://api.github.com</span><br></pre></td></tr></table></figure>
-
-<h2 id="连接测试"><a href="#连接测试" class="headerlink" title="连接测试"></a>连接测试</h2><p><code>-voa</code>  输出通信的整个过程, 将服务器的回应保存为/dev/null</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -voa https:&#x2F;&#x2F;080.net</span><br></pre></td></tr></table></figure>
-
-<p><code>--resolve</code> 绑定节点来进行访问（-x 无法绑定https）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -voa &quot;https:&#x2F;&#x2F;www.taobao.com&quot; --resolve www.taobao.com:443:113.96.109.101</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-06/doctrine2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017-06/doctrine2/" class="post-title-link" itemprop="url">Doctrine 2</a>
+            <a href="/2018-09/php-http/" class="post-title-link" itemprop="url">php http</a>
         </h1>
 
         <div class="post-meta">
@@ -307,7 +233,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2017-06-11 11:32:12 / 修改时间：11:41:15" itemprop="dateCreated datePublished" datetime="2017-06-11T11:32:12+08:00">2017-06-11</time>
+              <time title="创建时间：2018-09-10 18:10:01 / 修改时间：18:16:45" itemprop="dateCreated datePublished" datetime="2018-09-10T18:10:01+08:00">2018-09-10</time>
             </span>
 
           
@@ -321,22 +247,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="关联"><a href="#关联" class="headerlink" title="关联"></a>关联</h1><p>非主键，不能设定关联，<br>查询只能用嵌套Sql。例如  </p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a.no in (<span class="keyword">select</span> n.no <span class="keyword">from</span> AppBundle:AccountNo n <span class="keyword">where</span> n.id = <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+          <p>参考 <a href="https://recca0120.github.io/2017/04/03/PHP-Psr7-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" target="_blank" rel="noopener">PHP-Psr7-使用方法</a></p>
+<p>使用 php-http 组件</p>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>在 PHP 有眾多的 Http Client 套件，每個使用方法都不一致</p>
+<p>像是我們最常使用的 GuzzleHttp 它從5版及升到6版</p>
+<p>結果連API都不一致，這確實造成了很大的困擾</p>
+<p>所以 PHP-FIG 就提出了 PSR-7 來定義 HTTP message interfaces，並由 httplug.io 實作它</p>
+<p>之後我們這可以利用 PSR-7 的標準來使用 cURL, Socket, Buzz, Guzzle5, Guzzle6, React，相關Adapter</p>
+<h2 id="install"><a href="#install" class="headerlink" title="install"></a>install</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安裝 psr-7</span></span><br><span class="line">composer require guzzlehttp/psr7 php-http/message</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安裝所需的 adapter （示範 GuzzleHttp 6）</span></span><br><span class="line">composer require php-http/guzzle6-adapter</span><br></pre></td></tr></table></figure>
 
+<h2 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Http</span>\<span class="title">Adapter</span>\<span class="title">Guzzle6</span>\<span class="title">Client</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Http</span>\<span class="title">Message</span>\<span class="title">MessageFactory</span>\<span class="title">GuzzleMessageFactory</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">require</span> <span class="keyword">__DIR__</span>.<span class="string">'/vendor/autoload.php'</span>;</span><br><span class="line"></span><br><span class="line">$client = <span class="keyword">new</span> Client();</span><br><span class="line">$messageFactory = <span class="keyword">new</span> GuzzleMessageFactory();</span><br><span class="line">$request = $messageFactory-&gt;createRequest(<span class="string">'GET'</span>, <span class="string">'https://name.080.net/domain/faq'</span>);</span><br><span class="line">$response = $client-&gt;sendRequest($request);</span><br><span class="line"><span class="keyword">echo</span> $response-&gt;getBody()-&gt;getContents();</span><br></pre></td></tr></table></figure>
 
-<h1 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h1><h2 id="setFirstResult"><a href="#setFirstResult" class="headerlink" title="setFirstResult"></a>setFirstResult</h2><p>偏移 相當於 offset </p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">form</span> <span class="keyword">user</span> <span class="keyword">offset</span> <span class="number">5</span> <span class="keyword">limit</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h2 id="POST-JSON"><a href="#POST-JSON" class="headerlink" title="POST JSON"></a>POST JSON</h2><p>替换 $request 变量</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$request = $messageFactory-&gt;createRequest(<span class="string">'POST'</span>,</span><br><span class="line">    <span class="string">'https://name.080.net/domain/one_off/ss/json'</span>,</span><br><span class="line">    [<span class="string">'Content-Type: application/json'</span>,<span class="string">'Accept: application/json'</span>],</span><br><span class="line">    json_encode([<span class="string">'a1'</span>=&gt;<span class="string">'22'</span>,<span class="string">'sfe'</span>=&gt;<span class="string">'fff'</span>])</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
-<h2 id="setMaxResults"><a href="#setMaxResults" class="headerlink" title="setMaxResults"></a>setMaxResults</h2><p>相當於 limit</p>
-<h1 id="getFirstResult"><a href="#getFirstResult" class="headerlink" title="getFirstResult"></a>getFirstResult</h1><p><strong>不是</strong>返回結果， 和 setFirstResult (偏移) 對應</p>
-<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p><a href="http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/dql-doctrine-query-language.html#query-result-formats" target="_blank" rel="noopener">http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/dql-doctrine-query-language.html#query-result-formats</a></p>
-<h2 id="getResult"><a href="#getResult" class="headerlink" title="getResult"></a>getResult</h2><p>所有結果</p>
-<h2 id="getOneOrNullResult"><a href="#getOneOrNullResult" class="headerlink" title="getOneOrNullResult"></a>getOneOrNullResult</h2><p>如果不是唯一則 拋出錯誤，<br>需要和 setMaxResults(1) 搭配使用<br>如果結果不存在 返回Null</p>
-<h2 id="getSingleResult"><a href="#getSingleResult" class="headerlink" title="getSingleResult"></a>getSingleResult</h2><p>如果不是唯一則 拋出錯誤，<br>需要和 setMaxResults(1) 搭配使用<br>如果結果不存在 拋出錯誤</p>
-<h2 id="getArrayResult"><a href="#getArrayResult" class="headerlink" title="getArrayResult"></a>getArrayResult</h2><p>所有結果，返回數組<br>key 為Entity中定義的變量名稱</p>
-<h2 id="getScalarResult"><a href="#getScalarResult" class="headerlink" title="getScalarResult"></a>getScalarResult</h2><p>key 為資料庫中定義的變量名稱</p>
+<h2 id="不使用Curl"><a href="#不使用Curl" class="headerlink" title="不使用Curl"></a>不使用Curl</h2><p>替换 $client 变量</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$handler = <span class="keyword">new</span> GuzzleHttp\Handler\StreamHandler;</span><br><span class="line">$client = <span class="keyword">new</span> GuzzleHttp\Client([<span class="string">'handler'</span> =&gt; $handler]);</span><br><span class="line"></span><br><span class="line">$client = <span class="keyword">new</span> Client($client);</span><br></pre></td></tr></table></figure>
 
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="string">"vendor/autoload.php"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Http</span>\<span class="title">Adapter</span>\<span class="title">Guzzle6</span>\<span class="title">Client</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Http</span>\<span class="title">Message</span>\<span class="title">MessageFactory</span>\<span class="title">GuzzleMessageFactory</span>;</span><br><span class="line"></span><br><span class="line">$handler = <span class="keyword">new</span> GuzzleHttp\Handler\StreamHandler;</span><br><span class="line">$client = <span class="keyword">new</span> GuzzleHttp\Client([<span class="string">'handler'</span> =&gt; $handler]);</span><br><span class="line"></span><br><span class="line">$client = <span class="keyword">new</span> Client($client);</span><br><span class="line">$messageFactory = <span class="keyword">new</span> GuzzleMessageFactory();</span><br><span class="line"></span><br><span class="line">$request = $messageFactory-&gt;createRequest(<span class="string">'POST'</span>,</span><br><span class="line">    <span class="string">'https://name.080.net/domain/one_off/ss/json'</span>,</span><br><span class="line">    [<span class="string">'Content-Type: application/json'</span>,<span class="string">'Accept: application/json'</span>],</span><br><span class="line">    json_encode([<span class="string">'a1'</span>=&gt;<span class="string">'22'</span>,<span class="string">'sfe'</span>=&gt;<span class="string">'fff'</span>])</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">$response = $client-&gt;sendRequest($request);</span><br><span class="line"></span><br><span class="line">$ss =  $response-&gt;getBody()-&gt;getContents();</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -355,7 +283,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-05/osk/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-09/http-header/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -369,7 +297,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2017-05/osk/" class="post-title-link" itemprop="url">osk 屏幕鍵盤</a>
+            <a href="/2018-09/http-header/" class="post-title-link" itemprop="url">http header</a>
         </h1>
 
         <div class="post-meta">
@@ -380,7 +308,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2017-05-31 11:26:53 / 修改时间：11:28:30" itemprop="dateCreated datePublished" datetime="2017-05-31T11:26:53+08:00">2017-05-31</time>
+              <time title="创建时间：2018-09-10 15:45:30 / 修改时间：16:19:45" itemprop="dateCreated datePublished" datetime="2018-09-10T15:45:30+08:00">2018-09-10</time>
             </span>
 
           
@@ -394,8 +322,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="調出"><a href="#調出" class="headerlink" title="調出"></a>調出</h2><p><code>windows键+R</code> 然後輸入 <code>osk</code>， 就會調出屏幕鍵盤。 </p>
-<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>有一些筆記本或者找不到特殊按鍵，譬如 <code>scroll lock</code>。 可以用這個方法來解決。</p>
+          <h2 id="請求"><a href="#請求" class="headerlink" title="請求"></a>請求</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST &#x2F;path HTTP&#x2F;1.1</span><br><span class="line">Host: example.com</span><br><span class="line"></span><br><span class="line">foo&#x3D;bar&amp;baz&#x3D;bat</span><br></pre></td></tr></table></figure>
+
+<h2 id="相應"><a href="#相應" class="headerlink" title="相應"></a>相應</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HTTP&#x2F;1.1 200 OK</span><br><span class="line">Content-Type: text&#x2F;plain</span><br><span class="line"></span><br><span class="line">这是返回的消息内容</span><br></pre></td></tr></table></figure>
+
+<h2 id="其他參考"><a href="#其他參考" class="headerlink" title="其他參考"></a>其他參考</h2><p><a href="./2016-12/php-curl/">PHP curl</a></p>
 
       
     </div>
@@ -415,7 +346,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-05/shadowsocks/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-09/socket/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -429,7 +360,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2017-05/shadowsocks/" class="post-title-link" itemprop="url">shadowsocks</a>
+            <a href="/2018-09/socket/" class="post-title-link" itemprop="url">socket</a>
         </h1>
 
         <div class="post-meta">
@@ -440,7 +371,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2017-05-31 10:03:06 / 修改时间：10:06:07" itemprop="dateCreated datePublished" datetime="2017-05-31T10:03:06+08:00">2017-05-31</time>
+              <time title="创建时间：2018-09-10 15:45:11 / 修改时间：16:18:07" itemprop="dateCreated datePublished" datetime="2018-09-10T15:45:11+08:00">2018-09-10</time>
             </span>
 
           
@@ -454,9 +385,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="shadowsocks-rss"><a href="#shadowsocks-rss" class="headerlink" title="shadowsocks-rss"></a>shadowsocks-rss</h1><p>是 shadowsocks 加強版， 增加了混淆協議。<br>下載地址：</p>
-<p><a href="https://github.com/breakwa11/shadowsocks-rss" target="_blank" rel="noopener">https://github.com/breakwa11/shadowsocks-rss</a></p>
-<p><code>绕过大陆常见域名PAC</code>或<code>绕过大陆IP的PAC</code> 此PAC会对IP地址判断是否为国内。</p>
+          <p>TCP/IP是个协议组，可分为四个层次：网络接口层、网络层、传输层和应用层。</p>
+<ol>
+<li>网络接口层 –</li>
+<li>网络层 – IP协议、ICMP协议、ARP协议、RARP协议和BOOTP协议</li>
+<li>传输层 – TCP协议与UDP协议</li>
+<li>应用层 – HTTP,FTP、TELNET、SMTP、DNS等协议</li>
+</ol>
+<h2 id="socket"><a href="#socket" class="headerlink" title="socket"></a>socket</h2><p>socket只是一种连接模式，不是协议，socket是对TCP/IP协议的封装，Socket本身并不是协议，而是一个调用接口（API），</p>
 
       
     </div>
@@ -476,7 +412,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-05/sqlserver-drives/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-09/python/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -490,7 +426,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2017-05/sqlserver-drives/" class="post-title-link" itemprop="url">sqlserver-drives</a>
+            <a href="/2017-09/python/" class="post-title-link" itemprop="url">Python</a>
         </h1>
 
         <div class="post-meta">
@@ -500,14 +436,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-05-31 09:37:25" itemprop="dateCreated datePublished" datetime="2017-05-31T09:37:25+08:00">2017-05-31</time>
+              <time title="创建时间：2017-09-15 08:49:50" itemprop="dateCreated datePublished" datetime="2017-09-15T08:49:50+08:00">2017-09-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2017-07-16 14:35:38" itemprop="dateModified" datetime="2017-07-16T14:35:38+08:00">2017-07-16</time>
+                <time title="修改时间：2018-09-06 21:46:11" itemprop="dateModified" datetime="2018-09-06T21:46:11+08:00">2018-09-06</time>
               </span>
 
           
@@ -521,160 +457,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="php"><a href="#php" class="headerlink" title="php"></a>php</h2><p>php7.0 以后下載的windows不在提供 sqlserver的驅動下載。<br>而是到SqlServer官網下載</p>
-<p><a href="https://docs.microsoft.com/en-us/sql/connect/sql-server-drivers" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/sql/connect/sql-server-drivers</a></p>
-<p>最新的下載鏈接</p>
-<p><a href="https://github.com/Microsoft/msphpsql/releases" target="_blank" rel="noopener">https://github.com/Microsoft/msphpsql/releases</a></p>
-<h3 id="安裝odbc"><a href="#安裝odbc" class="headerlink" title="安裝odbc"></a>安裝odbc</h3><p>Pdo_SqlSrv 還需要 安裝 odbc driver<br><a href="https://docs.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server" target="_blank" rel="noopener">Microsoft® ODBC Driver 13.1 for SQL Server</a></p>
-<h2 id="other"><a href="#other" class="headerlink" title="other"></a>other</h2><p>其他語言可以到這裡下載</p>
-<p><a href="https://docs.microsoft.com/en-us/sql/connect/sql-server-drivers" target="_blank" rel="noopener">https://docs.microsoft.com/en-us/sql/connect/sql-server-drivers</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-05/dig/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017-05/dig/" class="post-title-link" itemprop="url">dig 命令</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-05-19 16:37:39" itemprop="dateCreated datePublished" datetime="2017-05-19T16:37:39+08:00">2017-05-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-10 11:39:16" itemprop="dateModified" datetime="2020-12-10T11:39:16+08:00">2020-12-10</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="基本查詢"><a href="#基本查詢" class="headerlink" title="基本查詢"></a>基本查詢</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dig 080.net mx</span><br><span class="line">dig 080.net txt</span><br><span class="line">dig 080.net any # 查詢所有的080.net的記錄。（不含subdomain）</span><br></pre></td></tr></table></figure>
-
-<h2 id="參數"><a href="#參數" class="headerlink" title="參數"></a>參數</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dig 080.net +short abc.com abc.net</span><br><span class="line">dig 080.net +noall +answer abc.com abc.net</span><br><span class="line">dig +nocmd +multiline +noall +answer abc.com abc.net any</span><br></pre></td></tr></table></figure>
-
-<h2 id="反向解析"><a href="#反向解析" class="headerlink" title="反向解析"></a>反向解析</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dig -x 119.81.172.50</span><br><span class="line"></span><br><span class="line">nslookup -qt=ptr 119.81.172.50</span><br></pre></td></tr></table></figure>
-
-<h2 id="解析过程"><a href="#解析过程" class="headerlink" title="解析过程"></a>解析过程</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dig  google.com +trace</span><br><span class="line">dig  google.com +trace +nodnssec # 不顯示 dnssec</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-05/iotop/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017-05/iotop/" class="post-title-link" itemprop="url">iotop命令</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-05-18 14:32:00" itemprop="dateCreated datePublished" datetime="2017-05-18T14:32:00+08:00">2017-05-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-05-17 09:34:41" itemprop="dateModified" datetime="2019-05-17T09:34:41+08:00">2019-05-17</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a>实际应用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iotop -o -d 2 # 只顯示有做I/O動作的進程 每隔2秒刷新一下</span><br><span class="line">iotop -o -P -b -k -n 3 -d 2 # 打印3次，時間間隔2秒。</span><br><span class="line">iotop -p 2655 #顯示該進程的io情況</span><br></pre></td></tr></table></figure>
-
-<h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><ul>
-<li>-o, –only #显示进程或者线程实际上正在做的I/O，而不是全部的，可以随时切换按o</li>
-<li>-b, –batch #运行在非交互式的模式</li>
-<li>-n NUM, –iter=NUM #在非交互式模式下，设置显示的次数，</li>
-<li>-d SEC, –delay=SEC #设置显示的间隔秒数，支持非整数值</li>
-<li>-k, –kilobytes #以千字节显示</li>
-<li>-p PID, –pid=PID #只显示指定PID的信息</li>
-<li>-P, –processes Only show processes. Normally iotop shows all threads.</li>
+          <h2 id="Import-VS-Import-from"><a href="#Import-VS-Import-from" class="headerlink" title="Import VS Import..from"></a>Import VS Import..from</h2><ul>
+<li><code>import subpackage1.a</code> # 将模块subpackage.a导入全局命名空间，例如访问a中属性时用 <code>subpackage1.a.attr</code></li>
+<li><code>from subpackage1 import a</code> #　将模块a导入全局命名空间，例如访问a中属性时用a.attr_a</li>
+<li><code>from subpackage.a import attr_a</code> # 将模块a的属性直接导入到命名空间中，例如访问a中属性时直接用attr_a</li>
 </ul>
-<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">方向鍵：切換排序</span><br><span class="line">r：反向排序，</span><br><span class="line">o：切换至选项--only，</span><br><span class="line">p：切换至--processes选项，</span><br></pre></td></tr></table></figure>
+<h2 id="資料庫數據修改"><a href="#資料庫數據修改" class="headerlink" title="資料庫數據修改"></a>資料庫數據修改</h2><p>不手動該執行 commit 真個程序執行完才會更新到資料庫</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">conn = mysql.connector.connect(host=<span class="string">'localhost'</span>,user=<span class="string">'dn'</span>, password=<span class="string">'xxx'</span>, database=<span class="string">'dn'</span>,charset=<span class="string">'utf8'</span>)</span><br><span class="line">cursor = conn.cursor()</span><br><span class="line"></span><br><span class="line">update_sql = <span class="string">"update one_off_domain set has_ssl = %s where id = %s"</span></span><br><span class="line">cursor.execute(update_sql, (<span class="number">-1</span>, id))</span><br><span class="line">conn.commit()</span><br><span class="line"></span><br><span class="line">conn.close()</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>文档测试或者执行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">print</span> __name__</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -693,7 +486,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-03/git-build/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-05/php-pdo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -707,7 +500,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2017-03/git-build/" class="post-title-link" itemprop="url">Golang 編譯其他系統下運行</a>
+            <a href="/2018-05/php-pdo/" class="post-title-link" itemprop="url">PHP PDO 操作</a>
         </h1>
 
         <div class="post-meta">
@@ -717,14 +510,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-03-11 20:01:40" itemprop="dateCreated datePublished" datetime="2017-03-11T20:01:40+08:00">2017-03-11</time>
+              <time title="创建时间：2018-05-29 16:21:53" itemprop="dateCreated datePublished" datetime="2018-05-29T16:21:53+08:00">2018-05-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-21 10:32:57" itemprop="dateModified" datetime="2020-02-21T10:32:57+08:00">2020-02-21</time>
+                <time title="修改时间：2018-08-29 18:14:02" itemprop="dateModified" datetime="2018-08-29T18:14:02+08:00">2018-08-29</time>
               </span>
 
           
@@ -738,18 +531,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><p>在windows命令行下一次執行：</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 忽略 c文檔</span><br><span class="line"><span class="built_in">SET</span> CGO_ENABLED=<span class="number">0</span></span><br><span class="line">#設定為linux</span><br><span class="line"><span class="built_in">SET</span> GOOS=linux</span><br><span class="line"><span class="built_in">SET</span> GOARCH=amd64</span><br></pre></td></tr></table></figure>
+          <h2 id="連接"><a href="#連接" class="headerlink" title="連接"></a>連接</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$dbh = <span class="keyword">new</span> PDO(<span class="string">'mysql:dbname=db;host=localhost'</span>, <span class="string">'root'</span>, <span class="string">'password'</span>);</span><br></pre></td></tr></table></figure>
 
-<p>然後就可以執行 <code>go build</code> 來生成linux運行的程序。</p>
-<p>在 <code>git shell</code> 下执行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> GOOS=linux</span><br><span class="line"><span class="built_in">export</span> GOARCH=amd64</span><br></pre></td></tr></table></figure>
+<p>or</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$dsn = <span class="string">'mysql:dbname=db;host=localhost'</span>;</span><br><span class="line">$user = <span class="string">'root'</span>;</span><br><span class="line">$password = <span class="string">'password'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    $dbh = <span class="keyword">new</span> PDO($dsn, $user, $password);</span><br><span class="line">&#125; <span class="keyword">catch</span> (PDOException $e) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'Connection failed: '</span> . $e-&gt;getMessage();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="說明"><a href="#說明" class="headerlink" title="說明"></a>說明</h3><ul>
-<li>交叉编译不支持 CGO 所以要禁用它</li>
-<li>GOOS：目标平台的操作系统（darwin、freebsd、linux、windows</li>
-<li>GOARCH：目标平台的体系架构（386、amd64、arm)</li>
-</ul>
+<h2 id="设定只显示-key"><a href="#设定只显示-key" class="headerlink" title="设定只显示 key"></a>设定只显示 key</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$dbh-&gt;setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);</span><br></pre></td></tr></table></figure>
+
+<h2 id="query-和-prepare-区别"><a href="#query-和-prepare-区别" class="headerlink" title="query 和 prepare 区别"></a>query 和 prepare 区别</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$sth = $dbh-&gt;query($sql);</span><br><span class="line"><span class="comment"># 等同于</span></span><br><span class="line">$sth = $dbh-&gt;prepare($sql);</span><br><span class="line">$sth-&gt;execute();</span><br></pre></td></tr></table></figure>
+
+<h2 id="获取结果"><a href="#获取结果" class="headerlink" title="获取结果"></a>获取结果</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>($row = $sth-&gt;fetch()) &#123;</span><br><span class="line">    print_r($row);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line"><span class="keyword">foreach</span>($sth-&gt;fetchAll() <span class="keyword">as</span> $row) &#123;</span><br><span class="line">    print_r($row);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="PDOStatement-execute"><a href="#PDOStatement-execute" class="headerlink" title="PDOStatement::execute"></a>PDOStatement::execute</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$sth = $dbh-&gt;prepare(<span class="string">"update icrm_contact set email2 = ? where id = ?"</span>);</span><br><span class="line">$sth-&gt;execute(<span class="keyword">array</span>($email, $id));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$sth = $dbh-&gt;prepare(<span class="string">"update icrm_contact set email2 = ? where id = ?"</span>);</span><br><span class="line">$sth-&gt;bindValue(<span class="number">1</span>, <span class="string">'howard@080.net'</span>);</span><br><span class="line">$sth-&gt;bindValue(<span class="number">2</span>, <span class="string">'1'</span>);</span><br><span class="line">$sth-&gt;execute();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$sth = $dbh-&gt;prepare(<span class="string">"update icrm_contact set email2 = :email where id = :id"</span>);</span><br><span class="line">$sth-&gt;bindValue(<span class="string">':email'</span>, <span class="string">'howard@080.net'</span>);</span><br><span class="line">$sth-&gt;bindValue(<span class="string">':id'</span>, <span class="string">'1'</span>);</span><br><span class="line">$sth-&gt;execute();</span><br></pre></td></tr></table></figure>
+
+<h2 id="PDOStatement-bindValue"><a href="#PDOStatement-bindValue" class="headerlink" title="PDOStatement::bindValue"></a>PDOStatement::bindValue</h2><p>把一个值绑定到一个参数， 例如 把 <code>howard@080.net</code> 綁定到 <code>:email</code></p>
+<h2 id="PDOStatement-bindParam"><a href="#PDOStatement-bindParam" class="headerlink" title="PDOStatement::bindParam"></a>PDOStatement::bindParam</h2><p>绑定一个参数到指定的变量名，例如 把 <code>$email</code> 這個變量 綁定到 <code>:email</code>。<br>當保存多個的時候 直接修改 <code>$email</code> 對應的值。然後執行<code>$sth-&gt;execute()</code> 就可以了。</p>
 
       
     </div>
@@ -769,7 +569,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-03/spring-boot-jdbc/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-08/php-input/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -783,7 +583,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2017-03/spring-boot-jdbc/" class="post-title-link" itemprop="url">Spring Boot Jdbc练习</a>
+            <a href="/2018-08/php-input/" class="post-title-link" itemprop="url">php://input</a>
         </h1>
 
         <div class="post-meta">
@@ -794,7 +594,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2017-03-03 20:06:43 / 修改时间：20:27:27" itemprop="dateCreated datePublished" datetime="2017-03-03T20:06:43+08:00">2017-03-03</time>
+              <time title="创建时间：2018-08-29 08:04:24 / 修改时间：08:25:14" itemprop="dateCreated datePublished" datetime="2018-08-29T08:04:24+08:00">2018-08-29</time>
             </span>
 
           
@@ -808,30 +608,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>零散的记录， 不是很系统的内容。</p>
-<h2 id="spring-boot"><a href="#spring-boot" class="headerlink" title="spring boot"></a>spring boot</h2><p>用注解代替了XML配置。上手比较简单。</p>
-<p>类似一个执行容器。用注解的方式指定Bean，将Bean映射到具体变量。扫描所有类的注解后，开始分配。并执行指定函数。</p>
-<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><p><a href="http://start.spring.io/" target="_blank" rel="noopener">http://start.spring.io/</a> 可以下载一个空的含有配置文档以及pom.xml文档。</p>
-<p><code>~\src\main\resources\application.properties</code>文档是spring的配置文档。</p>
-<h3 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h3><ul>
-<li><p><code>@SpringBootApplication</code> 从这里开始</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GncApplication</span> <span class="keyword">implements</span> <span class="title">CommandLineRunner</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(GncApplication<span class="class">.<span class="keyword">class</span>, <span class="title">args</span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String... strings)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>@Autowired</code> 自动映射。</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="meta">@Qualifier</span>(<span class="string">"jdbcMysqlTemplate"</span>)</span><br><span class="line"><span class="keyword">private</span> JdbcTemplate jdbcMysqlTemplate;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 如果名稱變量名稱 沒有對應的 <span class="doctag">@Bean</span>。 可以用 <span class="doctag">@Qualifier</span>("jdbcMysqlTemplate") 指定</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> JdbcTemplate jdbcSqlServerTemplate;</span><br></pre></td></tr></table></figure>
+          <p><code>php://input</code> 用來接收數據。</p>
+<h2 id="form-表單"><a href="#form-表單" class="headerlink" title="form 表單"></a>form 表單</h2><p>一般情況下html form 表單提交的類型是 <code>application/x-www-form-urlencoded</code> 或者 <code>multipart/form-data</code>。用 <code>$_POST</code>就能直接獲取。</p>
+<h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><p>如果對方發送的數據是 <code>application/json</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$data = file_get_contents(<span class="string">'php://input'</span>);</span><br><span class="line">$data = json_decode($data, <span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><code>@Configuration</code> 配置注解</li>
-<li><code>@Bean</code> Bean名称，返回一个Bean</li>
-<li><code>@ConfigurationProperties</code> 指定读取文档<code>application.properties</code>中的特殊内容 </li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ApplicationConfig</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> JdbcTemplate <span class="title">jdbcMysqlTemplate</span><span class="params">(@Qualifier(value = <span class="string">"mysqlDataSource"</span>)</span> DataSource mysqlDataSource) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> JdbcTemplate(mysqlDataSource);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span>(name = <span class="string">"jdbcSqlServerTemplate"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> JdbcTemplate <span class="title">jdbcSqlServerTemplate</span><span class="params">(@Qualifier(value = <span class="string">"sqlServerDataSource"</span>)</span> DataSource sqlServerDataSource) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> JdbcTemplate(sqlServerDataSource);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 使用 <span class="doctag">@Bean</span> 時，如果沒有名稱，則默認為function的名稱 <span class="doctag">@Bean</span>(name = "jdbcSqlServerTemplate")</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@Primary</span></span><br><span class="line">    <span class="meta">@ConfigurationProperties</span>(prefix=<span class="string">"spring.datasource.mysql"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">mysqlDataSource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> DataSourceBuilder.create().build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@ConfigurationProperties</span>(prefix=<span class="string">"spring.datasource.mssql"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">sqlServerDataSource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> DataSourceBuilder.create().build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="mvn"><a href="#mvn" class="headerlink" title="mvn"></a>mvn</h2><p>mvn 打包并运行。<br>打包会把所有需要的jar包一起打包。<code>pring-boot-app-0.1.jar</code> 按照实际情况替换。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mvn package</span><br><span class="line">java -jar target\spring-boot-app-0.1.jar</span><br></pre></td></tr></table></figure>
-
+<h2 id="php-發送JSON數據"><a href="#php-發送JSON數據" class="headerlink" title="php 發送JSON數據"></a>php 發送JSON數據</h2><p>參見 <a href="./2016-12/php-curl/">PHP curl</a></p>
 
       
     </div>
@@ -851,7 +633,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-02/r1soft/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-08/gcp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -865,7 +647,185 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2017-02/r1soft/" class="post-title-link" itemprop="url">R1soft 備份失敗</a>
+            <a href="/2018-08/gcp/" class="post-title-link" itemprop="url">google cloud 管理</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2018-08-14 15:10:38 / 修改时间：15:12:06" itemprop="dateCreated datePublished" datetime="2018-08-14T15:10:38+08:00">2018-08-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="ssh-登錄"><a href="#ssh-登錄" class="headerlink" title="ssh 登錄"></a>ssh 登錄</h2><p>必須手動執行 不能用config配置， 奇怪~</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh howard@104.199.168.248</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-07/regexp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018-07/regexp/" class="post-title-link" itemprop="url">正則表達式</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2018-07-24 16:52:20 / 修改时间：16:53:20" itemprop="dateCreated datePublished" datetime="2018-07-24T16:52:20+08:00">2018-07-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="密碼"><a href="#密碼" class="headerlink" title="密碼"></a>密碼</h2><p>必須含有數字，小寫字母、大寫字母</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^(?=.*[<span class="number">0</span><span class="number">-9</span>])(?=.*[a-z])(?=.*[A-Z])[<span class="number">0</span><span class="number">-9</span>a-zA-Z]&#123;<span class="number">6</span>,&#125;$/</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-06/monolog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018-06/monolog/" class="post-title-link" itemprop="url">Monolog</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2018-06-27 17:50:59 / 修改时间：17:53:42" itemprop="dateCreated datePublished" datetime="2018-06-27T17:50:59+08:00">2018-06-27</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>Monolog 注册为系统Error错误管理</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Logger</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Handler</span>\<span class="title">StreamHandler</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">ErrorHandler</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Formatter</span>\<span class="title">LineFormatter</span>;</span><br><span class="line"></span><br><span class="line">$handler = <span class="keyword">new</span> StreamHandler(VARPATH.<span class="string">'/log/'</span>.date(<span class="string">"Ym"</span>).<span class="string">'.log'</span>, Logger::WARNING);</span><br><span class="line"></span><br><span class="line">$lineFormatter = <span class="keyword">new</span> LineFormatter();</span><br><span class="line">$lineFormatter-&gt; includeStacktraces(); <span class="comment">// 记录错误并追溯 debug_backtrace</span></span><br><span class="line">$handler-&gt;setFormatter($lineFormatter);</span><br><span class="line"></span><br><span class="line">$logger = <span class="keyword">new</span> Logger(<span class="string">'system'</span>);</span><br><span class="line">$logger-&gt;pushHandler($handler);</span><br><span class="line"></span><br><span class="line">ErrorHandler::register($logger); <span class="comment">// 注册为系统Error管理</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-02/centos-webpanel/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018-02/centos-webpanel/" class="post-title-link" itemprop="url">centos-webpanel</a>
         </h1>
 
         <div class="post-meta">
@@ -875,14 +835,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-02-24 16:31:39" itemprop="dateCreated datePublished" datetime="2017-02-24T16:31:39+08:00">2017-02-24</time>
+              <time title="创建时间：2018-02-26 13:35:06" itemprop="dateCreated datePublished" datetime="2018-02-26T13:35:06+08:00">2018-02-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-11-12 16:30:00" itemprop="dateModified" datetime="2018-11-12T16:30:00+08:00">2018-11-12</time>
+                <time title="修改时间：2018-06-23 16:27:56" itemprop="dateModified" datetime="2018-06-23T16:27:56+08:00">2018-06-23</time>
               </span>
 
           
@@ -896,21 +856,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="安裝錯誤"><a href="#安裝錯誤" class="headerlink" title="安裝錯誤"></a>安裝錯誤</h2><p>錯誤訊息提示要執行<code>r1soft-setup --get-module</code>.<br>但是報錯：kernel的版本信息和kernel-devel 版本對不上。</p>
-<p>所以一次執行：</p>
-<ul>
-<li>yum install kernel-devel-$(uname -r)</li>
-<li>r1soft-setup –get-module –no-binary</li>
-<li>/etc/init.d/cdp-agent restart</li>
-</ul>
-<p><a href="http://www.mickgenie.com/r1soft-replication-driver-missing/" target="_blank" rel="noopener">參考</a></p>
-<h2 id="更新Server-Key"><a href="#更新Server-Key" class="headerlink" title="更新Server Key"></a>更新Server Key</h2><p>都安裝好之後，要記得在 Agent 端將 Server 端的 Key 複製</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">serverbackup-setup --get-key [Manager_URL]</span><br></pre></td></tr></table></figure>
-
-<p>例如：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 執行</span></span><br><span class="line">serverbackup-setup --get-key http://r1back.abc.com/public_info</span><br><span class="line"><span class="meta">#</span><span class="bash"> 會顯示</span></span><br><span class="line">Key ‘r1back.abc.com’ successfully installed</span><br></pre></td></tr></table></figure>
-
-<p><a href="http://wiki.r1soft.com/display/ServerBackup/Add+key+to+Linux+Backup+Agent" target="_blank" rel="noopener">參考</a></p>
+          <h2 id="auto-ssl-自动更新问题"><a href="#auto-ssl-自动更新问题" class="headerlink" title="auto ssl 自动更新问题"></a>auto ssl 自动更新问题</h2><p>取消掉多余的 apache 对应的https加载文档</p>
 
       
     </div>

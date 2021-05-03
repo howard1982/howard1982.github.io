@@ -208,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-04/docker/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-11/VMware-Network/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -222,7 +222,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020-04/docker/" class="post-title-link" itemprop="url">docker 初探</a>
+            <a href="/2020-11/VMware-Network/" class="post-title-link" itemprop="url">VMware Network 网络配置</a>
         </h1>
 
         <div class="post-meta">
@@ -233,7 +233,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-04-21 13:38:30 / 修改时间：13:58:37" itemprop="dateCreated datePublished" datetime="2020-04-21T13:38:30+08:00">2020-04-21</time>
+              <time title="创建时间：2020-11-10 09:52:08 / 修改时间：09:59:37" itemprop="dateCreated datePublished" datetime="2020-11-10T09:52:08+08:00">2020-11-10</time>
             </span>
 
           
@@ -247,31 +247,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker search php</span><br><span class="line">docker pull php</span><br></pre></td></tr></table></figure>
-
-<h2 id="執行一個文檔"><a href="#執行一個文檔" class="headerlink" title="執行一個文檔"></a>執行一個文檔</h2><p><code>docker run  -v /root/myapp:/usr/src/myapp  -w /usr/src/myapp php php i.php</code></p>
-<ol>
-<li>-v /root/myapp:/usr/src/myapp : 将主机中当前目录下的 myapp 挂载到容器的 /usr/src/myapp。</li>
-<li>-w /usr/src/myapp : 指定容器的 /usr/src/myapp 目录为工作目录。</li>
-<li>php : image 名稱</li>
-<li>php i.php : 使用容器的 php 命令来执行工作目录中的 i.php 文件。</li>
-</ol>
-<h2 id="啓動nginx"><a href="#啓動nginx" class="headerlink" title="啓動nginx"></a>啓動nginx</h2><p><code>docker run --name nginx-test -p 8080:80 -d nginx</code></p>
-<ol>
-<li>–name nginx-test：容器名称。</li>
-<li>-p 8080:80： 端口进行映射，将本地 8080 端口映射到容器内部的 80 端口。</li>
-<li>-d nginx： 设置容器在在后台一直运行。</li>
-</ol>
-<h2 id="執行一個命令"><a href="#執行一個命令" class="headerlink" title="執行一個命令"></a>執行一個命令</h2><ol>
-<li><code>docker run php:latest php -v</code></li>
-<li><code>php -v</code> 要執行的內容</li>
-<li><code>php:latest</code> php image名稱 latest tag名稱</li>
-</ol>
-<h2 id="交互式"><a href="#交互式" class="headerlink" title="交互式"></a>交互式</h2><p><code>docker run -it php:latest /bin/bash</code></p>
-<h2 id="容器-container"><a href="#容器-container" class="headerlink" title="容器 container"></a>容器 container</h2><h3 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h3><p><code>docker stop &lt;CONTAINER ID&gt;</code></p>
-<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p><code>docker rm &lt;CONTAINER ID&gt;</code></p>
-<h2 id="啓動"><a href="#啓動" class="headerlink" title="啓動"></a>啓動</h2><p><code>docker start &lt;CONTAINER ID&gt;</code></p>
-<h2 id="查看分配的IP"><a href="#查看分配的IP" class="headerlink" title="查看分配的IP"></a>查看分配的IP</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker inspect --format='&#123;&#123;.NetworkSettings.IPAddress&#125;&#125;' &lt;CONTAINER ID&gt;</span><br></pre></td></tr></table></figure>
+          <p>VMWare提供了三种工作模式，它们是bridged(桥接模式)、NAT(网络地址转换模式)和host-only(主机模式)。</p>
+<h2 id="bridged-桥接模式"><a href="#bridged-桥接模式" class="headerlink" title="bridged 桥接模式"></a>bridged 桥接模式</h2><p>在桥接模式下，你需要手工为虚拟系统配置IP地址、子网掩码，而且还要和宿主机器处于同一网段，这样虚拟系统才能和宿主机器进行通信。</p>
+<h2 id="host-only-主机模式"><a href="#host-only-主机模式" class="headerlink" title="host-only 主机模式"></a>host-only 主机模式</h2><p>VMware Network Adapter VMnet1。 虚拟网络的DHCP服务器来动态分配的。</p>
+<h2 id="NAT-网络地址转换模式"><a href="#NAT-网络地址转换模式" class="headerlink" title="NAT 网络地址转换模式"></a>NAT 网络地址转换模式</h2><p>VMware Network Adapter VMnet8。就是让虚拟系统借助NAT(网络地址转换)功能，通过宿主机器所在的网络来访问公网。 vmware 虚拟出一个网络IP段。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>所以我把 Windows系统中 <code>控制面板\网络和 Internet\网络连接</code> 中的 <code>VMware Network Adapter VMnet1</code> 和 <code>VMware Network Adapter VMnet8</code> 关闭了。</p>
 
       
     </div>
@@ -291,7 +271,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-02/go-mod/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-06/ftp-sync/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -305,7 +285,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020-02/go-mod/" class="post-title-link" itemprop="url">go mod 模塊</a>
+            <a href="/2020-06/ftp-sync/" class="post-title-link" itemprop="url">ftp 同步</a>
         </h1>
 
         <div class="post-meta">
@@ -314,10 +294,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-02-27 13:18:09 / 修改时间：13:41:44" itemprop="dateCreated datePublished" datetime="2020-02-27T13:18:09+08:00">2020-02-27</time>
+              <time title="创建时间：2020-06-10 17:47:15" itemprop="dateCreated datePublished" datetime="2020-06-10T17:47:15+08:00">2020-06-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-10-12 16:43:06" itemprop="dateModified" datetime="2020-10-12T16:43:06+08:00">2020-10-12</time>
+              </span>
 
           
 
@@ -330,82 +316,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>建议直接设置 GO111MODULE=”on”</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> env -w GO111MODULE=on</span><br></pre></td></tr></table></figure>
-
-<p>给go mod 设置代理， 并添加私有域名</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> env -w GOPROXY=http:<span class="comment">//goproxy.cn,direct</span></span><br><span class="line"><span class="comment">// or</span></span><br><span class="line"><span class="keyword">go</span> env -w GOPROXY=https:<span class="comment">//mirrors.aliyun.com/goproxy/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">go</span> env -w GOPRIVATE=*.my-abc.net</span><br></pre></td></tr></table></figure>
-
-<h2 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h2><p>新建项目，或者是已有项目转为go mod 模式的 init 建议</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> mod init  域名/组名/项目名</span><br></pre></td></tr></table></figure>
-
-<p>eg： code.my-abc.net/tools/pptp</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-02/php-ext/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020-02/php-ext/" class="post-title-link" itemprop="url">单独编译 php 扩展</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-02-11 16:23:25 / 修改时间：16:44:58" itemprop="dateCreated datePublished" datetime="2020-02-11T16:23:25+08:00">2020-02-11</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd ext/mbstring/</span><br><span class="line">/opt/php72/bin/phpize</span><br><span class="line">./configure  --enable-my_module --with-php-config=/opt/php72/bin/php-config</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li><code>/opt/php72</code> 是已经存在的php 安装目录。</li>
-<li>单独编译 mbstring 模块</li>
+          <h2 id="步驟"><a href="#步驟" class="headerlink" title="步驟"></a>步驟</h2><ol>
+<li><p>安裝 lftp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install lftp</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置</p>
+</li>
 </ol>
-<h2 id="配置-amp-加载"><a href="#配置-amp-加载" class="headerlink" title="配置&amp;加载"></a>配置&amp;加载</h2><p>在文档中 <code>/opt/php72/lib/php.ini</code> 增加一下内容</p>
-<p>```<br>extension=/opt/php72/lib/php/extensions/no-debug-non-zts-20170718/mbstring.so<br>``</p>
+<p><code>/etc/lftp.conf</code> 添加一下內容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">set ssl:verify-certificate no</span><br><span class="line">set ftp:passive-mode off</span><br><span class="line">set net:max-retries 2; #最大重试次数</span><br><span class="line">set net:reconnect-interval-base 10; #第一次连接失败时重试间隔</span><br><span class="line">set net:reconnect-interval-multiplier 2; #每次重试间隔为</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>程序</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">login="user"</span><br><span class="line">pass="password"</span><br><span class="line">host="1.2.3.4"</span><br><span class="line">remote_dir="/demo/uploads"</span><br><span class="line">local_dir="/home/xxxxx/public_html/uploads"</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">trap "rm -f /tmp/lftp-mirror.lock" SIGINT SIGTERM</span><br><span class="line">if [ -e /tmp/lftp-mirror.lock ]</span><br><span class="line">then</span><br><span class="line">echo "mirror is running already, rm /tmp/lftp-mirror.lock if this is false."</span><br><span class="line">exit 1</span><br><span class="line">else</span><br><span class="line">touch /tmp/mirror</span><br><span class="line">lftp -u $login,$pass ftp://$host &lt;&lt; EOF</span><br><span class="line">cd $remote_dir</span><br><span class="line">lcd $local_dir</span><br><span class="line">mirror -R -c --parallel=20</span><br><span class="line">quit</span><br><span class="line">EOF</span><br><span class="line">rm -f /tmp/lftp-mirror.lock</span><br><span class="line">trap - SIGINT SIGTERM</span><br><span class="line">exit 0</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>排程</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*&#x2F;15 * * * * &#x2F;root&#x2F;bin&#x2F;cn_rsync.sh</span><br></pre></td></tr></table></figure>
+
+<h2 id="排錯"><a href="#排錯" class="headerlink" title="排錯"></a>排錯</h2><p>有時候會連接錯誤但是不知道什麼原因， 可以使用 ftp 命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ftp</span><br><span class="line">&gt; open xxxxx</span><br></pre></td></tr></table></figure>
+
+<p>可能會出現 <em>連接超過xxx</em></p>
 
       
     </div>
@@ -425,7 +359,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-01/check-mobile/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-09/bind-named-query-log/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -439,7 +373,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020-01/check-mobile/" class="post-title-link" itemprop="url">检查是是否手机访问</a>
+            <a href="/2020-09/bind-named-query-log/" class="post-title-link" itemprop="url">bind-named-query-log</a>
         </h1>
 
         <div class="post-meta">
@@ -450,7 +384,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-01-08 17:40:37 / 修改时间：17:48:00" itemprop="dateCreated datePublished" datetime="2020-01-08T17:40:37+08:00">2020-01-08</time>
+              <time title="创建时间：2020-09-04 13:25:02 / 修改时间：13:33:51" itemprop="dateCreated datePublished" datetime="2020-09-04T13:25:02+08:00">2020-09-04</time>
             </span>
 
           
@@ -464,7 +398,110 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>这里有很多方法 <a href="http://detectmobilebrowsers.com/" target="_blank" rel="noopener">http://detectmobilebrowsers.com/</a>  <code>php</code> <code>apache</code> <code>js</code> 都有。</p>
+          <h2 id="開啟-Bind-記錄-Query-Log"><a href="#開啟-Bind-記錄-Query-Log" class="headerlink" title="開啟 Bind 記錄 Query Log"></a>開啟 Bind 記錄 Query Log</h2><p>編輯 <code>/etc/named.conf</code><br>添加一些設置，最後應該長得類似這樣：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">logging &#123;</span><br><span class="line">   channel default_debug &#123;</span><br><span class="line">        file &quot;data&#x2F;named.run&quot; versions 10 size 100m;</span><br><span class="line">           severity dynamic;</span><br><span class="line">   &#125;;</span><br><span class="line">   channel query-log &#123;</span><br><span class="line">        file &quot;data&#x2F;named_query.log&quot; versions 10 size 500m;</span><br><span class="line">        severity info;</span><br><span class="line">        print-time yes;</span><br><span class="line">    &#125;;</span><br><span class="line">   category queries &#123; query-log;&#125;;</span><br><span class="line">   category default &#123; default_debug;&#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>注意：log 文件必須在 /var/named/data/ 底下，並且 屬性是 named:named</p>
+<p>確認之後，重啟 named. cpanel 命令 <code>/scripts/restartsrv_named</code></p>
+<h2 id="統計分析Log"><a href="#統計分析Log" class="headerlink" title="統計分析Log"></a>統計分析Log</h2><p>Github 上面有一些工具現成的  <a href="https://github.com/search?utf8=%E2%9C%93&amp;q=bind+log&amp;type=" target="_blank" rel="noopener">https://github.com/search?utf8=%E2%9C%93&amp;q=bind+log&amp;type=</a></p>
+<p><a href="https://github.com/Matty9191/bind-query-log-statistics" target="_blank" rel="noopener">https://github.com/Matty9191/bind-query-log-statistics</a></p>
+<p><code>bind-query-log-stats.py</code> 根據實際情況 添加或編輯 173行 。以下是我的例子</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">elif</span> len(chopped) == <span class="number">11</span>:</span><br><span class="line">    timestamp = chopped[<span class="number">0</span>] + <span class="string">" "</span> + chopped[<span class="number">1</span>]</span><br><span class="line">    client_ip = chopped[<span class="number">3</span>].split(<span class="string">"#"</span>)[<span class="number">0</span>]</span><br><span class="line">    rr_type = chopped[<span class="number">8</span>]</span><br><span class="line">    dns_question = chopped[<span class="number">6</span>]</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-05/openssl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018-05/openssl/" class="post-title-link" itemprop="url">Openssl</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-29 13:29:24" itemprop="dateCreated datePublished" datetime="2018-05-29T13:29:24+08:00">2018-05-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-02 14:46:25" itemprop="dateModified" datetime="2020-09-02T14:46:25+08:00">2020-09-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="解析-amp-檢查匹配"><a href="#解析-amp-檢查匹配" class="headerlink" title="解析&amp;檢查匹配"></a>解析&amp;檢查匹配</h2><h3 id="解析CRT文檔"><a href="#解析CRT文檔" class="headerlink" title="解析CRT文檔"></a>解析CRT文檔</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -noout -text -in my.cert</span><br></pre></td></tr></table></figure>
+
+<h3 id="解析CSR文檔"><a href="#解析CSR文檔" class="headerlink" title="解析CSR文檔"></a>解析CSR文檔</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -noout -text -in mycsr.csr</span><br></pre></td></tr></table></figure>
+
+<h3 id="檢查CSR、-Private-Key、-CRT-是否匹配"><a href="#檢查CSR、-Private-Key、-CRT-是否匹配" class="headerlink" title="檢查CSR、 Private Key、 CRT 是否匹配"></a>檢查CSR、 Private Key、 CRT 是否匹配</h3><p>通過命令查看 sha256 數值是否一致</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">openssl pkey -in example.key -pubout -outform pem | sha256sum</span><br><span class="line">openssl x509 -in example.crt -pubkey -noout -outform pem | sha256sum</span><br><span class="line">openssl req -in example.csr -pubkey -noout -outform pem | sha256sum</span><br></pre></td></tr></table></figure>
+
+<h2 id="IIS-pfx"><a href="#IIS-pfx" class="headerlink" title="IIS pfx"></a>IIS pfx</h2><h3 id="生成-IIS-pfx-文檔"><a href="#生成-IIS-pfx-文檔" class="headerlink" title="生成 IIS pfx 文檔"></a>生成 IIS pfx 文檔</h3><p>以下命令 生成文檔 <code>iis.pfx</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/openssl pkcs12 -export -out "iis.pfx" -in "cert.pem" -inkey "private.pem"  -certfile "chain.pem" -password pass:123456</span><br></pre></td></tr></table></figure>
+
+<h3 id="解析-IIS-pfx-文檔"><a href="#解析-IIS-pfx-文檔" class="headerlink" title="解析 IIS pfx 文檔"></a>解析 IIS pfx 文檔</h3><p>會詢問輸入密碼。</p>
+<p>一下命令 生成 <code>ex.pem</code>。 這個文檔裡面包含 <code>cert.pem</code> <code>chain.pem</code> <code>private.pem</code> 內容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -in iis.pfx -out ex.pem -nodes</span><br></pre></td></tr></table></figure>
+
+<h2 id="生成-private-key-和-csr"><a href="#生成-private-key-和-csr" class="headerlink" title="生成 private key 和 csr"></a>生成 private key 和 csr</h2><h3 id="生成-private-key"><a href="#生成-private-key" class="headerlink" title="生成 private key"></a>生成 private key</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out private_key.pem 4096</span><br></pre></td></tr></table></figure>
+
+<h3 id="生成-csr"><a href="#生成-csr" class="headerlink" title="生成 csr"></a>生成 csr</h3><p>根据生成的 private_key 生成 csr </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># openssl req -new -key private_key.pem -out req1.csr</span><br><span class="line">You are about to be asked to enter information that will be incorporated</span><br><span class="line">into your certificate request.</span><br><span class="line">What you are about to enter is what is called a Distinguished Name or a DN.</span><br><span class="line">There are quite a few fields but you can leave some blank</span><br><span class="line">For some fields there will be a default value,</span><br><span class="line">If you enter &#39;.&#39;, the field will be left blank.</span><br><span class="line">-----</span><br><span class="line">Country Name (2 letter code) [XX]:CN</span><br><span class="line">State or Province Name (full name) []:.</span><br><span class="line">Locality Name (eg, city) [Default City]:.</span><br><span class="line">Organization Name (eg, company) [Default Company Ltd]:.</span><br><span class="line">Organizational Unit Name (eg, section) []:.</span><br><span class="line">Common Name (eg, your name or your server&#39;s hostname) []:www.abc.com</span><br><span class="line">Email Address []:</span><br><span class="line"> </span><br><span class="line">Please enter the following &#39;extra&#39; attributes    # 下面两项几乎不用考虑，留空即可</span><br><span class="line">to be sent with your certificate request</span><br><span class="line">A challenge password []:.</span><br><span class="line">An optional company name []:.</span><br></pre></td></tr></table></figure>
+
+<h2 id="ssl"><a href="#ssl" class="headerlink" title="ssl"></a>ssl</h2><p>普通的csr crt private-key 都好理解。</p>
+<h3 id="chain-amp-ca-crt-amp-ca-cer"><a href="#chain-amp-ca-crt-amp-ca-cer" class="headerlink" title="chain &amp; ca.crt &amp; ca.cer"></a>chain &amp; ca.crt &amp; ca.cer</h3><p>.chain 或 ca.crt 或 ca.cer 本质都一样只是名字不同，对应的是 crt 中 Issuer 的 ssl证书（crt）</p>
+<h3 id="CA-amp-ca-bundle-amp-fullchain"><a href="#CA-amp-ca-bundle-amp-fullchain" class="headerlink" title="CA &amp; ca-bundle  &amp; fullchain"></a>CA &amp; ca-bundle  &amp; fullchain</h3><p>CA - 证书颁发机构英文简称为CA，负责签发、作废和保存证书，CA签发的证书称为CA证书</p>
+<p>abc-com.ca-bundle 是一組 CA证书。本质上也是一种crt (CERTIFICATE)。</p>
+<p>.ca-bundle 中有多个 crt (CERTIFICATE) 是逐层对应 Issuer 的 ssl证书（crt）。 </p>
+<p>第一个内容和 .chain 一样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fullchain &#x3D; domain.crt + ca.crt</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建多域名-csr"><a href="#创建多域名-csr" class="headerlink" title="创建多域名 csr"></a>创建多域名 csr</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成 privatekey</span></span><br><span class="line">openssl genrsa -out private_key.pem 4096 </span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成csr, 详见 ssl.conf</span></span><br><span class="line">openssl req -new -key private_key.pem -out req1.csr -config ssl.conf</span><br></pre></td></tr></table></figure>
+
+<p>ssl.conf</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[ req ]</span></span><br><span class="line"><span class="attr">default_bits</span>       = <span class="number">4096</span></span><br><span class="line"><span class="attr">distinguished_name</span> = req_distinguished_name</span><br><span class="line"><span class="attr">req_extensions</span>     = req_ext</span><br><span class="line"></span><br><span class="line"><span class="section">[ req_distinguished_name ]</span></span><br><span class="line"><span class="attr">countryName</span>                 = Country Name (<span class="number">2</span> letter code)</span><br><span class="line"><span class="attr">countryName_default</span>         = TW</span><br><span class="line"><span class="attr">stateOrProvinceName</span>         = State or Province Name (full name)</span><br><span class="line"><span class="attr">stateOrProvinceName_default</span> = Taipei</span><br><span class="line"><span class="attr">localityName</span>                = Locality Name (eg, city)</span><br><span class="line"><span class="attr">organizationName</span>            = Organization Name (eg, company)</span><br><span class="line"><span class="attr">commonName</span>                  = Common Name (e.g. server FQDN or YOUR name)</span><br><span class="line"><span class="attr">commonName_max</span>              = <span class="number">64</span></span><br><span class="line"><span class="attr">commonName_default</span>          = cc666.cc</span><br><span class="line"><span class="attr">emailAddress</span>                = Email Address (eg, admin@example.com)</span><br><span class="line"><span class="attr">emailAddress_max</span>            = <span class="number">64</span></span><br><span class="line"><span class="attr">emailAddress_default</span>        = maxinehuang.<span class="number">888</span>@gmail.com</span><br><span class="line"></span><br><span class="line"><span class="section">[ req_ext ]</span></span><br><span class="line"><span class="attr">subjectAltName</span> = @alt_names</span><br><span class="line"></span><br><span class="line"><span class="section">[alt_names]</span></span><br><span class="line"><span class="attr">DNS.1</span>   = cc666.co</span><br><span class="line"><span class="attr">DNS.2</span>   = cc666.org</span><br><span class="line"><span class="attr">DNS.3</span>   = cc666.cc</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -556,7 +593,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-12/IBM-Storage-Api/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-07/python-module/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -570,80 +607,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019-12/IBM-Storage-Api/" class="post-title-link" itemprop="url">IBM Storage Api</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-17 14:46:26 / 修改时间：15:30:18" itemprop="dateCreated datePublished" datetime="2019-12-17T14:46:26+08:00">2019-12-17</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>參考 <a href="https://cloud.ibm.com/docs/services/cloud-object-storage/cli?topic=cloud-object-storage-aws-cli" target="_blank" rel="noopener">https://cloud.ibm.com/docs/services/cloud-object-storage/cli?topic=cloud-object-storage-aws-cli</a></p>
-<h1 id="AWS-CLI"><a href="#AWS-CLI" class="headerlink" title="AWS CLI"></a>AWS CLI</h1><p>AWS 的官方命令行界面与 IBM COS S3 API 兼容。</p>
-<h2 id="install"><a href="#install" class="headerlink" title="install"></a>install</h2><p><code>pip install awscli</code></p>
-<h2 id="參數"><a href="#參數" class="headerlink" title="參數"></a>參數</h2><p><code>{Access Key ID}</code> <code>{Secret Access Key}</code> 需要創建服務憑證 例如</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"cos_hmac_keys": &#123;</span><br><span class="line">    "access_key_id": "xxxx",</span><br><span class="line">    "secret_access_key": "ddddd"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>{endpoint}</code> 在 <code>存储区 》 配置</code> 中有详细的记录。 </p>
-<h2 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h2><p><code>~/.aws/credentials</code></p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[default]</span></span><br><span class="line"><span class="attr">aws_access_key_id</span> = &#123;Access Key ID&#125;</span><br><span class="line"><span class="attr">aws_secret_access_key</span> = &#123;Secret Access Key&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Crontab 下自動執行 可以使用 全局變量覆蓋</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export AWS_ACCESS_KEY_ID="&#123;Access Key ID&#125;"</span><br><span class="line">export AWS_SECRET_ACCESS_KEY="&#123;Secret Access Key&#125;"</span><br></pre></td></tr></table></figure>
-
-<h2 id="预签名Url"><a href="#预签名Url" class="headerlink" title="预签名Url"></a>预签名Url</h2><p>参考 <a href="https://cloud.ibm.com/docs/services/cloud-object-storage/cli?topic=cloud-object-storage-presign-url" target="_blank" rel="noopener">https://cloud.ibm.com/docs/services/cloud-object-storage/cli?topic=cloud-object-storage-presign-url</a></p>
-<p>使用 awscli 命令最为快捷</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-10/jQuery-noConflict/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019-10/jQuery-noConflict/" class="post-title-link" itemprop="url">jQuery.noConflict()</a>
+            <a href="/2018-07/python-module/" class="post-title-link" itemprop="url">Python 常用模塊</a>
         </h1>
 
         <div class="post-meta">
@@ -653,14 +617,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-10-21 11:26:43" itemprop="dateCreated datePublished" datetime="2019-10-21T11:26:43+08:00">2019-10-21</time>
+              <time title="创建时间：2018-07-08 09:22:22" itemprop="dateCreated datePublished" datetime="2018-07-08T09:22:22+08:00">2018-07-08</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-22 14:31:50" itemprop="dateModified" datetime="2019-10-22T14:31:50+08:00">2019-10-22</time>
+                <time title="修改时间：2020-08-25 10:36:50" itemprop="dateModified" datetime="2020-08-25T10:36:50+08:00">2020-08-25</time>
               </span>
 
           
@@ -674,7 +638,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"other_lib.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;script src="jquery.js"&gt;&lt;/</span>script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    $.noConflict();</span><br><span class="line">    jQuery( <span class="built_in">document</span> ).ready(<span class="function"><span class="keyword">function</span>(<span class="params"> $ </span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Code that uses jQuery's $ can follow here.</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// Code that uses other library's $ can follow here.</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+          <h2 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h2><h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><p>模块，在Python可理解为对应于一个文件。例如有个 a1.py 文档 (如果不在包中)可以截止 <code>import a1</code> 来加载这个文档，并调用里面的函数</p>
+<h2 id="包"><a href="#包" class="headerlink" title="包"></a>包</h2><p>是一个包含<code>__init__.py</code>文件的目录，该目录下一定得有这个<code>__init__.py</code>文件和其它模块或子包。</p>
+<h2 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h2><ul>
+<li><code>import subpackage1.a</code> # 将模块subpackage.a导入全局命名空间，例如访问a中属性时用 <code>subpackage1.a.attr</code></li>
+<li><code>from subpackage1 import a</code> #　将模块a导入全局命名空间，例如访问a中属性时用a.attr_a</li>
+<li><code>from subpackage.a import attr_a</code> # 将模块a的属性直接导入到命名空间中，例如访问a中属性时直接用attr_a</li>
+</ul>
+<h2 id="常用模塊"><a href="#常用模塊" class="headerlink" title="常用模塊"></a>常用模塊</h2><h3 id="cryptography"><a href="#cryptography" class="headerlink" title="cryptography"></a>cryptography</h3><p>加密 Openssl 相關模塊， 用于 csr crt 等ssl相关</p>
+<h3 id="hashlib"><a href="#hashlib" class="headerlink" title="hashlib"></a>hashlib</h3><p>md5 \ sha1 \ sha256 等加密</p>
+<h3 id="chardet"><a href="#chardet" class="headerlink" title="chardet"></a>chardet</h3><p>字符串编码相关</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> chardet</span><br><span class="line"></span><br><span class="line">a = <span class="string">b"\345\217\221\347\245\250\345\215\225\346\215\256"</span></span><br><span class="line"></span><br><span class="line">fencoding = chardet.detect(a)   <span class="comment">#判断当前字符串的格式（编码类型）</span></span><br><span class="line">print(fencoding)</span><br><span class="line"></span><br><span class="line">a = a.decode(<span class="string">'utf-8'</span>) <span class="comment">#编码类型为打印出来的fencoding编码类型</span></span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -694,7 +668,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-10/incremental-back/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-06/install-python/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -708,7 +682,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019-10/incremental-back/" class="post-title-link" itemprop="url">incremental back 增量备份</a>
+            <a href="/2018-06/install-python/" class="post-title-link" itemprop="url">安装Python3</a>
         </h1>
 
         <div class="post-meta">
@@ -717,10 +691,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-10-11 18:25:12 / 修改时间：18:36:55" itemprop="dateCreated datePublished" datetime="2019-10-11T18:25:12+08:00">2019-10-11</time>
+              <time title="创建时间：2018-06-23 16:33:47" itemprop="dateCreated datePublished" datetime="2018-06-23T16:33:47+08:00">2018-06-23</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-13 10:17:09" itemprop="dateModified" datetime="2020-08-13T10:17:09+08:00">2020-08-13</time>
+              </span>
 
           
 
@@ -733,14 +713,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>以文件为最小的单位。 利用 linux 的硬链接 (Hard link) 特性（多个link不会增加磁盘，删除某个不会影响其他的）空间来实现。</p>
-<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0. 根据原始内容S0, 创建最初的备份内容  V1</span><br><span class="line">-- 开始增量备份 --</span><br><span class="line">1. 根据 V1 创建 V2 。 规则： 创建所有目录，ln 硬链接所有文档 。</span><br><span class="line">2. 通过 rsync 命令。同步S0最新的内容到 V2</span><br><span class="line">-- 结束 --</span><br></pre></td></tr></table></figure>
-
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ol>
-<li>通过 <code>ls -i</code> 命令  可以查看文件的编号。 如果编号一样则表示是 硬链接。或用 <code>stat [file]</code> 命令查看更详细的信息</li>
-<li>同步命令 <code>rsync -vzrtopg --delete dir_a dir_b</code></li>
-<li>删除某个硬链接文档，不影响其他的</li>
-</ol>
+          <ul>
+<li>WEB用PHP</li>
+<li>其他用Python</li>
+<li>特殊情况用Go</li>
+</ul>
+<h2 id="安装-Python3"><a href="#安装-Python3" class="headerlink" title="安装 Python3"></a>安装 Python3</h2><ul>
+<li>尽量用 yum 或 apt 利用现有资料安装python3</li>
+<li>其次在用编译的方式安装</li>
+</ul>
+<h3 id="Centos-安装-python3"><a href="#Centos-安装-python3" class="headerlink" title="Centos 安装 python3"></a>Centos 安装 python3</h3><ul>
+<li><code>yum install epel-release</code></li>
+<li><code>yum serach python3</code></li>
+<li><code>yum install python3</code></li>
+</ul>
+<h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h3><p>Ubunut 16 以后默认自带Python3 可以直接使用 <code>/usr/bin/python3</code></p>
+<h2 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tgz</span><br><span class="line">tar -xzf Python-3.8.5.tgz</span><br><span class="line"><span class="built_in">cd</span> Python-3.8.5</span><br><span class="line">./configure --prefix=/opt/hd/python38 --<span class="built_in">enable</span>-optimizations</span><br><span class="line">make</span><br><span class="line">make <span class="built_in">test</span></span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -760,7 +748,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-08/cpanle-outlook-25port/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-01/apache-rewrite/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -774,7 +762,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019-08/cpanle-outlook-25port/" class="post-title-link" itemprop="url">cpanle smtp 25端口 outlook无法发送mail</a>
+            <a href="/2019-01/apache-rewrite/" class="post-title-link" itemprop="url">apache rewrite RewriteRule</a>
         </h1>
 
         <div class="post-meta">
@@ -783,10 +771,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2019-08-12 15:03:36 / 修改时间：15:06:43" itemprop="dateCreated datePublished" datetime="2019-08-12T15:03:36+08:00">2019-08-12</time>
+              <time title="创建时间：2019-01-31 20:56:04" itemprop="dateCreated datePublished" datetime="2019-01-31T20:56:04+08:00">2019-01-31</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-11 20:37:05" itemprop="dateModified" datetime="2020-08-11T20:37:05+08:00">2020-08-11</time>
+              </span>
 
           
 
@@ -799,74 +793,165 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="问题，-0x800CCC80"><a href="#问题，-0x800CCC80" class="headerlink" title="问题， 0x800CCC80"></a>问题， 0x800CCC80</h2><p>outlook 提示 0x800CCC80 错误。<code>您的服务器不支持此客户端支持的任何验证方式</code></p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>登录 whm 并打开 <code>WHM &gt; Exim Configuration Manager &gt; Basic Editor &gt; Security</code></p>
-<p>设定 <code>Require clients to connect with SSL or issue the STARTTLS command before they are allowed to authenticate with the server.</code> 为 <code>off</code></p>
+          <h2 id="RewriteRule-跳转-amp-重新指向"><a href="#RewriteRule-跳转-amp-重新指向" class="headerlink" title="RewriteRule 跳转&amp;重新指向"></a>RewriteRule 跳转&amp;重新指向</h2><p>以下都是在 二级目录 <code>~/public_html/var/</code> 做的测试。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">RewriteEngine on</span><br><span class="line"></span><br><span class="line">RewriteRule ^abc1$ v1.php [L]</span><br><span class="line">RewriteRule ^abc3$ &#x2F;var&#x2F;v1.php [L]</span><br><span class="line">RewriteRule ^abc4$ &#x2F;var&#x2F;v1.php [L,R&#x3D;302]</span><br></pre></td></tr></table></figure>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-08/Centos7-Python3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019-08/Centos7-Python3/" class="post-title-link" itemprop="url">Centos7安装Python3</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-08-11 17:33:22 / 修改时间：17:35:20" itemprop="dateCreated datePublished" datetime="2019-08-11T17:33:22+08:00">2019-08-11</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Centos7 默认的是python2.7 。 通过 epel 安装python3.4</p>
 <ul>
-<li>安装 epel <code>yum install epel-release</code></li>
-<li>安装 python3.4 <code>yum install python34</code></li>
-<li>检查 <code>ll /usr/bin/python*</code></li>
+<li><code>^abc1$ v1.php [L]</code> 等同于 <code>^abc3$ /var/v1.php [L]</code></li>
+<li><code>R=302</code> 或 <code>R=301</code> 跳转时，必须写绝对url路径！</li>
+</ul>
+<h3 id="RewriteBase"><a href="#RewriteBase" class="headerlink" title="RewriteBase"></a>RewriteBase</h3><p>通常默认的虚拟主机的网站在使用.htaccess 进行重写规则时不需要执行设置该指令. 因为 RewriteBase 默认值是该 .htaccess 文件所在的目录地址。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">RewriteEngine on</span><br><span class="line"></span><br><span class="line">RewriteBase &#x2F;var&#x2F;</span><br><span class="line"></span><br><span class="line">RewriteRule ^abc1$ v1.php [L]</span><br><span class="line"></span><br><span class="line">RewriteRule ^abc3$ &#x2F;var&#x2F;v1.php [L]</span><br><span class="line"></span><br><span class="line">RewriteRule ^abc4$ &#x2F;var&#x2F;v1.php [L,R&#x3D;302]</span><br><span class="line">RewriteRule ^abc5$ v1.php [L,R&#x3D;302]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在指定了 <code>RewriteBase /var/</code> 所以 <code>^abc4$ /var/v1.php [L,R=302]</code> 等同于 <code>^abc5$ v1.php [L,R=302]</code></li>
+<li>如果使用了绝对路径 <code>/var/v1.php</code> 不会受 <code>RewriteBase /var/</code> 影响</li>
 </ul>
 
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/php-curl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016-12/php-curl/" class="post-title-link" itemprop="url">PHP CURL</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-25 13:39:52" itemprop="dateCreated datePublished" datetime="2016-12-25T13:39:52+08:00">2016-12-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-11 14:45:33" itemprop="dateModified" datetime="2020-08-11T14:45:33+08:00">2020-08-11</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$data = <span class="keyword">array</span>(<span class="string">'name'</span> =&gt; <span class="string">'Foo'</span>, <span class="string">'Email'</span> =&gt; <span class="string">'abc@example.com'</span>);</span><br><span class="line"></span><br><span class="line">$ch = curl_init();</span><br><span class="line">curl_setopt($ch, CURLOPT_URL, <span class="string">'http://localhost/tmp/a.php'</span>);</span><br><span class="line"></span><br><span class="line">curl_setopt($ch, CURLOPT_HEADER, <span class="number">0</span>);  <span class="comment">// 启用时会将头文件的信息作为数据流输出。</span></span><br><span class="line">curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="number">1</span>); <span class="comment">// 在启用CURLOPT_RETURNTRANSFER的时候，返回原生的（Raw）输出。</span></span><br><span class="line">curl_setopt($ch, CURLOPT_TIMEOUT, <span class="number">30</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_POST, <span class="number">1</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data)); <span class="comment">// http_build_query 可以避免一些不兼容問題</span></span><br><span class="line"></span><br><span class="line">$s = curl_exec($ch);</span><br><span class="line">curl_close($ch);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $s;</span><br></pre></td></tr></table></figure>
+
+<h2 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$url = <span class="string">'http://bac.com'</span></span><br><span class="line">$url .= <span class="string">'?'</span>.http_build_query($postField);</span><br><span class="line">$ch = curl_init();</span><br><span class="line">curl_setopt($ch, CURLOPT_URL, $url);</span><br><span class="line">curl_setopt($ch, CURLOPT_HEADER, <span class="number">0</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="number">1</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_TIMEOUT, <span class="number">30</span>);</span><br><span class="line">$data = curl_exec($ch);</span><br><span class="line">curl_close($ch);</span><br></pre></td></tr></table></figure>
+
+<h2 id="强制声明字符-charset"><a href="#强制声明字符-charset" class="headerlink" title="强制声明字符 charset"></a>强制声明字符 charset</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl_setopt($ch, CURLOPT_HTTPHEADER, <span class="keyword">array</span>(<span class="string">'Content-Type:application/x-www-form-urlencoded; charset=utf-8'</span>));</span><br></pre></td></tr></table></figure>
+
+<h2 id="JSON格式传递数据"><a href="#JSON格式传递数据" class="headerlink" title="JSON格式传递数据"></a>JSON格式传递数据</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$header[] = <span class="string">'Content-Type: application/json'</span>;</span><br><span class="line">$header[] = <span class="string">'Accept: application/json'</span>;</span><br><span class="line">curl_setopt($ch, CURLOPT_HTTPHEADER, $header);</span><br><span class="line">curl_setopt($ch, CURLOPT_POST, <span class="number">1</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($param));</span><br></pre></td></tr></table></figure>
+
+<h2 id="SSL"><a href="#SSL" class="headerlink" title="SSL"></a>SSL</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, <span class="keyword">FALSE</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, <span class="keyword">FALSE</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>CURLOPT_SSL_VERIFYPEER<br>禁用后cURL将终止从服务端进行验证。<br>使用CURLOPT_CAINFO选项设置证书使用CURLOPT_CAPATH选项设置证书目录<br>如果CURLOPT_SSL_VERIFYPEER(默认值为2)被启用，CURLOPT_SSL_VERIFYHOST需要被设置成TRUE否则设置为FALSE。</p>
+</li>
+<li><p>CURLOPT_SSL_VERIFYHOST<br>1 检查服务器SSL证书中是否存在一个公用名(common name)。<br>2 检查公用名是否存在，并且是否与提供的主机名匹配。    </p>
+</li>
+</ul>
+<p>译者注：公用名(Common Name)一般来讲就是填写你将要申请SSL证书的域名 (domain)或子域名(sub domain)。</p>
+<h3 id="CURLOPT-SSL-VERIFYPEER"><a href="#CURLOPT-SSL-VERIFYPEER" class="headerlink" title="CURLOPT_SSL_VERIFYPEER"></a>CURLOPT_SSL_VERIFYPEER</h3><p>值為 <strong>FALSE</strong> 时，禁止 cURL 验证对等证书（peer’s certificate）。 <strong>连接仍将使用SSL加密</strong>，只是不会在使用正确验证的证书进行链接。</p>
+<h2 id="HTTP-basic-authentication"><a href="#HTTP-basic-authentication" class="headerlink" title="HTTP basic authentication"></a>HTTP basic authentication</h2><p>連接一個url， 需要提供用戶名和密碼的時候用到。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl_setopt($curl, CURLOPT_USERPWD, <span class="string">"username:password"</span>);</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-08/golang-web/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020-08/golang-web/" class="post-title-link" itemprop="url">golang web framework</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-09 15:35:18 / 修改时间：17:15:28" itemprop="dateCreated datePublished" datetime="2020-08-09T15:35:18+08:00">2020-08-09</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="gin-gonic-gin"><a href="#gin-gonic-gin" class="headerlink" title="gin-gonic/gin"></a>gin-gonic/gin</h2><p><a href="https://github.com/gin-gonic/gin" target="_blank" rel="noopener">https://github.com/gin-gonic/gin</a></p>
+<p>web framework， 用作 api/微框架 很简单</p>
+<h3 id="范例"><a href="#范例" class="headerlink" title="范例"></a>范例</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	...</span><br><span class="line"></span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">authCheck</span><span class="params">()</span> <span class="title">gin</span>.<span class="title">HandlerFunc</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		time := c.GetHeader(<span class="string">"_time"</span>)</span><br><span class="line">		token := c.GetHeader(<span class="string">"_token"</span>)</span><br><span class="line"></span><br><span class="line">		sum := fmt.Sprintf(<span class="string">"%x"</span>, sha256.Sum256([]<span class="keyword">byte</span>(time+<span class="string">"***"</span>)))</span><br><span class="line">		<span class="keyword">if</span> sum != token &#123;</span><br><span class="line">			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H&#123;<span class="string">"Message"</span>: <span class="string">"Unauthorized"</span>&#125;)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		c.Next()</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> appVersion = <span class="string">"1.0.2"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">updateAcme</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">    domain := c.DefaultPostForm(<span class="string">"domain"</span>, <span class="string">""</span>)</span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    c.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">        <span class="string">"state"</span>:   <span class="string">"error"</span>,</span><br><span class="line">        <span class="string">"message"</span>: <span class="string">"get cert error."</span>,</span><br><span class="line">        <span class="string">"version"</span>: appVersion,</span><br><span class="line">        <span class="string">"cmdStr"</span>:  cmdStr,</span><br><span class="line">    &#125;)</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	gin.SetMode(gin.ReleaseMode) <span class="comment">// prod</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//r := gin.New()</span></span><br><span class="line">	r := gin.Default()</span><br><span class="line"></span><br><span class="line">	r.Use(authCheck())</span><br><span class="line"></span><br><span class="line">	r.POST(<span class="string">"/up_acme"</span>, updateAcme)</span><br><span class="line"></span><br><span class="line">	dir, _ := filepath.Abs(filepath.Dir(os.Args[<span class="number">0</span>]))</span><br><span class="line">	r.RunTLS(<span class="string">":9008"</span>, dir+<span class="string">"/ssl/server.pem"</span>, dir+<span class="string">"/ssl/server.key"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 

@@ -208,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-09/socket/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-07/mysql-cpu-top/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -222,7 +222,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2018-09/socket/" class="post-title-link" itemprop="url">socket</a>
+            <a href="/2019-07/mysql-cpu-top/" class="post-title-link" itemprop="url">mysql CPU 负载高</a>
         </h1>
 
         <div class="post-meta">
@@ -231,10 +231,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2018-09-10 15:45:11 / 修改时间：16:18:07" itemprop="dateCreated datePublished" datetime="2018-09-10T15:45:11+08:00">2018-09-10</time>
+              <time title="创建时间：2019-07-22 12:54:23" itemprop="dateCreated datePublished" datetime="2019-07-22T12:54:23+08:00">2019-07-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-07-23 09:57:51" itemprop="dateModified" datetime="2019-07-23T09:57:51+08:00">2019-07-23</time>
+              </span>
 
           
 
@@ -247,14 +253,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>TCP/IP是个协议组，可分为四个层次：网络接口层、网络层、传输层和应用层。</p>
-<ol>
-<li>网络接口层 –</li>
-<li>网络层 – IP协议、ICMP协议、ARP协议、RARP协议和BOOTP协议</li>
-<li>传输层 – TCP协议与UDP协议</li>
-<li>应用层 – HTTP,FTP、TELNET、SMTP、DNS等协议</li>
-</ol>
-<h2 id="socket"><a href="#socket" class="headerlink" title="socket"></a>socket</h2><p>socket只是一种连接模式，不是协议，socket是对TCP/IP协议的封装，Socket本身并不是协议，而是一个调用接口（API），</p>
+          <h2 id="查询现在的进程"><a href="#查询现在的进程" class="headerlink" title="查询现在的进程"></a>查询现在的进程</h2><p>执行命令 <code>SHOW FULL PROCESSLIST\G;</code> 命令</p>
+<p>参数：</p>
+<ul>
+<li>Time : The time in seconds that the thread has been in its current state.</li>
+<li>Info : sql 语句</li>
+</ul>
+<h2 id="分析-Select"><a href="#分析-Select" class="headerlink" title="分析 Select"></a>分析 Select</h2><p><code>explain select * from servers;</code></p>
+<p>参数：</p>
+<ul>
+<li>Key : The index actually chosen</li>
+</ul>
+<p>参考其他 <a href="/2016-12/Mysql">Mysql</a> 设置</p>
 
       
     </div>
@@ -274,7 +284,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-08/php-input/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/composer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -288,7 +298,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2018-08/php-input/" class="post-title-link" itemprop="url">php://input</a>
+            <a href="/2016-12/composer/" class="post-title-link" itemprop="url">composer命令</a>
         </h1>
 
         <div class="post-meta">
@@ -297,10 +307,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2018-08-29 08:04:24 / 修改时间：08:25:14" itemprop="dateCreated datePublished" datetime="2018-08-29T08:04:24+08:00">2018-08-29</time>
+              <time title="创建时间：2016-12-24 14:35:32" itemprop="dateCreated datePublished" datetime="2016-12-24T14:35:32+08:00">2016-12-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-07-18 10:47:02" itemprop="dateModified" datetime="2019-07-18T10:47:02+08:00">2019-07-18</time>
+              </span>
 
           
 
@@ -313,13 +329,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><code>php://input</code> 用來接收數據。</p>
-<h2 id="form-表單"><a href="#form-表單" class="headerlink" title="form 表單"></a>form 表單</h2><p>一般情況下html form 表單提交的類型是 <code>application/x-www-form-urlencoded</code> 或者 <code>multipart/form-data</code>。用 <code>$_POST</code>就能直接獲取。</p>
-<h2 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h2><p>如果對方發送的數據是 <code>application/json</code></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$data = file_get_contents(<span class="string">'php://input'</span>);</span><br><span class="line">$data = json_decode($data, <span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
+          <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="安裝某個項目"><a href="#安裝某個項目" class="headerlink" title="安裝某個項目"></a>安裝某個項目</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer create-project laravel/laravel path --prefer-dist</span><br></pre></td></tr></table></figure>
 
-<h2 id="php-發送JSON數據"><a href="#php-發送JSON數據" class="headerlink" title="php 發送JSON數據"></a>php 發送JSON數據</h2><p>參見 <a href="./2016-12/php-curl/">PHP curl</a></p>
+<p>安裝 larave 到 path 目錄。<code>--prefer-dist</code> 为了强制使用压缩包，而不是克隆源代码。</p>
+<h3 id="更新软件包"><a href="#更新软件包" class="headerlink" title="更新软件包"></a>更新软件包</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer update</span><br></pre></td></tr></table></figure>
 
+<h3 id="只更新-Calss"><a href="#只更新-Calss" class="headerlink" title="只更新 Calss"></a>只更新 Calss</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer dump-autoload</span><br></pre></td></tr></table></figure>
+
+<h3 id="为生产环境作准备"><a href="#为生产环境作准备" class="headerlink" title="为生产环境作准备"></a>为生产环境作准备</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer dump-autoload --optimize</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">composer update --no-dev --optimize-autoloader</span><br><span class="line"><span class="meta">#</span><span class="bash"> or</span></span><br><span class="line">composer update --optimize-autoloader</span><br></pre></td></tr></table></figure>
+
+<h2 id="更改镜像源-repo"><a href="#更改镜像源-repo" class="headerlink" title="更改镜像源 repo"></a>更改镜像源 repo</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 显示配置</span></span><br><span class="line">composer config -g  -l</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 取消全局配置</span></span><br><span class="line">composer config -g --unset repos.packagist</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 全局使用 huawei 镜像源</span></span><br><span class="line">composer config -g repo.packagist composer https://mirrors.huaweicloud.com/repository/php</span><br></pre></td></tr></table></figure>
+
+<h3 id="CRM-Composer源管理工具"><a href="#CRM-Composer源管理工具" class="headerlink" title="CRM - Composer源管理工具"></a>CRM - Composer源管理工具</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装</span></span><br><span class="line">composer global require slince/composer-registry-manager</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">列出所有可使用的镜像</span></span><br><span class="line">composer repo:ls</span><br><span class="line"><span class="meta">#</span><span class="bash">切换镜像</span></span><br><span class="line">composer repo:use</span><br></pre></td></tr></table></figure>
+
+<h3 id="Composer源"><a href="#Composer源" class="headerlink" title="Composer源"></a>Composer源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ composer repo:ls</span><br><span class="line"></span><br><span class="line"> --- --------------- ------------------------------------------------</span><br><span class="line">      composer        https:&#x2F;&#x2F;packagist.org</span><br><span class="line">      phpcomposer     https:&#x2F;&#x2F;packagist.phpcomposer.com</span><br><span class="line">      aliyun          https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;composer</span><br><span class="line">      tencent         https:&#x2F;&#x2F;mirrors.cloud.tencent.com&#x2F;composer</span><br><span class="line">      huawei          https:&#x2F;&#x2F;mirrors.huaweicloud.com&#x2F;repository&#x2F;php</span><br><span class="line">      laravel-china   https:&#x2F;&#x2F;packagist.laravel-china.org</span><br><span class="line">  *   cnpkg           https:&#x2F;&#x2F;php.cnpkg.org</span><br><span class="line">      sjtug           https:&#x2F;&#x2F;packagist.mirrors.sjtug.sjtu.edu.cn</span><br><span class="line"> --- --------------- ------------------------------------------------</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -338,7 +366,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-08/gcp/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-07/mail-mx/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -352,7 +380,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2018-08/gcp/" class="post-title-link" itemprop="url">google cloud 管理</a>
+            <a href="/2019-07/mail-mx/" class="post-title-link" itemprop="url">mail 没有設定 MX 記錄</a>
         </h1>
 
         <div class="post-meta">
@@ -363,7 +391,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2018-08-14 15:10:38 / 修改时间：15:12:06" itemprop="dateCreated datePublished" datetime="2018-08-14T15:10:38+08:00">2018-08-14</time>
+              <time title="创建时间：2019-07-10 16:51:26 / 修改时间：16:53:47" itemprop="dateCreated datePublished" datetime="2019-07-10T16:51:26+08:00">2019-07-10</time>
             </span>
 
           
@@ -377,8 +405,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="ssh-登錄"><a href="#ssh-登錄" class="headerlink" title="ssh 登錄"></a>ssh 登錄</h2><p>必須手動執行 不能用config配置， 奇怪~</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh howard@104.199.168.248</span><br></pre></td></tr></table></figure>
+          <p>今天發現一個奇怪的現象 某個二級域名（mail.xxx.com） 沒有設定 mx記錄 。但是 郵箱（<a href="mailto:abc@mail.xxx.com">abc@mail.xxx.com</a>）還可以收信。</p>
+<p>查詢 google 得到結果：如果沒有MX記錄，則讀取A記錄對應的內容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RFC 5321</span><br><span class="line">if no MX record is present mail servers should fall back to the A record for the domain.</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -467,7 +497,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-07/regexp/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-06/ajax-cors/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -481,7 +511,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2018-07/regexp/" class="post-title-link" itemprop="url">正則表達式</a>
+            <a href="/2019-06/ajax-cors/" class="post-title-link" itemprop="url">ajax cors 跨域访问</a>
         </h1>
 
         <div class="post-meta">
@@ -492,7 +522,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2018-07-24 16:52:20 / 修改时间：16:53:20" itemprop="dateCreated datePublished" datetime="2018-07-24T16:52:20+08:00">2018-07-24</time>
+              <time title="创建时间：2019-06-13 21:48:13 / 修改时间：21:51:59" itemprop="dateCreated datePublished" datetime="2019-06-13T21:48:13+08:00">2019-06-13</time>
             </span>
 
           
@@ -506,9 +536,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="密碼"><a href="#密碼" class="headerlink" title="密碼"></a>密碼</h2><p>必須含有數字，小寫字母、大寫字母</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^(?=.*[<span class="number">0</span><span class="number">-9</span>])(?=.*[a-z])(?=.*[A-Z])[<span class="number">0</span><span class="number">-9</span>a-zA-Z]&#123;<span class="number">6</span>,&#125;$/</span><br></pre></td></tr></table></figure>
+          <h2 id="页面浏览器端"><a href="#页面浏览器端" class="headerlink" title="页面浏览器端"></a>页面浏览器端</h2><p>不用变动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">jQuery.ajax(&#123;</span><br><span class="line">    url: &#39;https:&#x2F;&#x2F;api.abc.com&#x2F;static&#x2F;i.php&#39;,</span><br><span class="line">    type: &#39;get&#39;,</span><br><span class="line">    success:function(da)&#123; console.log(da) &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
+
+<h2 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h2><p><code>https://api.abc.com/static/i.php</code> 对应的内容需要增加 header </p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 只允许 https 域名 name.abc.com</span></span><br><span class="line">header(<span class="string">'Access-Control-Allow-Origin: https://name.abc.com'</span>);</span><br><span class="line">header(<span class="string">'Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment"># or 允许所有</span></span><br><span class="line">header(<span class="string">'Access-Control-Allow-Origin: *'</span>);</span><br><span class="line">header(<span class="string">'Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept'</span>);</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -527,7 +560,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-07/python-module/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-06/jquery-version/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -541,149 +574,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2018-07/python-module/" class="post-title-link" itemprop="url">Python 常用模塊</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-07-08 09:22:22" itemprop="dateCreated datePublished" datetime="2018-07-08T09:22:22+08:00">2018-07-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-25 10:36:50" itemprop="dateModified" datetime="2020-08-25T10:36:50+08:00">2020-08-25</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h2><h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><p>模块，在Python可理解为对应于一个文件。例如有个 a1.py 文档 (如果不在包中)可以截止 <code>import a1</code> 来加载这个文档，并调用里面的函数</p>
-<h2 id="包"><a href="#包" class="headerlink" title="包"></a>包</h2><p>是一个包含<code>__init__.py</code>文件的目录，该目录下一定得有这个<code>__init__.py</code>文件和其它模块或子包。</p>
-<h2 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h2><ul>
-<li><code>import subpackage1.a</code> # 将模块subpackage.a导入全局命名空间，例如访问a中属性时用 <code>subpackage1.a.attr</code></li>
-<li><code>from subpackage1 import a</code> #　将模块a导入全局命名空间，例如访问a中属性时用a.attr_a</li>
-<li><code>from subpackage.a import attr_a</code> # 将模块a的属性直接导入到命名空间中，例如访问a中属性时直接用attr_a</li>
-</ul>
-<h2 id="常用模塊"><a href="#常用模塊" class="headerlink" title="常用模塊"></a>常用模塊</h2><h3 id="cryptography"><a href="#cryptography" class="headerlink" title="cryptography"></a>cryptography</h3><p>加密 Openssl 相關模塊， 用于 csr crt 等ssl相关</p>
-<h3 id="hashlib"><a href="#hashlib" class="headerlink" title="hashlib"></a>hashlib</h3><p>md5 \ sha1 \ sha256 等加密</p>
-<h3 id="chardet"><a href="#chardet" class="headerlink" title="chardet"></a>chardet</h3><p>字符串编码相关</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> chardet</span><br><span class="line"></span><br><span class="line">a = <span class="string">b"\345\217\221\347\245\250\345\215\225\346\215\256"</span></span><br><span class="line"></span><br><span class="line">fencoding = chardet.detect(a)   <span class="comment">#判断当前字符串的格式（编码类型）</span></span><br><span class="line">print(fencoding)</span><br><span class="line"></span><br><span class="line">a = a.decode(<span class="string">'utf-8'</span>) <span class="comment">#编码类型为打印出来的fencoding编码类型</span></span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-07/php-openssl/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2018-07/php-openssl/" class="post-title-link" itemprop="url">php 操作 ssl</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-07-02 17:25:26" itemprop="dateCreated datePublished" datetime="2018-07-02T17:25:26+08:00">2018-07-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-12 15:27:40" itemprop="dateModified" datetime="2020-03-12T15:27:40+08:00">2020-03-12</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="生成csr-以及-private-key"><a href="#生成csr-以及-private-key" class="headerlink" title="生成csr 以及 private key"></a>生成csr 以及 private key</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$dn = <span class="keyword">array</span>(</span><br><span class="line">    <span class="string">"countryName"</span> =&gt; <span class="string">"TW"</span>,</span><br><span class="line">    <span class="string">"stateOrProvinceName"</span> =&gt; <span class="string">"Taipei"</span>,</span><br><span class="line">    <span class="string">"organizationName"</span> =&gt; <span class="string">"瑋德國際股份有限公司"</span>, <span class="comment">// 公司名稱</span></span><br><span class="line">    <span class="string">"organizationalUnitName"</span> =&gt; <span class="string">"資訊部"</span>, <span class="comment">// 部門</span></span><br><span class="line">    <span class="string">"commonName"</span> =&gt; <span class="string">"nealsyardremedies.com.tw"</span>, <span class="comment">// domain</span></span><br><span class="line">    <span class="string">"emailAddress"</span> =&gt; <span class="string">"itsupport@10over10.com.tw"</span>,</span><br><span class="line">);</span><br><span class="line"><span class="comment">// Generate a new private (and public) key pair</span></span><br><span class="line">$privkey = openssl_pkey_new(<span class="keyword">array</span>(</span><br><span class="line">    <span class="string">"private_key_bits"</span> =&gt; <span class="number">2048</span>,</span><br><span class="line">    <span class="string">"private_key_type"</span> =&gt; OPENSSL_KEYTYPE_RSA,</span><br><span class="line">));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Generate a certificate signing request</span></span><br><span class="line">$csr = openssl_csr_new($dn, $privkey, <span class="keyword">array</span>(<span class="string">'digest_alg'</span> =&gt; <span class="string">'sha512'</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// openssl_csr_export($csr, $csrout) and var_dump($csrout);</span></span><br><span class="line"><span class="comment">// openssl_pkey_export($privkey, $pkeyout) and var_dump($pkeyout);</span></span><br><span class="line"></span><br><span class="line">openssl_csr_export_to_file($csr, <span class="string">'nealsyardremedies_com_tw.csr'</span>);  <span class="comment">// 保存到文檔</span></span><br><span class="line">openssl_pkey_export_to_file($privkey, <span class="string">'nealsyardremedies_com_tw.key'</span>);</span><br></pre></td></tr></table></figure>
-
-<h2 id="讀取-csr"><a href="#讀取-csr" class="headerlink" title="讀取 csr"></a>讀取 csr</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">"Content-Type: text/html; charset=UTF-8"</span>);</span><br><span class="line">$str = <span class="string">'-----BEGIN CERTIFICATE REQUEST-----</span></span><br><span class="line"><span class="string">MIIC7jCCAdYCAQAwgagxCzAJBgNVBAYTAlRXMQ8wDQYDVQQIDAZUYWlwZWkxJzAl</span></span><br><span class="line"><span class="string">BgNVBAoMHueRi+W+t+Wci+mam+iCoeS7veaciemZkOWFrOWPuDESMBAGA1UECwwJ</span></span><br><span class="line"><span class="string">6LOH6KiK6YOoMSEwHwYDVQQDDBhuZWFsc3lhcmRyZW1lZGllcy5jb20udHcxKDAm</span></span><br><span class="line"><span class="string">BgkqhkiG9w0BCQEWGWl0c3VwcG9ydEAxMG92ZXIxMC5jb20udHcwggEiMA0GCSqG</span></span><br><span class="line"><span class="string">SIb3DQEBAQUAA4IBDwAwggEKAoIBAQDFYutxHda/r8O/fGwBjVTs3Kl97HROeFs9</span></span><br><span class="line"><span class="string">dhMXLvmaHrwU/DuHY9f+Wj94K0kZhFe21QtVC0DL9jgNrYTJ8Is7mVbVKmiN8sYH</span></span><br><span class="line"><span class="string">UwGeEqqHAXdJ/m/0f7aGlWjxd6myZzOIXmsf3SYwKwGKwowIMxSAP1jryOoFresp</span></span><br><span class="line"><span class="string">tk0BDMDavsJLhcdvUd3oximaMOvyOvWZN5uj2kYh7YYpTVAQZn3dJDb0B5kIl2dG</span></span><br><span class="line"><span class="string">GvpTKWgAw3oH8Ak9zMZT9y0/sAmjsxkPil6jgbRz6d40V9xgCixofpwYGnEF5hRO</span></span><br><span class="line"><span class="string">O1VhLZIcVDC0NaeyM8Tfgv/ODvU/xlHKfz3CbKG1KxXRXFeIAxbDAgMBAAGgADAN</span></span><br><span class="line"><span class="string">BgkqhkiG9w0BAQ0FAAOCAQEAMZOSVoZWQhvZ/g+cnSHmrxzK9JCUeKoD0wlFuiww</span></span><br><span class="line"><span class="string">KRmHaYFuZcStTj/52M65zXhtx6OXFjsoMJSf4OyGTYjfexH7Zqv2zfBuKQBuPSL7</span></span><br><span class="line"><span class="string">GfLy9zcNLabuSYlbfQ1PNvycXb4ZhJJ2TI62XGXnfg5zeW4tHN0Mvt+/UxWkNmVu</span></span><br><span class="line"><span class="string">CTGTdbd3bgjnnggJQZI6Z7AKsaeeqF5zgtkws+lwZoG3BbcXPWxoxI+Ms3JhxXzg</span></span><br><span class="line"><span class="string">Mx0Z1INiQM7rhvA5tB3HG+VsBcTya08QA4HASjHOTesInZvgUM2QbQqxAKldiJex</span></span><br><span class="line"><span class="string">ho4OnmOUhCPWiUoDTq2y7FvfjFwMzst06EkYsYj2Zw/oQQ==</span></span><br><span class="line"><span class="string">-----END CERTIFICATE REQUEST-----'</span>;</span><br><span class="line">var_dump(openssl_csr_get_subject($str));</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-06/monolog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2018-06/monolog/" class="post-title-link" itemprop="url">Monolog</a>
+            <a href="/2019-06/jquery-version/" class="post-title-link" itemprop="url">jQuery 版本查看</a>
         </h1>
 
         <div class="post-meta">
@@ -694,7 +585,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2018-06-27 17:50:59 / 修改时间：17:53:42" itemprop="dateCreated datePublished" datetime="2018-06-27T17:50:59+08:00">2018-06-27</time>
+              <time title="创建时间：2019-06-13 11:07:58 / 修改时间：11:12:19" itemprop="dateCreated datePublished" datetime="2019-06-13T11:07:58+08:00">2019-06-13</time>
             </span>
 
           
@@ -708,87 +599,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Monolog 注册为系统Error错误管理</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Logger</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Handler</span>\<span class="title">StreamHandler</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">ErrorHandler</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Monolog</span>\<span class="title">Formatter</span>\<span class="title">LineFormatter</span>;</span><br><span class="line"></span><br><span class="line">$handler = <span class="keyword">new</span> StreamHandler(VARPATH.<span class="string">'/log/'</span>.date(<span class="string">"Ym"</span>).<span class="string">'.log'</span>, Logger::WARNING);</span><br><span class="line"></span><br><span class="line">$lineFormatter = <span class="keyword">new</span> LineFormatter();</span><br><span class="line">$lineFormatter-&gt; includeStacktraces(); <span class="comment">// 记录错误并追溯 debug_backtrace</span></span><br><span class="line">$handler-&gt;setFormatter($lineFormatter);</span><br><span class="line"></span><br><span class="line">$logger = <span class="keyword">new</span> Logger(<span class="string">'system'</span>);</span><br><span class="line">$logger-&gt;pushHandler($handler);</span><br><span class="line"></span><br><span class="line">ErrorHandler::register($logger); <span class="comment">// 注册为系统Error管理</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
+          <p>查看使用中的jQuery 的版本</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jQuery.fn.jquery</span><br></pre></td></tr></table></figure>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-06/install-python/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2018-06/install-python/" class="post-title-link" itemprop="url">安装Python3</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-06-23 16:33:47" itemprop="dateCreated datePublished" datetime="2018-06-23T16:33:47+08:00">2018-06-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-13 10:17:09" itemprop="dateModified" datetime="2020-08-13T10:17:09+08:00">2020-08-13</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li>WEB用PHP</li>
-<li>其他用Python</li>
-<li>特殊情况用Go</li>
-</ul>
-<h2 id="安装-Python3"><a href="#安装-Python3" class="headerlink" title="安装 Python3"></a>安装 Python3</h2><ul>
-<li>尽量用 yum 或 apt 利用现有资料安装python3</li>
-<li>其次在用编译的方式安装</li>
-</ul>
-<h3 id="Centos-安装-python3"><a href="#Centos-安装-python3" class="headerlink" title="Centos 安装 python3"></a>Centos 安装 python3</h3><ul>
-<li><code>yum install epel-release</code></li>
-<li><code>yum serach python3</code></li>
-<li><code>yum install python3</code></li>
-</ul>
-<h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h3><p>Ubunut 16 以后默认自带Python3 可以直接使用 <code>/usr/bin/python3</code></p>
-<h2 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.python.org/ftp/python/3.8.5/Python-3.8.5.tgz</span><br><span class="line">tar -xzf Python-3.8.5.tgz</span><br><span class="line"><span class="built_in">cd</span> Python-3.8.5</span><br><span class="line">./configure --prefix=/opt/hd/python38 --<span class="built_in">enable</span>-optimizations</span><br><span class="line">make</span><br><span class="line">make <span class="built_in">test</span></span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jQuery().jquery</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -808,7 +622,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-05/php-pdo/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-06/ie-compatible/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -822,7 +636,67 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2018-05/php-pdo/" class="post-title-link" itemprop="url">PHP PDO 操作</a>
+            <a href="/2019-06/ie-compatible/" class="post-title-link" itemprop="url">IE 仿真版本</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-06-13 11:08:23 / 修改时间：11:10:50" itemprop="dateCreated datePublished" datetime="2019-06-13T11:08:23+08:00">2019-06-13</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>有些旧网站IE默认(仿真)使用的是 IE7或其他。 可以通过<code>MATE</code>标签声明强制使用哪种。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=Edge"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/VritualBox-Install-Ubuntu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016-12/VritualBox-Install-Ubuntu/" class="post-title-link" itemprop="url">VritualBox 安裝 Ubuntu</a>
         </h1>
 
         <div class="post-meta">
@@ -832,14 +706,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2018-05-29 16:21:53" itemprop="dateCreated datePublished" datetime="2018-05-29T16:21:53+08:00">2018-05-29</time>
+              <time title="创建时间：2016-12-19 17:18:23" itemprop="dateCreated datePublished" datetime="2016-12-19T17:18:23+08:00">2016-12-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2018-08-29 18:14:02" itemprop="dateModified" datetime="2018-08-29T18:14:02+08:00">2018-08-29</time>
+                <time title="修改时间：2019-05-17 19:49:08" itemprop="dateModified" datetime="2019-05-17T19:49:08+08:00">2019-05-17</time>
               </span>
 
           
@@ -853,25 +727,194 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="連接"><a href="#連接" class="headerlink" title="連接"></a>連接</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$dbh = <span class="keyword">new</span> PDO(<span class="string">'mysql:dbname=db;host=localhost'</span>, <span class="string">'root'</span>, <span class="string">'password'</span>);</span><br></pre></td></tr></table></figure>
+          <p>後來不再使用VirtualBox直接在Windows上使用Cmder+Git</p>
+<h2 id="基本安裝"><a href="#基本安裝" class="headerlink" title="基本安裝"></a>基本安裝</h2><ul>
+<li>检查操作系统 cpu 虚拟化已经打开。</li>
+<li>如果使用无线网络（PCI），必须安装官方驱动 </li>
+</ul>
+<p>创建虚拟主机、安装操作系统</p>
+<h2 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射"></a>端口映射</h2><p>“设置”》“网络”》“网卡1”》“高级”》“端口转发”添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Apache,    TCP,    127.0.0.1,    80,    ,    80</span><br><span class="line">SSH,    TCP,    127.0.0.1,    2222,    ,    22</span><br><span class="line">Mysql,    TCP,    127.0.0.1,    3306,    ,    3306</span><br></pre></td></tr></table></figure>
 
-<p>or</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$dsn = <span class="string">'mysql:dbname=db;host=localhost'</span>;</span><br><span class="line">$user = <span class="string">'root'</span>;</span><br><span class="line">$password = <span class="string">'password'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    $dbh = <span class="keyword">new</span> PDO($dsn, $user, $password);</span><br><span class="line">&#125; <span class="keyword">catch</span> (PDOException $e) &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'Connection failed: '</span> . $e-&gt;getMessage();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意</p>
+<p>用xshell链接时，不能用命令行 ssh <a href="mailto:root@127.0.0.1">root@127.0.0.1</a>:2222 鏈接。 必須新創建一個“会话”</p>
+<h2 id="共享文件"><a href="#共享文件" class="headerlink" title="共享文件"></a>共享文件</h2><ul>
+<li>“设置”》“共享文件夹” 中添加 ‘vagrant’ ‘D:\Htodcs’ 。 注意 不能勾选开机自动挂载</li>
+<li>开启虚拟主机，“设备”》“安装增强功能”会自动挂载iso到cdrom</li>
+<li>登录到操作页面， 执行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#安装相关软件</span><br><span class="line">sudo apt-get install gcc </span><br><span class="line">sudo apt-get install build-essential linux-headers-$(uname -r)</span><br><span class="line">#挂载</span><br><span class="line">sudo mount &#x2F;dev&#x2F;cdrom &#x2F;mnt</span><br><span class="line">#执行</span><br><span class="line">sudo .&#x2F;VBoxLinuxAdditions.run</span><br><span class="line">mkdir -p &#x2F;vagrant</span><br><span class="line">mount -t vboxsf vagrant &#x2F;vagrant</span><br></pre></td></tr></table></figure>
 
-<h2 id="设定只显示-key"><a href="#设定只显示-key" class="headerlink" title="设定只显示 key"></a>设定只显示 key</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$dbh-&gt;setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);</span><br></pre></td></tr></table></figure>
+<h3 id="开机自动挂载"><a href="#开机自动挂载" class="headerlink" title="开机自动挂载"></a>开机自动挂载</h3><h4 id="rc-loacl"><a href="#rc-loacl" class="headerlink" title="rc.loacl"></a>rc.loacl</h4><p>在/etc/rc.loal 加入  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t vboxsf vagrant &#x2F;vagrant</span><br></pre></td></tr></table></figure>
 
-<h2 id="query-和-prepare-区别"><a href="#query-和-prepare-区别" class="headerlink" title="query 和 prepare 区别"></a>query 和 prepare 区别</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$sth = $dbh-&gt;query($sql);</span><br><span class="line"><span class="comment"># 等同于</span></span><br><span class="line">$sth = $dbh-&gt;prepare($sql);</span><br><span class="line">$sth-&gt;execute();</span><br></pre></td></tr></table></figure>
+<h4 id="crontab"><a href="#crontab" class="headerlink" title="crontab"></a>crontab</h4><p>一些比较新的系统没有 rc.local 所以使用 crontab <code>@reboot</code> 设定</p>
+<p>在 crontab 中加入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@reboot mount -t vboxsf vagrant &#x2F;vagrant</span><br></pre></td></tr></table></figure>
 
-<h2 id="获取结果"><a href="#获取结果" class="headerlink" title="获取结果"></a>获取结果</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>($row = $sth-&gt;fetch()) &#123;</span><br><span class="line">    print_r($row);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line"><span class="keyword">foreach</span>($sth-&gt;fetchAll() <span class="keyword">as</span> $row) &#123;</span><br><span class="line">    print_r($row);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="PDOStatement-execute"><a href="#PDOStatement-execute" class="headerlink" title="PDOStatement::execute"></a>PDOStatement::execute</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$sth = $dbh-&gt;prepare(<span class="string">"update icrm_contact set email2 = ? where id = ?"</span>);</span><br><span class="line">$sth-&gt;execute(<span class="keyword">array</span>($email, $id));</span><br></pre></td></tr></table></figure>
+<h2 id="命令行启动"><a href="#命令行启动" class="headerlink" title="命令行启动"></a>命令行启动</h2><p>创建 vbox_up.bat</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd C:\Program Files\Oracle\VirtualBox</span><br><span class="line">VBoxManage startvm &quot;ubuntu&quot; -type headless</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$sth = $dbh-&gt;prepare(<span class="string">"update icrm_contact set email2 = ? where id = ?"</span>);</span><br><span class="line">$sth-&gt;bindValue(<span class="number">1</span>, <span class="string">'howard@080.net'</span>);</span><br><span class="line">$sth-&gt;bindValue(<span class="number">2</span>, <span class="string">'1'</span>);</span><br><span class="line">$sth-&gt;execute();</span><br></pre></td></tr></table></figure>
+<p>创建 vbox_down.bat</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd C:\Program Files\Oracle\VirtualBox</span><br><span class="line">VBoxManage controlvm &quot;ubuntu&quot; acpipowerbutton</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$sth = $dbh-&gt;prepare(<span class="string">"update icrm_contact set email2 = :email where id = :id"</span>);</span><br><span class="line">$sth-&gt;bindValue(<span class="string">':email'</span>, <span class="string">'howard@080.net'</span>);</span><br><span class="line">$sth-&gt;bindValue(<span class="string">':id'</span>, <span class="string">'1'</span>);</span><br><span class="line">$sth-&gt;execute();</span><br></pre></td></tr></table></figure>
+<p>并将这两个文件加入到 环境变量 PATH 中。 这样执行 vbox_up 开启虚拟主机 。vbox_down 关闭虚拟主机<br>说明 “ubuntu” 必须有 引号， ubuntu 是创建的虚拟主机的名称</p>
+<h2 id="Ubuntu-設定"><a href="#Ubuntu-設定" class="headerlink" title="Ubuntu 設定"></a>Ubuntu 設定</h2><h3 id="Apache设定"><a href="#Apache设定" class="headerlink" title="Apache设定"></a>Apache设定</h3><p>由于使用 virtualbox 共享文件，有时候出现缓存。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### Apache 配置添加:</span></span><br><span class="line">EnableSendfile off</span><br></pre></td></tr></table></figure>
 
-<h2 id="PDOStatement-bindValue"><a href="#PDOStatement-bindValue" class="headerlink" title="PDOStatement::bindValue"></a>PDOStatement::bindValue</h2><p>把一个值绑定到一个参数， 例如 把 <code>howard@080.net</code> 綁定到 <code>:email</code></p>
-<h2 id="PDOStatement-bindParam"><a href="#PDOStatement-bindParam" class="headerlink" title="PDOStatement::bindParam"></a>PDOStatement::bindParam</h2><p>绑定一个参数到指定的变量名，例如 把 <code>$email</code> 這個變量 綁定到 <code>:email</code>。<br>當保存多個的時候 直接修改 <code>$email</code> 對應的值。然後執行<code>$sth-&gt;execute()</code> 就可以了。</p>
+<p>在 /etc/apache2/sites-available/000-default.conf 中加入</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory "/vagrant"&gt;  </span><br><span class="line">	Options Indexes FollowSymLinks  </span><br><span class="line">	AllowOverride All  </span><br><span class="line">	Require all granted  </span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
+
+<p>啟動mod_rewrite，執行以下命令 <code>sudo a2enmod rewrite</code></p>
+<h3 id="PHP设定"><a href="#PHP设定" class="headerlink" title="PHP设定"></a>PHP设定</h3><p>安装&amp;开启 mcrypt</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php-mcrypt</span><br><span class="line">sudo phpenmod mcrypt</span><br></pre></td></tr></table></figure>
+
+<h3 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h3><p>必须要设定权限，以及允许远程访问。 my.cnf 修改：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">bind-address</span>  = <span class="number">0.0</span>.<span class="number">0.0</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-05/iotop/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017-05/iotop/" class="post-title-link" itemprop="url">iotop命令</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-05-18 14:32:00" itemprop="dateCreated datePublished" datetime="2017-05-18T14:32:00+08:00">2017-05-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-17 09:34:41" itemprop="dateModified" datetime="2019-05-17T09:34:41+08:00">2019-05-17</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="实际应用"><a href="#实际应用" class="headerlink" title="实际应用"></a>实际应用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iotop -o -d 2 # 只顯示有做I/O動作的進程 每隔2秒刷新一下</span><br><span class="line">iotop -o -P -b -k -n 3 -d 2 # 打印3次，時間間隔2秒。</span><br><span class="line">iotop -p 2655 #顯示該進程的io情況</span><br></pre></td></tr></table></figure>
+
+<h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><ul>
+<li>-o, –only #显示进程或者线程实际上正在做的I/O，而不是全部的，可以随时切换按o</li>
+<li>-b, –batch #运行在非交互式的模式</li>
+<li>-n NUM, –iter=NUM #在非交互式模式下，设置显示的次数，</li>
+<li>-d SEC, –delay=SEC #设置显示的间隔秒数，支持非整数值</li>
+<li>-k, –kilobytes #以千字节显示</li>
+<li>-p PID, –pid=PID #只显示指定PID的信息</li>
+<li>-P, –processes Only show processes. Normally iotop shows all threads.</li>
+</ul>
+<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">方向鍵：切換排序</span><br><span class="line">r：反向排序，</span><br><span class="line">o：切换至选项--only，</span><br><span class="line">p：切换至--processes选项，</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-05/cpanel-ftp-over-tls/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019-05/cpanel-ftp-over-tls/" class="post-title-link" itemprop="url">cpanel ftp over TLS</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-05-10 16:41:41" itemprop="dateCreated datePublished" datetime="2019-05-10T16:41:41+08:00">2019-05-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-13 09:08:56" itemprop="dateModified" datetime="2019-05-13T09:08:56+08:00">2019-05-13</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="狀況"><a href="#狀況" class="headerlink" title="狀況"></a>狀況</h2><p>cpanel 設定的 ftp over tls 總是列表失敗。</p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>原因是 ftp 的被動模式(Passive)沒有正常運行。防火墻(csf)攔截了。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/pure-ftpd.conf | grep PassivePortRange</span><br><span class="line"><span class="meta">#</span><span class="bash"> 可以看到</span></span><br><span class="line">PassivePortRange 49152 65534</span><br></pre></td></tr></table></figure>
+
+<h2 id="解決辦法"><a href="#解決辦法" class="headerlink" title="解決辦法"></a>解決辦法</h2><p>csf 設定文檔 的 <code>TCP_IN</code> 增加 <code>49152:65534</code>。並重啟。</p>
 
       
     </div>

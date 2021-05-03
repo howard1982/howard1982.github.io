@@ -208,6 +208,419 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-10/python-venv/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018-10/python-venv/" class="post-title-link" itemprop="url">python venv 创建虚拟环境</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-10-02 17:13:54" itemprop="dateCreated datePublished" datetime="2018-10-02T17:13:54+08:00">2018-10-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-28 13:31:12" itemprop="dateModified" datetime="2021-04-28T13:31:12+08:00">2021-04-28</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>python3.3 以後自帶 venv 虚拟环境</p>
+<h1 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m venv /root/bin/venv</span><br></pre></td></tr></table></figure>
+
+<h1 id="激活虚拟环境"><a href="#激活虚拟环境" class="headerlink" title="激活虚拟环境"></a>激活虚拟环境</h1><ul>
+<li>linux  <code>source &lt;venv&gt;/bin/activate</code></li>
+<li>windows cmd <code>&lt;venv&gt;/Scripts/activate.bat</code></li>
+<li>windows powershell <code>&lt;venv&gt;/Scripts/Activate.ps1</code></li>
+</ul>
+<p>注： 在cmder+powershell環境下，會出現錯誤提示。忽略掉即可。</p>
+<h1 id="测试虚拟环境"><a href="#测试虚拟环境" class="headerlink" title="测试虚拟环境"></a>测试虚拟环境</h1><p>激活以後，就可以直接使用 <code>python</code> 或 <code>pip</code> </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-10/flask-run/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017-10/flask-run/" class="post-title-link" itemprop="url">Flask</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-10-21 17:14:52" itemprop="dateCreated datePublished" datetime="2017-10-21T17:14:52+08:00">2017-10-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-28 13:30:31" itemprop="dateModified" datetime="2021-04-28T13:30:31+08:00">2021-04-28</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Flask"><a href="#Flask" class="headerlink" title="Flask"></a>Flask</h2><p>Python Web 框架</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建文档"><a href="#创建文档" class="headerlink" title="创建文档"></a>创建文档</h3><p>创建 h1.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route("/")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello World!"</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Gunicorn"><a href="#Gunicorn" class="headerlink" title="Gunicorn"></a>Gunicorn</h2><p>作为一个HTTP Server</p>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install gunicorn</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gunicorn -w 4 -b 0.0.0.0:8080 h1:app</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>h1 是文檔名稱</li>
+<li>app 是Flask實例</li>
+</ul>
+<h3 id="開機啟動"><a href="#開機啟動" class="headerlink" title="開機啟動"></a>開機啟動</h3><p>安裝 supervisor</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install supervisor</span><br></pre></td></tr></table></figure>
+
+<p>創建<code>/etc/supervisor/conf.d/h1.conf</code>文檔（ubuntu）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[program:h1]</span><br><span class="line">command&#x3D;gunicorn -w 4 -b 0.0.0.0:8080 h1:app</span><br><span class="line">directory&#x3D;&#x2F;root&#x2F;bin</span><br><span class="line">user&#x3D;root</span><br><span class="line">autostart&#x3D;true</span><br><span class="line">autorestart&#x3D;true</span><br><span class="line">redirect_stderr&#x3D;true</span><br></pre></td></tr></table></figure>
+
+<p>注意 ip 0.0.0.0 對應所有ip。</p>
+<h4 id="简单的启动"><a href="#简单的启动" class="headerlink" title="简单的启动"></a>简单的启动</h4><p>修改 <code>/etc/rc.local</code> 文档</p>
+<p><code>nohup gunicorn -w 4 -b 0.0.0.0:8080 /root/bin/h1:app &amp;</code></p>
+<h2 id="uWSGI"><a href="#uWSGI" class="headerlink" title="uWSGI"></a>uWSGI</h2><h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h3><p><code>pip3 install uwsgi</code></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>h1.py 增加 執行文件，或配置虛擬環境 virtualenv</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python3</span><br><span class="line">from flask import Flask</span><br><span class="line"></span><br><span class="line">app &#x3D; Flask(__name__)</span><br><span class="line"></span><br><span class="line">@app.route(&quot;&#x2F;&quot;)</span><br><span class="line">def hello():</span><br><span class="line">    return &quot;Hello World!&quot;</span><br></pre></td></tr></table></figure>
+
+<p>virtualenv 參考 <a href="https://www.cnblogs.com/oyaisusu/p/13817081.html" target="_blank" rel="noopener">https://www.cnblogs.com/oyaisusu/p/13817081.html</a></p>
+<h3 id="命令執行"><a href="#命令執行" class="headerlink" title="命令執行"></a>命令執行</h3><p><code>uwsgi --http :8180 --wsgi-file h1.py --callable=app</code></p>
+<h3 id="配置文檔"><a href="#配置文檔" class="headerlink" title="配置文檔"></a>配置文檔</h3><p>uwsgi.ini</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[uwsgi]</span><br><span class="line">http&#x3D;:8180</span><br><span class="line">wsgi-file&#x3D;&#x2F;root&#x2F;bin&#x2F;h1.py</span><br><span class="line">callable&#x3D;app</span><br></pre></td></tr></table></figure>
+
+<p>執行命令 <code>uwsgi uwsgi.ini</code></p>
+<blockquote>
+<p>为什么有了uWSGI为什么还需要nginx？因为nginx具备优秀的静态内容处理能力，然后将动态内容转发给uWSGI服务器，这样可以达到很好的客户端响应。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-02/systemd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019-02/systemd/" class="post-title-link" itemprop="url">systemd 简单实例</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-02-20 17:53:48" itemprop="dateCreated datePublished" datetime="2019-02-20T17:53:48+08:00">2019-02-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-26 15:52:14" itemprop="dateModified" datetime="2021-04-26T15:52:14+08:00">2021-04-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>systemd systemctl</p>
+<h2 id="systemctl-常用命令"><a href="#systemctl-常用命令" class="headerlink" title="systemctl 常用命令"></a>systemctl 常用命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">systemctl list-unit-files # 列出所有配置文件</span><br><span class="line">systemctl list-unit-files --type=service # 列表所有 service</span><br><span class="line">systemctl list-unit-files | grep php # 搜索 php</span><br><span class="line"></span><br><span class="line">systemctl stauts httpd</span><br><span class="line">systemctl restart httpd</span><br><span class="line">systemctl stop httpd</span><br><span class="line">systemctl start httpd</span><br></pre></td></tr></table></figure>
+
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>安装基本python插件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install flask</span><br><span class="line">pip install gunicorn</span><br></pre></td></tr></table></figure>
+
+<p>创建文档 <code>/root/bin/rot13.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route("/")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello World!"</span></span><br></pre></td></tr></table></figure>
+
+<p>测试以上程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;local&#x2F;bin&#x2F;gunicorn -w 4 -b 0.0.0.0:8080 rot13:app</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置-systemd"><a href="#配置-systemd" class="headerlink" title="配置 systemd"></a>配置 systemd</h2><p>Systemd是一个系统管理守护进程、工具和库的集合</p>
+<p>创建文档<code>/etc/systemd/system/rot13.service</code></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Unit]</span></span><br><span class="line"><span class="attr">Description</span>=ROT13 demo service</span><br><span class="line"><span class="attr">After</span>=network.target</span><br><span class="line"><span class="attr">After</span>=syslog.target</span><br><span class="line"></span><br><span class="line"><span class="section">[Service]</span></span><br><span class="line"><span class="attr">Type</span>=simple</span><br><span class="line"><span class="attr">Restart</span>=always</span><br><span class="line"><span class="attr">User</span>=root</span><br><span class="line"><span class="attr">WorkingDirectory</span>=/root/bin</span><br><span class="line"><span class="attr">ExecStart</span>=/usr/local/bin/gunicorn -w <span class="number">4</span> -b <span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">8080</span> rot13:app</span><br><span class="line"></span><br><span class="line"><span class="section">[Install]</span></span><br><span class="line"><span class="attr">WantedBy</span>=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start rot13.service</span><br></pre></td></tr></table></figure>
+
+<p>开机启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable rot13.service</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置说明"><a href="#配置说明" class="headerlink" title="配置说明"></a>配置说明</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Restart</span>=<span class="literal">no</span> <span class="comment"># (默认值) 表示不会被重启。</span></span><br><span class="line"></span><br><span class="line"><span class="attr">Restart</span>=always <span class="comment">#表示会被无条件的重启</span></span><br><span class="line"></span><br><span class="line"><span class="attr">Restart</span>=<span class="literal">on</span>-failure</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置防火墙"><a href="#配置防火墙" class="headerlink" title="配置防火墙"></a>配置防火墙</h2><p>Ubuntu 为例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow 8080</span><br></pre></td></tr></table></figure>
+
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a href="https://www.cnblogs.com/zwcry/p/9602756.html" target="_blank" rel="noopener">https://www.cnblogs.com/zwcry/p/9602756.html</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-07/jquery-prop-attr/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017-07/jquery-prop-attr/" class="post-title-link" itemprop="url">Jquery prop vs attr</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-07-07 14:18:22" itemprop="dateCreated datePublished" datetime="2017-07-07T14:18:22+08:00">2017-07-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-02-05 13:21:06" itemprop="dateModified" datetime="2021-02-05T13:21:06+08:00">2021-02-05</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>如果是用於判斷 盡量使用 <code>$(elem).prop(&quot;checked&quot;)</code>。 適用於 <code>checked</code>, <code>selected</code>, or <code>disabled</code></p>
+<p>使用 <code>$(elem).prop(&quot;checked&quot;, &quot;true&quot; )</code> 來設定 是否點選</p>
+<h2 id="elem-checked"><a href="#elem-checked" class="headerlink" title="elem.checked"></a>elem.checked</h2><p><code>true</code> (Boolean) Will change with checkbox state</p>
+<h2 id="elem-prop-“checked”"><a href="#elem-prop-“checked”" class="headerlink" title="$(elem).prop(“checked”)"></a>$(elem).prop(“checked”)</h2><p><code>true</code> (Boolean) Will change with checkbox state</p>
+<h2 id="elem-getAttribute-“checked”"><a href="#elem-getAttribute-“checked”" class="headerlink" title="elem.getAttribute(“checked”)"></a>elem.getAttribute(“checked”)</h2><p><code>&quot;checked&quot;</code> (String) Initial state of the checkbox; does not change</p>
+<h2 id="elem-attr-“checked”-1-6-1"><a href="#elem-attr-“checked”-1-6-1" class="headerlink" title="$(elem).attr(“checked”) (1.6.1+)"></a>$(elem).attr(“checked”) (1.6.1+)</h2><p><code>&quot;checked&quot;</code> (String) Will change with checkbox state</p>
+<h2 id="elem-attr-“checked”-pre-1-6"><a href="#elem-attr-“checked”-pre-1-6" class="headerlink" title="$(elem).attr(“checked”) (pre-1.6)"></a>$(elem).attr(“checked”) (pre-1.6)</h2><p><code>true</code> (Boolean) Changed with checkbox state</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-10/mysql-sql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018-10/mysql-sql/" class="post-title-link" itemprop="url">mysql sql 語句</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-10-25 15:49:01" itemprop="dateCreated datePublished" datetime="2018-10-25T15:49:01+08:00">2018-10-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-21 11:48:04" itemprop="dateModified" datetime="2021-01-21T11:48:04+08:00">2021-01-21</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="去除重複"><a href="#去除重複" class="headerlink" title="去除重複"></a>去除重複</h2><h3 id="distinct"><a href="#distinct" class="headerlink" title="distinct"></a>distinct</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> email <span class="keyword">from</span> <span class="keyword">member</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="group-by"><a href="#group-by" class="headerlink" title="group by"></a>group by</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> email <span class="keyword">from</span> <span class="keyword">member</span> <span class="keyword">group</span> <span class="keyword">by</span> email</span><br></pre></td></tr></table></figure>
+
+<h2 id="HAVING-語句"><a href="#HAVING-語句" class="headerlink" title="HAVING 語句"></a>HAVING 語句</h2><p>配合 <code>GROUP BY</code> 使用。在<code>WHERE</code>語句執行完，把資料讀入內存后，再次過濾。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> m.email, <span class="keyword">COUNT</span>(m.email) <span class="keyword">AS</span> cc <span class="keyword">FROM</span> <span class="keyword">member</span> <span class="keyword">AS</span> m <span class="keyword">WHERE</span> m.age &gt; <span class="number">10</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> m.email</span><br><span class="line"><span class="keyword">HAVING</span> cc &gt; <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>以上SQL可看為2步驟</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 第一步 過濾數據并讀取到內容，并計算 count */</span></span><br><span class="line"><span class="keyword">SELECT</span> m.email, <span class="keyword">COUNT</span>(m.email) <span class="keyword">AS</span> cc <span class="keyword">FROM</span> <span class="keyword">member</span> <span class="keyword">AS</span> m <span class="keyword">WHERE</span> m.age &gt; <span class="number">10</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> m.email</span><br><span class="line"><span class="comment">/* 第二步 在以上結果的基礎上進行過濾*/</span></span><br><span class="line"><span class="keyword">HAVING</span> cc &gt; <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="EXISTS"><a href="#EXISTS" class="headerlink" title="EXISTS"></a>EXISTS</h2><p>用于检查子查询是否至少会返回一行数据，该子查询实际上并不返回任何数据，而是返回值True或False<br>EXISTS 指定一个子查询，检测 行 的存在。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="string">`test`</span> <span class="keyword">where</span> <span class="string">`type`</span> = <span class="string">'AA'</span> </span><br><span class="line"><span class="keyword">and</span> <span class="keyword">exists</span> (<span class="keyword">select</span> * <span class="keyword">from</span> <span class="string">`company`</span> <span class="keyword">where</span> <span class="string">`test`</span>.<span class="string">`uid`</span> = <span class="string">`company`</span>.<span class="string">`uid`</span> <span class="keyword">and</span> <span class="string">`company`</span> <span class="keyword">like</span> <span class="string">'%BB%'</span>) </span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="string">`pid`</span> <span class="keyword">desc</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2021-01/lang-gc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -277,7 +690,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-11/VMware-Network/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/htaccess/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -291,378 +704,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020-11/VMware-Network/" class="post-title-link" itemprop="url">VMware Network 网络配置</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-11-10 09:52:08 / 修改时间：09:59:37" itemprop="dateCreated datePublished" datetime="2020-11-10T09:52:08+08:00">2020-11-10</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>VMWare提供了三种工作模式，它们是bridged(桥接模式)、NAT(网络地址转换模式)和host-only(主机模式)。</p>
-<h2 id="bridged-桥接模式"><a href="#bridged-桥接模式" class="headerlink" title="bridged 桥接模式"></a>bridged 桥接模式</h2><p>在桥接模式下，你需要手工为虚拟系统配置IP地址、子网掩码，而且还要和宿主机器处于同一网段，这样虚拟系统才能和宿主机器进行通信。</p>
-<h2 id="host-only-主机模式"><a href="#host-only-主机模式" class="headerlink" title="host-only 主机模式"></a>host-only 主机模式</h2><p>VMware Network Adapter VMnet1。 虚拟网络的DHCP服务器来动态分配的。</p>
-<h2 id="NAT-网络地址转换模式"><a href="#NAT-网络地址转换模式" class="headerlink" title="NAT 网络地址转换模式"></a>NAT 网络地址转换模式</h2><p>VMware Network Adapter VMnet8。就是让虚拟系统借助NAT(网络地址转换)功能，通过宿主机器所在的网络来访问公网。 vmware 虚拟出一个网络IP段。</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>所以我把 Windows系统中 <code>控制面板\网络和 Internet\网络连接</code> 中的 <code>VMware Network Adapter VMnet1</code> 和 <code>VMware Network Adapter VMnet8</code> 关闭了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-09/bind-named-query-log/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020-09/bind-named-query-log/" class="post-title-link" itemprop="url">bind-named-query-log</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-09-04 13:25:02 / 修改时间：13:33:51" itemprop="dateCreated datePublished" datetime="2020-09-04T13:25:02+08:00">2020-09-04</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="開啟-Bind-記錄-Query-Log"><a href="#開啟-Bind-記錄-Query-Log" class="headerlink" title="開啟 Bind 記錄 Query Log"></a>開啟 Bind 記錄 Query Log</h2><p>編輯 <code>/etc/named.conf</code><br>添加一些設置，最後應該長得類似這樣：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">logging &#123;</span><br><span class="line">   channel default_debug &#123;</span><br><span class="line">        file &quot;data&#x2F;named.run&quot; versions 10 size 100m;</span><br><span class="line">           severity dynamic;</span><br><span class="line">   &#125;;</span><br><span class="line">   channel query-log &#123;</span><br><span class="line">        file &quot;data&#x2F;named_query.log&quot; versions 10 size 500m;</span><br><span class="line">        severity info;</span><br><span class="line">        print-time yes;</span><br><span class="line">    &#125;;</span><br><span class="line">   category queries &#123; query-log;&#125;;</span><br><span class="line">   category default &#123; default_debug;&#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>注意：log 文件必須在 /var/named/data/ 底下，並且 屬性是 named:named</p>
-<p>確認之後，重啟 named. cpanel 命令 <code>/scripts/restartsrv_named</code></p>
-<h2 id="統計分析Log"><a href="#統計分析Log" class="headerlink" title="統計分析Log"></a>統計分析Log</h2><p>Github 上面有一些工具現成的  <a href="https://github.com/search?utf8=%E2%9C%93&amp;q=bind+log&amp;type=" target="_blank" rel="noopener">https://github.com/search?utf8=%E2%9C%93&amp;q=bind+log&amp;type=</a></p>
-<p><a href="https://github.com/Matty9191/bind-query-log-statistics" target="_blank" rel="noopener">https://github.com/Matty9191/bind-query-log-statistics</a></p>
-<p><code>bind-query-log-stats.py</code> 根據實際情況 添加或編輯 173行 。以下是我的例子</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">elif</span> len(chopped) == <span class="number">11</span>:</span><br><span class="line">    timestamp = chopped[<span class="number">0</span>] + <span class="string">" "</span> + chopped[<span class="number">1</span>]</span><br><span class="line">    client_ip = chopped[<span class="number">3</span>].split(<span class="string">"#"</span>)[<span class="number">0</span>]</span><br><span class="line">    rr_type = chopped[<span class="number">8</span>]</span><br><span class="line">    dns_question = chopped[<span class="number">6</span>]</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-08/golang-web/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020-08/golang-web/" class="post-title-link" itemprop="url">golang web framework</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-09 15:35:18 / 修改时间：17:15:28" itemprop="dateCreated datePublished" datetime="2020-08-09T15:35:18+08:00">2020-08-09</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="gin-gonic-gin"><a href="#gin-gonic-gin" class="headerlink" title="gin-gonic/gin"></a>gin-gonic/gin</h2><p><a href="https://github.com/gin-gonic/gin" target="_blank" rel="noopener">https://github.com/gin-gonic/gin</a></p>
-<p>web framework， 用作 api/微框架 很简单</p>
-<h3 id="范例"><a href="#范例" class="headerlink" title="范例"></a>范例</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	...</span><br><span class="line"></span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">authCheck</span><span class="params">()</span> <span class="title">gin</span>.<span class="title">HandlerFunc</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		time := c.GetHeader(<span class="string">"_time"</span>)</span><br><span class="line">		token := c.GetHeader(<span class="string">"_token"</span>)</span><br><span class="line"></span><br><span class="line">		sum := fmt.Sprintf(<span class="string">"%x"</span>, sha256.Sum256([]<span class="keyword">byte</span>(time+<span class="string">"***"</span>)))</span><br><span class="line">		<span class="keyword">if</span> sum != token &#123;</span><br><span class="line">			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H&#123;<span class="string">"Message"</span>: <span class="string">"Unauthorized"</span>&#125;)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		c.Next()</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> appVersion = <span class="string">"1.0.2"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">updateAcme</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">    domain := c.DefaultPostForm(<span class="string">"domain"</span>, <span class="string">""</span>)</span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    c.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">        <span class="string">"state"</span>:   <span class="string">"error"</span>,</span><br><span class="line">        <span class="string">"message"</span>: <span class="string">"get cert error."</span>,</span><br><span class="line">        <span class="string">"version"</span>: appVersion,</span><br><span class="line">        <span class="string">"cmdStr"</span>:  cmdStr,</span><br><span class="line">    &#125;)</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	gin.SetMode(gin.ReleaseMode) <span class="comment">// prod</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//r := gin.New()</span></span><br><span class="line">	r := gin.Default()</span><br><span class="line"></span><br><span class="line">	r.Use(authCheck())</span><br><span class="line"></span><br><span class="line">	r.POST(<span class="string">"/up_acme"</span>, updateAcme)</span><br><span class="line"></span><br><span class="line">	dir, _ := filepath.Abs(filepath.Dir(os.Args[<span class="number">0</span>]))</span><br><span class="line">	r.RunTLS(<span class="string">":9008"</span>, dir+<span class="string">"/ssl/server.pem"</span>, dir+<span class="string">"/ssl/server.key"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-08/golang-cli/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020-08/golang-cli/" class="post-title-link" itemprop="url">golang cli</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-09 15:35:13 / 修改时间：15:45:55" itemprop="dateCreated datePublished" datetime="2020-08-09T15:35:13+08:00">2020-08-09</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="urfave-cli-v2"><a href="#urfave-cli-v2" class="headerlink" title="urfave/cli v2"></a>urfave/cli v2</h2><p>文档 <a href="https://github.com/urfave/cli" target="_blank" rel="noopener">https://github.com/urfave/cli</a></p>
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p><code>spf13/cobra</code> 和 <code>urfave/cli</code> 都是很好的 cli framework。</p>
-<p><code>urfave/cli</code> 更简洁一些；<code>spf13/cobra</code> 支持 generator，协助生成项目，功能更强大一些；</p>
-<h3 id="范例"><a href="#范例" class="headerlink" title="范例"></a>范例</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">	<span class="string">"github.com/urfave/cli/v2"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	app := &amp;cli.App&#123;</span><br><span class="line">		Commands: []*cli.Command&#123;</span><br><span class="line">			&#123;</span><br><span class="line">				Name:  <span class="string">"run"</span>,</span><br><span class="line">				Usage: <span class="string">"complete a task on the list"</span>,</span><br><span class="line">				Action: <span class="function"><span class="keyword">func</span><span class="params">(c *cli.Context)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">					backupRun()</span><br><span class="line">					backupClean()</span><br><span class="line">					<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">				&#125;,</span><br><span class="line">			&#125;,</span><br><span class="line">		&#125;,</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	err := app.Run(os.Args)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(err)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-06/php-error-log/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020-06/php-error-log/" class="post-title-link" itemprop="url">php error_log 日誌</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-22 15:47:42 / 修改时间：16:02:41" itemprop="dateCreated datePublished" datetime="2020-06-22T15:47:42+08:00">2020-06-22</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>保存訊息到 某個文檔</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 保存到獨立的文檔</span></span><br><span class="line">error_log(<span class="string">"You messed up!"</span>, <span class="number">3</span>, <span class="keyword">__DIR__</span>.<span class="string">"/my-errors.log"</span>);</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-06/golang-json/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020-06/golang-json/" class="post-title-link" itemprop="url">golang json</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-11 09:45:39 / 修改时间：09:47:44" itemprop="dateCreated datePublished" datetime="2020-06-11T09:45:39+08:00">2020-06-11</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p><a href="https://mholt.github.io/json-to-go/" target="_blank" rel="noopener">https://mholt.github.io/json-to-go/</a>  這個Url可以自動根據json生成  struct</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import (</span><br><span class="line">	&quot;encoding&#x2F;json&quot;</span><br><span class="line">	&quot;fmt&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; &#x2F;https:&#x2F;&#x2F;mholt.github.io&#x2F;json-to-go&#x2F;</span><br><span class="line">func main() &#123;</span><br><span class="line">	str :&#x3D; getJsonStr()</span><br><span class="line">	da :&#x3D; []byte(str)</span><br><span class="line"></span><br><span class="line">	stu :&#x3D; AutoGenerated&#123;&#125;</span><br><span class="line">	err :&#x3D; json.Unmarshal(da, &amp;stu)</span><br><span class="line"></span><br><span class="line">	if err !&#x3D; nil &#123;</span><br><span class="line">		fmt.Println(err)</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Println(stu)</span><br><span class="line"></span><br><span class="line">	for _, v :&#x3D; range stu &#123;</span><br><span class="line">		&#x2F;&#x2F; fmt.Println(i)</span><br><span class="line">		fmt.Println(v.Vpsid + &quot;-&quot; + v.VpsName)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">type AutoGenerated []struct &#123;</span><br><span class="line">	Vpsid    string &#96;json:&quot;vpsid&quot;&#96;</span><br><span class="line">	VpsName  string &#96;json:&quot;vps_name&quot;&#96;</span><br><span class="line">	UUID     string &#96;json:&quot;uuid&quot;&#96;</span><br><span class="line">	UID      string &#96;json:&quot;uid&quot;&#96;</span><br><span class="line">	Hostname string &#96;json:&quot;hostname&quot;&#96;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func getJsonStr() string &#123;</span><br><span class="line">	return &#96;[&#123;&quot;vpsid&quot;:&quot;2&quot;,&quot;vps_name&quot;:&quot;101&quot;,&quot;uuid&quot;:&quot;qefv3uazkuiy8kg&quot;,&quot;uid&quot;:&quot;1&quot;,&quot;hostname&quot;:&quot;base&quot;&#125;,&#123;&quot;vpsid&quot;:&quot;18&quot;,&quot;vps_name&quot;:&quot;102&quot;,&quot;uuid&quot;:&quot;ewkmyckrjkdfg9pa&quot;,&quot;uid&quot;:&quot;1&quot;,&quot;hostname&quot;:&quot;wp02.t01.poikl.com&quot;&#125;,&#123;&quot;vpsid&quot;:&quot;19&quot;,&quot;vps_name&quot;:&quot;103&quot;,&quot;uuid&quot;:&quot;fii3frtmkllribr6&quot;,&quot;uid&quot;:&quot;1&quot;,&quot;hostname&quot;:&quot;wp03.t01.poikl.com&quot;&#125;,&#123;&quot;vpsid&quot;:&quot;20&quot;,&quot;vps_name&quot;:&quot;104&quot;,&quot;uuid&quot;:&quot;3dhitxmuzl6cym4r&quot;,&quot;uid&quot;:&quot;1&quot;,&quot;hostname&quot;:&quot;wp04.t01.poikl.com&quot;&#125;,&#123;&quot;vpsid&quot;:&quot;21&quot;,&quot;vps_name&quot;:&quot;105&quot;,&quot;uuid&quot;:&quot;hluityhqepc4jjf6&quot;,&quot;uid&quot;:&quot;1&quot;,&quot;hostname&quot;:&quot;wp06.t01.poikl.com&quot;&#125;,&#123;&quot;vpsid&quot;:&quot;22&quot;,&quot;vps_name&quot;:&quot;106&quot;,&quot;uuid&quot;:&quot;uzgkvonjf9bikzbu&quot;,&quot;uid&quot;:&quot;1&quot;,&quot;hostname&quot;:&quot;wp07.t01.poikl.com&quot;&#125;,&#123;&quot;vpsid&quot;:&quot;23&quot;,&quot;vps_name&quot;:&quot;107&quot;,&quot;uuid&quot;:&quot;gbusdkxzpynhyb6y&quot;,&quot;uid&quot;:&quot;1&quot;,&quot;hostname&quot;:&quot;wp08.t01.poikl.com&quot;&#125;]&#96;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-06/ftp-sync/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020-06/ftp-sync/" class="post-title-link" itemprop="url">ftp 同步</a>
+            <a href="/2016-12/htaccess/" class="post-title-link" itemprop="url">.htaccess</a>
         </h1>
 
         <div class="post-meta">
@@ -672,14 +714,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-06-10 17:47:15" itemprop="dateCreated datePublished" datetime="2020-06-10T17:47:15+08:00">2020-06-10</time>
+              <time title="创建时间：2016-12-25 14:54:48" itemprop="dateCreated datePublished" datetime="2016-12-25T14:54:48+08:00">2016-12-25</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-12 16:43:06" itemprop="dateModified" datetime="2020-10-12T16:43:06+08:00">2020-10-12</time>
+                <time title="修改时间：2020-12-16 17:49:11" itemprop="dateModified" datetime="2020-12-16T17:49:11+08:00">2020-12-16</time>
               </span>
 
           
@@ -693,31 +735,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="步驟"><a href="#步驟" class="headerlink" title="步驟"></a>步驟</h2><ol>
-<li><p>安裝 lftp</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install lftp</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置</p>
-</li>
-</ol>
-<p><code>/etc/lftp.conf</code> 添加一下內容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">set ssl:verify-certificate no</span><br><span class="line">set ftp:passive-mode off</span><br><span class="line">set net:max-retries 2; #最大重试次数</span><br><span class="line">set net:reconnect-interval-base 10; #第一次连接失败时重试间隔</span><br><span class="line">set net:reconnect-interval-multiplier 2; #每次重试间隔为</span><br></pre></td></tr></table></figure>
+          <p>.htaccess 文档</p>
+<p>一些特殊情況下，注意增加否定條件。譬如 <code>RewriteCond $1 !^(2\.php)</code> 否則apache會報錯。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RewriteCond $1 !^(2\.php)</span><br><span class="line">RewriteRule ^(.*)$ 2.php&#x2F;$1 [L]</span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li>程序</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">login="user"</span><br><span class="line">pass="password"</span><br><span class="line">host="1.2.3.4"</span><br><span class="line">remote_dir="/demo/uploads"</span><br><span class="line">local_dir="/home/xxxxx/public_html/uploads"</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">trap "rm -f /tmp/lftp-mirror.lock" SIGINT SIGTERM</span><br><span class="line">if [ -e /tmp/lftp-mirror.lock ]</span><br><span class="line">then</span><br><span class="line">echo "mirror is running already, rm /tmp/lftp-mirror.lock if this is false."</span><br><span class="line">exit 1</span><br><span class="line">else</span><br><span class="line">touch /tmp/mirror</span><br><span class="line">lftp -u $login,$pass ftp://$host &lt;&lt; EOF</span><br><span class="line">cd $remote_dir</span><br><span class="line">lcd $local_dir</span><br><span class="line">mirror -R -c --parallel=20</span><br><span class="line">quit</span><br><span class="line">EOF</span><br><span class="line">rm -f /tmp/lftp-mirror.lock</span><br><span class="line">trap - SIGINT SIGTERM</span><br><span class="line">exit 0</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<h2 id="一般"><a href="#一般" class="headerlink" title="一般"></a>一般</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Options +FollowSymLinks</span><br><span class="line">RewriteEngine On</span><br><span class="line"> </span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-d</span><br><span class="line">RewriteRule ^(.+)&#x2F;$ http:&#x2F;&#x2F;%&#123;HTTP_HOST&#125;&#x2F;$1 [R&#x3D;301,L]</span><br><span class="line"> </span><br><span class="line">RewriteCond %&#123;REQUEST_FILENAME&#125; !-f</span><br><span class="line">RewriteRule ^ index.php [L]</span><br></pre></td></tr></table></figure>
 
-<ol start="4">
-<li>排程</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*&#x2F;15 * * * * &#x2F;root&#x2F;bin&#x2F;cn_rsync.sh</span><br></pre></td></tr></table></figure>
+<p><code>Options +FollowSymLinks</code></p>
+<p>在 某些服务器配置中，mod_rewrite要求有followsymlinks，否则会显示500内部服务器错误。</p>
+<h2 id="禁止所有请求"><a href="#禁止所有请求" class="headerlink" title="禁止所有请求"></a>禁止所有请求</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deny from all</span><br></pre></td></tr></table></figure>
 
-<h2 id="排錯"><a href="#排錯" class="headerlink" title="排錯"></a>排錯</h2><p>有時候會連接錯誤但是不知道什麼原因， 可以使用 ftp 命令。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ftp</span><br><span class="line">&gt; open xxxxx</span><br></pre></td></tr></table></figure>
+<p>一般用于 <code>vendor</code> <code>application</code> 目录</p>
+<h2 id="禁止列出目錄"><a href="#禁止列出目錄" class="headerlink" title="禁止列出目錄"></a>禁止列出目錄</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Options -Indexes</span><br></pre></td></tr></table></figure>
 
-<p>可能會出現 <em>連接超過xxx</em></p>
+<h2 id="強制-www"><a href="#強制-www" class="headerlink" title="強制 www"></a>強制 www</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RewriteCond %&#123;HTTP_HOST&#125; !^www\. [NC]</span><br><span class="line">RewriteCond %&#123;REQUEST_URI&#125; !(\.well\-known) # 排除url</span><br><span class="line">RewriteRule ^(.*)$ https:&#x2F;&#x2F;www.%&#123;HTTP_HOST&#125;&#x2F;$1 [R&#x3D;301,L]</span><br></pre></td></tr></table></figure>
 
+<h2 id="強制HTTPS"><a href="#強制HTTPS" class="headerlink" title="強制HTTPS"></a>強制HTTPS</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RewriteCond %&#123;HTTPS&#125; off</span><br><span class="line">RewriteCond %&#123;REQUEST_URI&#125; !(\.well\-known) # 排除url</span><br><span class="line">RewriteRule ^(.*)$ https:&#x2F;&#x2F;%&#123;SERVER_NAME&#125;%&#123;REQUEST_URI&#125; [L,R]</span><br></pre></td></tr></table></figure>
+
+<h2 id="強制返回404"><a href="#強制返回404" class="headerlink" title="強制返回404"></a>強制返回404</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RewriteCond %&#123;HTTP_HOST&#125; &#x3D;abc.om</span><br><span class="line">RewriteRule ^(.*)$ - [R&#x3D;404,L]</span><br></pre></td></tr></table></figure>
+
+<h2 id="顯示臨時頁面"><a href="#顯示臨時頁面" class="headerlink" title="顯示臨時頁面"></a>顯示臨時頁面</h2><p>.htaccess</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RewriteEngine on</span><br><span class="line"></span><br><span class="line">RewriteCond $1 !^(2\.php)</span><br><span class="line">RewriteRule ^(.*)$ 2.php/$1 [L]</span><br></pre></td></tr></table></figure>
+
+<p>2.php</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Name080<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"padding: 40px 20px;font-size: 24px"</span>&gt;</span>網站維護中 ... <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -736,7 +777,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-06/ConEmu/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-05/dig/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -750,74 +791,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020-06/ConEmu/" class="post-title-link" itemprop="url">ConEmu</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-10 15:08:55 / 修改时间：17:47:55" itemprop="dateCreated datePublished" datetime="2020-06-10T15:08:55+08:00">2020-06-10</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>下载并解压 ConEmuPack.200604.7z。</p>
-<p>簡單的配置，使用 git-bash</p>
-<ol>
-<li><code>General</code> -&gt; <code>Cgoose color scheme</code> <code>Monokai</code></li>
-<li><code>General</code> -&gt; <code>Fonts</code></li>
-<li><code>General</code> -&gt; <code>Tab bar</code> 勾選 <code>Tabs on botton</code></li>
-<li><code>Features</code> -&gt; <code>Status bar</code> 取消勾選 <code>Show status bar</code></li>
-<li><code>Features</code> -&gt; <code>Transparency</code> 选择通明度</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-04/nat-vps/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020-04/nat-vps/" class="post-title-link" itemprop="url">nat-vps 测试 kvm 里面创建 openvz</a>
+            <a href="/2017-05/dig/" class="post-title-link" itemprop="url">dig 命令</a>
         </h1>
 
         <div class="post-meta">
@@ -827,14 +801,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-04-24 16:47:40" itemprop="dateCreated datePublished" datetime="2020-04-24T16:47:40+08:00">2020-04-24</time>
+              <time title="创建时间：2017-05-19 16:37:39" itemprop="dateCreated datePublished" datetime="2017-05-19T16:37:39+08:00">2017-05-19</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-11 14:24:03" itemprop="dateModified" datetime="2020-05-11T14:24:03+08:00">2020-05-11</time>
+                <time title="修改时间：2020-12-10 11:39:16" itemprop="dateModified" datetime="2020-12-10T11:39:16+08:00">2020-12-10</time>
               </span>
 
           
@@ -848,30 +822,170 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="安装-virtualizor"><a href="#安装-virtualizor" class="headerlink" title="安装 virtualizor"></a>安装 virtualizor</h2><h2 id="设定"><a href="#设定" class="headerlink" title="设定"></a>设定</h2><ol>
-<li>virtualizor 管理页面 Configuration &gt; Master Settings</li>
-</ol>
-<p><code>Enable HAProxy</code> 勾选</p>
-<ol start="2">
-<li>设定 转发</li>
-</ol>
-<p>参考 <a href="https://wzfou.com/nat-vps/" target="_blank" rel="noopener">https://wzfou.com/nat-vps/</a></p>
-<h3 id="nat"><a href="#nat" class="headerlink" title="nat"></a>nat</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -F</span><br><span class="line">iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to 61.63.160.113</span><br><span class="line"></span><br><span class="line">service iptables save</span><br><span class="line">service iptables restart</span><br></pre></td></tr></table></figure>
+          <h2 id="基本查詢"><a href="#基本查詢" class="headerlink" title="基本查詢"></a>基本查詢</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dig 080.net mx</span><br><span class="line">dig 080.net txt</span><br><span class="line">dig 080.net any # 查詢所有的080.net的記錄。（不含subdomain）</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><p>-t&lt;表&gt;：指定要操纵的表；</p>
-</li>
-<li><p>-A：向规则链中添加条目；</p>
-</li>
-<li><p>-o&lt;网络接口&gt;：指定数据包要离开本机所使用的网络接口。 </p>
-</li>
-<li><p>-j&lt;目标&gt;：指定要跳转的目标；</p>
-</li>
-<li><p>而”POSTROUTING”是“路由规则”之后的动作。</p>
-</li>
-<li><p>SNAT：Source NAT(POSTROUTING链)：源地址转换，请求由内网的主机发起，修改IP源，外网的目的地址不变。</p>
-</li>
-</ul>
+<h2 id="參數"><a href="#參數" class="headerlink" title="參數"></a>參數</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dig 080.net +short abc.com abc.net</span><br><span class="line">dig 080.net +noall +answer abc.com abc.net</span><br><span class="line">dig +nocmd +multiline +noall +answer abc.com abc.net any</span><br></pre></td></tr></table></figure>
+
+<h2 id="反向解析"><a href="#反向解析" class="headerlink" title="反向解析"></a>反向解析</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dig -x 119.81.172.50</span><br><span class="line"></span><br><span class="line">nslookup -qt=ptr 119.81.172.50</span><br></pre></td></tr></table></figure>
+
+<h2 id="解析过程"><a href="#解析过程" class="headerlink" title="解析过程"></a>解析过程</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dig  google.com +trace</span><br><span class="line">dig  google.com +trace +nodnssec # 不顯示 dnssec</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/linux-add-disk/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016-12/linux-add-disk/" class="post-title-link" itemprop="url">添加磁盤 disk</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-25 15:49:26" itemprop="dateCreated datePublished" datetime="2016-12-25T15:49:26+08:00">2016-12-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-01 14:20:57" itemprop="dateModified" datetime="2020-12-01T14:20:57+08:00">2020-12-01</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>先看磁盤名稱，獲得名稱為 /dev/sdb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br></pre></td></tr></table></figure>
+
+<p>設定分區</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fdisk &#x2F;dev&#x2F;sdb</span><br><span class="line">&#x2F;&#x2F; 一次輸入 </span><br><span class="line">n 回車 &#x2F;&#x2F; 創建新分區</span><br><span class="line">p 回車 &#x2F;&#x2F; 創建第一個主分區</span><br><span class="line">w 回車 &#x2F;&#x2F; 保存</span><br></pre></td></tr></table></figure>
+
+<p>查看創建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls &#x2F;dev&#x2F;sdb*</span><br><span class="line">&#x2F;&#x2F; 會看到 &#x2F;dev&#x2F;sdb1</span><br></pre></td></tr></table></figure>
+
+<p>格式化分區</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkfs -t ext4 &#x2F;dev&#x2F;sdb1</span><br><span class="line">&#x2F;&#x2F; or</span><br><span class="line">mkfs.xfs -f &#x2F;dev&#x2F;sdb1</span><br></pre></td></tr></table></figure>
+
+<p>創建掛在位置（一定要有此步驟）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;home2</span><br></pre></td></tr></table></figure>
+
+<p>嘗試掛在</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount &#x2F;dev&#x2F;sdb1 &#x2F;home2</span><br></pre></td></tr></table></figure>
+
+<p>開機啟動掛在， 修改 /etc/fstab</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;fstab</span><br><span class="line">&#x2F;&#x2F; 新增內容如下：</span><br><span class="line">&#x2F;dev&#x2F;sdb1	&#x2F;home2	ext4	defaults	1	2</span><br><span class="line">&#x2F;&#x2F; or</span><br><span class="line">&#x2F;dev&#x2F;sdb1       &#x2F;backup         xfs defaults    1       2</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-07/curl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017-07/curl/" class="post-title-link" itemprop="url">Curl命令</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-07-04 14:35:16" itemprop="dateCreated datePublished" datetime="2017-07-04T14:35:16+08:00">2017-07-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-10 10:09:39" itemprop="dateModified" datetime="2020-11-10T10:09:39+08:00">2020-11-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="下載文檔"><a href="#下載文檔" class="headerlink" title="下載文檔"></a>下載文檔</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下載并保存為 api.pdf</span></span><br><span class="line">curl -o api.pdf https://r.webnic.cc/NewAPIDocument_eng.pdf</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 下載并保存為 NewAPIDocument_eng.pdf</span></span><br><span class="line">curl -O https://r.webnic.cc/NewAPIDocument_eng.pdf</span><br></pre></td></tr></table></figure>
+
+<h2 id="GET-amp-POST"><a href="#GET-amp-POST" class="headerlink" title="GET &amp; POST"></a>GET &amp; POST</h2><p>用GET方式 传递参数时，多个参数需要加上引号 (<code>&#39;</code>)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> GET</span></span><br><span class="line">curl https://api.github.com/user</span><br><span class="line">curl 'https://api.github.com/user?access_token=XXXXXXXXXX&amp;nc=ss'</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> POST</span></span><br><span class="line">curl -d "param1=value1&amp;param2=value" https://api.github.com</span><br><span class="line">curl --data "param1=value1&amp;param2=value" https://api.github.com</span><br></pre></td></tr></table></figure>
+
+<h2 id="连接测试"><a href="#连接测试" class="headerlink" title="连接测试"></a>连接测试</h2><p><code>-voa</code>  输出通信的整个过程, 将服务器的回应保存为/dev/null</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -voa https:&#x2F;&#x2F;080.net</span><br></pre></td></tr></table></figure>
+
+<p><code>--resolve</code> 绑定节点来进行访问（-x 无法绑定https）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -voa &quot;https:&#x2F;&#x2F;www.taobao.com&quot; --resolve www.taobao.com:443:113.96.109.101</span><br></pre></td></tr></table></figure>
 
       
     </div>

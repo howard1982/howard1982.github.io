@@ -208,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/ftp-wget/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/sqlserver-2008/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -222,7 +222,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2016-12/ftp-wget/" class="post-title-link" itemprop="url">ftp & wget 下载</a>
+            <a href="/2016-12/sqlserver-2008/" class="post-title-link" itemprop="url">Sql Server 2008 远程连接配置</a>
         </h1>
 
         <div class="post-meta">
@@ -232,7 +232,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-12-25 14:43:00" itemprop="dateCreated datePublished" datetime="2016-12-25T14:43:00+08:00">2016-12-25</time>
+              <time title="创建时间：2016-12-25 15:00:10" itemprop="dateCreated datePublished" datetime="2016-12-25T15:00:10+08:00">2016-12-25</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -253,183 +253,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="ftp"><a href="#ftp" class="headerlink" title="ftp"></a>ftp</h2><p>登陸ftp</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">ftp    //shell下输入ftp命令,进入到ftp提示符</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">open IP</span></span><br></pre></td></tr></table></figure>
-<p>接下來自動提示 輸入 賬號&amp;密碼</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// get和mget命令用于从远程机上获取文件。get命令的一般格式为：</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">get 文件名</span></span><br><span class="line">//mget命令一次获取多个远程文件。mget命令的一般格式为：</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">mget 文件名列表</span></span><br><span class="line">//put和mput命令用于向远程机发送文件。Put命令的一般格式为：</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">put 文件名</span></span><br><span class="line">//mput命令一次发送多个本地文件，mput命令的一般格式为：</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">mput 文件名列表</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h2><p>ftp 命令不支持目录下载. 通过wget得到解决</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget ftp://IP:PORT/www/* --ftp-user=xxx --ftp-password=xxx -r</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/linux-rsync/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016-12/linux-rsync/" class="post-title-link" itemprop="url">Linux 快速删除大量小文件</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-25 13:54:26" itemprop="dateCreated datePublished" datetime="2016-12-25T13:54:26+08:00">2016-12-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-11 16:58:34" itemprop="dateModified" datetime="2020-02-11T16:58:34+08:00">2020-02-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="快速删除大量小文件"><a href="#快速删除大量小文件" class="headerlink" title="快速删除大量小文件"></a>快速删除大量小文件</h2><ol>
-<li>先建立一个空目录</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /data/blank</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>用rsync删除目标目录</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rsync --delete-before -d -a -H -v --progress --stats /data/blank/ /var/edatacache/</span><br><span class="line"><span class="meta">#</span><span class="bash"> or </span></span><br><span class="line">rsync --delete-before -d /data/blank/ /var/edatacache/</span><br></pre></td></tr></table></figure>
-
-<h2 id="同步某个目录"><a href="#同步某个目录" class="headerlink" title="同步某个目录"></a>同步某个目录</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/rsync -a -v -P /home/hk/public_html/uploads/ hk@s1.ace.com:/home/hk/public_html/uploads/</span><br></pre></td></tr></table></figure>
-
-<h3 id="免密码-使用-key"><a href="#免密码-使用-key" class="headerlink" title="免密码 使用 key"></a>免密码 使用 key</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1. 生成key</span><br><span class="line">ssh-keygen -t rsa      //  （一路回车键）</span><br><span class="line"></span><br><span class="line">2. 拷贝到远程主机上</span><br><span class="line">ssh-copy-id -i  ~/.ssh/id_rsa.pub  root@IP   //原理就是把自己的公钥 添加到 对方的 au*** 那个文件里面   </span><br><span class="line"><span class="meta">#</span><span class="bash">ssh-copy-id -i ~/.ssh/id_rsa.pub “-p 2022 root@ip”  //如果不是默认22端口</span></span><br><span class="line"></span><br><span class="line">3. 验证：</span><br><span class="line">ssh root@ip            //不需要密码，说明成功！</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><ol>
-<li>–delete-before 接收者在传输之前进行删除操作</li>
-<li>–progress 在传输时显示传输过程</li>
-<li>-a 归档模式，表示以递归方式传输文件，并保持所有文件属性</li>
-<li>-H 保持硬连接的文件</li>
-<li>-v 详细输出模式</li>
-<li>–stats 给出某些文件的传输状态</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/php-curl/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016-12/php-curl/" class="post-title-link" itemprop="url">PHP CURL</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-25 13:39:52" itemprop="dateCreated datePublished" datetime="2016-12-25T13:39:52+08:00">2016-12-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-11 14:45:33" itemprop="dateModified" datetime="2020-08-11T14:45:33+08:00">2020-08-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$data = <span class="keyword">array</span>(<span class="string">'name'</span> =&gt; <span class="string">'Foo'</span>, <span class="string">'Email'</span> =&gt; <span class="string">'abc@example.com'</span>);</span><br><span class="line"></span><br><span class="line">$ch = curl_init();</span><br><span class="line">curl_setopt($ch, CURLOPT_URL, <span class="string">'http://localhost/tmp/a.php'</span>);</span><br><span class="line"></span><br><span class="line">curl_setopt($ch, CURLOPT_HEADER, <span class="number">0</span>);  <span class="comment">// 启用时会将头文件的信息作为数据流输出。</span></span><br><span class="line">curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="number">1</span>); <span class="comment">// 在启用CURLOPT_RETURNTRANSFER的时候，返回原生的（Raw）输出。</span></span><br><span class="line">curl_setopt($ch, CURLOPT_TIMEOUT, <span class="number">30</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_POST, <span class="number">1</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data)); <span class="comment">// http_build_query 可以避免一些不兼容問題</span></span><br><span class="line"></span><br><span class="line">$s = curl_exec($ch);</span><br><span class="line">curl_close($ch);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $s;</span><br></pre></td></tr></table></figure>
-
-<h2 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$url = <span class="string">'http://bac.com'</span></span><br><span class="line">$url .= <span class="string">'?'</span>.http_build_query($postField);</span><br><span class="line">$ch = curl_init();</span><br><span class="line">curl_setopt($ch, CURLOPT_URL, $url);</span><br><span class="line">curl_setopt($ch, CURLOPT_HEADER, <span class="number">0</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="number">1</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_TIMEOUT, <span class="number">30</span>);</span><br><span class="line">$data = curl_exec($ch);</span><br><span class="line">curl_close($ch);</span><br></pre></td></tr></table></figure>
-
-<h2 id="强制声明字符-charset"><a href="#强制声明字符-charset" class="headerlink" title="强制声明字符 charset"></a>强制声明字符 charset</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl_setopt($ch, CURLOPT_HTTPHEADER, <span class="keyword">array</span>(<span class="string">'Content-Type:application/x-www-form-urlencoded; charset=utf-8'</span>));</span><br></pre></td></tr></table></figure>
-
-<h2 id="JSON格式传递数据"><a href="#JSON格式传递数据" class="headerlink" title="JSON格式传递数据"></a>JSON格式传递数据</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$header[] = <span class="string">'Content-Type: application/json'</span>;</span><br><span class="line">$header[] = <span class="string">'Accept: application/json'</span>;</span><br><span class="line">curl_setopt($ch, CURLOPT_HTTPHEADER, $header);</span><br><span class="line">curl_setopt($ch, CURLOPT_POST, <span class="number">1</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($param));</span><br></pre></td></tr></table></figure>
-
-<h2 id="SSL"><a href="#SSL" class="headerlink" title="SSL"></a>SSL</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, <span class="keyword">FALSE</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, <span class="keyword">FALSE</span>);</span><br></pre></td></tr></table></figure>
-
+          <p>参考</p>
+<p><a href="http://jingyan.baidu.com/article/6c67b1d6ca06f02787bb1ed1.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/6c67b1d6ca06f02787bb1ed1.html</a></p>
+<p>注意：</p>
 <ul>
-<li><p>CURLOPT_SSL_VERIFYPEER<br>禁用后cURL将终止从服务端进行验证。<br>使用CURLOPT_CAINFO选项设置证书使用CURLOPT_CAPATH选项设置证书目录<br>如果CURLOPT_SSL_VERIFYPEER(默认值为2)被启用，CURLOPT_SSL_VERIFYHOST需要被设置成TRUE否则设置为FALSE。</p>
-</li>
-<li><p>CURLOPT_SSL_VERIFYHOST<br>1 检查服务器SSL证书中是否存在一个公用名(common name)。<br>2 检查公用名是否存在，并且是否与提供的主机名匹配。    </p>
-</li>
+<li>设置完后必须重新启动Sql Server 服务</li>
+<li>打开防火墙1433端口</li>
+<li>第12步中， 【选择“IP 地址”选项卡，设置TCP的端口为“1433”】  最好把最下方的 “IPAll”设定：【TCP 动态端口 0，TCP 端口 1433】</li>
 </ul>
-<p>译者注：公用名(Common Name)一般来讲就是填写你将要申请SSL证书的域名 (domain)或子域名(sub domain)。</p>
-<h3 id="CURLOPT-SSL-VERIFYPEER"><a href="#CURLOPT-SSL-VERIFYPEER" class="headerlink" title="CURLOPT_SSL_VERIFYPEER"></a>CURLOPT_SSL_VERIFYPEER</h3><p>值為 <strong>FALSE</strong> 时，禁止 cURL 验证对等证书（peer’s certificate）。 <strong>连接仍将使用SSL加密</strong>，只是不会在使用正确验证的证书进行链接。</p>
-<h2 id="HTTP-basic-authentication"><a href="#HTTP-basic-authentication" class="headerlink" title="HTTP basic authentication"></a>HTTP basic authentication</h2><p>連接一個url， 需要提供用戶名和密碼的時候用到。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl_setopt($curl, CURLOPT_USERPWD, <span class="string">"username:password"</span>);</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -449,7 +280,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/Vritualizer-VNC/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/linux-wc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -463,7 +294,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2016-12/Vritualizer-VNC/" class="post-title-link" itemprop="url">Vritualizer VNC</a>
+            <a href="/2016-12/linux-wc/" class="post-title-link" itemprop="url">Linux文件統計</a>
         </h1>
 
         <div class="post-meta">
@@ -473,7 +304,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-12-24 14:58:27" itemprop="dateCreated datePublished" datetime="2016-12-24T14:58:27+08:00">2016-12-24</time>
+              <time title="创建时间：2016-12-25 15:17:33" itemprop="dateCreated datePublished" datetime="2016-12-25T15:17:33+08:00">2016-12-25</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -494,9 +325,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>vnc ip 端口查找<br>在 【Launch VPS VNC】中查找ip和端口。<br>在 vps 編輯頁面 點擊 【VNC】然後查看源代碼， 查看對應的密碼。</p>
-<p>使用VNC Viewer</p>
+          <p>统计某文件夹下文件的个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l |grep &quot;^-&quot;|wc -l</span><br></pre></td></tr></table></figure>
 
+<p>统计某文件夹下目录的个数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l |grep &quot;^d&quot;|wc -l</span><br></pre></td></tr></table></figure>
+
+<p>统计文件夹下文件的个数，包括子文件夹里的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -lR|grep &quot;^-&quot;|wc -l</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -515,7 +351,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/Cpanel-CloudLinux/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/ncftp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -529,7 +365,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2016-12/Cpanel-CloudLinux/" class="post-title-link" itemprop="url">Cpanel CloudLinux</a>
+            <a href="/2016-12/ncftp/" class="post-title-link" itemprop="url">NCFTP 命令行ftp工具</a>
         </h1>
 
         <div class="post-meta">
@@ -539,83 +375,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-12-24 14:54:35" itemprop="dateCreated datePublished" datetime="2016-12-24T14:54:35+08:00">2016-12-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2017-09-25 09:06:48" itemprop="dateModified" datetime="2017-09-25T09:06:48+08:00">2017-09-25</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="更新lincense"><a href="#更新lincense" class="headerlink" title="更新lincense"></a>更新lincense</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> cpanel update</span></span><br><span class="line">/usr/local/cpanel/cpkeyclt</span><br><span class="line"><span class="meta">#</span><span class="bash"> cloudlinux check</span></span><br><span class="line">/usr/sbin/clnreg_ks --force</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://verify.cpanel.net/" target="_blank" rel="noopener">https://verify.cpanel.net/</a><br><a href="https://cln.cloudlinux.com/clweb/public/license-lookup.xhtml" target="_blank" rel="noopener">https://cln.cloudlinux.com/clweb/public/license-lookup.xhtml</a></p>
-<h2 id="Cpanel-一个IP對應多個ssl"><a href="#Cpanel-一个IP對應多個ssl" class="headerlink" title="Cpanel 一个IP對應多個ssl"></a>Cpanel 一个IP對應多個ssl</h2><p>要有SNI支援<br>必須要是 CentOS 6.x 以及 Cpanel 11.38以後</p>
-<h2 id="Cpanel-關閉-Analog"><a href="#Cpanel-關閉-Analog" class="headerlink" title="Cpanel 關閉 Analog"></a>Cpanel 關閉 Analog</h2><p>訪問量很大的時候 Analog 統計佔用很大的空間。 所以 考慮暫停。 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">WHM Home » Server Configuration » Tweak Settings</span><br><span class="line">Analog set to off</span><br></pre></td></tr></table></figure>
-
-<h2 id="Cpanel-Apache-log-file"><a href="#Cpanel-Apache-log-file" class="headerlink" title="Cpanel Apache log file"></a>Cpanel Apache log file</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tail -500 &#x2F;usr&#x2F;local&#x2F;</span><br><span class="line">&#x2F;logs&#x2F;error_log</span><br></pre></td></tr></table></figure>
-
-<h2 id="CloudLinux-安裝配置"><a href="#CloudLinux-安裝配置" class="headerlink" title="CloudLinux 安裝配置"></a>CloudLinux 安裝配置</h2><h3 id="安裝-CageFS"><a href="#安裝-CageFS" class="headerlink" title="安裝 CageFS"></a>安裝 CageFS</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ yum install cagefs</span><br><span class="line">$ &#x2F;usr&#x2F;sbin&#x2F;cagefsctl --init</span><br><span class="line">$ mkdir &#x2F;home&#x2F;cagefs-skeleton</span><br><span class="line">$ ln -s &#x2F;home&#x2F;cagefs-skeleton &#x2F;usr&#x2F;share&#x2F;cagefs-skeleton</span><br></pre></td></tr></table></figure>
-
-<h3 id="安裝-PHP-Selector"><a href="#安裝-PHP-Selector" class="headerlink" title="安裝 PHP Selector"></a>安裝 PHP Selector</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum groupinstall alt-php</span><br><span class="line">yum update cagefs lvemanager</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/Lumen/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016-12/Lumen/" class="post-title-link" itemprop="url">Lumen</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-24 14:53:10" itemprop="dateCreated datePublished" datetime="2016-12-24T14:53:10+08:00">2016-12-24</time>
+              <time title="创建时间：2016-12-12 17:19:19" itemprop="dateCreated datePublished" datetime="2016-12-12T17:19:19+08:00">2016-12-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -636,11 +396,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>必須把public/index.php 修改為：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$app-&gt;run($app[&#39;request&#39;]);</span><br></pre></td></tr></table></figure>
-<p>否則在二級目錄提示404錯誤。</p>
-<p>除去 url 中的 public 。 （只適用于web站點的根目錄，二級目錄沒測試）<br>在web站點根目錄下創建 .htaccess 文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RewriteEngine On</span><br><span class="line">RewriteRule ^(.*)$ public&#x2F;$1 [L]</span><br></pre></td></tr></table></figure>
+          <p>找了好久的命令行FTP</p>
+<p>链接到Server</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ncftp -u newdemo -p demo123qwe newdemo.080.net</span><br></pre></td></tr></table></figure>
+
+<p>列为标签，（提示保存名称， 密码）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bookmark</span><br></pre></td></tr></table></figure>
+
+<p>设定</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set control-timeout 900</span><br></pre></td></tr></table></figure>
+
+<p>链接 bookmark</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ncftp name080</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -659,7 +427,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/KVM-virt/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/php-APCu/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -673,7 +441,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2016-12/KVM-virt/" class="post-title-link" itemprop="url">KVM virt 复制管理</a>
+            <a href="/2016-12/php-APCu/" class="post-title-link" itemprop="url">PHP加速 OpCache+APCu</a>
         </h1>
 
         <div class="post-meta">
@@ -683,7 +451,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-12-24 14:51:02" itemprop="dateCreated datePublished" datetime="2016-12-24T14:51:02+08:00">2016-12-24</time>
+              <time title="创建时间：2016-12-25 15:02:01" itemprop="dateCreated datePublished" datetime="2016-12-25T15:02:01+08:00">2016-12-25</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -704,8 +472,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>指定一个镜像文档， 並把里面的内容copy出来。<br>先登录宿主主机</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">virt-copy-out -a &#x2F;dev&#x2F;vpsg&#x2F;vsv1157-0eq3-znowggzhyixfdvnz &#39;win:c:\windows\system32\config&#39; &#x2F;root&#x2F;</span><br></pre></td></tr></table></figure>
+          <p>PHP5.5或者更高版本 自动加入了 opcache 缓存程序代码的功能。  但是不能缓存用户资料。<br>原本的 apc 和 opcache 部分功能冲突了， 又没有 opcache 效率高。<br>所以 APCu 出现了。 只能缓存用户自定义的资料。 接口和 apc 一样。 代码缓存 交给 opcache。</p>
+<p>所以有了<code>OpCache+APCu</code>或者<code>OpCache + Memcached( 或 Redis)</code></p>
+
       
     </div>
 
@@ -724,7 +493,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/CSF/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/linux-iftop/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -738,7 +507,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2016-12/CSF/" class="post-title-link" itemprop="url">CSF设置</a>
+            <a href="/2016-12/linux-iftop/" class="post-title-link" itemprop="url">iftop安裝</a>
         </h1>
 
         <div class="post-meta">
@@ -748,14 +517,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-12-24 14:40:12" itemprop="dateCreated datePublished" datetime="2016-12-24T14:40:12+08:00">2016-12-24</time>
+              <time title="创建时间：2016-12-25 16:04:41" itemprop="dateCreated datePublished" datetime="2016-12-25T16:04:41+08:00">2016-12-25</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-07-29 13:45:20" itemprop="dateModified" datetime="2019-07-29T13:45:20+08:00">2019-07-29</time>
+                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
               </span>
 
           
@@ -769,23 +538,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="攔截登陸失敗的設定"><a href="#攔截登陸失敗的設定" class="headerlink" title="攔截登陸失敗的設定"></a>攔截登陸失敗的設定</h2><p>Login Failure Blocking and Alerts</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">LF_SELECT</span> = <span class="number">1</span> <span class="comment">#表示僅僅屏蔽某個ip訪問server的端口 ， 端口設定見 PORTS_*</span></span><br><span class="line"></span><br><span class="line"><span class="attr">LF_SSHD</span> = <span class="number">5</span> <span class="comment">#失敗幾次？</span></span><br><span class="line"><span class="attr">LF_SSHD_PERM</span> = <span class="number">1</span> <span class="comment">#屏蔽時間長度 0 不屏蔽， 1 永久屏蔽， 900(非1、0其他數字)表示屏蔽900秒，屏蔽900秒属于临时屏蔽（Temporary IP blocking）</span></span><br><span class="line"><span class="attr">LF_SSHD_PERM</span> = <span class="number">900</span> <span class="comment"># 代表临时屏蔽</span></span><br><span class="line"></span><br><span class="line"><span class="attr">LF_INTERVAL</span> = <span class="number">3600</span> <span class="comment"># 統計刷新週期， 按照上面的例子是 3600秒內登陸失敗5次。 就永久屏蔽</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Temp to Perm/Netblock Settings</span></span><br></pre></td></tr></table></figure>
-
-<p>Temporary to Permanent IP blocking<br>意思是临时屏蔽IP 设定为 永久屏蔽IP</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">LF_PERMBLOCK_INTERVAL</span> = <span class="number">86400</span></span><br><span class="line"><span class="attr">LF_PERMBLOCK_COUNT</span> = <span class="number">4</span></span><br><span class="line"><span class="comment"># 表示 86400 秒内 被例如临时屏蔽名单 4次 则转换为 永久屏蔽</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="停止發送alerts-Mail到Root"><a href="#停止發送alerts-Mail到Root" class="headerlink" title="停止發送alerts Mail到Root"></a>停止發送alerts Mail到Root</h2><p>增加自動清除，每週一執行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 0 * * 1 &#x2F;usr&#x2F;bin&#x2F;rsync --delete-before -a -H -v --progress --stats &#x2F;root&#x2F;Maildir&#x2F;empty&#x2F; &#x2F;root&#x2F;Maildir&#x2F;new&#x2F;  &gt;&#x2F;dev&#x2F;null 2&gt;&amp;1</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改-High-5-minute-load-average-alert-Mail"><a href="#修改-High-5-minute-load-average-alert-Mail" class="headerlink" title="修改 [High 5 minute load average alert] Mail"></a>修改 [High 5 minute load average alert] Mail</h2><p><a href="https://forum.configserver.com/viewtopic.php?t=3221" target="_blank" rel="noopener">參考1</a><br><a href="https://www.grandmstramrod.co.uk/lfd-high-5-minute-load-average-alert/" target="_blank" rel="noopener">參考2</a></p>
-<h3 id="etc-csf-load-sh"><a href="#etc-csf-load-sh" class="headerlink" title="/etc/csf/load.sh"></a>/etc/csf/load.sh</h3><p>創建 <code>/etc/csf/load.sh</code> 。並 修改權限 <code>chmod +x /etc/csf/load.sh</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">/etc/csf/csf.report</span></span><br><span class="line">iostat -d 1 5 &gt;&gt; /etc/csf/csf.report</span><br><span class="line">iostat -x -d 1 5 &gt;&gt; /etc/csf/csf.report</span><br><span class="line">iotop -o -P -b -k -n 3 -d 2 &gt;&gt; /etc/csf/csf.report</span><br><span class="line">mpstat -P ALL &gt;&gt; /etc/csf/csf.report</span><br><span class="line">top -b -n 1 &gt;&gt; /etc/csf/csf.report</span><br><span class="line">netstat -autpn</span><br><span class="line">echo "report on $(date +"%Y-%m-%d %T")" | mailx -s "polo - Load Report" -a /etc/csf/csf.report root</span><br></pre></td></tr></table></figure>
-
-<p>以上內容將發生給 root。 記得設定 <code>/root/.forward</code></p>
-<h3 id="設定-csf-conf"><a href="#設定-csf-conf" class="headerlink" title="設定 csf.conf"></a>設定 csf.conf</h3><p>修改 文檔 <code>/etc/csf/csf.conf</code> 設定 <code>PT_LOAD_ACTION = &quot;/etc/csf/load.sh&quot;</code></p>
-<h3 id="設定-root-forward"><a href="#設定-root-forward" class="headerlink" title="設定 root .forward"></a>設定 root .forward</h3><p>修改 <code>/root/.forward</code> 文檔。因為</p>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">csf -r # 重啟 csf</span><br><span class="line">csf -ra  # 重啟 csf lfd  #  Restart firewall rules (csf) and then restart lfd  daemon.</span><br><span class="line">csf --lfd [stop|start|restart|status] # lfd 操作</span><br><span class="line"></span><br><span class="line">csf -g,  --grep ip # 搜索 Search the iptables and ip6tables rules for a  match</span><br><span class="line"></span><br><span class="line">csf -t # Displays temporary allow and deny IP</span><br><span class="line">csf -tr ip # Remove an IP from the temporary IP ban or allow list</span><br><span class="line"></span><br><span class="line">csf -d,  --deny ip [comment] # Deny an IP and add to /etc/csf/csf.deny</span><br><span class="line">csf -dr, --denyrm ip # Unblock an IP and remove from /etc/csf/csf.deny</span><br></pre></td></tr></table></figure>
+          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#安裝依賴軟件</span><br><span class="line">yum install flex byacc  libpcap ncurses ncurses-devel libpcap-devel</span><br><span class="line">#下載解壓</span><br><span class="line">wget http:&#x2F;&#x2F;www.ex-parrot.com&#x2F;pdw&#x2F;iftop&#x2F;download&#x2F;iftop-0.17.tar.gz</span><br><span class="line">tar zxvf iftop-0.17.tar.gz</span><br><span class="line">cd iftop-0.17</span><br><span class="line">#安裝</span><br><span class="line">.&#x2F;configure</span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -804,7 +557,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/composer/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/linux-shell/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -818,7 +571,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2016-12/composer/" class="post-title-link" itemprop="url">composer命令</a>
+            <a href="/2016-12/linux-shell/" class="post-title-link" itemprop="url">命令行操作</a>
         </h1>
 
         <div class="post-meta">
@@ -828,14 +581,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-12-24 14:35:32" itemprop="dateCreated datePublished" datetime="2016-12-24T14:35:32+08:00">2016-12-24</time>
+              <time title="创建时间：2016-12-25 16:00:11" itemprop="dateCreated datePublished" datetime="2016-12-25T16:00:11+08:00">2016-12-25</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-07-18 10:47:02" itemprop="dateModified" datetime="2019-07-18T10:47:02+08:00">2019-07-18</time>
+                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
               </span>
 
           
@@ -849,112 +602,288 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="安裝某個項目"><a href="#安裝某個項目" class="headerlink" title="安裝某個項目"></a>安裝某個項目</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer create-project laravel/laravel path --prefer-dist</span><br></pre></td></tr></table></figure>
-
-<p>安裝 larave 到 path 目錄。<code>--prefer-dist</code> 为了强制使用压缩包，而不是克隆源代码。</p>
-<h3 id="更新软件包"><a href="#更新软件包" class="headerlink" title="更新软件包"></a>更新软件包</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer update</span><br></pre></td></tr></table></figure>
-
-<h3 id="只更新-Calss"><a href="#只更新-Calss" class="headerlink" title="只更新 Calss"></a>只更新 Calss</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer dump-autoload</span><br></pre></td></tr></table></figure>
-
-<h3 id="为生产环境作准备"><a href="#为生产环境作准备" class="headerlink" title="为生产环境作准备"></a>为生产环境作准备</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer dump-autoload --optimize</span><br></pre></td></tr></table></figure>
-
-<p>或者</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">composer update --no-dev --optimize-autoloader</span><br><span class="line"><span class="meta">#</span><span class="bash"> or</span></span><br><span class="line">composer update --optimize-autoloader</span><br></pre></td></tr></table></figure>
-
-<h2 id="更改镜像源-repo"><a href="#更改镜像源-repo" class="headerlink" title="更改镜像源 repo"></a>更改镜像源 repo</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 显示配置</span></span><br><span class="line">composer config -g  -l</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 取消全局配置</span></span><br><span class="line">composer config -g --unset repos.packagist</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 全局使用 huawei 镜像源</span></span><br><span class="line">composer config -g repo.packagist composer https://mirrors.huaweicloud.com/repository/php</span><br></pre></td></tr></table></figure>
-
-<h3 id="CRM-Composer源管理工具"><a href="#CRM-Composer源管理工具" class="headerlink" title="CRM - Composer源管理工具"></a>CRM - Composer源管理工具</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装</span></span><br><span class="line">composer global require slince/composer-registry-manager</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">列出所有可使用的镜像</span></span><br><span class="line">composer repo:ls</span><br><span class="line"><span class="meta">#</span><span class="bash">切换镜像</span></span><br><span class="line">composer repo:use</span><br></pre></td></tr></table></figure>
-
-<h3 id="Composer源"><a href="#Composer源" class="headerlink" title="Composer源"></a>Composer源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ composer repo:ls</span><br><span class="line"></span><br><span class="line"> --- --------------- ------------------------------------------------</span><br><span class="line">      composer        https:&#x2F;&#x2F;packagist.org</span><br><span class="line">      phpcomposer     https:&#x2F;&#x2F;packagist.phpcomposer.com</span><br><span class="line">      aliyun          https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;composer</span><br><span class="line">      tencent         https:&#x2F;&#x2F;mirrors.cloud.tencent.com&#x2F;composer</span><br><span class="line">      huawei          https:&#x2F;&#x2F;mirrors.huaweicloud.com&#x2F;repository&#x2F;php</span><br><span class="line">      laravel-china   https:&#x2F;&#x2F;packagist.laravel-china.org</span><br><span class="line">  *   cnpkg           https:&#x2F;&#x2F;php.cnpkg.org</span><br><span class="line">      sjtug           https:&#x2F;&#x2F;packagist.mirrors.sjtug.sjtu.edu.cn</span><br><span class="line"> --- --------------- ------------------------------------------------</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/golang/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016-12/golang/" class="post-title-link" itemprop="url">go学习笔记 -- 杂记</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-19 17:41:24" itemprop="dateCreated datePublished" datetime="2016-12-19T17:41:24+08:00">2016-12-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-17 15:50:51" itemprop="dateModified" datetime="2020-05-17T15:50:51+08:00">2020-05-17</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="go-get"><a href="#go-get" class="headerlink" title="go get"></a>go get</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下載并安裝到 GOPATH目錄</span></span><br><span class="line">go get github.com/go-sql-driver/mysql</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更新</span></span><br><span class="line">go get -u github.com/go-sql-driver/mysql</span><br></pre></td></tr></table></figure>
-
-<h2 id="struct-tag"><a href="#struct-tag" class="headerlink" title="struct  tag"></a>struct  tag</h2><p>用双引号(double quote)或重音(backquote/grave accent)表示的字符串</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"reflect"</span></span><br><span class="line">)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">type</span> S <span class="keyword">struct</span> &#123;</span><br><span class="line">		F <span class="keyword">string</span> <span class="string">`species:"gopher" color:"blue"`</span></span><br><span class="line">	&#125;</span><br><span class="line">	s := S&#123;&#125;</span><br><span class="line">	st := reflect.TypeOf(s)</span><br><span class="line">	field := st.Field(<span class="number">0</span>)</span><br><span class="line">	fmt.Println(field.Tag.Get(<span class="string">"color"</span>), field.Tag.Get(<span class="string">"species"</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="exec"><a href="#exec" class="headerlink" title="exec"></a>exec</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cmd := exec.Command(<span class="string">"ruby"</span>, whois_app_path, u)</span><br><span class="line"><span class="keyword">var</span> out bytes.Buffer</span><br><span class="line">cmd.Stdout = &amp;out</span><br><span class="line">cmd.Run()</span><br></pre></td></tr></table></figure>
-<p>注意</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exec.Command(<span class="string">"ruby"</span>, whois_app_path, u)</span><br><span class="line"># 第一个参数 是程序， 第二个参数为参数， 第三个参数为参数， 不用额外添加 引号</span><br></pre></td></tr></table></figure>
-<p>例如</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exec.Command(<span class="string">"ruby"</span>, <span class="string">"/root/whois/whois_api"</span>, <span class="string">"baidu.com 080.tw 080.net"</span>)</span><br></pre></td></tr></table></figure>
-<p>如果參數過多可以使用</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exec.Command(<span class="string">"/bin/sh"</span>, <span class="string">"-c"</span>, <span class="string">"aaa -a a -b b -c c -d d -e d"</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="cli-fromework"><a href="#cli-fromework" class="headerlink" title="cli fromework"></a>cli fromework</h2><p><a href="https://carlosbecker.com/posts/golang-cli-apps/" target="_blank" rel="noopener">https://carlosbecker.com/posts/golang-cli-apps/</a></p>
-<p><a href="https://github.com/spf13/cobra" target="_blank" rel="noopener">https://github.com/spf13/cobra</a></p>
-<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><ul>
-<li>-s 去掉符号信息</li>
-<li>-w 去掉DWARF调试信息，得到的程序就不能用gdb调试了</li>
+          <p>shell 下命令行的一下快捷操作</p>
+<ul>
+<li>Ctrl-R: 搜尋過去的命令 </li>
+<li>Ctrl-L: 清畫面</li>
 </ul>
-<p>不建议s和w同时使用。</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> build -ldflags -w test.<span class="keyword">go</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="upx"><a href="#upx" class="headerlink" title="upx"></a>upx</h3><p>压缩为可执行文档</p>
+      
+    </div>
 
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/linux-awk/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016-12/linux-awk/" class="post-title-link" itemprop="url">linux awk</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-25 15:55:21" itemprop="dateCreated datePublished" datetime="2016-12-25T15:55:21+08:00">2016-12-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>awk是一个强大的文本分析工具，相对于grep的查找，sed的编辑，awk在其对数据分析并生成报告时，显得尤为强大。<br>简单来说awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。</p>
+<h3 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk [-W option] [-F value] [-v var&#x3D;value] [--] &#39;program text&#39; [file ...]</span><br></pre></td></tr></table></figure>
+
+<p>假设last -n 5的输出如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># last -n 5 &lt;&#x3D;&#x3D;仅取出前五行</span><br><span class="line">root     pts&#x2F;1   192.168.1.100  Tue Feb 10 11:21   still logged in</span><br><span class="line">root     pts&#x2F;1   192.168.1.100  Tue Feb 10 00:46 - 02:28  (01:41)</span><br><span class="line">root     pts&#x2F;1   192.168.1.100  Mon Feb  9 11:41 - 18:30  (06:48)</span><br><span class="line">dmtsai   pts&#x2F;1   192.168.1.100  Mon Feb  9 11:41 - 11:41  (00:00)</span><br><span class="line">root     tty1                   Fri Sep  5 14:09 - 14:10  (00:01)</span><br></pre></td></tr></table></figure>
+
+<p>如果只是显示最近登录的5个帐号</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#last -n 5 | awk  &#39;&#123;print $1&#125;&#39;</span><br><span class="line">root</span><br><span class="line">root</span><br><span class="line">root</span><br><span class="line">dmtsai</span><br><span class="line">root</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/linux-dd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016-12/linux-dd/" class="post-title-link" itemprop="url">linux創建大文檔</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-25 15:59:14" itemprop="dateCreated datePublished" datetime="2016-12-25T15:59:14+08:00">2016-12-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>創建一個沒有意義的 很大的文檔。 站位中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd if&#x3D;&#x2F;dev&#x2F;zero of&#x3D;tmp.5G bs&#x3D;1G count&#x3D;5</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/js-url/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016-12/js-url/" class="post-title-link" itemprop="url">Javascript 重新生成URL Search</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-25 15:19:13" itemprop="dateCreated datePublished" datetime="2016-12-25T15:19:13+08:00">2016-12-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>需要 url.min.js 插件 <a href="https://github.com/websanova/js-url" target="_blank" rel="noopener">https://github.com/websanova/js-url</a></p>
+<p>根据当前url重新生成URL对应的search   (window.location.search)<br>调用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">makeUrl(&#39;sort&#39;, &#39;price_asc&#39;);</span><br><span class="line">makeUrl(&#39;sort&#39;, &#39;price_asc&#39;, &#39;pn&#39;, 2);</span><br></pre></td></tr></table></figure>
+
+<p>url 插件简单例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$.url(&#39;?&#39;) &#x2F;&#x2F; 返回所有get变量</span><br><span class="line">$.url(&#39;?pn&#39;) &#x2F;&#x2F; 返回 get变量中 pn 对应的值， 如果没有则返回 undefined</span><br></pre></td></tr></table></figure>
+
+<p>函数代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function makeUrl(key, value)</span><br><span class="line">&#123;</span><br><span class="line">    var s &#x3D; $.url(&#39;?&#39;);</span><br><span class="line">    s[key] &#x3D; value;</span><br><span class="line">    </span><br><span class="line">    var k1 &#x3D;  arguments[2] ? arguments[2] : &#39;&#39;;</span><br><span class="line">    var v1 &#x3D;   arguments[3] ? arguments[3] : &#39;&#39;;</span><br><span class="line">    if(k1!&#x3D;&#39;&#39;) &#123;</span><br><span class="line">        s[k1] &#x3D; v1;</span><br><span class="line">    &#125;</span><br><span class="line">    var url &#x3D; window.location.pathname+&quot;?&quot;</span><br><span class="line">    for(var v in s) &#123;</span><br><span class="line">        url +&#x3D; v+&#39;&#x3D;&#39;+s[v]+&#39;&amp;&#39;;</span><br><span class="line">    &#125;</span><br><span class="line">    url &#x3D; url.substr(0, url.length-1);</span><br><span class="line">    return url;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/less/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016-12/less/" class="post-title-link" itemprop="url">less</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-25 15:30:04" itemprop="dateCreated datePublished" datetime="2016-12-25T15:30:04+08:00">2016-12-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Ubuntu-系統"><a href="#Ubuntu-系統" class="headerlink" title="Ubuntu 系統."></a>Ubuntu 系統.</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install node nodejs-legacy</span><br><span class="line">sudo npm install -g less</span><br></pre></td></tr></table></figure>
+
+<h2 id="執行"><a href="#執行" class="headerlink" title="執行"></a>執行</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lessc style.less style.css</span><br></pre></td></tr></table></figure>
       
     </div>
 
