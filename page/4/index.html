@@ -208,6 +208,217 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-07/php-openssl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018-07/php-openssl/" class="post-title-link" itemprop="url">php 操作 ssl</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-02 17:25:26" itemprop="dateCreated datePublished" datetime="2018-07-02T17:25:26+08:00">2018-07-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-12 15:27:40" itemprop="dateModified" datetime="2020-03-12T15:27:40+08:00">2020-03-12</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="生成csr-以及-private-key"><a href="#生成csr-以及-private-key" class="headerlink" title="生成csr 以及 private key"></a>生成csr 以及 private key</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$dn = <span class="keyword">array</span>(</span><br><span class="line">    <span class="string">"countryName"</span> =&gt; <span class="string">"TW"</span>,</span><br><span class="line">    <span class="string">"stateOrProvinceName"</span> =&gt; <span class="string">"Taipei"</span>,</span><br><span class="line">    <span class="string">"organizationName"</span> =&gt; <span class="string">"瑋德國際股份有限公司"</span>, <span class="comment">// 公司名稱</span></span><br><span class="line">    <span class="string">"organizationalUnitName"</span> =&gt; <span class="string">"資訊部"</span>, <span class="comment">// 部門</span></span><br><span class="line">    <span class="string">"commonName"</span> =&gt; <span class="string">"nealsyardremedies.com.tw"</span>, <span class="comment">// domain</span></span><br><span class="line">    <span class="string">"emailAddress"</span> =&gt; <span class="string">"itsupport@10over10.com.tw"</span>,</span><br><span class="line">);</span><br><span class="line"><span class="comment">// Generate a new private (and public) key pair</span></span><br><span class="line">$privkey = openssl_pkey_new(<span class="keyword">array</span>(</span><br><span class="line">    <span class="string">"private_key_bits"</span> =&gt; <span class="number">2048</span>,</span><br><span class="line">    <span class="string">"private_key_type"</span> =&gt; OPENSSL_KEYTYPE_RSA,</span><br><span class="line">));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Generate a certificate signing request</span></span><br><span class="line">$csr = openssl_csr_new($dn, $privkey, <span class="keyword">array</span>(<span class="string">'digest_alg'</span> =&gt; <span class="string">'sha512'</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">// openssl_csr_export($csr, $csrout) and var_dump($csrout);</span></span><br><span class="line"><span class="comment">// openssl_pkey_export($privkey, $pkeyout) and var_dump($pkeyout);</span></span><br><span class="line"></span><br><span class="line">openssl_csr_export_to_file($csr, <span class="string">'nealsyardremedies_com_tw.csr'</span>);  <span class="comment">// 保存到文檔</span></span><br><span class="line">openssl_pkey_export_to_file($privkey, <span class="string">'nealsyardremedies_com_tw.key'</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="讀取-csr"><a href="#讀取-csr" class="headerlink" title="讀取 csr"></a>讀取 csr</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">"Content-Type: text/html; charset=UTF-8"</span>);</span><br><span class="line">$str = <span class="string">'-----BEGIN CERTIFICATE REQUEST-----</span></span><br><span class="line"><span class="string">MIIC7jCCAdYCAQAwgagxCzAJBgNVBAYTAlRXMQ8wDQYDVQQIDAZUYWlwZWkxJzAl</span></span><br><span class="line"><span class="string">BgNVBAoMHueRi+W+t+Wci+mam+iCoeS7veaciemZkOWFrOWPuDESMBAGA1UECwwJ</span></span><br><span class="line"><span class="string">6LOH6KiK6YOoMSEwHwYDVQQDDBhuZWFsc3lhcmRyZW1lZGllcy5jb20udHcxKDAm</span></span><br><span class="line"><span class="string">BgkqhkiG9w0BCQEWGWl0c3VwcG9ydEAxMG92ZXIxMC5jb20udHcwggEiMA0GCSqG</span></span><br><span class="line"><span class="string">SIb3DQEBAQUAA4IBDwAwggEKAoIBAQDFYutxHda/r8O/fGwBjVTs3Kl97HROeFs9</span></span><br><span class="line"><span class="string">dhMXLvmaHrwU/DuHY9f+Wj94K0kZhFe21QtVC0DL9jgNrYTJ8Is7mVbVKmiN8sYH</span></span><br><span class="line"><span class="string">UwGeEqqHAXdJ/m/0f7aGlWjxd6myZzOIXmsf3SYwKwGKwowIMxSAP1jryOoFresp</span></span><br><span class="line"><span class="string">tk0BDMDavsJLhcdvUd3oximaMOvyOvWZN5uj2kYh7YYpTVAQZn3dJDb0B5kIl2dG</span></span><br><span class="line"><span class="string">GvpTKWgAw3oH8Ak9zMZT9y0/sAmjsxkPil6jgbRz6d40V9xgCixofpwYGnEF5hRO</span></span><br><span class="line"><span class="string">O1VhLZIcVDC0NaeyM8Tfgv/ODvU/xlHKfz3CbKG1KxXRXFeIAxbDAgMBAAGgADAN</span></span><br><span class="line"><span class="string">BgkqhkiG9w0BAQ0FAAOCAQEAMZOSVoZWQhvZ/g+cnSHmrxzK9JCUeKoD0wlFuiww</span></span><br><span class="line"><span class="string">KRmHaYFuZcStTj/52M65zXhtx6OXFjsoMJSf4OyGTYjfexH7Zqv2zfBuKQBuPSL7</span></span><br><span class="line"><span class="string">GfLy9zcNLabuSYlbfQ1PNvycXb4ZhJJ2TI62XGXnfg5zeW4tHN0Mvt+/UxWkNmVu</span></span><br><span class="line"><span class="string">CTGTdbd3bgjnnggJQZI6Z7AKsaeeqF5zgtkws+lwZoG3BbcXPWxoxI+Ms3JhxXzg</span></span><br><span class="line"><span class="string">Mx0Z1INiQM7rhvA5tB3HG+VsBcTya08QA4HASjHOTesInZvgUM2QbQqxAKldiJex</span></span><br><span class="line"><span class="string">ho4OnmOUhCPWiUoDTq2y7FvfjFwMzst06EkYsYj2Zw/oQQ==</span></span><br><span class="line"><span class="string">-----END CERTIFICATE REQUEST-----'</span>;</span><br><span class="line">var_dump(openssl_csr_get_subject($str));</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-02/go-mod/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020-02/go-mod/" class="post-title-link" itemprop="url">go mod 模塊</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-02-27 13:18:09 / 修改时间：13:41:44" itemprop="dateCreated datePublished" datetime="2020-02-27T13:18:09+08:00">2020-02-27</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>建议直接设置 GO111MODULE=”on”</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> env -w GO111MODULE=on</span><br></pre></td></tr></table></figure>
+
+<p>给go mod 设置代理， 并添加私有域名</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> env -w GOPROXY=http:<span class="comment">//goproxy.cn,direct</span></span><br><span class="line"><span class="comment">// or</span></span><br><span class="line"><span class="keyword">go</span> env -w GOPROXY=https:<span class="comment">//mirrors.aliyun.com/goproxy/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">go</span> env -w GOPRIVATE=*.my-abc.net</span><br></pre></td></tr></table></figure>
+
+<h2 id="新建项目"><a href="#新建项目" class="headerlink" title="新建项目"></a>新建项目</h2><p>新建项目，或者是已有项目转为go mod 模式的 init 建议</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> mod init  域名/组名/项目名</span><br></pre></td></tr></table></figure>
+
+<p>eg： code.my-abc.net/tools/pptp</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-03/git-build/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017-03/git-build/" class="post-title-link" itemprop="url">Golang 編譯其他系統下運行</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-03-11 20:01:40" itemprop="dateCreated datePublished" datetime="2017-03-11T20:01:40+08:00">2017-03-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-21 10:32:57" itemprop="dateModified" datetime="2020-02-21T10:32:57+08:00">2020-02-21</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><p>在windows命令行下一次執行：</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 忽略 c文檔</span><br><span class="line"><span class="built_in">SET</span> CGO_ENABLED=<span class="number">0</span></span><br><span class="line">#設定為linux</span><br><span class="line"><span class="built_in">SET</span> GOOS=linux</span><br><span class="line"><span class="built_in">SET</span> GOARCH=amd64</span><br></pre></td></tr></table></figure>
+
+<p>然後就可以執行 <code>go build</code> 來生成linux運行的程序。</p>
+<p>在 <code>git shell</code> 下执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> GOOS=linux</span><br><span class="line"><span class="built_in">export</span> GOARCH=amd64</span><br></pre></td></tr></table></figure>
+
+<h3 id="說明"><a href="#說明" class="headerlink" title="說明"></a>說明</h3><ul>
+<li>交叉编译不支持 CGO 所以要禁用它</li>
+<li>GOOS：目标平台的操作系统（darwin、freebsd、linux、windows</li>
+<li>GOARCH：目标平台的体系架构（386、amd64、arm)</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/linux-rsync/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -692,214 +903,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-10/incremental-back/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019-10/incremental-back/" class="post-title-link" itemprop="url">incremental back 增量备份</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-10-11 18:25:12 / 修改时间：18:36:55" itemprop="dateCreated datePublished" datetime="2019-10-11T18:25:12+08:00">2019-10-11</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>以文件为最小的单位。 利用 linux 的硬链接 (Hard link) 特性（多个link不会增加磁盘，删除某个不会影响其他的）空间来实现。</p>
-<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0. 根据原始内容S0, 创建最初的备份内容  V1</span><br><span class="line">-- 开始增量备份 --</span><br><span class="line">1. 根据 V1 创建 V2 。 规则： 创建所有目录，ln 硬链接所有文档 。</span><br><span class="line">2. 通过 rsync 命令。同步S0最新的内容到 V2</span><br><span class="line">-- 结束 --</span><br></pre></td></tr></table></figure>
-
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ol>
-<li>通过 <code>ls -i</code> 命令  可以查看文件的编号。 如果编号一样则表示是 硬链接。或用 <code>stat [file]</code> 命令查看更详细的信息</li>
-<li>同步命令 <code>rsync -vzrtopg --delete dir_a dir_b</code></li>
-<li>删除某个硬链接文档，不影响其他的</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-07/iptables/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019-07/iptables/" class="post-title-link" itemprop="url">iptables</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-07-01 17:02:42" itemprop="dateCreated datePublished" datetime="2019-07-01T17:02:42+08:00">2019-07-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-18 09:04:00" itemprop="dateModified" datetime="2019-09-18T09:04:00+08:00">2019-09-18</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="简单操作"><a href="#简单操作" class="headerlink" title="简单操作"></a>简单操作</h2><ul>
-<li>Table 表</li>
-<li>Chain 链</li>
-<li>iptables -D chain rulenum 清除某条</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Table  Chain            num   pkts bytes target     prot opt in     out     source               destination  </span><br><span class="line">filter CXS_LF_CPANEL    12       0     0 DROP       all  --  *      *       203.195.218.49       0.0.0.0&#x2F;0</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查找</span></span><br><span class="line">iptables -L CXS_LF_CPANEL --line-numbers | grep xxx.xxx.xxx</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 刪除， 157就是對應的number</span></span><br><span class="line">iptables -D CXS_LF_CPANEL 157</span><br></pre></td></tr></table></figure>
-
-<h2 id="cxs"><a href="#cxs" class="headerlink" title="cxs"></a>cxs</h2><p>如果有類似 <code>CXS_LF_SSHD</code> <code>CXS_LF_CPANEL</code> 的防火墻規則。 需要先刪除 <code>/var/lib/csf/csf.block.CXS_LF_SSHD</code> 對應的ip 然後在重啟 csf <code>csf -ra</code></p>
-<p>[參考 cxs][/2019-05/cxs/]</p>
-<h2 id="快速刪除"><a href="#快速刪除" class="headerlink" title="快速刪除"></a>快速刪除</h2><p><code>iptables -S</code>。 因爲 <code>iptables -L</code> 在規則很多的時候很慢。找到了其他參數 <code>-S, --list-rules</code> 。例如 <code>iptables -S CXS_LF_SSHD</code> CXS_LF_SSHD 是 chain 的名稱</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查找</span></span><br><span class="line">iptables -S CXS_LF_SSHD | grep 51.77.213.181</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 得到結果</span></span><br><span class="line">-A CXS_LF_SSHD -s 178.62.30.249/32 -j DROP</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 刪除， 157就是對應的number</span></span><br><span class="line">iptables -D CXS_LF_SSHD -s 178.62.30.249/32 -j DROP</span><br></pre></td></tr></table></figure>
-
-<p><code>-s 178.62.30.249/32 -j DROP</code> 是 查詢結果中的規則</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-08/cpanle-outlook-25port/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019-08/cpanle-outlook-25port/" class="post-title-link" itemprop="url">cpanle smtp 25端口 outlook无法发送mail</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-08-12 15:03:36 / 修改时间：15:06:43" itemprop="dateCreated datePublished" datetime="2019-08-12T15:03:36+08:00">2019-08-12</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="问题，-0x800CCC80"><a href="#问题，-0x800CCC80" class="headerlink" title="问题， 0x800CCC80"></a>问题， 0x800CCC80</h2><p>outlook 提示 0x800CCC80 错误。<code>您的服务器不支持此客户端支持的任何验证方式</code></p>
-<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>登录 whm 并打开 <code>WHM &gt; Exim Configuration Manager &gt; Basic Editor &gt; Security</code></p>
-<p>设定 <code>Require clients to connect with SSL or issue the STARTTLS command before they are allowed to authenticate with the server.</code> 为 <code>off</code></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -950,14 +953,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">156</span>
+          <span class="site-state-item-count">157</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-count">49</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

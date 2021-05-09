@@ -208,6 +208,234 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-05/dig/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017-05/dig/" class="post-title-link" itemprop="url">dig 命令</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-05-19 16:37:39" itemprop="dateCreated datePublished" datetime="2017-05-19T16:37:39+08:00">2017-05-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-10 11:39:16" itemprop="dateModified" datetime="2020-12-10T11:39:16+08:00">2020-12-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="基本查詢"><a href="#基本查詢" class="headerlink" title="基本查詢"></a>基本查詢</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dig 080.net mx</span><br><span class="line">dig 080.net txt</span><br><span class="line">dig 080.net any # 查詢所有的080.net的記錄。（不含subdomain）</span><br></pre></td></tr></table></figure>
+
+<h2 id="參數"><a href="#參數" class="headerlink" title="參數"></a>參數</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dig 080.net +short abc.com abc.net</span><br><span class="line">dig 080.net +noall +answer abc.com abc.net</span><br><span class="line">dig +nocmd +multiline +noall +answer abc.com abc.net any</span><br></pre></td></tr></table></figure>
+
+<h2 id="反向解析"><a href="#反向解析" class="headerlink" title="反向解析"></a>反向解析</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dig -x 119.81.172.50</span><br><span class="line"></span><br><span class="line">nslookup -qt=ptr 119.81.172.50</span><br></pre></td></tr></table></figure>
+
+<h2 id="解析过程"><a href="#解析过程" class="headerlink" title="解析过程"></a>解析过程</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dig  google.com +trace</span><br><span class="line">dig  google.com +trace +nodnssec # 不顯示 dnssec</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/linux-add-disk/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016-12/linux-add-disk/" class="post-title-link" itemprop="url">添加磁盤 disk</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-25 15:49:26" itemprop="dateCreated datePublished" datetime="2016-12-25T15:49:26+08:00">2016-12-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-01 14:20:57" itemprop="dateModified" datetime="2020-12-01T14:20:57+08:00">2020-12-01</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>先看磁盤名稱，獲得名稱為 /dev/sdb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br></pre></td></tr></table></figure>
+
+<p>設定分區</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fdisk &#x2F;dev&#x2F;sdb</span><br><span class="line">&#x2F;&#x2F; 一次輸入 </span><br><span class="line">n 回車 &#x2F;&#x2F; 創建新分區</span><br><span class="line">p 回車 &#x2F;&#x2F; 創建第一個主分區</span><br><span class="line">w 回車 &#x2F;&#x2F; 保存</span><br></pre></td></tr></table></figure>
+
+<p>查看創建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls &#x2F;dev&#x2F;sdb*</span><br><span class="line">&#x2F;&#x2F; 會看到 &#x2F;dev&#x2F;sdb1</span><br></pre></td></tr></table></figure>
+
+<p>格式化分區</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkfs -t ext4 &#x2F;dev&#x2F;sdb1</span><br><span class="line">&#x2F;&#x2F; or</span><br><span class="line">mkfs.xfs -f &#x2F;dev&#x2F;sdb1</span><br></pre></td></tr></table></figure>
+
+<p>創建掛在位置（一定要有此步驟）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir &#x2F;home2</span><br></pre></td></tr></table></figure>
+
+<p>嘗試掛在</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount &#x2F;dev&#x2F;sdb1 &#x2F;home2</span><br></pre></td></tr></table></figure>
+
+<p>開機啟動掛在， 修改 /etc/fstab</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;fstab</span><br><span class="line">&#x2F;&#x2F; 新增內容如下：</span><br><span class="line">&#x2F;dev&#x2F;sdb1	&#x2F;home2	ext4	defaults	1	2</span><br><span class="line">&#x2F;&#x2F; or</span><br><span class="line">&#x2F;dev&#x2F;sdb1       &#x2F;backup         xfs defaults    1       2</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-07/curl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017-07/curl/" class="post-title-link" itemprop="url">Curl命令</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-07-04 14:35:16" itemprop="dateCreated datePublished" datetime="2017-07-04T14:35:16+08:00">2017-07-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-10 10:09:39" itemprop="dateModified" datetime="2020-11-10T10:09:39+08:00">2020-11-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="下載文檔"><a href="#下載文檔" class="headerlink" title="下載文檔"></a>下載文檔</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下載并保存為 api.pdf</span></span><br><span class="line">curl -o api.pdf https://r.webnic.cc/NewAPIDocument_eng.pdf</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 下載并保存為 NewAPIDocument_eng.pdf</span></span><br><span class="line">curl -O https://r.webnic.cc/NewAPIDocument_eng.pdf</span><br></pre></td></tr></table></figure>
+
+<h2 id="GET-amp-POST"><a href="#GET-amp-POST" class="headerlink" title="GET &amp; POST"></a>GET &amp; POST</h2><p>用GET方式 传递参数时，多个参数需要加上引号 (<code>&#39;</code>)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> GET</span></span><br><span class="line">curl https://api.github.com/user</span><br><span class="line">curl 'https://api.github.com/user?access_token=XXXXXXXXXX&amp;nc=ss'</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> POST</span></span><br><span class="line">curl -d "param1=value1&amp;param2=value" https://api.github.com</span><br><span class="line">curl --data "param1=value1&amp;param2=value" https://api.github.com</span><br></pre></td></tr></table></figure>
+
+<h2 id="连接测试"><a href="#连接测试" class="headerlink" title="连接测试"></a>连接测试</h2><p><code>-voa</code>  输出通信的整个过程, 将服务器的回应保存为/dev/null</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -voa https:&#x2F;&#x2F;080.net</span><br></pre></td></tr></table></figure>
+
+<p><code>--resolve</code> 绑定节点来进行访问（-x 无法绑定https）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -voa &quot;https:&#x2F;&#x2F;www.taobao.com&quot; --resolve www.taobao.com:443:113.96.109.101</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-11/VMware-Network/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -744,228 +972,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-01/apache-rewrite/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019-01/apache-rewrite/" class="post-title-link" itemprop="url">apache rewrite RewriteRule</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-01-31 20:56:04" itemprop="dateCreated datePublished" datetime="2019-01-31T20:56:04+08:00">2019-01-31</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-11 20:37:05" itemprop="dateModified" datetime="2020-08-11T20:37:05+08:00">2020-08-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="RewriteRule-跳转-amp-重新指向"><a href="#RewriteRule-跳转-amp-重新指向" class="headerlink" title="RewriteRule 跳转&amp;重新指向"></a>RewriteRule 跳转&amp;重新指向</h2><p>以下都是在 二级目录 <code>~/public_html/var/</code> 做的测试。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">RewriteEngine on</span><br><span class="line"></span><br><span class="line">RewriteRule ^abc1$ v1.php [L]</span><br><span class="line">RewriteRule ^abc3$ &#x2F;var&#x2F;v1.php [L]</span><br><span class="line">RewriteRule ^abc4$ &#x2F;var&#x2F;v1.php [L,R&#x3D;302]</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>^abc1$ v1.php [L]</code> 等同于 <code>^abc3$ /var/v1.php [L]</code></li>
-<li><code>R=302</code> 或 <code>R=301</code> 跳转时，必须写绝对url路径！</li>
-</ul>
-<h3 id="RewriteBase"><a href="#RewriteBase" class="headerlink" title="RewriteBase"></a>RewriteBase</h3><p>通常默认的虚拟主机的网站在使用.htaccess 进行重写规则时不需要执行设置该指令. 因为 RewriteBase 默认值是该 .htaccess 文件所在的目录地址。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">RewriteEngine on</span><br><span class="line"></span><br><span class="line">RewriteBase &#x2F;var&#x2F;</span><br><span class="line"></span><br><span class="line">RewriteRule ^abc1$ v1.php [L]</span><br><span class="line"></span><br><span class="line">RewriteRule ^abc3$ &#x2F;var&#x2F;v1.php [L]</span><br><span class="line"></span><br><span class="line">RewriteRule ^abc4$ &#x2F;var&#x2F;v1.php [L,R&#x3D;302]</span><br><span class="line">RewriteRule ^abc5$ v1.php [L,R&#x3D;302]</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在指定了 <code>RewriteBase /var/</code> 所以 <code>^abc4$ /var/v1.php [L,R=302]</code> 等同于 <code>^abc5$ v1.php [L,R=302]</code></li>
-<li>如果使用了绝对路径 <code>/var/v1.php</code> 不会受 <code>RewriteBase /var/</code> 影响</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/php-curl/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016-12/php-curl/" class="post-title-link" itemprop="url">PHP CURL</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-25 13:39:52" itemprop="dateCreated datePublished" datetime="2016-12-25T13:39:52+08:00">2016-12-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-11 14:45:33" itemprop="dateModified" datetime="2020-08-11T14:45:33+08:00">2020-08-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$data = <span class="keyword">array</span>(<span class="string">'name'</span> =&gt; <span class="string">'Foo'</span>, <span class="string">'Email'</span> =&gt; <span class="string">'abc@example.com'</span>);</span><br><span class="line"></span><br><span class="line">$ch = curl_init();</span><br><span class="line">curl_setopt($ch, CURLOPT_URL, <span class="string">'http://localhost/tmp/a.php'</span>);</span><br><span class="line"></span><br><span class="line">curl_setopt($ch, CURLOPT_HEADER, <span class="number">0</span>);  <span class="comment">// 启用时会将头文件的信息作为数据流输出。</span></span><br><span class="line">curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="number">1</span>); <span class="comment">// 在启用CURLOPT_RETURNTRANSFER的时候，返回原生的（Raw）输出。</span></span><br><span class="line">curl_setopt($ch, CURLOPT_TIMEOUT, <span class="number">30</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_POST, <span class="number">1</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data)); <span class="comment">// http_build_query 可以避免一些不兼容問題</span></span><br><span class="line"></span><br><span class="line">$s = curl_exec($ch);</span><br><span class="line">curl_close($ch);</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $s;</span><br></pre></td></tr></table></figure>
-
-<h2 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$url = <span class="string">'http://bac.com'</span></span><br><span class="line">$url .= <span class="string">'?'</span>.http_build_query($postField);</span><br><span class="line">$ch = curl_init();</span><br><span class="line">curl_setopt($ch, CURLOPT_URL, $url);</span><br><span class="line">curl_setopt($ch, CURLOPT_HEADER, <span class="number">0</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="number">1</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_TIMEOUT, <span class="number">30</span>);</span><br><span class="line">$data = curl_exec($ch);</span><br><span class="line">curl_close($ch);</span><br></pre></td></tr></table></figure>
-
-<h2 id="强制声明字符-charset"><a href="#强制声明字符-charset" class="headerlink" title="强制声明字符 charset"></a>强制声明字符 charset</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl_setopt($ch, CURLOPT_HTTPHEADER, <span class="keyword">array</span>(<span class="string">'Content-Type:application/x-www-form-urlencoded; charset=utf-8'</span>));</span><br></pre></td></tr></table></figure>
-
-<h2 id="JSON格式传递数据"><a href="#JSON格式传递数据" class="headerlink" title="JSON格式传递数据"></a>JSON格式传递数据</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$header[] = <span class="string">'Content-Type: application/json'</span>;</span><br><span class="line">$header[] = <span class="string">'Accept: application/json'</span>;</span><br><span class="line">curl_setopt($ch, CURLOPT_HTTPHEADER, $header);</span><br><span class="line">curl_setopt($ch, CURLOPT_POST, <span class="number">1</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($param));</span><br></pre></td></tr></table></figure>
-
-<h2 id="SSL"><a href="#SSL" class="headerlink" title="SSL"></a>SSL</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, <span class="keyword">FALSE</span>);</span><br><span class="line">curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, <span class="keyword">FALSE</span>);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>CURLOPT_SSL_VERIFYPEER<br>禁用后cURL将终止从服务端进行验证。<br>使用CURLOPT_CAINFO选项设置证书使用CURLOPT_CAPATH选项设置证书目录<br>如果CURLOPT_SSL_VERIFYPEER(默认值为2)被启用，CURLOPT_SSL_VERIFYHOST需要被设置成TRUE否则设置为FALSE。</p>
-</li>
-<li><p>CURLOPT_SSL_VERIFYHOST<br>1 检查服务器SSL证书中是否存在一个公用名(common name)。<br>2 检查公用名是否存在，并且是否与提供的主机名匹配。    </p>
-</li>
-</ul>
-<p>译者注：公用名(Common Name)一般来讲就是填写你将要申请SSL证书的域名 (domain)或子域名(sub domain)。</p>
-<h3 id="CURLOPT-SSL-VERIFYPEER"><a href="#CURLOPT-SSL-VERIFYPEER" class="headerlink" title="CURLOPT_SSL_VERIFYPEER"></a>CURLOPT_SSL_VERIFYPEER</h3><p>值為 <strong>FALSE</strong> 时，禁止 cURL 验证对等证书（peer’s certificate）。 <strong>连接仍将使用SSL加密</strong>，只是不会在使用正确验证的证书进行链接。</p>
-<h2 id="HTTP-basic-authentication"><a href="#HTTP-basic-authentication" class="headerlink" title="HTTP basic authentication"></a>HTTP basic authentication</h2><p>連接一個url， 需要提供用戶名和密碼的時候用到。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl_setopt($curl, CURLOPT_USERPWD, <span class="string">"username:password"</span>);</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-08/golang-web/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020-08/golang-web/" class="post-title-link" itemprop="url">golang web framework</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-09 15:35:18 / 修改时间：17:15:28" itemprop="dateCreated datePublished" datetime="2020-08-09T15:35:18+08:00">2020-08-09</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="gin-gonic-gin"><a href="#gin-gonic-gin" class="headerlink" title="gin-gonic/gin"></a>gin-gonic/gin</h2><p><a href="https://github.com/gin-gonic/gin" target="_blank" rel="noopener">https://github.com/gin-gonic/gin</a></p>
-<p>web framework， 用作 api/微框架 很简单</p>
-<h3 id="范例"><a href="#范例" class="headerlink" title="范例"></a>范例</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	...</span><br><span class="line"></span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">authCheck</span><span class="params">()</span> <span class="title">gin</span>.<span class="title">HandlerFunc</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		time := c.GetHeader(<span class="string">"_time"</span>)</span><br><span class="line">		token := c.GetHeader(<span class="string">"_token"</span>)</span><br><span class="line"></span><br><span class="line">		sum := fmt.Sprintf(<span class="string">"%x"</span>, sha256.Sum256([]<span class="keyword">byte</span>(time+<span class="string">"***"</span>)))</span><br><span class="line">		<span class="keyword">if</span> sum != token &#123;</span><br><span class="line">			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H&#123;<span class="string">"Message"</span>: <span class="string">"Unauthorized"</span>&#125;)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		c.Next()</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> appVersion = <span class="string">"1.0.2"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">updateAcme</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">    domain := c.DefaultPostForm(<span class="string">"domain"</span>, <span class="string">""</span>)</span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    c.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">        <span class="string">"state"</span>:   <span class="string">"error"</span>,</span><br><span class="line">        <span class="string">"message"</span>: <span class="string">"get cert error."</span>,</span><br><span class="line">        <span class="string">"version"</span>: appVersion,</span><br><span class="line">        <span class="string">"cmdStr"</span>:  cmdStr,</span><br><span class="line">    &#125;)</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	gin.SetMode(gin.ReleaseMode) <span class="comment">// prod</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//r := gin.New()</span></span><br><span class="line">	r := gin.Default()</span><br><span class="line"></span><br><span class="line">	r.Use(authCheck())</span><br><span class="line"></span><br><span class="line">	r.POST(<span class="string">"/up_acme"</span>, updateAcme)</span><br><span class="line"></span><br><span class="line">	dir, _ := filepath.Abs(filepath.Dir(os.Args[<span class="number">0</span>]))</span><br><span class="line">	r.RunTLS(<span class="string">":9008"</span>, dir+<span class="string">"/ssl/server.pem"</span>, dir+<span class="string">"/ssl/server.key"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1016,14 +1022,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">156</span>
+          <span class="site-state-item-count">157</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">48</span>
+        <span class="site-state-item-count">49</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
