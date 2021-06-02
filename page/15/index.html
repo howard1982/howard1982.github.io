@@ -208,6 +208,79 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/js-url/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016-12/js-url/" class="post-title-link" itemprop="url">Javascript 重新生成URL Search</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-25 15:19:13" itemprop="dateCreated datePublished" datetime="2016-12-25T15:19:13+08:00">2016-12-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>需要 url.min.js 插件 <a href="https://github.com/websanova/js-url" target="_blank" rel="noopener">https://github.com/websanova/js-url</a></p>
+<p>根据当前url重新生成URL对应的search   (window.location.search)<br>调用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">makeUrl(&#39;sort&#39;, &#39;price_asc&#39;);</span><br><span class="line">makeUrl(&#39;sort&#39;, &#39;price_asc&#39;, &#39;pn&#39;, 2);</span><br></pre></td></tr></table></figure>
+
+<p>url 插件简单例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$.url(&#39;?&#39;) &#x2F;&#x2F; 返回所有get变量</span><br><span class="line">$.url(&#39;?pn&#39;) &#x2F;&#x2F; 返回 get变量中 pn 对应的值， 如果没有则返回 undefined</span><br></pre></td></tr></table></figure>
+
+<p>函数代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function makeUrl(key, value)</span><br><span class="line">&#123;</span><br><span class="line">    var s &#x3D; $.url(&#39;?&#39;);</span><br><span class="line">    s[key] &#x3D; value;</span><br><span class="line">    </span><br><span class="line">    var k1 &#x3D;  arguments[2] ? arguments[2] : &#39;&#39;;</span><br><span class="line">    var v1 &#x3D;   arguments[3] ? arguments[3] : &#39;&#39;;</span><br><span class="line">    if(k1!&#x3D;&#39;&#39;) &#123;</span><br><span class="line">        s[k1] &#x3D; v1;</span><br><span class="line">    &#125;</span><br><span class="line">    var url &#x3D; window.location.pathname+&quot;?&quot;</span><br><span class="line">    for(var v in s) &#123;</span><br><span class="line">        url +&#x3D; v+&#39;&#x3D;&#39;+s[v]+&#39;&amp;&#39;;</span><br><span class="line">    &#125;</span><br><span class="line">    url &#x3D; url.substr(0, url.length-1);</span><br><span class="line">    return url;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/less/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -817,95 +890,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/chattr-lsattr/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016-12/chattr-lsattr/" class="post-title-link" itemprop="url">chattr和lsattr命令 linux鎖定</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-25 15:05:14" itemprop="dateCreated datePublished" datetime="2016-12-25T15:05:14+08:00">2016-12-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2017-01-26 10:14:30" itemprop="dateModified" datetime="2017-01-26T10:14:30+08:00">2017-01-26</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>lsattr 显示文件的属性</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">[root]#</span><span class="bash">lsattr</span></span><br><span class="line">----i-------- ./ff</span><br></pre></td></tr></table></figure>
-
-<p>chattr 命令 修改文件（目錄）属性能够提高系统的安全性  (只有超级权限的用户才具有使用该命令的权限)</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">[root]#</span><span class="bash">lsattr  <span class="comment"># 默認情況下</span></span></span><br><span class="line">------------- ./ff</span><br><span class="line"> </span><br><span class="line"><span class="meta">[root]#</span><span class="bash">chattr +i ff</span></span><br><span class="line"><span class="meta">[root]#</span><span class="bash">lsattr</span></span><br><span class="line">----i-------- ./ff</span><br></pre></td></tr></table></figure>
-
-<p>chattr命令的用法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chattr [ -RV ] [ -v version ] [ mode ] files...</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><ul>
-<li>：在原有参数设定基础上，追加参数。</li>
-</ul>
-</li>
-<li><ul>
-<li>：在原有参数设定基础上，移除参数。</li>
-</ul>
-</li>
-<li><p>i ：设定文件不能被删除、改名、设定链接关系，同时不能写入或新增内容。i参数对于文件 系统的安全设置有很大帮助。</p>
-</li>
-<li><p>a：即append，设定该参数后，只能向文件中添加数据，而不能删除，多用于服务器日志文 件安全，只有root才能设定这个属性。</p>
-</li>
-<li><p>j：即journal，设定此参数使得当通过mount参数：data=ordered 或者 data=writeback 挂 载的文件系统，文件在写入时会先被记录(在journal中)。如果filesystem被设定参数为 data=journal，则该参数自动失效。</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -956,7 +940,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">157</span>
+          <span class="site-state-item-count">158</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
