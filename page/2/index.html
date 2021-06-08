@@ -208,6 +208,75 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2021-01/lang-gc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2021-01/lang-gc/" class="post-title-link" itemprop="url">GC介紹</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-01-11 11:34:54 / 修改时间：11:37:14" itemprop="dateCreated datePublished" datetime="2021-01-11T11:34:54+08:00">2021-01-11</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>程序对象所占用的内存在对象不再使用后会自动被回收。这些工作是由一个叫垃圾回收器 <code>Garbage Collector</code> 的进程完成的。</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>开发者无需过问内存管理，可以专注于解决实际问题。虽然内存泄露仍有可能会发生，但发生的概率比较小。</li>
+<li>GC的智能算法可以在后台自动的进行内存管理，且这种管理在大多数时候是最佳的。</li>
+</ul>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li><p>当垃圾回收发生时，它会影响程序的性能，甚至会暂停程序的执行。这个被称为<code>Stop the world</code>垃圾回收机制，整个程序进程会被暂停以等待垃圾回收执行完。对某些应用而言，这可能是无法接受的。</p>
+</li>
+<li><p>开发者并不能指定何时或使用何种方法执行GC。</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/htaccess/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -904,81 +973,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-07/python-module/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2018-07/python-module/" class="post-title-link" itemprop="url">Python 常用模塊</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-07-08 09:22:22" itemprop="dateCreated datePublished" datetime="2018-07-08T09:22:22+08:00">2018-07-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-25 10:36:50" itemprop="dateModified" datetime="2020-08-25T10:36:50+08:00">2020-08-25</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="簡介"><a href="#簡介" class="headerlink" title="簡介"></a>簡介</h2><h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><p>模块，在Python可理解为对应于一个文件。例如有个 a1.py 文档 (如果不在包中)可以截止 <code>import a1</code> 来加载这个文档，并调用里面的函数</p>
-<h2 id="包"><a href="#包" class="headerlink" title="包"></a>包</h2><p>是一个包含<code>__init__.py</code>文件的目录，该目录下一定得有这个<code>__init__.py</code>文件和其它模块或子包。</p>
-<h2 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h2><ul>
-<li><code>import subpackage1.a</code> # 将模块subpackage.a导入全局命名空间，例如访问a中属性时用 <code>subpackage1.a.attr</code></li>
-<li><code>from subpackage1 import a</code> #　将模块a导入全局命名空间，例如访问a中属性时用a.attr_a</li>
-<li><code>from subpackage.a import attr_a</code> # 将模块a的属性直接导入到命名空间中，例如访问a中属性时直接用attr_a</li>
-</ul>
-<h2 id="常用模塊"><a href="#常用模塊" class="headerlink" title="常用模塊"></a>常用模塊</h2><h3 id="cryptography"><a href="#cryptography" class="headerlink" title="cryptography"></a>cryptography</h3><p>加密 Openssl 相關模塊， 用于 csr crt 等ssl相关</p>
-<h3 id="hashlib"><a href="#hashlib" class="headerlink" title="hashlib"></a>hashlib</h3><p>md5 \ sha1 \ sha256 等加密</p>
-<h3 id="chardet"><a href="#chardet" class="headerlink" title="chardet"></a>chardet</h3><p>字符串编码相关</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> chardet</span><br><span class="line"></span><br><span class="line">a = <span class="string">b"\345\217\221\347\245\250\345\215\225\346\215\256"</span></span><br><span class="line"></span><br><span class="line">fencoding = chardet.detect(a)   <span class="comment">#判断当前字符串的格式（编码类型）</span></span><br><span class="line">print(fencoding)</span><br><span class="line"></span><br><span class="line">a = a.decode(<span class="string">'utf-8'</span>) <span class="comment">#编码类型为打印出来的fencoding编码类型</span></span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1029,7 +1023,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">158</span>
+          <span class="site-state-item-count">159</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
