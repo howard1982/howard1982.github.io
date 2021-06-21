@@ -208,6 +208,166 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2021-06/rsync/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2021-06/rsync/" class="post-title-link" itemprop="url">rsync 使用說明</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-06-21 14:27:17 / 修改时间：14:44:41" itemprop="dateCreated datePublished" datetime="2021-06-21T14:27:17+08:00">2021-06-21</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><p><code>yum -y install rsync</code></p>
+<h2 id="使用說明"><a href="#使用說明" class="headerlink" title="使用說明"></a>使用說明</h2><p><code>rsync -av /var/www/html /backup/2020-05-24.0331/web</code> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Local:  rsync [OPTION...] SRC... [DEST]</span><br><span class="line"> </span><br><span class="line">Access via remote shell:</span><br><span class="line">  Pull: rsync [OPTION...] [USER@]HOST:SRC... [DEST]</span><br><span class="line">  Push: rsync [OPTION...] SRC... [USER@]HOST:DEST</span><br></pre></td></tr></table></figure>
+
+<h2 id="參數說明"><a href="#參數說明" class="headerlink" title="參數說明"></a>參數說明</h2><ul>
+<li><code>-v</code>, –verbose 详细模式输出</li>
+<li><code>-a</code>, –archive 归档模式，表示以递归方式传输文件，并保持所有文件属性，等于-rlptgoD</li>
+<li><code>--delete</code> 删除那些DST中SRC没有的文件</li>
+<li><code>--exclude</code> 排除</li>
+<li><code>--include</code> 包含，</li>
+</ul>
+<p>例如 <code>rsync -av --include=&quot;*.txt&quot; --exclude=&#39;*&#39; source/ destination</code></p>
+<ul>
+<li><code>--link-dest</code> 增量備份</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync -av --delete /var/www/html/ --link-dest /backup/yestarday_dir --exclude=".cache" /backup/today_dir</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h2><p>參考 <a href="http://www.ruanyifeng.com/blog/2020/08/rsync.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2020/08/rsync.html</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-12/sar/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017-12/sar/" class="post-title-link" itemprop="url">sar 常用命令 & 查看系統流量</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-12-01 09:17:17" itemprop="dateCreated datePublished" datetime="2017-12-01T09:17:17+08:00">2017-12-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-21 14:24:56" itemprop="dateModified" datetime="2021-06-21T14:24:56+08:00">2021-06-21</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><p><code>yum install sysstat</code></p>
+<h2 id="說明"><a href="#說明" class="headerlink" title="說明"></a>說明</h2><p><code>sar -n DEV  2 4</code></p>
+<p>显示网络接口信息 命令后面2 4 意思是：每2秒钟取1次值，取4次。</p>
+<ul>
+<li>IFACE：LAN接口</li>
+<li>rxpck/s:每秒钟收到数据包的数量.</li>
+<li>txpck/s:每秒钟发送数据包的数量.</li>
+<li>rxkB/s:每秒钟接收的字节(KB).</li>
+<li>txkB/s:每秒钟发送的字节(KB).</li>
+<li>rxcmp/s:每秒收到的压缩包的数量</li>
+<li>txcmp/s:每秒发出的压缩包的数量</li>
+<li>rxmcst/s:每秒收到的广播包的数量</li>
+</ul>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><ul>
+<li>sar 5 5  //  CPU和IOWAIT统计状态 </li>
+<li>sar -p 1 3 // cpu 狀態</li>
+<li>sar -n DEV 2 4  // 網絡</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">默认监控: sar 5 5     &#x2F;&#x2F;  CPU和IOWAIT统计状态 </span><br><span class="line">(1) sar -b 5 5        &#x2F;&#x2F; IO传送速率</span><br><span class="line">(2) sar -B 5 5        &#x2F;&#x2F; 页交换速率</span><br><span class="line">(3) sar -c 5 5        &#x2F;&#x2F; 进程创建的速率</span><br><span class="line">(4) sar -d 5 5        &#x2F;&#x2F; 块设备的活跃信息</span><br><span class="line">(5) sar -n DEV 5 5    &#x2F;&#x2F; 网路设备的状态信息</span><br><span class="line">(6) sar -n SOCK 5 5   &#x2F;&#x2F; SOCK的使用情况</span><br><span class="line">(7) sar -n ALL 5 5    &#x2F;&#x2F; 所有的网络状态信息</span><br><span class="line">(8) sar -P ALL 5 5    &#x2F;&#x2F; 每颗CPU的使用状态信息和IOWAIT统计状态 </span><br><span class="line">(9) sar -q 5 5        &#x2F;&#x2F; 队列的长度（等待运行的进程数）和负载的状态</span><br><span class="line">(10) sar -r 5 5       &#x2F;&#x2F; 内存和swap空间使用情况</span><br><span class="line">(11) sar -R 5 5       &#x2F;&#x2F; 内存的统计信息（内存页的分配和释放、系统每秒作为BUFFER使用内存页、每秒被cache到的内存页）</span><br><span class="line">(12) sar -u 5 5       &#x2F;&#x2F; CPU的使用情况和IOWAIT信息（同默认监控）</span><br><span class="line">(13) sar -v 5 5       &#x2F;&#x2F; inode, file and other kernel tablesd的状态信息</span><br><span class="line">(14) sar -w 5 5       &#x2F;&#x2F; 每秒上下文交换的数目</span><br><span class="line">(15) sar -W 5 5       &#x2F;&#x2F; SWAP交换的统计信息(监控状态同iostat 的si so)</span><br><span class="line">(16) sar -x 2906 5 5  &#x2F;&#x2F; 显示指定进程(2906)的统计信息，信息包括：进程造成的错误、用户级和系统级用户CPU的占用情况、运行在哪颗CPU上</span><br><span class="line">(17) sar -y 5 5       &#x2F;&#x2F; TTY设备的活动状态</span><br><span class="line">(18) 将输出到文件(-o)和读取记录信息(-f)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2021-06/apache-MPM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -813,152 +973,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-07/jquery-prop-attr/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017-07/jquery-prop-attr/" class="post-title-link" itemprop="url">Jquery prop vs attr</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-07-07 14:18:22" itemprop="dateCreated datePublished" datetime="2017-07-07T14:18:22+08:00">2017-07-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-05 13:21:06" itemprop="dateModified" datetime="2021-02-05T13:21:06+08:00">2021-02-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>如果是用於判斷 盡量使用 <code>$(elem).prop(&quot;checked&quot;)</code>。 適用於 <code>checked</code>, <code>selected</code>, or <code>disabled</code></p>
-<p>使用 <code>$(elem).prop(&quot;checked&quot;, &quot;true&quot; )</code> 來設定 是否點選</p>
-<h2 id="elem-checked"><a href="#elem-checked" class="headerlink" title="elem.checked"></a>elem.checked</h2><p><code>true</code> (Boolean) Will change with checkbox state</p>
-<h2 id="elem-prop-“checked”"><a href="#elem-prop-“checked”" class="headerlink" title="$(elem).prop(“checked”)"></a>$(elem).prop(“checked”)</h2><p><code>true</code> (Boolean) Will change with checkbox state</p>
-<h2 id="elem-getAttribute-“checked”"><a href="#elem-getAttribute-“checked”" class="headerlink" title="elem.getAttribute(“checked”)"></a>elem.getAttribute(“checked”)</h2><p><code>&quot;checked&quot;</code> (String) Initial state of the checkbox; does not change</p>
-<h2 id="elem-attr-“checked”-1-6-1"><a href="#elem-attr-“checked”-1-6-1" class="headerlink" title="$(elem).attr(“checked”) (1.6.1+)"></a>$(elem).attr(“checked”) (1.6.1+)</h2><p><code>&quot;checked&quot;</code> (String) Will change with checkbox state</p>
-<h2 id="elem-attr-“checked”-pre-1-6"><a href="#elem-attr-“checked”-pre-1-6" class="headerlink" title="$(elem).attr(“checked”) (pre-1.6)"></a>$(elem).attr(“checked”) (pre-1.6)</h2><p><code>true</code> (Boolean) Changed with checkbox state</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-10/mysql-sql/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2018-10/mysql-sql/" class="post-title-link" itemprop="url">mysql sql 語句</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-10-25 15:49:01" itemprop="dateCreated datePublished" datetime="2018-10-25T15:49:01+08:00">2018-10-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-21 11:48:04" itemprop="dateModified" datetime="2021-01-21T11:48:04+08:00">2021-01-21</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="去除重複"><a href="#去除重複" class="headerlink" title="去除重複"></a>去除重複</h2><h3 id="distinct"><a href="#distinct" class="headerlink" title="distinct"></a>distinct</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> email <span class="keyword">from</span> <span class="keyword">member</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="group-by"><a href="#group-by" class="headerlink" title="group by"></a>group by</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> email <span class="keyword">from</span> <span class="keyword">member</span> <span class="keyword">group</span> <span class="keyword">by</span> email</span><br></pre></td></tr></table></figure>
-
-<h2 id="HAVING-語句"><a href="#HAVING-語句" class="headerlink" title="HAVING 語句"></a>HAVING 語句</h2><p>配合 <code>GROUP BY</code> 使用。在<code>WHERE</code>語句執行完，把資料讀入內存后，再次過濾。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> m.email, <span class="keyword">COUNT</span>(m.email) <span class="keyword">AS</span> cc <span class="keyword">FROM</span> <span class="keyword">member</span> <span class="keyword">AS</span> m <span class="keyword">WHERE</span> m.age &gt; <span class="number">10</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> m.email</span><br><span class="line"><span class="keyword">HAVING</span> cc &gt; <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<p>以上SQL可看為2步驟</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 第一步 過濾數據并讀取到內容，并計算 count */</span></span><br><span class="line"><span class="keyword">SELECT</span> m.email, <span class="keyword">COUNT</span>(m.email) <span class="keyword">AS</span> cc <span class="keyword">FROM</span> <span class="keyword">member</span> <span class="keyword">AS</span> m <span class="keyword">WHERE</span> m.age &gt; <span class="number">10</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> m.email</span><br><span class="line"><span class="comment">/* 第二步 在以上結果的基礎上進行過濾*/</span></span><br><span class="line"><span class="keyword">HAVING</span> cc &gt; <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="EXISTS"><a href="#EXISTS" class="headerlink" title="EXISTS"></a>EXISTS</h2><p>用于检查子查询是否至少会返回一行数据，该子查询实际上并不返回任何数据，而是返回值True或False<br>EXISTS 指定一个子查询，检测 行 的存在。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="string">`test`</span> <span class="keyword">where</span> <span class="string">`type`</span> = <span class="string">'AA'</span> </span><br><span class="line"><span class="keyword">and</span> <span class="keyword">exists</span> (<span class="keyword">select</span> * <span class="keyword">from</span> <span class="string">`company`</span> <span class="keyword">where</span> <span class="string">`test`</span>.<span class="string">`uid`</span> = <span class="string">`company`</span>.<span class="string">`uid`</span> <span class="keyword">and</span> <span class="string">`company`</span> <span class="keyword">like</span> <span class="string">'%BB%'</span>) </span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="string">`pid`</span> <span class="keyword">desc</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1009,7 +1023,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">159</span>
+          <span class="site-state-item-count">160</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

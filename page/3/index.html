@@ -208,6 +208,173 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-05/openssl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018-05/openssl/" class="post-title-link" itemprop="url">Openssl</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-05-29 13:29:24" itemprop="dateCreated datePublished" datetime="2018-05-29T13:29:24+08:00">2018-05-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-02 14:46:25" itemprop="dateModified" datetime="2020-09-02T14:46:25+08:00">2020-09-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="解析-amp-檢查匹配"><a href="#解析-amp-檢查匹配" class="headerlink" title="解析&amp;檢查匹配"></a>解析&amp;檢查匹配</h2><h3 id="解析CRT文檔"><a href="#解析CRT文檔" class="headerlink" title="解析CRT文檔"></a>解析CRT文檔</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -noout -text -in my.cert</span><br></pre></td></tr></table></figure>
+
+<h3 id="解析CSR文檔"><a href="#解析CSR文檔" class="headerlink" title="解析CSR文檔"></a>解析CSR文檔</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl req -noout -text -in mycsr.csr</span><br></pre></td></tr></table></figure>
+
+<h3 id="檢查CSR、-Private-Key、-CRT-是否匹配"><a href="#檢查CSR、-Private-Key、-CRT-是否匹配" class="headerlink" title="檢查CSR、 Private Key、 CRT 是否匹配"></a>檢查CSR、 Private Key、 CRT 是否匹配</h3><p>通過命令查看 sha256 數值是否一致</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">openssl pkey -in example.key -pubout -outform pem | sha256sum</span><br><span class="line">openssl x509 -in example.crt -pubkey -noout -outform pem | sha256sum</span><br><span class="line">openssl req -in example.csr -pubkey -noout -outform pem | sha256sum</span><br></pre></td></tr></table></figure>
+
+<h2 id="IIS-pfx"><a href="#IIS-pfx" class="headerlink" title="IIS pfx"></a>IIS pfx</h2><h3 id="生成-IIS-pfx-文檔"><a href="#生成-IIS-pfx-文檔" class="headerlink" title="生成 IIS pfx 文檔"></a>生成 IIS pfx 文檔</h3><p>以下命令 生成文檔 <code>iis.pfx</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/openssl pkcs12 -export -out "iis.pfx" -in "cert.pem" -inkey "private.pem"  -certfile "chain.pem" -password pass:123456</span><br></pre></td></tr></table></figure>
+
+<h3 id="解析-IIS-pfx-文檔"><a href="#解析-IIS-pfx-文檔" class="headerlink" title="解析 IIS pfx 文檔"></a>解析 IIS pfx 文檔</h3><p>會詢問輸入密碼。</p>
+<p>一下命令 生成 <code>ex.pem</code>。 這個文檔裡面包含 <code>cert.pem</code> <code>chain.pem</code> <code>private.pem</code> 內容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl pkcs12 -in iis.pfx -out ex.pem -nodes</span><br></pre></td></tr></table></figure>
+
+<h2 id="生成-private-key-和-csr"><a href="#生成-private-key-和-csr" class="headerlink" title="生成 private key 和 csr"></a>生成 private key 和 csr</h2><h3 id="生成-private-key"><a href="#生成-private-key" class="headerlink" title="生成 private key"></a>生成 private key</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl genrsa -out private_key.pem 4096</span><br></pre></td></tr></table></figure>
+
+<h3 id="生成-csr"><a href="#生成-csr" class="headerlink" title="生成 csr"></a>生成 csr</h3><p>根据生成的 private_key 生成 csr </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># openssl req -new -key private_key.pem -out req1.csr</span><br><span class="line">You are about to be asked to enter information that will be incorporated</span><br><span class="line">into your certificate request.</span><br><span class="line">What you are about to enter is what is called a Distinguished Name or a DN.</span><br><span class="line">There are quite a few fields but you can leave some blank</span><br><span class="line">For some fields there will be a default value,</span><br><span class="line">If you enter &#39;.&#39;, the field will be left blank.</span><br><span class="line">-----</span><br><span class="line">Country Name (2 letter code) [XX]:CN</span><br><span class="line">State or Province Name (full name) []:.</span><br><span class="line">Locality Name (eg, city) [Default City]:.</span><br><span class="line">Organization Name (eg, company) [Default Company Ltd]:.</span><br><span class="line">Organizational Unit Name (eg, section) []:.</span><br><span class="line">Common Name (eg, your name or your server&#39;s hostname) []:www.abc.com</span><br><span class="line">Email Address []:</span><br><span class="line"> </span><br><span class="line">Please enter the following &#39;extra&#39; attributes    # 下面两项几乎不用考虑，留空即可</span><br><span class="line">to be sent with your certificate request</span><br><span class="line">A challenge password []:.</span><br><span class="line">An optional company name []:.</span><br></pre></td></tr></table></figure>
+
+<h2 id="ssl"><a href="#ssl" class="headerlink" title="ssl"></a>ssl</h2><p>普通的csr crt private-key 都好理解。</p>
+<h3 id="chain-amp-ca-crt-amp-ca-cer"><a href="#chain-amp-ca-crt-amp-ca-cer" class="headerlink" title="chain &amp; ca.crt &amp; ca.cer"></a>chain &amp; ca.crt &amp; ca.cer</h3><p>.chain 或 ca.crt 或 ca.cer 本质都一样只是名字不同，对应的是 crt 中 Issuer 的 ssl证书（crt）</p>
+<h3 id="CA-amp-ca-bundle-amp-fullchain"><a href="#CA-amp-ca-bundle-amp-fullchain" class="headerlink" title="CA &amp; ca-bundle  &amp; fullchain"></a>CA &amp; ca-bundle  &amp; fullchain</h3><p>CA - 证书颁发机构英文简称为CA，负责签发、作废和保存证书，CA签发的证书称为CA证书</p>
+<p>abc-com.ca-bundle 是一組 CA证书。本质上也是一种crt (CERTIFICATE)。</p>
+<p>.ca-bundle 中有多个 crt (CERTIFICATE) 是逐层对应 Issuer 的 ssl证书（crt）。 </p>
+<p>第一个内容和 .chain 一样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fullchain &#x3D; domain.crt + ca.crt</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建多域名-csr"><a href="#创建多域名-csr" class="headerlink" title="创建多域名 csr"></a>创建多域名 csr</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成 privatekey</span></span><br><span class="line">openssl genrsa -out private_key.pem 4096 </span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成csr, 详见 ssl.conf</span></span><br><span class="line">openssl req -new -key private_key.pem -out req1.csr -config ssl.conf</span><br></pre></td></tr></table></figure>
+
+<p>ssl.conf</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[ req ]</span></span><br><span class="line"><span class="attr">default_bits</span>       = <span class="number">4096</span></span><br><span class="line"><span class="attr">distinguished_name</span> = req_distinguished_name</span><br><span class="line"><span class="attr">req_extensions</span>     = req_ext</span><br><span class="line"></span><br><span class="line"><span class="section">[ req_distinguished_name ]</span></span><br><span class="line"><span class="attr">countryName</span>                 = Country Name (<span class="number">2</span> letter code)</span><br><span class="line"><span class="attr">countryName_default</span>         = TW</span><br><span class="line"><span class="attr">stateOrProvinceName</span>         = State or Province Name (full name)</span><br><span class="line"><span class="attr">stateOrProvinceName_default</span> = Taipei</span><br><span class="line"><span class="attr">localityName</span>                = Locality Name (eg, city)</span><br><span class="line"><span class="attr">organizationName</span>            = Organization Name (eg, company)</span><br><span class="line"><span class="attr">commonName</span>                  = Common Name (e.g. server FQDN or YOUR name)</span><br><span class="line"><span class="attr">commonName_max</span>              = <span class="number">64</span></span><br><span class="line"><span class="attr">commonName_default</span>          = cc666.cc</span><br><span class="line"><span class="attr">emailAddress</span>                = Email Address (eg, admin@example.com)</span><br><span class="line"><span class="attr">emailAddress_max</span>            = <span class="number">64</span></span><br><span class="line"><span class="attr">emailAddress_default</span>        = maxinehuang.<span class="number">888</span>@gmail.com</span><br><span class="line"></span><br><span class="line"><span class="section">[ req_ext ]</span></span><br><span class="line"><span class="attr">subjectAltName</span> = @alt_names</span><br><span class="line"></span><br><span class="line"><span class="section">[alt_names]</span></span><br><span class="line"><span class="attr">DNS.1</span>   = cc666.co</span><br><span class="line"><span class="attr">DNS.2</span>   = cc666.org</span><br><span class="line"><span class="attr">DNS.3</span>   = cc666.cc</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-12/logrotate/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019-12/logrotate/" class="post-title-link" itemprop="url">logrotate 日期切割</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-12-26 14:23:52" itemprop="dateCreated datePublished" datetime="2019-12-26T14:23:52+08:00">2019-12-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-02 11:10:34" itemprop="dateModified" datetime="2020-09-02T11:10:34+08:00">2020-09-02</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>logrotate 是个十分有用的工具，它可以自动对日志进行截断（或轮循）、压缩以及删除旧的日志文件。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><code>/etc/logrotate.d/cwp</code> 文档</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;local&#x2F;apache&#x2F;logs&#x2F;*_log</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;apache&#x2F;domlogs&#x2F;*.log</span><br><span class="line">&#123;</span><br><span class="line">    daily</span><br><span class="line">    rotate 5</span><br><span class="line">    compress</span><br><span class="line">    missingok</span><br><span class="line">    notifempty</span><br><span class="line">    minsize 20M</span><br><span class="line">    create 644 nobody root</span><br><span class="line">    sharedscripts</span><br><span class="line">    postrotate</span><br><span class="line">        if [ -f &#x2F;var&#x2F;run&#x2F;nginx.pid ]; then</span><br><span class="line">            kill -USR1 &#96;cat &#x2F;var&#x2F;run&#x2F;nginx.pid&#96;</span><br><span class="line">        fi</span><br><span class="line">        if [ -f &#x2F;usr&#x2F;local&#x2F;apache&#x2F;logs&#x2F;httpd.pid ]; then</span><br><span class="line">            &#x2F;usr&#x2F;local&#x2F;apache&#x2F;bin&#x2F;apachectl graceful</span><br><span class="line">        fi</span><br><span class="line">    endscript</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><ol>
+<li>检测 <code>/usr/sbin/logrotate -dv /etc/logrotate.d/cwp</code></li>
+<li>强制执行 <code>/usr/sbin/logrotate -fv /etc/logrotate.d/cwp</code></li>
+</ol>
+<h2 id="重启信号"><a href="#重启信号" class="headerlink" title="重启信号"></a>重启信号</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kill -USR1 `cat /var/run/nginx.pid`</span><br><span class="line">kill -s HUP `cat /var/run/nginx.pid`</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-07/python-module/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -762,160 +929,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-06/ConEmu/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020-06/ConEmu/" class="post-title-link" itemprop="url">ConEmu</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-10 15:08:55 / 修改时间：17:47:55" itemprop="dateCreated datePublished" datetime="2020-06-10T15:08:55+08:00">2020-06-10</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>下载并解压 ConEmuPack.200604.7z。</p>
-<p>簡單的配置，使用 git-bash</p>
-<ol>
-<li><code>General</code> -&gt; <code>Cgoose color scheme</code> <code>Monokai</code></li>
-<li><code>General</code> -&gt; <code>Fonts</code></li>
-<li><code>General</code> -&gt; <code>Tab bar</code> 勾選 <code>Tabs on botton</code></li>
-<li><code>Features</code> -&gt; <code>Status bar</code> 取消勾選 <code>Show status bar</code></li>
-<li><code>Features</code> -&gt; <code>Transparency</code> 选择通明度</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/golang/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016-12/golang/" class="post-title-link" itemprop="url">go学习笔记 -- 杂记</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-19 17:41:24" itemprop="dateCreated datePublished" datetime="2016-12-19T17:41:24+08:00">2016-12-19</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-17 15:50:51" itemprop="dateModified" datetime="2020-05-17T15:50:51+08:00">2020-05-17</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="go-get"><a href="#go-get" class="headerlink" title="go get"></a>go get</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下載并安裝到 GOPATH目錄</span></span><br><span class="line">go get github.com/go-sql-driver/mysql</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更新</span></span><br><span class="line">go get -u github.com/go-sql-driver/mysql</span><br></pre></td></tr></table></figure>
-
-<h2 id="struct-tag"><a href="#struct-tag" class="headerlink" title="struct  tag"></a>struct  tag</h2><p>用双引号(double quote)或重音(backquote/grave accent)表示的字符串</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"reflect"</span></span><br><span class="line">)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">type</span> S <span class="keyword">struct</span> &#123;</span><br><span class="line">		F <span class="keyword">string</span> <span class="string">`species:"gopher" color:"blue"`</span></span><br><span class="line">	&#125;</span><br><span class="line">	s := S&#123;&#125;</span><br><span class="line">	st := reflect.TypeOf(s)</span><br><span class="line">	field := st.Field(<span class="number">0</span>)</span><br><span class="line">	fmt.Println(field.Tag.Get(<span class="string">"color"</span>), field.Tag.Get(<span class="string">"species"</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="exec"><a href="#exec" class="headerlink" title="exec"></a>exec</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cmd := exec.Command(<span class="string">"ruby"</span>, whois_app_path, u)</span><br><span class="line"><span class="keyword">var</span> out bytes.Buffer</span><br><span class="line">cmd.Stdout = &amp;out</span><br><span class="line">cmd.Run()</span><br></pre></td></tr></table></figure>
-<p>注意</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">exec.Command(<span class="string">"ruby"</span>, whois_app_path, u)</span><br><span class="line"># 第一个参数 是程序， 第二个参数为参数， 第三个参数为参数， 不用额外添加 引号</span><br></pre></td></tr></table></figure>
-<p>例如</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exec.Command(<span class="string">"ruby"</span>, <span class="string">"/root/whois/whois_api"</span>, <span class="string">"baidu.com 080.tw 080.net"</span>)</span><br></pre></td></tr></table></figure>
-<p>如果參數過多可以使用</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exec.Command(<span class="string">"/bin/sh"</span>, <span class="string">"-c"</span>, <span class="string">"aaa -a a -b b -c c -d d -e d"</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="cli-fromework"><a href="#cli-fromework" class="headerlink" title="cli fromework"></a>cli fromework</h2><p><a href="https://carlosbecker.com/posts/golang-cli-apps/" target="_blank" rel="noopener">https://carlosbecker.com/posts/golang-cli-apps/</a></p>
-<p><a href="https://github.com/spf13/cobra" target="_blank" rel="noopener">https://github.com/spf13/cobra</a></p>
-<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><ul>
-<li>-s 去掉符号信息</li>
-<li>-w 去掉DWARF调试信息，得到的程序就不能用gdb调试了</li>
-</ul>
-<p>不建议s和w同时使用。</p>
-<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> build -ldflags -w test.<span class="keyword">go</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="upx"><a href="#upx" class="headerlink" title="upx"></a>upx</h3><p>压缩为可执行文档</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -966,7 +979,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">159</span>
+          <span class="site-state-item-count">160</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

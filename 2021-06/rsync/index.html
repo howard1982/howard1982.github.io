@@ -50,20 +50,20 @@
   };
 </script>
 
-  <meta name="description" content="简单操作 Table 表 Chain 链 iptables -D chain rulenum 清除某条  12Table  Chain            num   pkts bytes target     prot opt in     out     source               destination  filter CXS_LF_CPANEL    12       0">
+  <meta name="description" content="安裝yum -y install rsync 使用說明rsync -av &#x2F;var&#x2F;www&#x2F;html &#x2F;backup&#x2F;2020-05-24.0331&#x2F;web  12345Local:  rsync [OPTION...] SRC... [DEST] Access via remote shell:  Pull: rsync [OPTION...] [USER@]HOST:SRC... [DEST]">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iptables">
-<meta property="og:url" content="http://blog.howard.me/2019-07/iptables/index.html">
+<meta property="og:title" content="rsync 使用說明">
+<meta property="og:url" content="http://blog.howard.me/2021-06/rsync/index.html">
 <meta property="og:site_name" content="Howard&#39;s Blog">
-<meta property="og:description" content="简单操作 Table 表 Chain 链 iptables -D chain rulenum 清除某条  12Table  Chain            num   pkts bytes target     prot opt in     out     source               destination  filter CXS_LF_CPANEL    12       0">
+<meta property="og:description" content="安裝yum -y install rsync 使用說明rsync -av &#x2F;var&#x2F;www&#x2F;html &#x2F;backup&#x2F;2020-05-24.0331&#x2F;web  12345Local:  rsync [OPTION...] SRC... [DEST] Access via remote shell:  Pull: rsync [OPTION...] [USER@]HOST:SRC... [DEST]">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-07-01T09:02:42.000Z">
-<meta property="article:modified_time" content="2019-09-18T01:04:00.288Z">
+<meta property="article:published_time" content="2021-06-21T06:27:17.000Z">
+<meta property="article:modified_time" content="2021-06-21T06:44:41.381Z">
 <meta property="article:author" content="Howard">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://blog.howard.me/2019-07/iptables/">
+<link rel="canonical" href="http://blog.howard.me/2021-06/rsync/">
 
 
 <script id="page-configurations">
@@ -77,7 +77,7 @@
   };
 </script>
 
-  <title>iptables | Howard's Blog</title>
+  <title>rsync 使用說明 | Howard's Blog</title>
   
 
 
@@ -213,7 +213,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-07/iptables/">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2021-06/rsync/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/apple-touch-icon-next.png">
@@ -226,7 +226,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          iptables
+          rsync 使用說明
         </h1>
 
         <div class="post-meta">
@@ -235,16 +235,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2019-07-01 17:02:42" itemprop="dateCreated datePublished" datetime="2019-07-01T17:02:42+08:00">2019-07-01</time>
+              <time title="创建时间：2021-06-21 14:27:17 / 修改时间：14:44:41" itemprop="dateCreated datePublished" datetime="2021-06-21T14:27:17+08:00">2021-06-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-18 09:04:00" itemprop="dateModified" datetime="2019-09-18T09:04:00+08:00">2019-09-18</time>
-              </span>
 
           
 
@@ -257,23 +251,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="简单操作"><a href="#简单操作" class="headerlink" title="简单操作"></a>简单操作</h2><ul>
-<li>Table 表</li>
-<li>Chain 链</li>
-<li>iptables -D chain rulenum 清除某条</li>
+        <h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><p><code>yum -y install rsync</code></p>
+<h2 id="使用說明"><a href="#使用說明" class="headerlink" title="使用說明"></a>使用說明</h2><p><code>rsync -av /var/www/html /backup/2020-05-24.0331/web</code> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Local:  rsync [OPTION...] SRC... [DEST]</span><br><span class="line"> </span><br><span class="line">Access via remote shell:</span><br><span class="line">  Pull: rsync [OPTION...] [USER@]HOST:SRC... [DEST]</span><br><span class="line">  Push: rsync [OPTION...] SRC... [USER@]HOST:DEST</span><br></pre></td></tr></table></figure>
+
+<h2 id="參數說明"><a href="#參數說明" class="headerlink" title="參數說明"></a>參數說明</h2><ul>
+<li><code>-v</code>, –verbose 详细模式输出</li>
+<li><code>-a</code>, –archive 归档模式，表示以递归方式传输文件，并保持所有文件属性，等于-rlptgoD</li>
+<li><code>--delete</code> 删除那些DST中SRC没有的文件</li>
+<li><code>--exclude</code> 排除</li>
+<li><code>--include</code> 包含，</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Table  Chain            num   pkts bytes target     prot opt in     out     source               destination  </span><br><span class="line">filter CXS_LF_CPANEL    12       0     0 DROP       all  --  *      *       203.195.218.49       0.0.0.0&#x2F;0</span><br></pre></td></tr></table></figure>
+<p>例如 <code>rsync -av --include=&quot;*.txt&quot; --exclude=&#39;*&#39; source/ destination</code></p>
+<ul>
+<li><code>--link-dest</code> 增量備份</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync -av --delete /var/www/html/ --link-dest /backup/yestarday_dir --exclude=".cache" /backup/today_dir</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查找</span></span><br><span class="line">iptables -L CXS_LF_CPANEL --line-numbers | grep xxx.xxx.xxx</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 刪除， 157就是對應的number</span></span><br><span class="line">iptables -D CXS_LF_CPANEL 157</span><br></pre></td></tr></table></figure>
 
-<h2 id="cxs"><a href="#cxs" class="headerlink" title="cxs"></a>cxs</h2><p>如果有類似 <code>CXS_LF_SSHD</code> <code>CXS_LF_CPANEL</code> 的防火墻規則。 需要先刪除 <code>/var/lib/csf/csf.block.CXS_LF_SSHD</code> 對應的ip 然後在重啟 csf <code>csf -ra</code></p>
-<p>[參考 cxs][/2019-05/cxs/]</p>
-<h2 id="快速刪除"><a href="#快速刪除" class="headerlink" title="快速刪除"></a>快速刪除</h2><p><code>iptables -S</code>。 因爲 <code>iptables -L</code> 在規則很多的時候很慢。找到了其他參數 <code>-S, --list-rules</code> 。例如 <code>iptables -S CXS_LF_SSHD</code> CXS_LF_SSHD 是 chain 的名稱</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查找</span></span><br><span class="line">iptables -S CXS_LF_SSHD | grep 51.77.213.181</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 得到結果</span></span><br><span class="line">-A CXS_LF_SSHD -s 178.62.30.249/32 -j DROP</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 刪除， 157就是對應的number</span></span><br><span class="line">iptables -D CXS_LF_SSHD -s 178.62.30.249/32 -j DROP</span><br></pre></td></tr></table></figure>
-
-<p><code>-s 178.62.30.249/32 -j DROP</code> 是 查詢結果中的規則</p>
+<h2 id="Other"><a href="#Other" class="headerlink" title="Other"></a>Other</h2><p>參考 <a href="http://www.ruanyifeng.com/blog/2020/08/rsync.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2020/08/rsync.html</a></p>
 
     </div>
 
@@ -290,17 +286,14 @@
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019-06/ajax-cors/" rel="next" title="ajax cors 跨域访问">
-                  <i class="fa fa-chevron-left"></i> ajax cors 跨域访问
+                <a href="/2021-06/apache-MPM/" rel="next" title="Apache MPM">
+                  <i class="fa fa-chevron-left"></i> Apache MPM
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019-07/mail-mx/" rel="prev" title="mail 没有設定 MX 記錄">
-                  mail 没有設定 MX 記錄 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
       </footer>
@@ -339,7 +332,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单操作"><span class="nav-number">1.</span> <span class="nav-text">简单操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cxs"><span class="nav-number">2.</span> <span class="nav-text">cxs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速刪除"><span class="nav-number">3.</span> <span class="nav-text">快速刪除</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安裝"><span class="nav-number">1.</span> <span class="nav-text">安裝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用說明"><span class="nav-number">2.</span> <span class="nav-text">使用說明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參數說明"><span class="nav-number">3.</span> <span class="nav-text">參數說明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Other"><span class="nav-number">4.</span> <span class="nav-text">Other</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

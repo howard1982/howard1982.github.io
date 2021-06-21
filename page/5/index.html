@@ -208,6 +208,151 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-10/apache-log/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018-10/apache-log/" class="post-title-link" itemprop="url">apache log 日志回滚</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-10-22 11:38:11" itemprop="dateCreated datePublished" datetime="2018-10-22T11:38:11+08:00">2018-10-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-26 14:23:27" itemprop="dateModified" datetime="2019-12-26T14:23:27+08:00">2019-12-26</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>防止 apache log过大。 注： 該方法 必須要額外寫<code>定期刪除</code>文檔功能。推薦使用 系統 <code>logrotate</code> 功能。</p>
+<h2 id="安装-rotatelogs"><a href="#安装-rotatelogs" class="headerlink" title="安装 rotatelogs"></a>安装 rotatelogs</h2><p>如果 /usr/local/apache/bin/rotatelogs 不存在则安装。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> centos 7</span></span><br><span class="line">yum install httpd-tools</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#ErrorLog &quot;logs&#x2F;error_log&quot;</span><br><span class="line">ErrorLog &quot;| &#x2F;usr&#x2F;local&#x2F;apache&#x2F;bin&#x2F;rotatelogs logs&#x2F;%Y_%m_%d_error_log 86400 480&quot;</span><br><span class="line"></span><br><span class="line">#CustomLog &quot;logs&#x2F;access_log&quot; common</span><br><span class="line">CustomLog &quot;| &#x2F;usr&#x2F;local&#x2F;apache&#x2F;bin&#x2F;rotatelogs logs&#x2F;%Y_%m_%d_access_log 86400 480&quot; common</span><br></pre></td></tr></table></figure>
+
+<p><code>86400 480</code> 是指 每个文档先知86400秒（24小时）。480 单位是分钟，时间偏移8小时（对应时区）。</p>
+<p>注： 必須要額外寫<code>定期刪除</code>文檔功能</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-12/IBM-Storage-Api/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019-12/IBM-Storage-Api/" class="post-title-link" itemprop="url">IBM Storage Api</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-17 14:46:26 / 修改时间：15:30:18" itemprop="dateCreated datePublished" datetime="2019-12-17T14:46:26+08:00">2019-12-17</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>參考 <a href="https://cloud.ibm.com/docs/services/cloud-object-storage/cli?topic=cloud-object-storage-aws-cli" target="_blank" rel="noopener">https://cloud.ibm.com/docs/services/cloud-object-storage/cli?topic=cloud-object-storage-aws-cli</a></p>
+<h1 id="AWS-CLI"><a href="#AWS-CLI" class="headerlink" title="AWS CLI"></a>AWS CLI</h1><p>AWS 的官方命令行界面与 IBM COS S3 API 兼容。</p>
+<h2 id="install"><a href="#install" class="headerlink" title="install"></a>install</h2><p><code>pip install awscli</code></p>
+<h2 id="參數"><a href="#參數" class="headerlink" title="參數"></a>參數</h2><p><code>{Access Key ID}</code> <code>{Secret Access Key}</code> 需要創建服務憑證 例如</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">"cos_hmac_keys": &#123;</span><br><span class="line">    "access_key_id": "xxxx",</span><br><span class="line">    "secret_access_key": "ddddd"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>{endpoint}</code> 在 <code>存储区 》 配置</code> 中有详细的记录。 </p>
+<h2 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h2><p><code>~/.aws/credentials</code></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[default]</span></span><br><span class="line"><span class="attr">aws_access_key_id</span> = &#123;Access Key ID&#125;</span><br><span class="line"><span class="attr">aws_secret_access_key</span> = &#123;Secret Access Key&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Crontab 下自動執行 可以使用 全局變量覆蓋</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export AWS_ACCESS_KEY_ID="&#123;Access Key ID&#125;"</span><br><span class="line">export AWS_SECRET_ACCESS_KEY="&#123;Secret Access Key&#125;"</span><br></pre></td></tr></table></figure>
+
+<h2 id="预签名Url"><a href="#预签名Url" class="headerlink" title="预签名Url"></a>预签名Url</h2><p>参考 <a href="https://cloud.ibm.com/docs/services/cloud-object-storage/cli?topic=cloud-object-storage-presign-url" target="_blank" rel="noopener">https://cloud.ibm.com/docs/services/cloud-object-storage/cli?topic=cloud-object-storage-presign-url</a></p>
+<p>使用 awscli 命令最为快捷</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2018-04/javascript/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -746,148 +891,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-08/golang-package/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019-08/golang-package/" class="post-title-link" itemprop="url">golang package</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-08-03 13:29:14" itemprop="dateCreated datePublished" datetime="2019-08-03T13:29:14+08:00">2019-08-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-08-11 17:00:05" itemprop="dateModified" datetime="2019-08-11T17:00:05+08:00">2019-08-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>go import 的包是由 包路径/包名 组合而成的。</p>
-<ul>
-<li>目录名称必须和包的名称一样</li>
-<li>统一个目录下只能定义一个包名</li>
-</ul>
-<h2 id="import-别名"><a href="#import-别名" class="headerlink" title="import 别名"></a>import 别名</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    myNet3 <span class="string">"t4/net3"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<h2 id="import-特殊"><a href="#import-特殊" class="headerlink" title="import 特殊"></a>import 特殊</h2><h3 id="点操作"><a href="#点操作" class="headerlink" title="点操作"></a>点操作</h3><p>. 导入可以让包内的方法注册到当前包的上下文中，直接调用方法名即可，不需要再加包前缀。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    . <span class="string">"t4/net3"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<h3 id="下划线操作"><a href="#下划线操作" class="headerlink" title="下划线操作"></a>下划线操作</h3><p>_ 是包引用操作，只会执行包下各模块中的 init 方法，并不会真正的导入包，所以不可以调用包内的其他方法。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    _ <span class="string">"t4/net3"</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<p>每个包中可以在任意文档中定义 init 方法。 如果定义多个，则都会加载。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-08/pypi/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019-08/pypi/" class="post-title-link" itemprop="url">pypi</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-08-11 16:26:48 / 修改时间：16:34:09" itemprop="dateCreated datePublished" datetime="2019-08-11T16:26:48+08:00">2019-08-11</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="配置-pip-ini"><a href="#配置-pip-ini" class="headerlink" title="配置 pip.ini"></a>配置 pip.ini</h2><ul>
-<li>linux: <code>$HOME/.pip/pip.conf</code></li>
-<li>windows: <code>%HOME%\pip\pip.ini</code></li>
-</ul>
-<h2 id="使用镜像"><a href="#使用镜像" class="headerlink" title="使用镜像"></a>使用镜像</h2><p>aliyun镜像</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[global]</span></span><br><span class="line"><span class="attr">index-url</span> = https://mirrors.aliyun.com/pypi/simple/</span><br><span class="line"></span><br><span class="line"><span class="section">[install]</span></span><br><span class="line"><span class="attr">trusted-host</span>=mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -938,7 +941,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">159</span>
+          <span class="site-state-item-count">160</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
