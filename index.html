@@ -208,6 +208,82 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-10/incremental-back/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019-10/incremental-back/" class="post-title-link" itemprop="url">incremental back 增量备份</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-10-11 18:25:12" itemprop="dateCreated datePublished" datetime="2019-10-11T18:25:12+08:00">2019-10-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-29 14:51:53" itemprop="dateModified" datetime="2021-06-29T14:51:53+08:00">2021-06-29</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>以文件为最小的单位。 利用 linux 的硬链接 (Hard link) 特性（多个link不会增加磁盘，删除某个不会影响其他的）空间来实现。</p>
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><p>rsync 命令</p>
+<ul>
+<li><code>--link-dest</code> 增量備份</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync -av --delete /var/www/html/ --link-dest /backup/yestarday_dir --exclude=".cache" /backup/today_dir</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ol>
+<li>通过 <code>ls -i</code> 命令  可以查看文件的编号。 如果编号一样则表示是 硬链接。或用 <code>stat [file]</code> 命令查看更详细的信息</li>
+<li>删除某个硬链接文档，不影响其他的</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2021-06/rsync/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -866,98 +942,6 @@
 <blockquote>
 <p>为什么有了uWSGI为什么还需要nginx？因为nginx具备优秀的静态内容处理能力，然后将动态内容转发给uWSGI服务器，这样可以达到很好的客户端响应。</p>
 </blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-02/systemd/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019-02/systemd/" class="post-title-link" itemprop="url">systemd 简单实例</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-02-20 17:53:48" itemprop="dateCreated datePublished" datetime="2019-02-20T17:53:48+08:00">2019-02-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-04-26 15:52:14" itemprop="dateModified" datetime="2021-04-26T15:52:14+08:00">2021-04-26</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>systemd systemctl</p>
-<h2 id="systemctl-常用命令"><a href="#systemctl-常用命令" class="headerlink" title="systemctl 常用命令"></a>systemctl 常用命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">systemctl list-unit-files # 列出所有配置文件</span><br><span class="line">systemctl list-unit-files --type=service # 列表所有 service</span><br><span class="line">systemctl list-unit-files | grep php # 搜索 php</span><br><span class="line"></span><br><span class="line">systemctl stauts httpd</span><br><span class="line">systemctl restart httpd</span><br><span class="line">systemctl stop httpd</span><br><span class="line">systemctl start httpd</span><br></pre></td></tr></table></figure>
-
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>安装基本python插件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install flask</span><br><span class="line">pip install gunicorn</span><br></pre></td></tr></table></figure>
-
-<p>创建文档 <code>/root/bin/rot13.py</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route("/")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello World!"</span></span><br></pre></td></tr></table></figure>
-
-<p>测试以上程序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;local&#x2F;bin&#x2F;gunicorn -w 4 -b 0.0.0.0:8080 rot13:app</span><br></pre></td></tr></table></figure>
-
-<h2 id="配置-systemd"><a href="#配置-systemd" class="headerlink" title="配置 systemd"></a>配置 systemd</h2><p>Systemd是一个系统管理守护进程、工具和库的集合</p>
-<p>创建文档<code>/etc/systemd/system/rot13.service</code></p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Unit]</span></span><br><span class="line"><span class="attr">Description</span>=ROT13 demo service</span><br><span class="line"><span class="attr">After</span>=network.target</span><br><span class="line"><span class="attr">After</span>=syslog.target</span><br><span class="line"></span><br><span class="line"><span class="section">[Service]</span></span><br><span class="line"><span class="attr">Type</span>=simple</span><br><span class="line"><span class="attr">Restart</span>=always</span><br><span class="line"><span class="attr">User</span>=root</span><br><span class="line"><span class="attr">WorkingDirectory</span>=/root/bin</span><br><span class="line"><span class="attr">ExecStart</span>=/usr/local/bin/gunicorn -w <span class="number">4</span> -b <span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">8080</span> rot13:app</span><br><span class="line"></span><br><span class="line"><span class="section">[Install]</span></span><br><span class="line"><span class="attr">WantedBy</span>=multi-user.target</span><br></pre></td></tr></table></figure>
-
-<p>启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start rot13.service</span><br></pre></td></tr></table></figure>
-
-<p>开机启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable rot13.service</span><br></pre></td></tr></table></figure>
-
-<h3 id="配置说明"><a href="#配置说明" class="headerlink" title="配置说明"></a>配置说明</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Restart</span>=<span class="literal">no</span> <span class="comment"># (默认值) 表示不会被重启。</span></span><br><span class="line"></span><br><span class="line"><span class="attr">Restart</span>=always <span class="comment">#表示会被无条件的重启</span></span><br><span class="line"></span><br><span class="line"><span class="attr">Restart</span>=<span class="literal">on</span>-failure</span><br></pre></td></tr></table></figure>
-
-<h2 id="配置防火墙"><a href="#配置防火墙" class="headerlink" title="配置防火墙"></a>配置防火墙</h2><p>Ubuntu 为例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow 8080</span><br></pre></td></tr></table></figure>
-
-<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><p><a href="https://www.cnblogs.com/zwcry/p/9602756.html" target="_blank" rel="noopener">https://www.cnblogs.com/zwcry/p/9602756.html</a></p>
 
       
     </div>
