@@ -208,6 +208,107 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-10/flask-run/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017-10/flask-run/" class="post-title-link" itemprop="url">Flask</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-10-21 17:14:52" itemprop="dateCreated datePublished" datetime="2017-10-21T17:14:52+08:00">2017-10-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-28 13:30:31" itemprop="dateModified" datetime="2021-04-28T13:30:31+08:00">2021-04-28</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Flask"><a href="#Flask" class="headerlink" title="Flask"></a>Flask</h2><p>Python Web 框架</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建文档"><a href="#创建文档" class="headerlink" title="创建文档"></a>创建文档</h3><p>创建 h1.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route("/")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"Hello World!"</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Gunicorn"><a href="#Gunicorn" class="headerlink" title="Gunicorn"></a>Gunicorn</h2><p>作为一个HTTP Server</p>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install gunicorn</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gunicorn -w 4 -b 0.0.0.0:8080 h1:app</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>h1 是文檔名稱</li>
+<li>app 是Flask實例</li>
+</ul>
+<h3 id="開機啟動"><a href="#開機啟動" class="headerlink" title="開機啟動"></a>開機啟動</h3><p>安裝 supervisor</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install supervisor</span><br></pre></td></tr></table></figure>
+
+<p>創建<code>/etc/supervisor/conf.d/h1.conf</code>文檔（ubuntu）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[program:h1]</span><br><span class="line">command&#x3D;gunicorn -w 4 -b 0.0.0.0:8080 h1:app</span><br><span class="line">directory&#x3D;&#x2F;root&#x2F;bin</span><br><span class="line">user&#x3D;root</span><br><span class="line">autostart&#x3D;true</span><br><span class="line">autorestart&#x3D;true</span><br><span class="line">redirect_stderr&#x3D;true</span><br></pre></td></tr></table></figure>
+
+<p>注意 ip 0.0.0.0 對應所有ip。</p>
+<h4 id="简单的启动"><a href="#简单的启动" class="headerlink" title="简单的启动"></a>简单的启动</h4><p>修改 <code>/etc/rc.local</code> 文档</p>
+<p><code>nohup gunicorn -w 4 -b 0.0.0.0:8080 /root/bin/h1:app &amp;</code></p>
+<h2 id="uWSGI"><a href="#uWSGI" class="headerlink" title="uWSGI"></a>uWSGI</h2><h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h3><p><code>pip3 install uwsgi</code></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>h1.py 增加 執行文件，或配置虛擬環境 virtualenv</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!&#x2F;usr&#x2F;bin&#x2F;env python3</span><br><span class="line">from flask import Flask</span><br><span class="line"></span><br><span class="line">app &#x3D; Flask(__name__)</span><br><span class="line"></span><br><span class="line">@app.route(&quot;&#x2F;&quot;)</span><br><span class="line">def hello():</span><br><span class="line">    return &quot;Hello World!&quot;</span><br></pre></td></tr></table></figure>
+
+<p>virtualenv 參考 <a href="https://www.cnblogs.com/oyaisusu/p/13817081.html" target="_blank" rel="noopener">https://www.cnblogs.com/oyaisusu/p/13817081.html</a></p>
+<h3 id="命令執行"><a href="#命令執行" class="headerlink" title="命令執行"></a>命令執行</h3><p><code>uwsgi --http :8180 --wsgi-file h1.py --callable=app</code></p>
+<h3 id="配置文檔"><a href="#配置文檔" class="headerlink" title="配置文檔"></a>配置文檔</h3><p>uwsgi.ini</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[uwsgi]</span><br><span class="line">http&#x3D;:8180</span><br><span class="line">wsgi-file&#x3D;&#x2F;root&#x2F;bin&#x2F;h1.py</span><br><span class="line">callable&#x3D;app</span><br></pre></td></tr></table></figure>
+
+<p>執行命令 <code>uwsgi uwsgi.ini</code></p>
+<blockquote>
+<p>为什么有了uWSGI为什么还需要nginx？因为nginx具备优秀的静态内容处理能力，然后将动态内容转发给uWSGI服务器，这样可以达到很好的客户端响应。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-02/systemd/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -874,94 +975,6 @@
 <h2 id="host-only-主机模式"><a href="#host-only-主机模式" class="headerlink" title="host-only 主机模式"></a>host-only 主机模式</h2><p>VMware Network Adapter VMnet1。 虚拟网络的DHCP服务器来动态分配的。</p>
 <h2 id="NAT-网络地址转换模式"><a href="#NAT-网络地址转换模式" class="headerlink" title="NAT 网络地址转换模式"></a>NAT 网络地址转换模式</h2><p>VMware Network Adapter VMnet8。就是让虚拟系统借助NAT(网络地址转换)功能，通过宿主机器所在的网络来访问公网。 vmware 虚拟出一个网络IP段。</p>
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>所以我把 Windows系统中 <code>控制面板\网络和 Internet\网络连接</code> 中的 <code>VMware Network Adapter VMnet1</code> 和 <code>VMware Network Adapter VMnet8</code> 关闭了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-06/ftp-sync/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020-06/ftp-sync/" class="post-title-link" itemprop="url">ftp 同步</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-10 17:47:15" itemprop="dateCreated datePublished" datetime="2020-06-10T17:47:15+08:00">2020-06-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-10-12 16:43:06" itemprop="dateModified" datetime="2020-10-12T16:43:06+08:00">2020-10-12</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="步驟"><a href="#步驟" class="headerlink" title="步驟"></a>步驟</h2><ol>
-<li><p>安裝 lftp</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install lftp</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置</p>
-</li>
-</ol>
-<p><code>/etc/lftp.conf</code> 添加一下內容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">set ssl:verify-certificate no</span><br><span class="line">set ftp:passive-mode off</span><br><span class="line">set net:max-retries 2; #最大重试次数</span><br><span class="line">set net:reconnect-interval-base 10; #第一次连接失败时重试间隔</span><br><span class="line">set net:reconnect-interval-multiplier 2; #每次重试间隔为</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>程序</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">login="user"</span><br><span class="line">pass="password"</span><br><span class="line">host="1.2.3.4"</span><br><span class="line">remote_dir="/demo/uploads"</span><br><span class="line">local_dir="/home/xxxxx/public_html/uploads"</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">trap "rm -f /tmp/lftp-mirror.lock" SIGINT SIGTERM</span><br><span class="line">if [ -e /tmp/lftp-mirror.lock ]</span><br><span class="line">then</span><br><span class="line">echo "mirror is running already, rm /tmp/lftp-mirror.lock if this is false."</span><br><span class="line">exit 1</span><br><span class="line">else</span><br><span class="line">touch /tmp/mirror</span><br><span class="line">lftp -u $login,$pass ftp://$host &lt;&lt; EOF</span><br><span class="line">cd $remote_dir</span><br><span class="line">lcd $local_dir</span><br><span class="line">mirror -R -c --parallel=20</span><br><span class="line">quit</span><br><span class="line">EOF</span><br><span class="line">rm -f /tmp/lftp-mirror.lock</span><br><span class="line">trap - SIGINT SIGTERM</span><br><span class="line">exit 0</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>排程</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*&#x2F;15 * * * * &#x2F;root&#x2F;bin&#x2F;cn_rsync.sh</span><br></pre></td></tr></table></figure>
-
-<h2 id="排錯"><a href="#排錯" class="headerlink" title="排錯"></a>排錯</h2><p>有時候會連接錯誤但是不知道什麼原因， 可以使用 ftp 命令。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ftp</span><br><span class="line">&gt; open xxxxx</span><br></pre></td></tr></table></figure>
-
-<p>可能會出現 <em>連接超過xxx</em></p>
 
       
     </div>
