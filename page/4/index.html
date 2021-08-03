@@ -208,6 +208,67 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-08/golang-cli/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020-08/golang-cli/" class="post-title-link" itemprop="url">golang cli</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-09 15:35:13 / 修改时间：15:45:55" itemprop="dateCreated datePublished" datetime="2020-08-09T15:35:13+08:00">2020-08-09</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="urfave-cli-v2"><a href="#urfave-cli-v2" class="headerlink" title="urfave/cli v2"></a>urfave/cli v2</h2><p>文档 <a href="https://github.com/urfave/cli" target="_blank" rel="noopener">https://github.com/urfave/cli</a></p>
+<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p><code>spf13/cobra</code> 和 <code>urfave/cli</code> 都是很好的 cli framework。</p>
+<p><code>urfave/cli</code> 更简洁一些；<code>spf13/cobra</code> 支持 generator，协助生成项目，功能更强大一些；</p>
+<h3 id="范例"><a href="#范例" class="headerlink" title="范例"></a>范例</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">	<span class="string">"github.com/urfave/cli/v2"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	app := &amp;cli.App&#123;</span><br><span class="line">		Commands: []*cli.Command&#123;</span><br><span class="line">			&#123;</span><br><span class="line">				Name:  <span class="string">"run"</span>,</span><br><span class="line">				Usage: <span class="string">"complete a task on the list"</span>,</span><br><span class="line">				Action: <span class="function"><span class="keyword">func</span><span class="params">(c *cli.Context)</span> <span class="title">error</span></span> &#123;</span><br><span class="line">					backupRun()</span><br><span class="line">					backupClean()</span><br><span class="line">					<span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">				&#125;,</span><br><span class="line">			&#125;,</span><br><span class="line">		&#125;,</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	err := app.Run(os.Args)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		log.Fatal(err)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-06/php-error-log/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -864,72 +925,6 @@
 <li>-v 详细输出模式</li>
 <li>–stats 给出某些文件的传输状态</li>
 </ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-02/php-ext/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020-02/php-ext/" class="post-title-link" itemprop="url">单独编译 php 扩展</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-02-11 16:23:25 / 修改时间：16:44:58" itemprop="dateCreated datePublished" datetime="2020-02-11T16:23:25+08:00">2020-02-11</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd ext/mbstring/</span><br><span class="line">/opt/php72/bin/phpize</span><br><span class="line">./configure  --enable-my_module --with-php-config=/opt/php72/bin/php-config</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li><code>/opt/php72</code> 是已经存在的php 安装目录。</li>
-<li>单独编译 mbstring 模块</li>
-</ol>
-<h2 id="配置-amp-加载"><a href="#配置-amp-加载" class="headerlink" title="配置&amp;加载"></a>配置&amp;加载</h2><p>在文档中 <code>/opt/php72/lib/php.ini</code> 增加一下内容</p>
-<p>```<br>extension=/opt/php72/lib/php/extensions/no-debug-non-zts-20170718/mbstring.so<br>``</p>
 
       
     </div>

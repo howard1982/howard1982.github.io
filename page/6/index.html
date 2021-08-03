@@ -208,6 +208,82 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-10/ufw/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017-10/ufw/" class="post-title-link" itemprop="url">ufw 防火墙管理工具</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-10-21 20:07:09" itemprop="dateCreated datePublished" datetime="2017-10-21T20:07:09+08:00">2017-10-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-08-11 17:30:03" itemprop="dateModified" datetime="2019-08-11T17:30:03+08:00">2019-08-11</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>ufw是一个主机端的iptables类防火墙配置工具</p>
+<h2 id="一般使用"><a href="#一般使用" class="headerlink" title="一般使用"></a>一般使用</h2><ul>
+<li>启用 <code>ufw enable</code></li>
+<li>关闭 <code>ufw disable</code></li>
+<li>查看防火墙状态 <code>fw status</code></li>
+</ul>
+<h2 id="开启-禁用相应端口或服务举例"><a href="#开启-禁用相应端口或服务举例" class="headerlink" title="开启/禁用相应端口或服务举例"></a>开启/禁用相应端口或服务举例</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ufw allow 80 #允许外部访问80端口</span><br><span class="line">ufw delete allow 80 #禁止外部访问80 端口</span><br><span class="line">ufw allow from 192.168.1.1 #允许此IP访问所有的本机端口</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装完成后记得 启动 <code>ufw enable</code>。 查看是否运行 <code>ufw status</code></p>
+<h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ufw</span><br></pre></td></tr></table></figure>
+
+<h3 id="Centos"><a href="#Centos" class="headerlink" title="Centos"></a>Centos</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install epel-release -y</span><br><span class="line">yum install --enablerepo="epel" ufw -y</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-08/golang-package/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -889,67 +965,6 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">列出所有可使用的镜像</span></span><br><span class="line">composer repo:ls</span><br><span class="line"><span class="meta">#</span><span class="bash">切换镜像</span></span><br><span class="line">composer repo:use</span><br></pre></td></tr></table></figure>
 
 <h3 id="Composer源"><a href="#Composer源" class="headerlink" title="Composer源"></a>Composer源</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ composer repo:ls</span><br><span class="line"></span><br><span class="line"> --- --------------- ------------------------------------------------</span><br><span class="line">      composer        https:&#x2F;&#x2F;packagist.org</span><br><span class="line">      phpcomposer     https:&#x2F;&#x2F;packagist.phpcomposer.com</span><br><span class="line">      aliyun          https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;composer</span><br><span class="line">      tencent         https:&#x2F;&#x2F;mirrors.cloud.tencent.com&#x2F;composer</span><br><span class="line">      huawei          https:&#x2F;&#x2F;mirrors.huaweicloud.com&#x2F;repository&#x2F;php</span><br><span class="line">      laravel-china   https:&#x2F;&#x2F;packagist.laravel-china.org</span><br><span class="line">  *   cnpkg           https:&#x2F;&#x2F;php.cnpkg.org</span><br><span class="line">      sjtug           https:&#x2F;&#x2F;packagist.mirrors.sjtug.sjtu.edu.cn</span><br><span class="line"> --- --------------- ------------------------------------------------</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-07/mail-mx/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019-07/mail-mx/" class="post-title-link" itemprop="url">mail 没有設定 MX 記錄</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-07-10 16:51:26 / 修改时间：16:53:47" itemprop="dateCreated datePublished" datetime="2019-07-10T16:51:26+08:00">2019-07-10</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>今天發現一個奇怪的現象 某個二級域名（mail.xxx.com） 沒有設定 mx記錄 。但是 郵箱（<a href="mailto:abc@mail.xxx.com">abc@mail.xxx.com</a>）還可以收信。</p>
-<p>查詢 google 得到結果：如果沒有MX記錄，則讀取A記錄對應的內容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">RFC 5321</span><br><span class="line">if no MX record is present mail servers should fall back to the A record for the domain.</span><br></pre></td></tr></table></figure>
-
       
     </div>
 

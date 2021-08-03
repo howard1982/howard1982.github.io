@@ -208,6 +208,72 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-02/php-ext/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020-02/php-ext/" class="post-title-link" itemprop="url">单独编译 php 扩展</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-02-11 16:23:25 / 修改时间：16:44:58" itemprop="dateCreated datePublished" datetime="2020-02-11T16:23:25+08:00">2020-02-11</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd ext/mbstring/</span><br><span class="line">/opt/php72/bin/phpize</span><br><span class="line">./configure  --enable-my_module --with-php-config=/opt/php72/bin/php-config</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><code>/opt/php72</code> 是已经存在的php 安装目录。</li>
+<li>单独编译 mbstring 模块</li>
+</ol>
+<h2 id="配置-amp-加载"><a href="#配置-amp-加载" class="headerlink" title="配置&amp;加载"></a>配置&amp;加载</h2><p>在文档中 <code>/opt/php72/lib/php.ini</code> 增加一下内容</p>
+<p>```<br>extension=/opt/php72/lib/php/extensions/no-debug-non-zts-20170718/mbstring.so<br>``</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-01/check-mobile/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -793,82 +859,6 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install epel-release -y</span><br></pre></td></tr></table></figure>
 
 
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2017-10/ufw/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017-10/ufw/" class="post-title-link" itemprop="url">ufw 防火墙管理工具</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-10-21 20:07:09" itemprop="dateCreated datePublished" datetime="2017-10-21T20:07:09+08:00">2017-10-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-08-11 17:30:03" itemprop="dateModified" datetime="2019-08-11T17:30:03+08:00">2019-08-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>ufw是一个主机端的iptables类防火墙配置工具</p>
-<h2 id="一般使用"><a href="#一般使用" class="headerlink" title="一般使用"></a>一般使用</h2><ul>
-<li>启用 <code>ufw enable</code></li>
-<li>关闭 <code>ufw disable</code></li>
-<li>查看防火墙状态 <code>fw status</code></li>
-</ul>
-<h2 id="开启-禁用相应端口或服务举例"><a href="#开启-禁用相应端口或服务举例" class="headerlink" title="开启/禁用相应端口或服务举例"></a>开启/禁用相应端口或服务举例</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ufw allow 80 #允许外部访问80端口</span><br><span class="line">ufw delete allow 80 #禁止外部访问80 端口</span><br><span class="line">ufw allow from 192.168.1.1 #允许此IP访问所有的本机端口</span><br></pre></td></tr></table></figure>
-
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装完成后记得 启动 <code>ufw enable</code>。 查看是否运行 <code>ufw status</code></p>
-<h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu"></a>Ubuntu</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ufw</span><br></pre></td></tr></table></figure>
-
-<h3 id="Centos"><a href="#Centos" class="headerlink" title="Centos"></a>Centos</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install epel-release -y</span><br><span class="line">yum install --enablerepo="epel" ufw -y</span><br></pre></td></tr></table></figure>
 
       
     </div>
