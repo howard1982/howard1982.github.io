@@ -208,6 +208,93 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/linux-rsync/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016-12/linux-rsync/" class="post-title-link" itemprop="url">Linux 快速删除大量小文件</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-25 13:54:26" itemprop="dateCreated datePublished" datetime="2016-12-25T13:54:26+08:00">2016-12-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-11 16:58:34" itemprop="dateModified" datetime="2020-02-11T16:58:34+08:00">2020-02-11</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="快速删除大量小文件"><a href="#快速删除大量小文件" class="headerlink" title="快速删除大量小文件"></a>快速删除大量小文件</h2><ol>
+<li>先建立一个空目录</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /data/blank</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>用rsync删除目标目录</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rsync --delete-before -d -a -H -v --progress --stats /data/blank/ /var/edatacache/</span><br><span class="line"><span class="meta">#</span><span class="bash"> or </span></span><br><span class="line">rsync --delete-before -d /data/blank/ /var/edatacache/</span><br></pre></td></tr></table></figure>
+
+<h2 id="同步某个目录"><a href="#同步某个目录" class="headerlink" title="同步某个目录"></a>同步某个目录</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/rsync -a -v -P /home/hk/public_html/uploads/ hk@s1.ace.com:/home/hk/public_html/uploads/</span><br></pre></td></tr></table></figure>
+
+<h3 id="免密码-使用-key"><a href="#免密码-使用-key" class="headerlink" title="免密码 使用 key"></a>免密码 使用 key</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1. 生成key</span><br><span class="line">ssh-keygen -t rsa      //  （一路回车键）</span><br><span class="line"></span><br><span class="line">2. 拷贝到远程主机上</span><br><span class="line">ssh-copy-id -i  ~/.ssh/id_rsa.pub  root@IP   //原理就是把自己的公钥 添加到 对方的 au*** 那个文件里面   </span><br><span class="line"><span class="meta">#</span><span class="bash">ssh-copy-id -i ~/.ssh/id_rsa.pub “-p 2022 root@ip”  //如果不是默认22端口</span></span><br><span class="line"></span><br><span class="line">3. 验证：</span><br><span class="line">ssh root@ip            //不需要密码，说明成功！</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><ol>
+<li>–delete-before 接收者在传输之前进行删除操作</li>
+<li>–progress 在传输时显示传输过程</li>
+<li>-a 归档模式，表示以递归方式传输文件，并保持所有文件属性</li>
+<li>-H 保持硬连接的文件</li>
+<li>-v 详细输出模式</li>
+<li>–stats 给出某些文件的传输状态</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-02/php-ext/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -811,74 +898,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2019-08/Centos-EPEL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019-08/Centos-EPEL/" class="post-title-link" itemprop="url">Centos EPEL</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-08-11 17:28:26 / 修改时间：17:31:45" itemprop="dateCreated datePublished" datetime="2019-08-11T17:28:26+08:00">2019-08-11</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="什么是EPEL"><a href="#什么是EPEL" class="headerlink" title="什么是EPEL"></a>什么是EPEL</h2><p>EPEL的全称叫 Extra Packages for Enterprise Linux 。EPEL是由 Fedora 社区打造，为 RHEL 及衍生发行版如 CentOS、Scientific Linux 等提供高质量软件包的项目。</p>
-<p>一些软件包 例如 <code>htop</code> <code>ufw</code>等。都在这里。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install epel-release -y</span><br></pre></td></tr></table></figure>
-
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -924,7 +948,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">160</span>
+          <span class="site-state-item-count">161</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

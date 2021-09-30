@@ -208,6 +208,66 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-08/golang-web/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="Howard">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Howard's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020-08/golang-web/" class="post-title-link" itemprop="url">golang web framework</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-09 15:35:18 / 修改时间：17:15:28" itemprop="dateCreated datePublished" datetime="2020-08-09T15:35:18+08:00">2020-08-09</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="gin-gonic-gin"><a href="#gin-gonic-gin" class="headerlink" title="gin-gonic/gin"></a>gin-gonic/gin</h2><p><a href="https://github.com/gin-gonic/gin" target="_blank" rel="noopener">https://github.com/gin-gonic/gin</a></p>
+<p>web framework， 用作 api/微框架 很简单</p>
+<h3 id="范例"><a href="#范例" class="headerlink" title="范例"></a>范例</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	...</span><br><span class="line"></span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">authCheck</span><span class="params">()</span> <span class="title">gin</span>.<span class="title">HandlerFunc</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		time := c.GetHeader(<span class="string">"_time"</span>)</span><br><span class="line">		token := c.GetHeader(<span class="string">"_token"</span>)</span><br><span class="line"></span><br><span class="line">		sum := fmt.Sprintf(<span class="string">"%x"</span>, sha256.Sum256([]<span class="keyword">byte</span>(time+<span class="string">"***"</span>)))</span><br><span class="line">		<span class="keyword">if</span> sum != token &#123;</span><br><span class="line">			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H&#123;<span class="string">"Message"</span>: <span class="string">"Unauthorized"</span>&#125;)</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		c.Next()</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> appVersion = <span class="string">"1.0.2"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">updateAcme</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">    domain := c.DefaultPostForm(<span class="string">"domain"</span>, <span class="string">""</span>)</span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    c.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">        <span class="string">"state"</span>:   <span class="string">"error"</span>,</span><br><span class="line">        <span class="string">"message"</span>: <span class="string">"get cert error."</span>,</span><br><span class="line">        <span class="string">"version"</span>: appVersion,</span><br><span class="line">        <span class="string">"cmdStr"</span>:  cmdStr,</span><br><span class="line">    &#125;)</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	gin.SetMode(gin.ReleaseMode) <span class="comment">// prod</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//r := gin.New()</span></span><br><span class="line">	r := gin.Default()</span><br><span class="line"></span><br><span class="line">	r.Use(authCheck())</span><br><span class="line"></span><br><span class="line">	r.POST(<span class="string">"/up_acme"</span>, updateAcme)</span><br><span class="line"></span><br><span class="line">	dir, _ := filepath.Abs(filepath.Dir(os.Args[<span class="number">0</span>]))</span><br><span class="line">	r.RunTLS(<span class="string">":9008"</span>, dir+<span class="string">"/ssl/server.pem"</span>, dir+<span class="string">"/ssl/server.key"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2020-08/golang-cli/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -853,98 +913,11 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.howard.me/2016-12/linux-rsync/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
-      <meta itemprop="name" content="Howard">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Howard's Blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016-12/linux-rsync/" class="post-title-link" itemprop="url">Linux 快速删除大量小文件</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-25 13:54:26" itemprop="dateCreated datePublished" datetime="2016-12-25T13:54:26+08:00">2016-12-25</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-11 16:58:34" itemprop="dateModified" datetime="2020-02-11T16:58:34+08:00">2020-02-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="快速删除大量小文件"><a href="#快速删除大量小文件" class="headerlink" title="快速删除大量小文件"></a>快速删除大量小文件</h2><ol>
-<li>先建立一个空目录</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /data/blank</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>用rsync删除目标目录</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rsync --delete-before -d -a -H -v --progress --stats /data/blank/ /var/edatacache/</span><br><span class="line"><span class="meta">#</span><span class="bash"> or </span></span><br><span class="line">rsync --delete-before -d /data/blank/ /var/edatacache/</span><br></pre></td></tr></table></figure>
-
-<h2 id="同步某个目录"><a href="#同步某个目录" class="headerlink" title="同步某个目录"></a>同步某个目录</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/rsync -a -v -P /home/hk/public_html/uploads/ hk@s1.ace.com:/home/hk/public_html/uploads/</span><br></pre></td></tr></table></figure>
-
-<h3 id="免密码-使用-key"><a href="#免密码-使用-key" class="headerlink" title="免密码 使用 key"></a>免密码 使用 key</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1. 生成key</span><br><span class="line">ssh-keygen -t rsa      //  （一路回车键）</span><br><span class="line"></span><br><span class="line">2. 拷贝到远程主机上</span><br><span class="line">ssh-copy-id -i  ~/.ssh/id_rsa.pub  root@IP   //原理就是把自己的公钥 添加到 对方的 au*** 那个文件里面   </span><br><span class="line"><span class="meta">#</span><span class="bash">ssh-copy-id -i ~/.ssh/id_rsa.pub “-p 2022 root@ip”  //如果不是默认22端口</span></span><br><span class="line"></span><br><span class="line">3. 验证：</span><br><span class="line">ssh root@ip            //不需要密码，说明成功！</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h2><ol>
-<li>–delete-before 接收者在传输之前进行删除操作</li>
-<li>–progress 在传输时显示传输过程</li>
-<li>-a 归档模式，表示以递归方式传输文件，并保持所有文件属性</li>
-<li>-H 保持硬连接的文件</li>
-<li>-v 详细输出模式</li>
-<li>–stats 给出某些文件的传输状态</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -990,7 +963,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">160</span>
+          <span class="site-state-item-count">161</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
